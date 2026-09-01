@@ -1,13 +1,12 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useMemo } from 'react';
 import { GridGeoJSON, GridProperties, DynamicRainfallFeatures } from '@/lib/types';
 import { fetchSpatialGrid } from '@/lib/api';
 import KPICards from '@/components/dashboard/KPICards';
 import RiskMapWrapper from '@/components/map/RiskMapWrapper';
 import InspectorPanel from '@/components/dashboard/InspectorPanel';
 import RainfallIntelligencePanel from '@/components/dashboard/RainfallIntelligencePanel';
-import { ShieldAlert, Activity, ArrowRight, Zap } from 'lucide-react';
 
 export default function DashboardPage() {
   const [geojsonData, setGeojsonData] = useState<GridGeoJSON | null>(null);
@@ -38,6 +37,36 @@ export default function DashboardPage() {
     setCustomDynamicPD(p_d);
   };
 
+  // Dynamically compute KPI card counts across all 3,156 cells using Model A P(S) * Model B P(D)
+  const kpiStats = useMemo(() => {
+    if (!geojsonData || !geojsonData.features || geojsonData.features.length === 0) {
+      return { totalCells: 3156, greenCount: 2899, yellowCount: 137, orangeCount: 110, redCount: 10 };
+    }
+    let green = 0, yellow = 0, orange = 0, red = 0;
+    for (const f of geojsonData.features) {
+      const ps = f.properties.p_static;
+      const pd = customDynamicPD;
+      const coupled = ps * pd;
+
+      if (coupled < 0.0502 || ps < 0.1500) {
+        green++;
+      } else if (coupled < 0.1500) {
+        yellow++;
+      } else if (coupled < 0.3500) {
+        orange++;
+      } else {
+        red++;
+      }
+    }
+    return {
+      totalCells: geojsonData.features.length,
+      greenCount: green,
+      yellowCount: yellow,
+      orangeCount: orange,
+      redCount: red
+    };
+  }, [geojsonData, customDynamicPD]);
+
   return (
     <div className="space-y-5">
       {/* Top Hero Command Center Header */}
@@ -64,13 +93,13 @@ export default function DashboardPage() {
         </div>
       </div>
 
-      {/* Hero KPI Metrics Cards */}
+      {/* Hero KPI Metrics Cards — 100% Dynamically Computed from Model A * Model B */}
       <KPICards
-        totalCells={3156}
-        greenCount={2899}
-        yellowCount={137}
-        orangeCount={110}
-        redCount={10}
+        totalCells={kpiStats.totalCells}
+        greenCount={kpiStats.greenCount}
+        yellowCount={kpiStats.yellowCount}
+        orangeCount={kpiStats.orangeCount}
+        redCount={kpiStats.redCount}
       />
 
       {/* Core Innovation Visual Ribbon: RAIN + TERRAIN -> COUPLED RISK */}

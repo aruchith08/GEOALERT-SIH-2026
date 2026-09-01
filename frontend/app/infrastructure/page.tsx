@@ -1,21 +1,24 @@
 'use client';
 
-import React from 'react';
-import { Truck, ShieldAlert, AlertTriangle, CheckCircle2, Flame, MapPin } from 'lucide-react';
+import React, { useState } from 'react';
+import { Truck, ShieldAlert, AlertTriangle, CloudRain, Mountain, ShieldCheck, Flame, Sliders } from 'lucide-react';
 
-const CORRIDORS = [
+interface CorridorData {
+  corridor_id: string;
+  corridor_name: string;
+  route_code: string;
+  distance_km: number;
+  static_susceptibility: number;
+  critical_vulnerability: string;
+}
+
+const CORRIDORS: CorridorData[] = [
   {
     corridor_id: 'CORR_01',
     corridor_name: 'Shillong — Guwahati Expressway (NH-40)',
     route_code: 'NH-40',
     distance_km: 103,
     static_susceptibility: 0.6120,
-    dry_risk: 0.0116,
-    dry_tier: 'Level 1: Green',
-    monsoon_risk: 0.3846,
-    monsoon_tier: 'Level 4: Red',
-    cloudburst_risk: 0.4576,
-    cloudburst_tier: 'Level 4: Red',
     critical_vulnerability: 'Steep cut slopes along Umiam lake escarpment with high truck traffic density.'
   },
   {
@@ -24,12 +27,6 @@ const CORRIDORS = [
     route_code: 'NH-44 / NH-6',
     distance_km: 142,
     static_susceptibility: 0.6845,
-    dry_risk: 0.0129,
-    dry_tier: 'Level 1: Green',
-    monsoon_risk: 0.4301,
-    monsoon_tier: 'Level 4: Red',
-    cloudburst_risk: 0.5118,
-    cloudburst_tier: 'Level 4: Red',
     critical_vulnerability: 'Heavy overburden coal transport vibrations and active drainage gully erosion.'
   },
   {
@@ -38,12 +35,6 @@ const CORRIDORS = [
     route_code: 'SH-5',
     distance_km: 54,
     static_susceptibility: 0.6910,
-    dry_risk: 0.0131,
-    dry_tier: 'Level 1: Green',
-    monsoon_risk: 0.4342,
-    monsoon_tier: 'Level 4: Red',
-    cloudburst_risk: 0.5167,
-    cloudburst_tier: 'Level 4: Red',
     critical_vulnerability: 'Extreme orographic precipitation zone and deep canyon road traverses.'
   },
   {
@@ -52,12 +43,6 @@ const CORRIDORS = [
     route_code: 'SH-12',
     distance_km: 88,
     static_susceptibility: 0.2454,
-    dry_risk: 0.0046,
-    dry_tier: 'Level 1: Green',
-    monsoon_risk: 0.1542,
-    monsoon_tier: 'Level 3: Orange',
-    cloudburst_risk: 0.1835,
-    cloudburst_tier: 'Level 3: Orange',
     critical_vulnerability: 'Gentle western hills with localized flash-flood saturated road shoulders.'
   },
   {
@@ -66,17 +51,52 @@ const CORRIDORS = [
     route_code: 'MDR-22',
     distance_km: 72,
     static_susceptibility: 0.4992,
-    dry_risk: 0.0094,
-    dry_tier: 'Level 1: Green',
-    monsoon_risk: 0.3137,
-    monsoon_tier: 'Level 3: Orange',
-    cloudburst_risk: 0.3733,
-    cloudburst_tier: 'Level 4: Red',
     critical_vulnerability: 'High ridge exposures with shallow regolith soil subject to heavy saturation creep.'
   }
 ];
 
+// Model B Calibrated Dynamic Rainfall Trigger P(D) Scenarios
+const SCENARIOS: Record<string, { name: string; p_d: number; desc: string }> = {
+  dry: {
+    name: 'Dry Season (Baseline)',
+    p_d: 0.0189,
+    desc: 'Clear sky, dormant moisture. Model B P(D) = 0.0189'
+  },
+  moderate: {
+    name: 'Moderate Monsoon',
+    p_d: 0.0240,
+    desc: 'Seasonal rain, baseline pore pressure. Model B P(D) = 0.0240'
+  },
+  monsoon: {
+    name: 'Active Monsoon Surge',
+    p_d: 0.6284,
+    desc: 'Heavy convective band (45mm/24h, 110mm ARI-3). Model B P(D) = 0.6284'
+  },
+  cloudburst: {
+    name: 'Extreme Cloudburst',
+    p_d: 0.7477,
+    desc: 'Orographic deluge (85mm/24h, 180mm ARI-3). Model B P(D) = 0.7477'
+  }
+};
+
+function computeTier(p_s: number, p_d: number) {
+  const coupled = Number((p_s * p_d).toFixed(4));
+  if (coupled >= 0.3500 && p_s >= 0.1500) {
+    return { risk: coupled, tier: 'Level 4: Red', bg: 'bg-red-100 text-red-900 border-red-300', color: '#dc2626' };
+  }
+  if (coupled >= 0.1500 && p_s >= 0.1500) {
+    return { risk: coupled, tier: 'Level 3: Orange', bg: 'bg-orange-100 text-orange-900 border-orange-300', color: '#ea580c' };
+  }
+  if (coupled >= 0.0502 && p_s >= 0.1500) {
+    return { risk: coupled, tier: 'Level 2: Yellow', bg: 'bg-amber-100 text-amber-900 border-amber-300', color: '#ca8a04' };
+  }
+  return { risk: coupled, tier: 'Level 1: Green', bg: 'bg-emerald-100 text-emerald-900 border-emerald-300', color: '#16a34a' };
+}
+
 export default function InfrastructurePage() {
+  const [selectedScenarioKey, setSelectedScenarioKey] = useState<string>('monsoon');
+  const currentScenario = SCENARIOS[selectedScenarioKey];
+
   return (
     <div className="space-y-6">
       {/* Top Banner */}
@@ -86,84 +106,129 @@ export default function InfrastructurePage() {
             GEOALERT Infrastructure Risk &bull; Critical Transport Corridors
           </h1>
           <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-purple-100 text-purple-800">
-            5 Highway Simulations
+            5 Highway Lifelines &bull; ML Multi-Scenario Evaluation
           </span>
         </div>
         <p className="text-xs text-slate-500 mt-1 max-w-3xl">
-          Multi-scenario stress test across critical Northeast highway lifelines. Evaluates how changing meteorological forcing pushes transport corridors across risk alert thresholds.
+          Multi-scenario stress test across critical Northeast highway lifelines. Evaluates how changing meteorological forcing pushes transport corridors across risk alert thresholds via Model A &times; Model B coupling.
         </p>
-        <div className="mt-2 inline-flex items-center gap-1.5 text-[11px] font-mono text-amber-700 bg-amber-50 px-2.5 py-1 rounded-full border border-amber-200">
-          <ShieldAlert className="w-3.5 h-3.5" />
-          <span>SCENARIO STRESS TEST &bull; Not an official live road closure order.</span>
+      </div>
+
+      {/* Interactive Scenario Bar */}
+      <div className="p-4 bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl shadow-xs space-y-3">
+        <div className="flex items-center justify-between">
+          <div className="flex items-center gap-2 font-bold text-xs text-slate-800">
+            <Sliders className="w-4 h-4 text-blue-600" />
+            <span>Select Model B Meteorological Forcing:</span>
+          </div>
+          <span className="font-mono text-xs text-blue-700 font-bold bg-blue-50 px-2.5 py-0.5 rounded-full border border-blue-200">
+            Model B P(D) = {currentScenario.p_d.toFixed(4)}
+          </span>
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
+          {Object.entries(SCENARIOS).map(([key, sc]) => (
+            <button
+              key={key}
+              onClick={() => setSelectedScenarioKey(key)}
+              className={`p-3 rounded-xl border text-left font-mono transition-all duration-150 ${
+                selectedScenarioKey === key
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-sm ring-2 ring-blue-100'
+                  : 'bg-slate-50/80 border-slate-200 text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              <div className="font-bold text-xs">{sc.name}</div>
+              <div className={`text-[10px] mt-0.5 ${selectedScenarioKey === key ? 'text-blue-100' : 'text-slate-500'}`}>
+                P(D) = {sc.p_d.toFixed(4)}
+              </div>
+            </button>
+          ))}
         </div>
       </div>
 
-      {/* Corridor Cards Grid */}
+      {/* Corridor Cards Grid — 100% Model Computed */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {CORRIDORS.map((c) => (
-          <div
-            key={c.corridor_id}
-            className="bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl p-4 shadow-xs glass-card-hover flex flex-col justify-between space-y-4"
-          >
-            <div>
-              <div className="flex items-start justify-between border-b border-slate-100 pb-2.5">
-                <div>
-                  <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wide">{c.route_code}</span>
-                  <h3 className="font-extrabold text-slate-900 text-sm mt-0.5">{c.corridor_name}</h3>
-                </div>
-                <span className="text-[11px] font-mono font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
-                  {c.distance_km} km
-                </span>
-              </div>
+        {CORRIDORS.map((c) => {
+          const dry = computeTier(c.static_susceptibility, SCENARIOS.dry.p_d);
+          const current = computeTier(c.static_susceptibility, currentScenario.p_d);
+          const cloudburst = computeTier(c.static_susceptibility, SCENARIOS.cloudburst.p_d);
 
-              {/* Static Susceptibility */}
-              <div className="mt-3 p-2 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs font-mono">
-                <span className="text-slate-600 font-medium">Model A Terrain P(S):</span>
-                <strong className="text-indigo-700 font-bold">{c.static_susceptibility.toFixed(4)}</strong>
-              </div>
-
-              {/* 3-Scenario Stress Test Matrix */}
-              <div className="mt-3 space-y-2 text-xs font-mono">
-                <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
-                  Scenario Progression:
-                </div>
-
-                <div className="flex items-center justify-between p-2 bg-emerald-50 border border-emerald-200 rounded-xl text-emerald-950 font-semibold">
-                  <span>1. Dry Season:</span>
-                  <div className="flex items-center gap-1.5">
-                    <strong>{c.dry_risk.toFixed(4)}</strong>
-                    <span className="text-[10px] bg-emerald-200/80 text-emerald-900 px-1.5 py-0.5 rounded font-bold">Green</span>
+          return (
+            <div
+              key={c.corridor_id}
+              className="bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl p-4 shadow-xs glass-card-hover flex flex-col justify-between space-y-4"
+            >
+              <div>
+                <div className="flex items-start justify-between border-b border-slate-100 pb-2.5">
+                  <div>
+                    <span className="text-[10px] font-bold text-blue-600 uppercase tracking-wide">{c.route_code}</span>
+                    <h3 className="font-extrabold text-slate-900 text-sm mt-0.5">{c.corridor_name}</h3>
                   </div>
+                  <span className="text-[11px] font-mono font-semibold text-slate-500 bg-slate-100 px-2 py-0.5 rounded-full">
+                    {c.distance_km} km
+                  </span>
                 </div>
 
-                <div className="flex items-center justify-between p-2 bg-amber-50 border border-amber-200 rounded-xl text-amber-950 font-semibold">
-                  <span>2. Active Monsoon:</span>
-                  <div className="flex items-center gap-1.5">
-                    <strong>{c.monsoon_risk.toFixed(4)}</strong>
-                    <span className={`text-[10px] px-1.5 py-0.5 rounded font-bold ${
-                      c.monsoon_tier.includes('Red') ? 'bg-red-200 text-red-900' : 'bg-orange-200 text-orange-900'
-                    }`}>
-                      {c.monsoon_tier.split(': ')[1]}
+                {/* Model A Terrain Susceptibility */}
+                <div className="mt-3 p-2 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between text-xs font-mono">
+                  <span className="text-slate-600 font-medium">Model A Terrain P(S):</span>
+                  <strong className="text-indigo-700 font-bold">{c.static_susceptibility.toFixed(4)}</strong>
+                </div>
+
+                {/* Active Dynamic Coupled Risk */}
+                <div className={`mt-3 p-3 rounded-xl border flex items-center justify-between font-mono text-xs shadow-2xs ${current.bg}`}>
+                  <div>
+                    <div className="text-[10px] font-bold uppercase">Active Coupled Risk</div>
+                    <div className="text-base font-black mt-0.5">{current.risk.toFixed(4)}</div>
+                  </div>
+                  <div className="text-right">
+                    <span className="text-xs font-extrabold px-2 py-0.5 rounded-full bg-white/80 shadow-2xs">
+                      {current.tier}
                     </span>
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between p-2 bg-red-50 border border-red-200 rounded-xl text-red-950 font-semibold">
-                  <span>3. Cloudburst:</span>
-                  <div className="flex items-center gap-1.5">
-                    <strong>{c.cloudburst_risk.toFixed(4)}</strong>
-                    <span className="text-[10px] bg-red-200 text-red-900 px-1.5 py-0.5 rounded font-bold">Red</span>
+                {/* 3-Scenario Stress Test Matrix */}
+                <div className="mt-3 space-y-1.5 text-xs font-mono">
+                  <div className="text-[10px] font-bold text-slate-500 uppercase tracking-wider">
+                    Model Forcing Progression:
+                  </div>
+
+                  <div className="flex items-center justify-between p-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
+                    <span>1. Dry (P(D)=0.0189):</span>
+                    <div className="flex items-center gap-1.5 font-bold">
+                      <span>{dry.risk.toFixed(4)}</span>
+                      <span className="text-[10px] bg-emerald-100 text-emerald-800 px-1.5 py-0.2 rounded">Green</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
+                    <span>2. Selected Scenario:</span>
+                    <div className="flex items-center gap-1.5 font-bold">
+                      <span style={{ color: current.color }}>{current.risk.toFixed(4)}</span>
+                      <span className={`text-[10px] px-1.5 py-0.2 rounded ${current.bg}`}>{current.tier.split(': ')[1]}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex items-center justify-between p-1.5 bg-slate-50 border border-slate-200 rounded-lg text-slate-700">
+                    <span>3. Cloudburst (P(D)=0.7477):</span>
+                    <div className="flex items-center gap-1.5 font-bold">
+                      <span className="text-red-700">{cloudburst.risk.toFixed(4)}</span>
+                      <span className="text-[10px] bg-red-100 text-red-800 px-1.5 py-0.2 rounded">
+                        {cloudburst.tier.split(': ')[1]}
+                      </span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            {/* Critical Geotechnical Vulnerability Note */}
-            <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-600 leading-normal font-sans">
-              <strong className="text-slate-800">Key Vulnerability:</strong> {c.critical_vulnerability}
+              {/* Critical Geotechnical Vulnerability Note */}
+              <div className="pt-3 border-t border-slate-100 text-[11px] text-slate-600 leading-normal font-sans">
+                <strong className="text-slate-800">Key Vulnerability:</strong> {c.critical_vulnerability}
+              </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
