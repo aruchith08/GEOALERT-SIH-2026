@@ -1,0 +1,45 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring System",
+  "section": "Section 37: End-to-End System Integration, Production Packaging & SIH Demo Readiness",
+  "timestamp": "2026-09-01T20:29:57.767509",
+  "system_readiness": "PRODUCTION_PACKAGED_AND_DEMO_READY",
+  "docker_stack": {
+    "compose_version": "3.8",
+    "services": {
+      "backend": {
+        "port": 8000,
+        "dockerfile": "backend/Dockerfile",
+        "healthcheck": "http://localhost:8000/api/v1/health",
+        "env": "CORS_ORIGINS"
+      },
+      "frontend": {
+        "port": 3000,
+        "dockerfile": "frontend/Dockerfile",
+        "url": "http://localhost:3000",
+        "env": "NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/v1"
+      }
+    }
+  },
+  "documentation": {
+    "root_readme": "README.md",
+    "demo_walkthrough": "docs/SIH_DEMO_WALKTHROUGH.md",
+    "deployment_manual": "docs/DEPLOYMENT.md",
+    "product_overview": "docs/SIH_PRODUCT_OVERVIEW.md"
+  },
+  "scientific_parameters": {
+    "coupling_formula": "Risk(x, y, t) = P(S) * P(D)",
+    "coupling_threshold": 0.0502,
+    "static_safety_floor": 0.15,
+    "spatial_cells_evaluated": 3156,
+    "crs": "EPSG:4326"
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_a_retrained": false,
+    "model_b_modified": false,
+    "model_b_retrained": false,
+    "sections_14_to_36_modified": false,
+    "operational_public_warning_claimed": false,
+    "system_status": "RESEARCH / ADVISORY MODE"
+  }
+}

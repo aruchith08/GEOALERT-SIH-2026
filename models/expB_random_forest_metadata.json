@@ -1,0 +1,28 @@
+{
+  "experiment_name": "expB_random_forest",
+  "timestamp": "2026-09-01 04:35:09",
+  "random_seed": 42,
+  "optimal_threshold": 0.48244434484386156,
+  "test_metrics": {
+    "Model": "Random_Forest",
+    "Threshold": 0.482,
+    "ROC_AUC": 0.9838,
+    "PR_AUC": 0.9852,
+    "F1_Score": 0.9212,
+    "Precision": 0.9613,
+    "Recall": 0.8843,
+    "Accuracy": 0.9242,
+    "Balanced_Accuracy": 0.9243,
+    "Brier_Score": 0.0666,
+    "Confusion_Matrix": [
+      [
+        324,
+        12
+      ],
+      [
+        39,
+        298
+      ]
+    ]
+  }
+}

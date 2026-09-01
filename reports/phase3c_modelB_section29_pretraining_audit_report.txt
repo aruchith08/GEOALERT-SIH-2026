@@ -1,0 +1,31 @@
+SIH 2026 PHASE 3C: SECTION 29 MODEL B PRE-TRAINING FORENSIC AUDIT REPORT
+Generated: 2026-09-01 07:58:20
+================================================================================
+
+1. DATASET POPULATION VERIFICATION:
+   • Positive Landslide Population: 186 EXACT_DATE field-verified landslide events
+   • Background Population:         558 controlled background observations (Section 28)
+   • Total Available Training Pool: 744 observations (Exact 1:3 ratio across 35 strata)
+   • Missing / NaN Feature Values:  0 across all 10 dynamic rainfall features
+
+2. DATA LEAKAGE & ISOLATION FINDINGS:
+   • [PASS] Spatio-Temporal Overlap       : 0 overlaps
+   • [PASS] Spatial Proximity Leakage     : Min = 5.001 km (>= 5.0 km)
+   • [PASS] Temporal Storm Leakage        : 0 violations (>= 4 days separation)
+   • [PASS] Hydrologic Lookahead Leakage  : Zero future precipitation lookahead
+   • [PASS] Target Identity Leakage       : Metadata columns segregated from predictor vector
+
+3. SUPERVISED DATA TRANSFORMATION SPECIFICATION:
+   • Positive (CONFIRMED_LANDSLIDE)  --> Class y = 1
+   • Background (UNOBSERVED)          --> Class y = 0
+   • Predictors: 10 dynamic CHIRPS features (P0, ARI-3..30, Max1d, Max3d, RainyDays-7..30)
+
+4. SPLIT STRATEGY & CROSS-VALIDATION DESIGN:
+   • Random row splitting REJECTED due to spatio-temporal auto-correlation leakage.
+   • Approved CV: Stratified Block-Month Group K-Fold / Spatial Block-Out.
+
+5. PRE-TRAINING READINESS VERDICT:
+   ============================================================
+   MODEL B PRE-TRAINING STATUS:
+   READY FOR EXPLICIT TRAINING AUTHORIZATION
+   ============================================================

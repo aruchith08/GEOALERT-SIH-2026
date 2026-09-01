@@ -1,0 +1,6 @@
+spatial_block_name,total_grid_cells_N,mean_static_susceptibility_P_S,max_static_susceptibility_P_S,mean_dynamic_hazard_P_D,mean_coupled_risk_score,max_coupled_risk_score,level_1_green_count,level_2_yellow_count,level_3_orange_count,level_4_red_count,high_risk_cells_pct
+East Khasi Block,419,0.1206,0.691,0.6284,0.0758,0.4342,317,45,48,9,13.6
+Garo Hills Block,1037,0.0282,0.2454,0.6284,0.0177,0.1542,1029,7,1,0,0.1
+Jaintia Hills Block,469,0.0924,0.7152,0.6284,0.058,0.4494,388,43,37,1,8.1
+Ri-Bhoi Block,715,0.0515,0.4024,0.6284,0.0323,0.2528,674,23,18,0,2.52
+West Khasi Block,516,0.0506,0.4992,0.6284,0.0318,0.3137,491,19,6,0,1.16

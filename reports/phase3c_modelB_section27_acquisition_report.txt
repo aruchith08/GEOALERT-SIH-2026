@@ -1,0 +1,31 @@
+SIH 2026 PHASE 3C: SECTION 27 FULL SEASONAL CHIRPS ACQUISITION & VERIFICATION REPORT
+Generated: 2026-09-01 01:45:08
+================================================================================
+
+1. ACQUISITION EXECUTION SUMMARY:
+   • Total Target Dates:           4,073 daily grids
+   • Files Already Present:        1,141 grids (Skipped safely)
+   • Files Downloaded & Verified:  2,932 grids
+   • Files Failed:                 0 grids
+   • Total Files Verified:         4,073 grids (100% Finite, Shape (29, 67), Float32)
+   • Total Cache Volume:           30.69 MB
+   • Elapsed Time:                 1761.26 seconds
+
+2. DATE CONTINUITY & ANTECEDENT RECOVERY:
+   • April      (Month 04): 510/510 dates with complete 30d history (100.0%)
+   • May        (Month 05): 527/527 dates with complete 30d history (100.0%)
+   • June       (Month 06): 510/510 dates with complete 30d history (100.0%)
+   • July       (Month 07): 527/527 dates with complete 30d history (100.0%)
+   • August     (Month 08): 496/496 dates with complete 30d history (100.0%)
+   • September  (Month 09): 480/480 dates with complete 30d history (100.0%)
+   • October    (Month 10): 496/496 dates with complete 30d history (100.0%)
+
+3. SAMPLING FRAME FEASIBILITY VERDICT:
+   • Pre-Monsoon (April & May) and Post-Monsoon (October) temporal gaps are 100% resolved.
+   • All 35 strata (5 Blocks x 7 Months) have massive candidate pool saturation.
+   • Controlled stratified background sampling is fully enabled.
+
+4. GOVERNANCE COMPLIANCE:
+   • Model A: Frozen and untouched.
+   • Existing 558-row Section 24 background dataset: Preserved intact.
+   • Zero new background datasets generated. Zero Model B training performed.

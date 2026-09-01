@@ -1,0 +1,87 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 26: Model B Controlled Background Sampling & Temporal Gap Architecture (Read-Only Proposal)",
+  "timestamp": "2026-09-01 01:05:14",
+  "status": "PROPOSAL_COMPLETE_STOPPED_FOR_AUTHORIZATION",
+  "26A_current_cache_files": 1141,
+  "26A_temporal_audit": {
+    "event_years_count": 17,
+    "event_years_list": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2017,
+      2018,
+      2019,
+      2020,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "months_covered": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ],
+    "pre_monsoon_gaps": "April & May lack continuous 30-day non-event antecedent grids in local cache",
+    "post_monsoon_gaps": "October lacks continuous 30-day non-event antecedent grids in local cache"
+  },
+  "26B_minimum_additional_data_required": {
+    "recommended_scope": "Landslide Active Season (March 1 to October 31) for 17 event years",
+    "total_days_needed": 4073,
+    "already_cached_days": 1141,
+    "missing_daily_grids_to_download": 2932,
+    "estimated_download_volume_mb": 22.09,
+    "data_source": "CHIRPS Daily 0.05-deg Global Precipitation Archive (UCSB CHG)",
+    "download_performed": false
+  },
+  "26C_controlled_sampling_methodology": {
+    "spatial_strata": [
+      "Garo Hills Block",
+      "West Khasi Block",
+      "East Khasi Block",
+      "Ri-Bhoi Block",
+      "Jaintia Hills Block"
+    ],
+    "temporal_strata": [
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October"
+    ],
+    "spatial_isolation_buffer_km": 5.0,
+    "temporal_isolation_buffer_days": 4,
+    "antecedent_history_required_days": 30,
+    "sampling_mechanism": "Exact Proportional Quota-Based Stratified Sampling (1:3 Ratio matching 186 positive events)",
+    "random_seed": 42
+  },
+  "26D_feasibility_analysis": {
+    "total_positive_events": 186,
+    "total_target_background_1to3": 558,
+    "total_spatial_candidates": 2641,
+    "total_post_acquisition_pool_size": 1122425,
+    "shortages_identified": 0,
+    "stratum_saturation": "100% Saturated (All 35 strata have massive candidate surpluses)"
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_b_trained": false,
+    "section24_558_sample_modified": false,
+    "operational_thresholds_created": false,
+    "download_executed": false
+  }
+}

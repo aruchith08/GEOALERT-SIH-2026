@@ -1,0 +1,44 @@
+SIH 2026 PHASE 3C: SECTION 29 SUPERVISED MODEL B DATASET PREPARATION & METHODOLOGY REPORT
+Generated: 2026-09-01 18:58:19
+================================================================================
+
+1. UNIFIED SUPERVISED DATASET ACCOUNTING:
+   • Total Observations:         744 derived rows
+   • Positive Confirmed Events:  186 observations (y = 1, failure_status = 'CONFIRMED_LANDSLIDE')
+   • Controlled Background Obs:  558 observations (y = 0, failure_status = 'UNOBSERVED')
+   • Class Prevalence Ratio:     Exact 1:3 Proportional Design (25.0% Positives : 75.0% Background)
+   • Source Dataset Isolation:   Raw source files 100% untouched. Binary targets exist only in Section 29 derived dataset.
+
+2. PREDICTOR SET SPECIFICATION (10 DYNAMIC CHIRPS FEATURES):
+   1. rainfall_event_day   : Event-day rainfall P_0 (mm)
+   2. ari_3                : 3-Day cumulative antecedent rainfall [T-2, T] (mm)
+   3. ari_7                : 7-Day cumulative antecedent rainfall [T-6, T] (mm)
+   4. ari_15               : 15-Day cumulative antecedent rainfall [T-14, T] (mm)
+   5. ari_30               : 30-Day cumulative antecedent rainfall [T-29, T] (mm)
+   6. max_1day_7d          : Peak 1-day rainfall burst in past 7 days (mm)
+   7. max_3day_30d         : Peak 3-day rainfall burst in past 30 days (mm)
+   8. rainy_days_7d        : Count of rainy days >= 2.5 mm in past 7 days
+   9. rainy_days_15d       : Count of rainy days >= 2.5 mm in past 15 days
+   10. rainy_days_30d      : Count of rainy days >= 2.5 mm in past 30 days
+
+3. DATA INTEGRITY & LEAKAGE AUDIT:
+   • [PASS] Missing Values across 10 features: 0 Missing
+   • [PASS] Infinite Values across 10 features: 0 Infinite
+   • [PASS] Duplicate Background Keys:         0 Duplicates (558 unique keys)
+   • [PASS] Cross-Class Spatio-Temporal Overlap: 0 Collisions
+   • [PASS] Spatial Geodesic Isolation:        Min = 5.001 km (>= 5.0 km requirement)
+   • [PASS] Temporal Storm Window Isolation:   >= 4 days separation from all 70 storm event dates
+   • [PASS] Hydrologic Lookahead:              Strictly bounded to [T-29, T] daily records
+
+4. APPROVED GEOGRAPHIC EVALUATION ARCHITECTURE:
+   • Geographic Training Set (Blocks 1, 2, 4):  312 rows (Pos =  78, Bg = 234)
+   • Geographic Validation Set (Block 5 Jaintia): 148 rows (Pos =  37, Bg = 111)
+   • Geographic Holdout Set (Block 3 East Khasi): 180 rows (Pos =  45, Bg = 135)
+   • Stratified Block-Month 5-Fold Split:       Logged with Seed = 42 (100% reproducible)
+
+5. GOVERNANCE COMPLIANCE:
+   • Model A Status: FROZEN & UNTOUCHED
+   • Model B Training Status: ZERO training performed in Section 29 (Awaiting Section 30 authorization)
+   • Operational Thresholds: ZERO established
+   • Operational False Alarm Claims: ZERO made
+================================================================================

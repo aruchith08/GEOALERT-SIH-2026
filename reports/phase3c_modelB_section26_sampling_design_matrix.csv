@@ -1,0 +1,36 @@
+Spatial_Block,Month,Month_Name,Available_Coordinates,Positive_Events,Target_BG_Ratio_1to3,Target_BG_Ratio_1to2,Target_BG_Ratio_1to1,Est_PostAcq_Eligible_Dates,Est_PostAcq_Candidate_Pool,Stratum_Feasibility
+Garo Hills Block,4,April,999,0,0,0,0,425,424575,SURPLUS BACKGROUND POOL
+Garo Hills Block,5,May,999,0,0,0,0,425,424575,SURPLUS BACKGROUND POOL
+Garo Hills Block,6,June,999,5,15,10,5,425,424575,100% FEASIBLE (Large Surplus)
+Garo Hills Block,7,July,999,2,6,4,2,425,424575,100% FEASIBLE (Large Surplus)
+Garo Hills Block,8,August,999,1,3,2,1,425,424575,100% FEASIBLE (Large Surplus)
+Garo Hills Block,9,September,999,0,0,0,0,425,424575,SURPLUS BACKGROUND POOL
+Garo Hills Block,10,October,999,0,0,0,0,425,424575,SURPLUS BACKGROUND POOL
+West Khasi Block,4,April,358,0,0,0,0,425,152150,SURPLUS BACKGROUND POOL
+West Khasi Block,5,May,358,5,15,10,5,425,152150,100% FEASIBLE (Large Surplus)
+West Khasi Block,6,June,358,16,48,32,16,425,152150,100% FEASIBLE (Large Surplus)
+West Khasi Block,7,July,358,14,42,28,14,425,152150,100% FEASIBLE (Large Surplus)
+West Khasi Block,8,August,358,8,24,16,8,425,152150,100% FEASIBLE (Large Surplus)
+West Khasi Block,9,September,358,0,0,0,0,425,152150,SURPLUS BACKGROUND POOL
+West Khasi Block,10,October,358,0,0,0,0,425,152150,SURPLUS BACKGROUND POOL
+East Khasi Block,4,April,230,6,18,12,6,425,97750,100% FEASIBLE (Large Surplus)
+East Khasi Block,5,May,230,19,57,38,19,425,97750,100% FEASIBLE (Large Surplus)
+East Khasi Block,6,June,230,6,18,12,6,425,97750,100% FEASIBLE (Large Surplus)
+East Khasi Block,7,July,230,8,24,16,8,425,97750,100% FEASIBLE (Large Surplus)
+East Khasi Block,8,August,230,3,9,6,3,425,97750,100% FEASIBLE (Large Surplus)
+East Khasi Block,9,September,230,2,6,4,2,425,97750,100% FEASIBLE (Large Surplus)
+East Khasi Block,10,October,230,1,3,2,1,425,97750,100% FEASIBLE (Large Surplus)
+Ri-Bhoi Block,4,April,648,0,0,0,0,425,275400,SURPLUS BACKGROUND POOL
+Ri-Bhoi Block,5,May,648,21,63,42,21,425,275400,100% FEASIBLE (Large Surplus)
+Ri-Bhoi Block,6,June,648,12,36,24,12,425,275400,100% FEASIBLE (Large Surplus)
+Ri-Bhoi Block,7,July,648,8,24,16,8,425,275400,100% FEASIBLE (Large Surplus)
+Ri-Bhoi Block,8,August,648,4,12,8,4,425,275400,100% FEASIBLE (Large Surplus)
+Ri-Bhoi Block,9,September,648,7,21,14,7,425,275400,100% FEASIBLE (Large Surplus)
+Ri-Bhoi Block,10,October,648,1,3,2,1,425,275400,100% FEASIBLE (Large Surplus)
+Jaintia Hills Block,4,April,406,7,21,14,7,425,172550,100% FEASIBLE (Large Surplus)
+Jaintia Hills Block,5,May,406,12,36,24,12,425,172550,100% FEASIBLE (Large Surplus)
+Jaintia Hills Block,6,June,406,10,30,20,10,425,172550,100% FEASIBLE (Large Surplus)
+Jaintia Hills Block,7,July,406,7,21,14,7,425,172550,100% FEASIBLE (Large Surplus)
+Jaintia Hills Block,8,August,406,1,3,2,1,425,172550,100% FEASIBLE (Large Surplus)
+Jaintia Hills Block,9,September,406,0,0,0,0,425,172550,SURPLUS BACKGROUND POOL
+Jaintia Hills Block,10,October,406,0,0,0,0,425,172550,SURPLUS BACKGROUND POOL

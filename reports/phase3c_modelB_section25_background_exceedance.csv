@@ -1,0 +1,3 @@
+Candidate_Envelope,Formulation,Positive_Event_Coverage_Count,Positive_Event_Coverage_Pct,Background_Exceedance_Count,Background_Exceedance_Proportion_Pct,Epistemological_Status
+90% Event-Coverage Candidate Envelope,P0 + 0.05 * ARI_30 >= 26.87 mm,168,90.32,434,77.78,UNOBSERVED_MONSOON_BACKGROUND_EXCEEDANCE (NOT FALSE ALARM RATE)
+95% Event-Coverage Candidate Envelope,P0 + 0.05 * ARI_30 >= 23.63 mm,176,94.62,473,84.77,UNOBSERVED_MONSOON_BACKGROUND_EXCEEDANCE (NOT FALSE ALARM RATE)

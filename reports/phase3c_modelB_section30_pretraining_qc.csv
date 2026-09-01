@@ -1,0 +1,11 @@
+Check,Expected,Actual,Status
+Positive Sample Count,186,186,PASS
+Background Sample Count,558,558,PASS
+Total Unified Dataset Count,744,744,PASS
+Sampling Class Ratio,1:3 (25% Positives),25.0% Positives (1:3),PASS
+Dynamic Feature Count,10,10,PASS
+NaN / Missing Predictor Values,0 Missing,0 Missing,PASS
+Infinite Values in Predictors,0 Infinite,0 Infinite,PASS
+Duplicate Spatio-Temporal Observations,0 Duplicates,0 Duplicates,PASS
+Source Datasets Immutability,Untouched (No label in source),Source Files 100% Unchanged,PASS
+Target Label Isolation,y_target in derived matrix only,Isolated in Derived Matrix,PASS

@@ -1,0 +1,62 @@
+SIH 2026 PHASE 3C: SECTION 30 SUPERVISED MODEL B GEOGRAPHIC TRAINING REPORT
+Generated: 2026-09-01 19:06:46
+================================================================================
+
+1. DATASET & GEOGRAPHIC PARTITION DEFINITION:
+   • Total Supervised Observations: 744 derived rows (186 Positives : 558 Background, 1:3 ratio)
+   • Predictor Matrix:              10 dynamic CHIRPS rainfall features
+   • Training Partition (Blocks 1, 2, 4):  416 rows (Pos = 104, Bg = 312)
+   • Validation Partition (Block 5):     148 rows (Pos =  37, Bg = 111)
+   • Holdout Test Partition (Block 3):    180 rows (Pos =  45, Bg = 135) [UNTOUCHED]
+
+2. MODEL ARCHITECTURE & PREPROCESSING:
+   • Algorithm:       HistGradientBoostingClassifier (depth=4, lr=0.05, max_iter=100)
+   • Preprocessing:   StandardScaler fitted ONLY on Training Partition (Blocks 1, 2, 4)
+   • Class Weighting: None (Preserved natural 1:3 controlled design ratio)
+
+3. THREE-TIER PERFORMANCE AUDIT:
+
+   A. TRAINING PARTITION PERFORMANCE (Blocks 1, 2, 4 | N=416):
+      • ROC-AUC:           0.9900
+      • PR-AUC:            0.9735
+      • Recall / Sensitivity: 79.8% (83/104)
+      • Precision:         95.4% (83/87)
+      • F1 Score:          0.8691
+      • Brier Score:       0.0480
+
+   B. GEOGRAPHIC VALIDATION PERFORMANCE (Block 5 Jaintia Hills | N=148):
+      • Decision Threshold: T_val_opt = 0.2000 (Optimized strictly on Block 5)
+      • ROC-AUC:           0.8447
+      • PR-AUC:            0.6225
+      • Recall / Sensitivity: 81.1% (30/37)
+      • Precision:         56.6% (30/53)
+      • Specificity:       79.3% (88/111)
+      • Balanced Accuracy: 80.2%
+      • F1 Score:          0.6667
+      • Brier Score:       0.1349
+
+   C. FINAL GEOGRAPHIC HOLDOUT EVALUATION (Block 3 East Khasi / Shillong | N=180):
+      • Decision Threshold: T_val_opt = 0.2000 (Frozen from Validation)
+      • ROC-AUC:           0.7653
+      • PR-AUC:            0.6631
+      • Recall / Sensitivity: 66.7% (30/45)
+      • Precision:         49.2% (30/61)
+      • Specificity:       77.0% (104/135)
+      • Balanced Accuracy: 71.9%
+      • F1 Score:          0.5660
+      • Brier Score:       0.1403
+      • Confusion Matrix:  TP=30, FP=31, TN=104, FN=15
+
+4. FEATURE IMPORTANCE (TOP DYNAMIC RAINFALL CONTRIBUTORS):
+   • Rank 1: ari_3                (Tree Importance = 0.2501, Coef = +1.1263)
+   • Rank 2: rainfall_event_day   (Tree Importance = 0.1578, Coef = +0.1858)
+   • Rank 3: ari_7                (Tree Importance = 0.1064, Coef = +0.4267)
+   • Rank 4: ari_30               (Tree Importance = 0.0957, Coef = -1.7370)
+   • Rank 5: max_1day_7d          (Tree Importance = 0.0927, Coef = +1.0869)
+
+5. SCIENTIFIC INTERPRETATION & GOVERNANCE:
+   • Model A: Frozen and untouched.
+   • Holdout Integrity: Block 3 remained completely untouched during fitting, tuning, and threshold selection.
+   • Evaluation Nature: This is a geographic retrospective holdout evaluation, not a live deployment FAR claim.
+   • Ready for Multi-Tier Decision Analysis (Section 31).
+================================================================================

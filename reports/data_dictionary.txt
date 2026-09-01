@@ -1,0 +1,115 @@
+================================================================================
+GSI FIELD VALIDATED LANDSLIDE INVENTORY - DATA DICTIONARY & AUDIT RULES
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Source Document: Geological Survey of India (GSI) Field Validated Landslide Inventory (landslide_report.pdf)
+Canonical Source Location: data/raw/landslide_report.pdf
+Total Records: 36,071
+Target Subsets: data/intermediate/gsi_landslides_all.csv, data/processed/meghalaya_landslides.csv
+================================================================================
+
+FIELD DEFINITIONS:
+
+1. source_page
+   - Description: The 1-indexed PDF page number from which the record was extracted.
+   - Source: Document pagination (1 to 904).
+   - Data Type: Integer.
+   - Missing-Value Representation: None (100% complete).
+   - Transformation: Added during extraction for complete source traceability.
+
+2. sl_no
+   - Description: Sequential serial number assigned to the record in the GSI inventory table.
+   - Source: GSI Table Column 'Sl.No.' (1 to 36071).
+   - Data Type: Integer.
+   - Missing-Value Representation: None (100% complete).
+   - Transformation: Trimmed of whitespace.
+
+3. slide_no
+   - Description: Unique GSI survey identifier for the landslide event / polygon.
+   - Source: GSI Table Column 'Slide_No' (e.g., 'MEG/WJH/83C4/2016/51', 'ML/EKH/2014/03').
+   - Data Type: String.
+   - Missing-Value Representation: 'NA' (4 missing across India, 0 missing in Meghalaya).
+   - Transformation: Trimmed of whitespace.
+
+4. state
+   - Description: Indian State or Union Territory where the landslide occurred.
+   - Source: GSI Table Column 'State' (e.g., 'Meghalaya', 'MEGHALAYA', 'Himachal Pradesh').
+   - Data Type: String.
+   - Missing-Value Representation: None.
+   - Transformation: Preserved verbatim from source; whitespace trimmed.
+
+5. district
+   - Description: Administrative district where the landslide occurred.
+   - Source: GSI Table Column 'District' (e.g., 'East Khasi Hills', 'South Garo hills', 'West Jaintia Hills').
+   - Data Type: String.
+   - Missing-Value Representation: None.
+   - Transformation: Preserved verbatim from source; whitespace trimmed.
+
+6. slide_name
+   - Description: Local naming or landmark identifier for the landslide location.
+   - Source: GSI Table Column 'Slide_Name'.
+   - Data Type: String.
+   - Missing-Value Representation: 'NA' (where omitted in original GSI survey table).
+   - Transformation: Multi-line wrapped text combined into a single space-separated string.
+
+7. nh_sh_location
+   - Description: National Highway, State Highway, road chainage, or geographic reference.
+   - Source: GSI Table Column 'NH_SH_Location'.
+   - Data Type: String.
+   - Missing-Value Representation: 'NA' (where omitted in original GSI survey table).
+   - Transformation: Multi-line wrapped text combined into a single space-separated string.
+
+8. latitude
+   - Description: Latitude coordinate of the landslide in decimal degrees (WGS84).
+   - Source: GSI Table Column 'Latitude'.
+   - Data Type: Float / Decimal numeric string.
+   - Missing-Value Representation: 'NA' (0 missing in dataset).
+   - Transformation: Preserved verbatim from raw source; whitespace trimmed.
+
+9. longitude
+   - Description: Longitude coordinate of the landslide in decimal degrees (WGS84).
+   - Source: GSI Table Column 'Longitude'.
+   - Data Type: Float / Decimal numeric string.
+   - Missing-Value Representation: 'NA' (1 missing in India dataset, 0 in Meghalaya).
+   - Transformation: Preserved verbatim from raw source; whitespace trimmed.
+
+10. material_involved
+    - Description: Geotechnical / geological material classification (e.g., 'Debris', 'Rock', 'Earth', 'Soil').
+    - Source: GSI Table Column 'Material Involved'.
+    - Data Type: String.
+    - Missing-Value Representation: 'NA'.
+    - Transformation: Multi-line wrapped text combined into a single string.
+
+11. movement_type
+    - Description: Type of slope failure movement (e.g., 'Slide', 'Flow', 'Fall', 'Topple', 'Subsidence').
+    - Source: GSI Table Column 'Movement Type'.
+    - Data Type: String.
+    - Missing-Value Representation: 'NA'.
+    - Transformation: Multi-line wrapped text combined into a single string.
+
+12. history
+    - Description: Historical record of landslide occurrence, date, or year (e.g., '2016', '02 June 2020', 'July 2023').
+    - Source: GSI Table Column 'History'.
+    - Data Type: String.
+    - Missing-Value Representation: 'NA'.
+    - Transformation: Preserved verbatim from source; whitespace trimmed.
+
+================================================================================
+AUDIT & FILTERING RULES:
+
+1. STATE NORMALIZATION RULE (FOR FILTERING ONLY):
+   - Condition: record['state'].strip().lower() == 'meghalaya'
+   - Captures: 'Meghalaya' (1,051 records) + 'MEGHALAYA' (1 record on Page 508, Sl.No 20536) = 1,052 total.
+   - Preservation: The output CSV retains the exact raw string value without mutating it.
+
+2. COORDINATE VALIDATION RULES:
+   - India Bounding Box: 6.0 <= Latitude <= 38.0 N and 68.0 <= Longitude <= 98.0 E.
+   - Meghalaya Bounding Box: 24.9 <= Latitude <= 26.3 N and 89.7 <= Longitude <= 93.0 E.
+   - Non-Destructive: Flagged records are logged in reports/coordinate_validation.csv and kept in data/intermediate/.
+
+3. DUPLICATE DETECTION RULES:
+   - Multi-Field Match: Exact match across (slide_no, latitude, longitude, slide_name).
+   - Survey Identifier Match: Multiple occurrences of the same slide_no across different chainages.
+   - Non-Destructive: All rows are preserved in intermediate/processed datasets; flagged in reports/duplicate_records.csv.
+
+================================================================================

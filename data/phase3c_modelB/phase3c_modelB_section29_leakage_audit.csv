@@ -1,0 +1,7 @@
+Check_Category,Standard,Observed_Finding,Risk_Level,Status
+Exact Cross-Class Key Overlap,"Zero (Lat, Lon, Date) intersection between positive and background",0 overlapping keys,NONE,PASS
+Background Key Uniqueness,"All 558 background observations have unique (Lat, Lon, Date) keys",558 unique keys out of 558 rows,NONE,PASS
+Spatial Geodesic Buffer Isolation,Candidate coordinate >= 5.0 km from all 186 positive sites,Minimum observed geodesic distance = 5.001 km (Mean = 17.969 km),NONE,PASS
+Temporal Storm Window Exclusion,Candidate date separated by >= 4 days (+/- 3 days around 70 storm dates),0 storm-window violations across all background rows,NONE,PASS
+Hydrologic Lookahead Leakage,"Daily rainfall bounded strictly to [T-29, T]",Zero future precipitation lookahead across all rows,NONE,PASS
+Target Label & Metadata Segregation,Identity/coordinates/labels strictly segregated from dynamic predictor matrix,Predictor matrix contains only physical precipitation features,NONE,PASS

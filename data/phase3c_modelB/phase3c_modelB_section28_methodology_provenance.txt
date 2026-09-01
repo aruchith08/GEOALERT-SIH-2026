@@ -1,0 +1,40 @@
+SIH 2026 PHASE 3C: SECTION 28 CONTROLLED BACKGROUND SAMPLING & PROVENANCE REPORT
+Generated: 2026-09-01 07:53:14
+================================================================================
+
+1. SECTION 27 CHIRPS CACHE INDEPENDENT AUDIT:
+   • Expected Seasonal Grids:   4,073 grids
+   • Verified Available Grids:  4,073 grids (100.0% Available)
+   • Missing / Corrupted Grids: 0 grids
+   • Cache Integrity:           VERIFIED 100% UNCORRUPTED (Float32, Shape (29, 67))
+
+2. POPULATION PROVENANCE & ISOLATION CONSTRAINTS:
+   • Positive Event Population: 186 EXACT_DATE field-verified landslides
+   • Valid Spatial Candidates:  2,641 points (>= 5.0 km from ALL 186 positive sites)
+   • Actual Minimum Distance:   5.001 km (Mean: 17.969 km)
+   • Temporal Exclusion Buffer: >= 4 days (+/- 3 days around 70 storm event dates)
+   • Hydrologic Constraint:     Unbroken 30-day continuous antecedent daily series [T-29, T]
+   • Candidate Observation Pool: 8,403,662 spatio-temporal candidate units
+
+3. 35-STRATUM SAMPLING RESULT:
+   • Stratification Grid:       5 Spatial Blocks x 7 Months (April-October)
+   • Allocation Ratio:          Exact 1:3 Proportional Allocation (Target N=558)
+   • Sampled Observations:      558 observations (0 shortages)
+   • Random Seed:               RANDOM_SEED = 42 (Deterministic without replacement)
+   • Epistemological Semantics: failure_status = 'UNOBSERVED', observation_class = 'candidate_background_observation'
+   • Binary Negative Labels:    ZERO (No label=0 or true negative claims)
+
+4. QUALITY CONTROL AUDIT:
+   • [PASS] Total Observation Count                      : 558
+   • [PASS] 35-Stratum Quota Match (3x Positives)        : 100% Matched
+   • [PASS] Duplicate Observations (Lat, Lon, Date)      : 0 Duplicates
+   • [PASS] Minimum Geodesic Distance to Positives       : Min = 5.001 km, Mean = 17.969 km
+   • [PASS] Temporal Separation from Storm Dates         : 0 Violations
+   • [PASS] NaN / Missing Dynamic Feature Values         : 0 Missing
+   • [PASS] Epistemological Semantics (UNOBSERVED, No Label=0): 100% Compliant
+   • [PASS] Deterministic Reproducibility Seed           : Seed = 42 for all rows
+
+5. GOVERNANCE STATEMENT:
+   • Model A: Frozen and untouched.
+   • Section 24 historical 558-row dataset: Preserved intact.
+   • Zero Model B training performed. Zero operational thresholds created.

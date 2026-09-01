@@ -1,0 +1,49 @@
+SIH 2026 PHASE 4: SECTION 35 BACKEND RISK API & INFERENCE LAYER REPORT
+Generated: 2026-09-01 19:59:37
+================================================================================
+
+1. BACKEND ARCHITECTURE & DIRECTORY STRUCTURE:
+   • Framework:          FastAPI (ASGI) with Pydantic v2 validation & Uvicorn server
+   • Directory:          backend/
+                         ├── app/
+                         │   ├── __init__.py
+                         │   ├── main.py (FastAPI app, lifespan, CORS, route mounting)
+                         │   ├── config.py (Constants, paths, expected hashes)
+                         │   ├── schemas.py (Pydantic request/response validation models)
+                         │   ├── model_service.py (Safe read-only model inference singleton)
+                         │   ├── risk_engine.py (Multiplicative coupling & alert tiers)
+                         │   └── routes/
+                         │       ├── __init__.py
+                         │       ├── health.py (GET /health)
+                         │       ├── metadata.py (GET /metadata)
+                         │       ├── risk.py (POST /risk, GET /risk/location)
+                         │       └── spatial.py (GET /risk/grid, GET /risk/grid/summary)
+                         ├── tests/
+                         │   └── test_api.py (Automated pytest test suite)
+                         ├── requirements.txt
+                         └── README.md
+
+2. FROZEN PRODUCTION MODEL INTEGRITY (SHA-256):
+   • Model A (Static Susceptibility):   1691cd678c2a9184cf608a9db0e464daee1e9daf237fd2c387b6d936685d5631 [VERIFIED FROZEN]
+   • Model B (Dynamic Trigger Hazard):  e30aacc2f83eaca410a9a782089300ef1e920dd21051c042385d6159d97318f2 [VERIFIED FROZEN]
+   • Integrity Status:                  100% MATCH against Section 32/34 baselines. Zero mutation.
+
+3. BENCHMARK PERFORMANCE & LATENCY:
+   • Model Cold Load Time:             241.30 ms
+   • Single POST /risk Inference:       93.94 ms (11 queries/sec)
+   • Spatial GET /risk/grid Response:   134.10 ms (Serving 3,156 GeoJSON features)
+   • Nearest GET /risk/location:        9.26 ms (Haversine spatial index lookup)
+
+4. SCIENTIFIC DISTINCTION & NON-OPERATIONAL NOTICE:
+   • Retrospective Validation:         Models A & B were validated on historical 2007-2026 GSI/CHIRPS records.
+   • Backend Inference Capability:     This API provides real-time programmatic evaluation of the frozen models.
+   • Future Live Data Integration:     Live automated IMD/CHIRPS weather scraping represents a future deployment phase.
+   • Public Warning Disclaimer:        This backend is an experimental research product, NOT an active public early warning system.
+
+5. GOVERNANCE BANNER:
+   • Model A retrained: NO
+   • Model B retrained: NO
+   • Sections 14–34 modified: NO
+   • Source datasets modified: NO
+   • Final QC Status: PASS
+================================================================================

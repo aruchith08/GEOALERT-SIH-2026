@@ -1,0 +1,6 @@
+QC_Dimension,Verification_Rule,Observed_Result,Status
+Risk Score Boundedness,"Coupled risk scores must lie strictly in [0.0, 1.0]","Min Risk = 0.0002, Max Risk = 0.9432",PASS
+Valley False Alarm Suppression,Flat valleys (P(S) < 0.15) must NEVER trigger Level 4 Red Alert under extreme rain,Flat valleys remain at Level 1 Green under catastrophic storm scenario (Risk = 0.027 < 0.0502),PASS
+Monotonic Storm Sensitivity,Risk on steep terrain must strictly increase as rainfall severity escalates,Steep Slope Risk escalates monotonically: 0.057 -> 0.443 -> 0.730 across Scenarios 1->2->3,PASS
+Inference Latency Benchmark,End-to-end inference latency must be < 5.0 ms per spatial query,0.095 ms per spatial-temporal query (10580 queries/sec),PASS
+Model Immutability & Hash Match,Model A and Model B cryptographic hashes match frozen production baselines,Model A: 1691cd678c2a... | Model B: e30aacc2f83e... (100% Unmodified),PASS

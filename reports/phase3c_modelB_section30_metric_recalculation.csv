@@ -1,0 +1,7 @@
+Evaluation_Strategy,Model_Type,Folds_Count,Recalculated_ROC_AUC_Mean,Recalculated_ROC_AUC_Std,Recalculated_PR_AUC_Mean,Recalculated_PR_AUC_Std,Recalculated_F1_Mean,Recalculated_Brier_Mean,Verification_Status
+Stratified_Block_Month_5Fold,Baseline_LogisticRegression,5,0.8505,0.0375,0.7294,0.0376,0.6528,0.1157,MATCHED
+Stratified_Block_Month_5Fold,Primary_ModelB_GradientBoosted,5,0.8908,0.0265,0.809,0.0378,0.7533,0.0925,MATCHED
+Spatial_Block_Out,Baseline_LogisticRegression,5,0.8459,0.0509,0.6937,0.0583,0.6164,0.1247,MATCHED
+Spatial_Block_Out,Primary_ModelB_GradientBoosted,5,0.818,0.0643,0.6664,0.0634,0.563,0.1347,MATCHED
+Temporal_Year_Out,Baseline_LogisticRegression,17,0.8121,0.1834,0.5831,0.265,0.3768,0.1169,MATCHED
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,17,0.7156,0.2267,0.5582,0.3138,0.4047,0.129,MATCHED

@@ -1,0 +1,42 @@
+SIH 2026 PHASE 3C: SECTION 31 OPERATIONAL THRESHOLD RECOMMENDATION & WARNING ARCHITECTURE
+Generated: 2026-09-01 08:16:17
+================================================================================
+
+1. RECOMMENDED MULTI-TIER OPERATIONAL RISK THRESHOLDS:
+   Based on leak-free out-of-fold decision analysis and cost sensitivity (c=5 disaster priority),
+   the following 4-Tier Early Warning Architecture is scientifically recommended:
+
+   • LEVEL 1: GREEN (LOW / BACKGROUND HAZARD) [p < 0.10]
+     - Operating Point: Background Climatology (POD = 90.9% above threshold, FAR = 58.3%).
+     - Description: Normal baseline rainfall conditions. Low slope failure probability.
+     - Action: Standard regional weather monitoring.
+
+   • LEVEL 2: YELLOW (MODERATE / ADVISORY) [0.10 <= p < 0.18]
+     - Operating Point: Early Warning Protection (POD = 90.9% to 83.9%, FAR = 58.3% to 45.3%).
+     - Description: Elevated antecedent rainfall or moderate storm burst detected.
+     - Action: Public awareness advisory; state disaster management agencies alerted.
+
+   • LEVEL 3: ORANGE (HIGH / WARNING) [0.18 <= p < 0.38]
+     - Operating Point: Cost-Optimal Disaster Priority (c=5, POD = 83.9%, PPV = 54.7%, FAR = 45.3%).
+     - Description: Severe 3-day/7-day rainfall accumulation exceeding regional slope threshold.
+     - Action: Pre-position rescue equipment; travel restrictions on vulnerable mountain corridors.
+
+   • LEVEL 4: RED (CRITICAL / IMMEDIATE DANGER) [p >= 0.38]
+     - Operating Point: Precision Trigger Zone (Precision = 81.2%, POD = 72.0%, FAR = 18.8%).
+     - Description: Extreme precipitation burst coinciding with high antecedent saturation.
+     - Action: Immediate evacuation orders for high-susceptibility settlements and active road closures.
+
+2. PRIMARY PROVISIONAL DEMO THRESHOLD:
+   • Recommended Single Binary Operational Threshold: T_opt = 0.18 (Cost-Optimal under c=5)
+   • Out-of-Fold Performance at T_opt = 0.18:
+     - Recall / POD:               83.9% (156/186 confirmed landslides detected)
+     - Precision / PPV:            54.7% (156/285 warnings true events)
+     - False Alarm Ratio (FAR):    45.3% (129 false alerts out of 285 warnings)
+     - Miss Rate:                  16.1% (30 missed landslides)
+     - F1 Score:                   0.6624
+
+3. SCIENTIFIC LIMITATIONS & CAVEATS:
+   • The threshold T_opt = 0.18 is derived from a 1:3 case-control training population (25% positive prevalence).
+   • Background observations are UNOBSERVED climatology candidates, not physically verified non-events.
+   • In operational deployment, real-world false alarm frequency will be governed by regional storm recurrence.
+   • Model B dynamic trigger probabilities must be integrated with Model A static susceptibility in Phase 4.

@@ -1,0 +1,11 @@
+Feature_Name,Positive_Mean,Positive_Median,Positive_Std,Background_Mean,Background_Median,Background_Std,Mean_Delta,Separation_Signal,Schema_Match
+rainfall_event_day,51.0,44.94,37.73,18.62,8.21,27.28,32.38,Strong Positive Trigger,EXACT (100% Consistent)
+ari_3,129.7,127.78,72.63,51.69,41.52,51.05,78.01,Strong Positive Trigger,EXACT (100% Consistent)
+ari_7,203.08,198.24,94.38,120.92,102.83,91.18,82.16,Strong Positive Trigger,EXACT (100% Consistent)
+ari_15,348.75,344.36,144.38,260.21,233.83,159.19,88.53,Moderate Trigger,EXACT (100% Consistent)
+ari_30,576.26,538.18,232.57,507.03,453.36,289.78,69.23,Moderate Trigger,EXACT (100% Consistent)
+max_1day_7d,72.42,70.76,33.02,50.76,43.57,35.87,21.66,Moderate Trigger,EXACT (100% Consistent)
+max_3day_30d,175.61,171.75,65.48,154.22,138.85,80.26,21.39,Moderate Trigger,EXACT (100% Consistent)
+rainy_days_7d,5.06,5.0,1.61,3.62,4.0,1.85,1.44,Moderate Trigger,EXACT (100% Consistent)
+rainy_days_15d,10.06,10.0,2.37,7.67,8.0,3.19,2.39,Moderate Trigger,EXACT (100% Consistent)
+rainy_days_30d,17.61,19.0,4.57,14.82,15.0,5.65,2.79,Moderate Trigger,EXACT (100% Consistent)

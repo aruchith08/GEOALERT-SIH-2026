@@ -1,0 +1,60 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 28: Controlled Background Dataset Construction",
+  "timestamp": "2026-09-01 07:53:13",
+  "status": "DATASET_CONSTRUCTION_COMPLETE_100_PERCENT_VERIFIED",
+  "random_seed": 42,
+  "section27_cache_verified": {
+    "expected_seasonal_dates": 4073,
+    "verified_present": 4073,
+    "missing_files": 0,
+    "corrupted_files": 0,
+    "verdict": "100% COMPLETE & UNCORRUPTED"
+  },
+  "sampling_provenance": {
+    "positive_population_count": 186,
+    "candidate_spatial_coordinates": 2641,
+    "spatial_isolation_minimum_km": 5.001,
+    "spatial_isolation_threshold_km": 5.0,
+    "temporal_isolation_threshold_days": 4,
+    "antecedent_history_required_days": 30,
+    "total_candidate_observation_pool": 8403662,
+    "total_sampled_background_observations": 558,
+    "sampling_ratio": "1:3 (3 background observations per positive event)",
+    "strata_count": 35,
+    "strata_with_positives": 25,
+    "zero_event_strata_quota": 0
+  },
+  "dynamic_feature_distributions": {
+    "rainfall_event_day": {
+      "mean": 18.62,
+      "median": 8.21,
+      "p95": 71.47,
+      "max": 187.54
+    },
+    "ari_30": {
+      "mean": 507.03,
+      "median": 453.36,
+      "p95": 1036.16,
+      "max": 1478.09
+    }
+  },
+  "quality_control_summary": {
+    "Total Observation Count": "PASS",
+    "35-Stratum Quota Match (3x Positives)": "PASS",
+    "Duplicate Observations (Lat, Lon, Date)": "PASS",
+    "Minimum Geodesic Distance to Positives": "PASS",
+    "Temporal Separation from Storm Dates": "PASS",
+    "NaN / Missing Dynamic Feature Values": "PASS",
+    "Epistemological Semantics (UNOBSERVED, No Label=0)": "PASS",
+    "Deterministic Reproducibility Seed": "PASS"
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_b_trained": false,
+    "section24_558_dataset_modified": false,
+    "binary_negative_labels_created": false,
+    "operational_thresholds_created": false,
+    "failure_status_semantics": "UNOBSERVED"
+  }
+}

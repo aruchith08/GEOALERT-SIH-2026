@@ -1,0 +1,28 @@
+{
+  "experiment_name": "exp_sensitivity_no_roads_xgboost",
+  "timestamp": "2026-08-31 18:14:03",
+  "random_seed": 42,
+  "optimal_threshold": 0.35438135266304016,
+  "test_metrics": {
+    "Model": "XGBoost",
+    "Threshold": 0.354,
+    "ROC_AUC": 0.9754,
+    "PR_AUC": 0.9874,
+    "F1_Score": 0.9403,
+    "Precision": 0.9459,
+    "Recall": 0.9347,
+    "Accuracy": 0.9269,
+    "Balanced_Accuracy": 0.9245,
+    "Brier_Score": 0.0563,
+    "Confusion_Matrix": [
+      [
+        192,
+        18
+      ],
+      [
+        22,
+        315
+      ]
+    ]
+  }
+}

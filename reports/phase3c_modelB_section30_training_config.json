@@ -1,0 +1,112 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "model_name": "Model B (Dynamic Rainfall Trigger Model)",
+  "section": "Section 30: Supervised Dynamic ML Training",
+  "timestamp": "2026-09-01 08:04:53",
+  "status": "TRAINING_COMPLETE_100_PERCENT_VERIFIED",
+  "random_seed": 42,
+  "software_versions": {
+    "python": "3.14.3",
+    "numpy": "2.5.2",
+    "joblib": "1.6.0"
+  },
+  "training_population": {
+    "positive_events": 186,
+    "background_observations": 558,
+    "total_training_observations": 744,
+    "class_ratio": "1:3 (Positives : Background)",
+    "class_weighting_applied": "None (Preserved natural 1:3 controlled design ratio)"
+  },
+  "feature_set": {
+    "feature_count": 10,
+    "feature_names": [
+      "rainfall_event_day",
+      "ari_3",
+      "ari_7",
+      "ari_15",
+      "ari_30",
+      "max_1day_7d",
+      "max_3day_30d",
+      "rainy_days_7d",
+      "rainy_days_15d",
+      "rainy_days_30d"
+    ],
+    "feature_source": "CHIRPS 0.05 deg daily precipitation grids (2007-2026)",
+    "antecedent_window": "[T-29, T] daily series"
+  },
+  "model_architecture": {
+    "primary_model": "Pipeline(StandardScaler -> HistGradientBoostingClassifier)",
+    "baseline_model": "Pipeline(StandardScaler -> LogisticRegression(C=1.0, l2, lbfgs))",
+    "hyperparameters": {
+      "max_iter": 100,
+      "max_depth": 4,
+      "min_samples_leaf": 15,
+      "learning_rate": 0.05,
+      "l2_regularization": 1.0,
+      "random_state": 42
+    }
+  },
+  "cross_validation_performance": {
+    "Stratified_Block_Month_5Fold": {
+      "Evaluation_Strategy": "Stratified_Block_Month_5Fold",
+      "Model_Type": "Primary_ModelB_GradientBoosted",
+      "Folds_Evaluated": 5,
+      "ROC_AUC_Mean": 0.8908,
+      "ROC_AUC_Std": 0.0265,
+      "ROC_AUC_Min": 0.8639,
+      "ROC_AUC_Max": 0.9411,
+      "PR_AUC_Mean": 0.809,
+      "PR_AUC_Std": 0.0378,
+      "F1_Mean": 0.7533,
+      "F1_Std": 0.0277,
+      "Brier_Mean": 0.0925,
+      "Brier_Std": 0.008
+    },
+    "Spatial_Block_Out": {
+      "Evaluation_Strategy": "Spatial_Block_Out",
+      "Model_Type": "Primary_ModelB_GradientBoosted",
+      "Folds_Evaluated": 5,
+      "ROC_AUC_Mean": 0.818,
+      "ROC_AUC_Std": 0.0643,
+      "ROC_AUC_Min": 0.7582,
+      "ROC_AUC_Max": 0.9065,
+      "PR_AUC_Mean": 0.6664,
+      "PR_AUC_Std": 0.0634,
+      "F1_Mean": 0.563,
+      "F1_Std": 0.0269,
+      "Brier_Mean": 0.1347,
+      "Brier_Std": 0.0116
+    },
+    "Temporal_Year_Out": {
+      "Evaluation_Strategy": "Temporal_Year_Out",
+      "Model_Type": "Primary_ModelB_GradientBoosted",
+      "Folds_Evaluated": 17,
+      "ROC_AUC_Mean": 0.7156,
+      "ROC_AUC_Std": 0.2267,
+      "ROC_AUC_Min": 0.0256,
+      "ROC_AUC_Max": 1.0,
+      "PR_AUC_Mean": 0.5582,
+      "PR_AUC_Std": 0.3138,
+      "F1_Mean": 0.4047,
+      "F1_Std": 0.3238,
+      "Brier_Mean": 0.129,
+      "Brier_Std": 0.0847
+    }
+  },
+  "top_predictors_ranked": [
+    "ari_30",
+    "ari_3",
+    "max_3day_30d",
+    "rainy_days_30d",
+    "max_1day_7d"
+  ],
+  "governance": {
+    "model_a_modified": false,
+    "model_a_retrained": false,
+    "sections_14_to_29_modified": false,
+    "section24_dataset_modified": false,
+    "section28_dataset_modified": false,
+    "operational_thresholds_created": false,
+    "operational_false_alarm_claimed": false
+  }
+}

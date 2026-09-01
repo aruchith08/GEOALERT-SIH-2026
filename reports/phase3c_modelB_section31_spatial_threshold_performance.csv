@@ -1,0 +1,21 @@
+Operating_Profile,Threshold,Spatial_Block,Total_Observations,Positive_Events,Background_Obs,TP,FP,TN,FN,Recall_POD,Precision_PPV,False_Alarm_Ratio_FAR,Total_Warnings
+High_Recall_Life_Safety (Target POD >= 95%),0.04,East Khasi Block,180,45,135,42,102,33,3,0.9333,0.2917,0.7083,144
+High_Recall_Life_Safety (Target POD >= 95%),0.04,Garo Hills Block,32,8,24,8,21,3,0,1.0,0.2759,0.7241,29
+High_Recall_Life_Safety (Target POD >= 95%),0.04,Jaintia Hills Block,148,37,111,36,84,27,1,0.973,0.3,0.7,120
+High_Recall_Life_Safety (Target POD >= 95%),0.04,Ri-Bhoi Block,212,53,159,52,117,42,1,0.9811,0.3077,0.6923,169
+High_Recall_Life_Safety (Target POD >= 95%),0.04,West Khasi Block,172,43,129,41,110,19,2,0.9535,0.2715,0.7285,151
+Early_Warning_Protection (Target POD >= 90%),0.1,East Khasi Block,180,45,135,41,58,77,4,0.9111,0.4141,0.5859,99
+Early_Warning_Protection (Target POD >= 90%),0.1,Garo Hills Block,32,8,24,8,15,9,0,1.0,0.3478,0.6522,23
+Early_Warning_Protection (Target POD >= 90%),0.1,Jaintia Hills Block,148,37,111,34,40,71,3,0.9189,0.4595,0.5405,74
+Early_Warning_Protection (Target POD >= 90%),0.1,Ri-Bhoi Block,212,53,159,46,59,100,7,0.8679,0.4381,0.5619,105
+Early_Warning_Protection (Target POD >= 90%),0.1,West Khasi Block,172,43,129,40,64,65,3,0.9302,0.3846,0.6154,104
+Cost_Optimal_Disaster_Priority (c=5),0.18,East Khasi Block,180,45,135,38,33,102,7,0.8444,0.5352,0.4648,71
+Cost_Optimal_Disaster_Priority (c=5),0.18,Garo Hills Block,32,8,24,7,7,17,1,0.875,0.5,0.5,14
+Cost_Optimal_Disaster_Priority (c=5),0.18,Jaintia Hills Block,148,37,111,33,22,89,4,0.8919,0.6,0.4,55
+Cost_Optimal_Disaster_Priority (c=5),0.18,Ri-Bhoi Block,212,53,159,42,25,134,11,0.7925,0.6269,0.3731,67
+Cost_Optimal_Disaster_Priority (c=5),0.18,West Khasi Block,172,43,129,36,42,87,7,0.8372,0.4615,0.5385,78
+Balanced_Harmonic_F1 (Max F1 Score),0.38,East Khasi Block,180,45,135,32,8,127,13,0.7111,0.8,0.2,40
+Balanced_Harmonic_F1 (Max F1 Score),0.38,Garo Hills Block,32,8,24,6,3,21,2,0.75,0.6667,0.3333,9
+Balanced_Harmonic_F1 (Max F1 Score),0.38,Jaintia Hills Block,148,37,111,32,4,107,5,0.8649,0.8889,0.1111,36
+Balanced_Harmonic_F1 (Max F1 Score),0.38,Ri-Bhoi Block,212,53,159,32,6,153,21,0.6038,0.8421,0.1579,38
+Balanced_Harmonic_F1 (Max F1 Score),0.38,West Khasi Block,172,43,129,32,10,119,11,0.7442,0.7619,0.2381,42

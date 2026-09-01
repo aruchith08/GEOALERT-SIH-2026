@@ -1,0 +1,16 @@
+Terrain_Archetype,Representative_Slope_deg,Static_Susceptibility_P_S,Weather_Scenario,Dynamic_Trigger_P_D,Coupled_Risk_Score,Operational_Alert_Level,Operational_Response
+Flat Alluvial Valley / Urban Plain,4.0,0.03,Scenario 1: Baseline Dry / Low Rain,0.0144,0.0004,Level 1: Green,No immediate action required. Routine meteorological monitoring.
+Flat Alluvial Valley / Urban Plain,4.0,0.03,Scenario 2: Active Monsoon Storm Burst,0.6284,0.0189,Level 1: Green,No immediate action required. Routine meteorological monitoring.
+Flat Alluvial Valley / Urban Plain,4.0,0.03,Scenario 3: Catastrophic Cloudburst Event,0.3826,0.0115,Level 1: Green,No immediate action required. Routine meteorological monitoring.
+Gentle Plateau / Agricultural Foothill,12.0,0.18,Scenario 1: Baseline Dry / Low Rain,0.0144,0.0026,Level 1: Green,No immediate action required. Routine meteorological monitoring.
+Gentle Plateau / Agricultural Foothill,12.0,0.18,Scenario 2: Active Monsoon Storm Burst,0.6284,0.1131,Level 2: Yellow,Maintenance crews on standby. Monitor vulnerable road cut slopes.
+Gentle Plateau / Agricultural Foothill,12.0,0.18,Scenario 3: Catastrophic Cloudburst Event,0.3826,0.0689,Level 2: Yellow,Maintenance crews on standby. Monitor vulnerable road cut slopes.
+Moderate Undulating Hillside,24.0,0.45,Scenario 1: Baseline Dry / Low Rain,0.0144,0.0065,Level 1: Green,No immediate action required. Routine meteorological monitoring.
+Moderate Undulating Hillside,24.0,0.45,Scenario 2: Active Monsoon Storm Burst,0.6284,0.2828,Level 3: Orange,Issue public travel advisories. Restrict heavy traffic on unstable corridors.
+Moderate Undulating Hillside,24.0,0.45,Scenario 3: Catastrophic Cloudburst Event,0.3826,0.1722,Level 3: Orange,Issue public travel advisories. Restrict heavy traffic on unstable corridors.
+Steep Cut Slope / Highway Escarpment,38.0,0.82,Scenario 1: Baseline Dry / Low Rain,0.0144,0.0118,Level 1: Green,No immediate action required. Routine meteorological monitoring.
+Steep Cut Slope / Highway Escarpment,38.0,0.82,Scenario 2: Active Monsoon Storm Burst,0.6284,0.5153,Level 4: Red,"High danger of slope failure. Deploy emergency teams, trigger road closures."
+Steep Cut Slope / Highway Escarpment,38.0,0.82,Scenario 3: Catastrophic Cloudburst Event,0.3826,0.3138,Level 3: Orange,Issue public travel advisories. Restrict heavy traffic on unstable corridors.
+Extreme Cliff / Highly Fractured Gorge,48.0,0.96,Scenario 1: Baseline Dry / Low Rain,0.0144,0.0138,Level 1: Green,No immediate action required. Routine meteorological monitoring.
+Extreme Cliff / Highly Fractured Gorge,48.0,0.96,Scenario 2: Active Monsoon Storm Burst,0.6284,0.6033,Level 4: Red,"High danger of slope failure. Deploy emergency teams, trigger road closures."
+Extreme Cliff / Highly Fractured Gorge,48.0,0.96,Scenario 3: Catastrophic Cloudburst Event,0.3826,0.3673,Level 4: Red,"High danger of slope failure. Deploy emergency teams, trigger road closures."

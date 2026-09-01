@@ -1,0 +1,127 @@
+================================================================================
+PHASE 2A: TERRAIN FEATURE SCIENTIFIC PROVENANCE & SPECIFICATION
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Target Region: Meghalaya, North Eastern Region, India
+Authoritative Geospatial Engine: Google Earth Engine (USGS/SRTMGL1_003)
+Script Reference: gee/01_srtm_features.js
+Total Event Locations: 1,052 Validated Landslide Events
+Target Dataset: data/processed/meghalaya_terrain_features.csv
+================================================================================
+
+1. PRIMARY DATASET PROVENANCE
+
+A. DIGITAL ELEVATION MODEL (DEM):
+   - Dataset ID: 'USGS/SRTMGL1_003'
+   - Provider: NASA JPL / USGS Earth Resources Observation and Science (EROS) Center
+   - Product Name: Shuttle Radar Topography Mission (SRTM) Global 1-Arcsecond
+   - Spatial Resolution: 1 arc-second (~30 meters at the equator)
+   - Native Coordinate Reference System: Geographic Coordinate System WGS84 (EPSG:4326)
+   - Vertical Datum: EGM96 Geoid (Elevation in orthometric meters above Mean Sea Level)
+   - Tile Range for Meghalaya: N25E089, N25E090, N25E091, N25E092, N26E091, N26E092
+   - Nominal Vertical Accuracy: <= 16 meters linear error at 90% confidence
+   - Scientific Citation: Farr, T. G., et al. (2007). The Shuttle Radar Topography Mission. Reviews of Geophysics, 45(2), RG2004.
+
+B. HYDROLOGICAL CONTRIBUTING AREA:
+   - Dataset ID: 'WWF/HydroSHEDS/15ACC' (Independent Hydrological Dataset)
+   - Provider: World Wildlife Fund (WWF) & USGS
+   - Product Name: HydroSHEDS Flow Accumulation at 15-Arcsecond Resolution (~450m)
+   - Purpose: Provides regional upslope contributing drainage area for Topographic Wetness Index (TWI)
+     and Stream Power Index (SPI) modeling.
+   - Scientific Citation: Lehner, B., Verdin, K., Jarvis, A. (2008). New global hydrography derived from spaceborne elevation data. Eos, Transactions AGU, 89(10), 93-94.
+
+================================================================================
+2. FEATURE-BY-FEATURE SCIENTIFIC SPECIFICATIONS
+================================================================================
+
+1. elevation
+   - Description: Orthometric ground height above mean sea level.
+   - Primary Dataset ID: USGS/SRTMGL1_003
+   - Spatial Resolution: 30 meters (1 arc-second)
+   - Units: Meters (m)
+   - Extraction Method: Point-sampled from continuous SRTM DEM grid at authoritative GSI coordinates.
+   - Sampling Scale: 30 meters
+   - Resampling / Interpolation: Nearest pixel / Sub-pixel bilinear sampling.
+   - Missing-Value Handling: GSI coordinates outside valid raster coverage or void pixels are flagged as 'NA'. Zero missing values in Meghalaya dataset.
+
+2. slope
+   - Description: Topographic steepness / rate of maximum elevation change.
+   - Primary Dataset ID: USGS/SRTMGL1_003
+   - Spatial Resolution: 30 meters
+   - Units: Degrees (°) [Range: 0.0° to 90.0°]
+   - Formula / Algorithm: 3x3 finite-difference partial derivatives (Horn, 1981 / Zevenbergen & Thorne, 1987):
+       p = dz/dx,  q = dz/dy
+       slope_rad = arctan(sqrt(p^2 + q^2))
+       slope_deg = slope_rad * (180 / pi)
+     where dx = 30.87 * cos(lat) meters, dy = 30.87 meters.
+   - Sampling Scale: 30 meters
+   - Missing-Value Handling: 'NA' if elevation neighbors are invalid.
+
+3. aspect
+   - Description: Direction of steepest slope descent (compass orientation).
+   - Primary Dataset ID: USGS/SRTMGL1_003
+   - Spatial Resolution: 30 meters
+   - Units: Degrees (°) [Range: 0.0° to 360.0° clockwise from North]
+     (0° = North, 90° = East, 180° = South, 270° = West).
+   - Formula / Algorithm:
+       aspect = (270.0 - arctan2(q, p) * (180 / pi)) mod 360.0
+   - Undefined Aspect Handling: For flat or near-flat terrain (slope < 0.1°), aspect is mathematically undefined and recorded as 'NA' (or -1 in GEE).
+   - Missing-Value Handling: 'NA' if slope is undefined.
+
+4. plan_curvature
+   - Description: Horizontal curvature of contour lines perpendicular to the maximum slope direction,
+     measuring flow convergence (valleys) and flow divergence (ridges).
+   - Primary Dataset ID: USGS/SRTMGL1_003
+   - Spatial Resolution: 30 meters
+   - Units: Inverse meters (1/m)
+   - Sign Convention: Negative values indicate convergent topography (hollows/channels); positive values indicate divergent topography (ridges).
+   - Formula (Zevenbergen & Thorne, 1987):
+       K_plan = - (q^2 * r - 2*p*q*s + p^2 * t) / (p^2 + q^2)^1.5
+     where r = d2z/dx2, t = d2z/dy2, s = d2z/dxdy.
+   - Sampling Scale: 30 meters
+   - Missing-Value Handling: 'NA' if denominator < 1e-7.
+
+5. profile_curvature
+   - Description: Vertical curvature along the line of maximum slope, measuring flow acceleration
+     and deceleration down the hillside.
+   - Primary Dataset ID: USGS/SRTMGL1_003
+   - Spatial Resolution: 30 meters
+   - Units: Inverse meters (1/m)
+   - Sign Convention: Negative values indicate convex/accelerating slopes; positive values indicate concave/decelerating slopes.
+   - Formula (Zevenbergen & Thorne, 1987):
+       K_prof = - (p^2 * r + 2*p*q*s + q^2 * t) / ((p^2 + q^2) * (1 + p^2 + q^2)^1.5)
+   - Sampling Scale: 30 meters
+   - Missing-Value Handling: 'NA' if denominator < 1e-7.
+
+6. twi (Topographic Wetness Index)
+   - Description: Tendency of a site to accumulate water under steady-state conditions, balancing
+     upslope catchment area with local slope drainage gradient.
+   - Primary Datasets: USGS/SRTMGL1_003 (Slope) + D8 / HydroSHEDS (Flow Accumulation)
+   - Spatial Resolution: 30 meters
+   - Units: Dimensionless index
+   - Formula (Moore et al., 1991 / Beven & Kirkby, 1979):
+       As = Specific Contributing Area = (Accumulation_Cells + 1) * cell_width (m^2/m = m)
+       beta = slope in radians
+       tan_beta = max(tan(beta), 0.001)  [clamped to prevent division-by-zero]
+       TWI = ln(As / tan_beta)
+   - Physical Interpretation: Higher TWI indicates potential zones of groundwater convergence and saturation.
+   - Missing-Value Handling: 'NA' if slope or accumulation is missing.
+
+7. spi (Stream Power Index)
+   - Description: Measure of the erosive power of flowing surface water and sediment transport capacity.
+   - Primary Datasets: USGS/SRTMGL1_003 (Slope) + D8 / HydroSHEDS (Flow Accumulation)
+   - Spatial Resolution: 30 meters
+   - Units: Meters (m) [Derived from As * tan(beta)]
+   - Formula (Moore et al., 1991):
+       SPI = As * tan_beta
+   - Physical Interpretation: Higher SPI indicates areas prone to gullying, channel scouring, and severe slope wash.
+   - Missing-Value Handling: 'NA' if slope or accumulation is missing.
+
+================================================================================
+3. SAMPLING CONVENTIONS & INTEGRITY
+================================================================================
+- Authoritative Point Locations: GSI field-validated coordinates (Latitude, Longitude in WGS84).
+- Point-to-Raster Mapping: Each landslide event is attributed from the 30m grid cell encompassing its coordinate.
+- Multi-Event Handling: 1,027 unique geographic coordinates map to 1,015 unique 30m SRTM pixels across 1,052 events.
+  Zero landslide events are deleted or aggregated, preserving the full empirical record for downstream modeling.
+================================================================================

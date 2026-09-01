@@ -1,0 +1,85 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring System",
+  "section": "Section 36: Interactive Web GIS Dashboard & Frontend Interface",
+  "timestamp": "2026-09-01T20:08:32.260044",
+  "status": "FRONTEND_DEPLOYED_AND_VERIFIED",
+  "tech_stack": {
+    "framework": "Next.js 15 (App Router)",
+    "ui_library": "React 19 & Tailwind CSS",
+    "mapping": "Leaflet & React-Leaflet (Canvas CircleMarkers for 60fps rendering)",
+    "icons": "Lucide React",
+    "language": "TypeScript 5"
+  },
+  "pages": [
+    {
+      "name": "Risk Map Dashboard",
+      "path": "frontend/app/page.tsx",
+      "route": "/"
+    },
+    {
+      "name": "Regional Analytics",
+      "path": "frontend/app/analytics/page.tsx",
+      "route": "/analytics"
+    },
+    {
+      "name": "Infrastructure Corridors",
+      "path": "frontend/app/infrastructure/page.tsx",
+      "route": "/infrastructure"
+    },
+    {
+      "name": "Coupling Methodology",
+      "path": "frontend/app/methodology/page.tsx",
+      "route": "/methodology"
+    },
+    {
+      "name": "About & Governance",
+      "path": "frontend/app/about/page.tsx",
+      "route": "/about"
+    }
+  ],
+  "spatial_coverage": {
+    "region": "Meghalaya, Northeast India",
+    "grid_cells": 3156,
+    "crs": "EPSG:4326 (WGS 84)",
+    "bounding_box": {
+      "lat": [
+        25.0201,
+        26.0998
+      ],
+      "lon": [
+        89.8005,
+        92.8456
+      ]
+    }
+  },
+  "alert_tiers": {
+    "Level 1: Green": 2899,
+    "Level 2: Yellow": 137,
+    "Level 3: Orange": 110,
+    "Level 4: Red": 10
+  },
+  "corridor_scenarios": 5,
+  "backend_api_integration": {
+    "base_url": "http://localhost:8000/api/v1",
+    "env_var": "NEXT_PUBLIC_API_BASE_URL",
+    "endpoints_consumed": [
+      "GET /api/v1/health",
+      "GET /api/v1/metadata",
+      "POST /api/v1/risk",
+      "GET /api/v1/risk/grid",
+      "GET /api/v1/risk/grid/summary",
+      "GET /api/v1/risk/location"
+    ],
+    "offline_fallback": "Embedded Section 34 GeoJSON surface in public/data/"
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_a_retrained": false,
+    "model_b_modified": false,
+    "model_b_retrained": false,
+    "sections_14_to_35_modified": false,
+    "section_34_geojson_modified": false,
+    "operational_public_broadcast_claimed": false,
+    "status_notice": "RESEARCH / ADVISORY MODE"
+  }
+}

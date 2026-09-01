@@ -1,0 +1,63 @@
+================================================================================
+PHASE 3B: PSEUDO-ABSENCE / BACKGROUND SAMPLING METHODOLOGY SPECIFICATION
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Target Region: Meghalaya, North Eastern Region, India
+Methodological Objective: Scientifically sound, reproducible pseudo-absence generation
+                          for landslide susceptibility modeling in Google Colab.
+================================================================================
+
+1. POSITIVE OBSERVATION CONSTRAINTS
+--------------------------------------------------------------------------------
+- Positive Observations: N = 1,052 confirmed field-validated GSI landslide occurrences (Label = 1).
+- Zero Positive Fabrication: Every positive point corresponds to an authoritative GSI record.
+- Frozen Dataset: data/processed/meghalaya_environmental_features.csv remains unmodified.
+
+2. PSEUDO-ABSENCE SELECTION STRATEGY & EXCLUSION BUFFER
+--------------------------------------------------------------------------------
+- Circular Exclusion Radius: r = 500.0 meters around all 1,052 positive coordinates.
+- Scientific Rationale: A 500m buffer guarantees that background samples do not fall within
+  the scarp, body, runout track, or debris apron of active historical landslides.
+- Point-to-Point Minimum Separation: d_min >= 100.0 meters between pseudo-absence points to prevent
+  redundant spatial micro-clustering.
+
+3. HIGHWAY PROXIMITY BIAS MITIGATION (STRATIFIED TARGET-GROUP SAMPLING)
+--------------------------------------------------------------------------------
+- Observation: 72.8% of GSI landslides in Meghalaya occur within 100m of roads due to steep cut-slopes
+  and highway reporting bias.
+- Problem with Naive Uniform Sampling: Pure random points across Meghalaya would have mean road distance
+  > 2.5 km, causing tree-based classifiers (XGBoost/RF) to learn a trivial shortcut rule.
+- Implemented Solution (50/50 Stratification):
+  * 50% Road-Corridor Negatives: Sampled in the stable buffer (< 500m from roads, but >= 500m from landslides)
+    to provide hard counter-examples of stable road cuts.
+  * 50% General Landscape Negatives: Sampled across natural hillslopes (> 500m from roads) across all
+    elevation and slope domains.
+
+4. SAMPLING RATIO RECOMMENDATION
+--------------------------------------------------------------------------------
+- Tier 1 (1:1 Ratio, N = 1,052 Negatives): RECOMMENDED PRIMARY BASELINE for Colab ML experiments.
+  Prevents artificial class prior distortion in ROC-AUC and PR-AUC calibration.
+- Tier 2 (1:2 Ratio, N = 2,104 Negatives): Provided for sensitivity and class-imbalance robustness testing.
+- Tier 3 (1:3 Ratio, N = 3,156 Negatives): Provided for regional landscape scale rarity evaluation.
+
+5. TWO-MODEL ARCHITECTURE RECOMMENDATION (TEMPORAL SEPARATION)
+--------------------------------------------------------------------------------
+- Model A: Static Landslide Susceptibility Index (LSI):
+  * Trained on all 1,052 positives + 1,052 pseudo-absences using 16 static terrain, soil, land cover,
+    lithology, and proximity features.
+- Model B: Dynamic Rainfall Trigger / Early Warning Thresholds:
+  * Evaluated on the 186 EXACT_DATE landslides (where 30-day antecedent CHIRPS rainfall is verified)
+    coupled with temporal non-events (dry/monsoon non-trigger periods) to derive Intensity-Duration thresholds.
+
+6. SPATIAL CROSS-VALIDATION & DATA LEAKAGE PREVENTION
+--------------------------------------------------------------------------------
+- 5 Spatial Blocks defined by geographic and district sectors:
+  * Block 1: Garo Hills (West/East/South/South-West Garo Hills)
+  * Block 2: West Khasi & South West Khasi Hills
+  * Block 3: East Khasi Hills (Shillong Plateau / Sohra)
+  * Block 4: Ri-Bhoi (Northern slopes)
+  * Block 5: Jaintia Hills (East / West Jaintia Hills)
+- In Google Colab, GroupKFold(groups=spatial_block_id) ensures complete geographic independence
+  between training folds and validation folds, eliminating spatial autocorrelation leakage.
+
+================================================================================

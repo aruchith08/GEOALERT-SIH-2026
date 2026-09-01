@@ -1,0 +1,49 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 31: Model B Decision, Robustness & Error Analysis",
+  "timestamp": "2026-09-01 19:11:31",
+  "status": "ANALYSIS_COMPLETE_FROZEN",
+  "scientific_decision_tier": "B. MODERATE / PROMISING EVIDENCE",
+  "scientific_decision_rationale": [
+    "Defensible dynamic meteorological trigger signal driven by short-term precipitation (ARI-3 and Event-Day P0).",
+    "Retrospective Holdout ROC-AUC of 0.7653 and PR-AUC of 0.6631 on unseen East Khasi / Shillong terrain (Block 3).",
+    "Reliable detection of severe convective storms with 66.7% recall and 77.0% specificity at T = 0.20.",
+    "Observed spatial degradation from Jaintia Validation (ROC 0.8447 -> 0.7653) is consistent with steep orographic domain shifts."
+  ],
+  "model_a_plus_model_b_coupling_verdict": "AUTHORIZED FOR CONTROLLED PHASE 4 INTEGRATION EXPERIMENT",
+  "coupling_conditions": [
+    "Model A (Static Susceptibility) and Model B (Dynamic Trigger) must be evaluated as a coupled 2D Risk Matrix.",
+    "Dynamic Model B alone should not be deployed as an unconditioned standalone trigger.",
+    "Integration must maintain strict spatial isolation across test blocks."
+  ],
+  "key_metrics_summary": {
+    "validation_block_5": {
+      "roc_auc": 0.8447,
+      "pr_auc": 0.6225,
+      "optimal_threshold": 0.2,
+      "recall": 0.8108,
+      "precision": 0.566,
+      "specificity": 0.7928,
+      "f1_score": 0.6667,
+      "brier_score": 0.1349
+    },
+    "holdout_block_3": {
+      "roc_auc": 0.7653,
+      "pr_auc": 0.6631,
+      "threshold_used": 0.2,
+      "recall": 0.6667,
+      "precision": 0.4918,
+      "specificity": 0.7704,
+      "f1_score": 0.566,
+      "brier_score": 0.1403
+    }
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_a_retrained": false,
+    "section30_model_b_modified": false,
+    "sections_14_to_30_modified": false,
+    "operational_false_alarm_rate_claimed": false,
+    "operational_deployment_claimed": false
+  }
+}

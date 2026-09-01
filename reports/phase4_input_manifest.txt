@@ -1,0 +1,40 @@
+SIH 2026: PHASE 4 INPUT MANIFEST & PHASE 3C FREEZE VERIFICATION REPORT
+Generated: 2026-09-01 08:43:05
+================================================================================
+
+1. PHASE 3C FREEZE & GOVERNANCE STATUS:
+   • Phase 3C Status: COMPLETE, QUALITY CONTROLLED & FROZEN
+   • Model A Status:  FROZEN (16 static features, Experiment C XGBoost, SHA-256 verified)
+   • Model B Status:  FROZEN (10 dynamic features, HistGradientBoosting Pipeline, SHA-256 verified)
+   • Source Data:     100% UNTOUCHED
+
+2. CRITICAL PRODUCTION ARTIFACT CHECKSUMS (SHA-256):
+   • modelA_production_pipeline.joblib                       | Size:    546.9 KB | SHA-256: e49472dd630de09735f2750088c018e3041250d8b38f27bfcd25053644558af9
+   • modelA_production_metadata.json                         | Size:      3.3 KB | SHA-256: cc8bcb6c57b4e75c8b6265d2c9e7b526fc0ad109b0f550e0d3e9641a72d380d8
+   • modelA_final_authorization.json                         | Size:      3.3 KB | SHA-256: cc8bcb6c57b4e75c8b6265d2c9e7b526fc0ad109b0f550e0d3e9641a72d380d8
+   • modelB_production_pipeline.joblib                       | Size:    145.9 KB | SHA-256: 3a2fa7958decf8a7bb6eff7738916734b51093a8b63b59419b24f324c2c12abc
+   • modelB_metadata.json                                    | Size:      3.3 KB | SHA-256: 9875d5a7c98dea46cda48b33029f6ef0789b351e89ff98c803c853974dc88142
+   • meghalaya_environmental_features.csv                    | Size:    317.6 KB | SHA-256: c7f26146995a4d2b33df2909bdc03f249a6d14fe8edb4ec6c8d40beee5f209dc
+   • phase3c_modelB_calibration_audit_background_observations.csv | Size:     83.4 KB | SHA-256: 1f5b5bdc7ee8ca14387c129c7b6819186fe95978b2d17ce91512439d59959574
+   • phase3c_modelB_section28_controlled_background_observations.csv | Size:    127.2 KB | SHA-256: 5a1eed77cd1858eef9f5b6e45300955511c10793694af594005682143dfc9044
+   • phase3c_modelB_section28_controlled_background_observations.csv | Size:    127.2 KB | SHA-256: 5a1eed77cd1858eef9f5b6e45300955511c10793694af594005682143dfc9044
+   • phase3c_modelB_section30_supervised_training_data.csv   | Size:    144.3 KB | SHA-256: b25ec202c71fd4c2b08a320369b954221e74e2f177f5418149c6c5e4740591f3
+   • phase3c_modelB_section30_supervised_training_data.csv   | Size:    144.3 KB | SHA-256: b25ec202c71fd4c2b08a320369b954221e74e2f177f5418149c6c5e4740591f3
+   • SIH_2026_Landslide_ML_Phase3C.ipynb                     | Size:    280.7 KB | SHA-256: aed87cecfded5029c8f57ad0ee22d6f67c99eddbb2059ea629e7997079354c4b
+   • phase3c_modelB_section31_threshold_analysis.json        | Size:      4.8 KB | SHA-256: 421527909afc6316ea4fca829763d8a45825cd1bb0456ef1f50fef12e9cc1cda
+   • phase3c_modelB_section31_candidate_thresholds.csv       | Size:      0.6 KB | SHA-256: 5d194b1c47e889c413d97c11a10db3e6c762ef3d87d03c4b9358c36b058cbdec
+   • phase3c_modelB_section31_operational_recommendation.txt | Size:      2.8 KB | SHA-256: 4a328986248ed9a760d9266c624a85b1e565f8337b5083d612604cc93411549c
+   • phase3c_modelB_section30_post_training_audit.json       | Size:      3.6 KB | SHA-256: 7f86f945be1a5bdd2df794c037666ee08f6b3a0650aef4a956326bce069fc6ab
+
+3. OPERATIONAL THRESHOLDS READY FOR PHASE 4 COUPLING:
+   • Model A Static Threshold: T_static = 0.249 (ROC-AUC = 0.9882 on East Khasi holdout)
+   • Model B Dynamic Threshold: T_dynamic = 0.18 (POD = 83.9%, PPV = 54.7%, FAR = 45.3%)
+   • Dynamic Risk Tiers:
+     - Level 1 Green (Low Hazard)     : p < 0.10
+     - Level 2 Yellow (Advisory)       : 0.10 <= p < 0.18
+     - Level 3 Orange (Warning)        : 0.18 <= p < 0.38
+     - Level 4 Red (Critical Danger)   : p >= 0.38
+
+4. PHASE 4 INTEGRATION ARCHITECTURE:
+   • Objective: Couple Model A static susceptibility P(S) and Model B dynamic hazard P(D).
+   • Dual-Model Risk Matrix: Combines spatial landslide susceptibility with live rainfall alerts.

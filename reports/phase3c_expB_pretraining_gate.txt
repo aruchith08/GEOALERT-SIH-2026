@@ -1,0 +1,39 @@
+================================================================================
+PHASE 3C: EXPERIMENT B (1:2 CUMULATIVE RATIO) PRE-TRAINING AUDIT REPORT
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Audit Date: 2026-08-31
+Audit Target: Experiment B (1:2 Ratio Baseline)
+Status: EXPERIMENT B PRE-TRAINING AUDIT: PASS
+================================================================================
+
+1. EXPERIMENT B SPECIFICATION & ROW COUNTS
+--------------------------------------------------------------------------------
+Total Positives:              1,052 (from frozen GSI inventory)
+Total Negatives:              2,104 (Tiers '1:1' [1,052] + '1:2' [1,052])
+Total Experiment B Rows:      3,156 rows
+
+Spatial Partition Breakdown:
+  - Training Set (Blocks 1, 2, 4): 1,934 rows (Pos: 455, Neg: 1,479)
+  - Validation Set (Block 5):        549 rows (Pos: 260, Neg: 289)
+  - Holdout Test Set (Block 3):      673 rows (Pos: 337, Neg: 336)
+
+2. AUDIT CHECKLIST
+--------------------------------------------------------------------------------
+1. Total Row Count                  PASS     Expected 3,156 rows, got 3156
+2. Positives Integrity              PASS     Expected 1,052 positives, got 1052
+3. Cumulative Negatives (1:1 + 1:2) PASS     Expected 2,104 negatives, got 2104
+4. Train Partition (Blocks 1, 2, 4) PASS     1,934 rows (455 Pos, 1,479 Neg)
+5. Validation Partition (Block 5)   PASS     549 rows (260 Pos, 289 Neg)
+6. Holdout Test Partition (Block 3) PASS     673 rows (337 Pos, 336 Neg)
+7. Spatial Disjointness             PASS     All partitions disjoint (Sum: 3156)
+8. Notebook Structure               PASS     Notebook valid JSON with 33 cells
+9. Local ML Prohibition             PASS     Zero local ML model fitting executed.
+--------------------------------------------------------------------------------
+
+3. FINAL PRE-TRAINING DECISION
+--------------------------------------------------------------------------------
+EXPERIMENT B AUDIT STATUS: PASS
+SAFE TO PROCEED TO COLAB TRAINING: YES
+COLAB CELL TO RUN: Section 15 (Cell 30 in notebooks/SIH_2026_Landslide_ML_Phase3C.ipynb)
+================================================================================

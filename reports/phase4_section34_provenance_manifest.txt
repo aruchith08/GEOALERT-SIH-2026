@@ -1,0 +1,47 @@
+SIH 2026 PHASE 4: SECTION 34 REGIONAL SPATIAL RISK SURFACE MANIFEST
+Generated: 2026-09-01 19:44:51
+================================================================================
+
+1. SPATIAL DOMAIN & COVERAGE:
+   • Region Name:         State of Meghalaya, Northeast India
+   • Coordinate System:   EPSG:4326 (WGS 84 Latitude/Longitude)
+   • Bounding Box:        Lat [25.0201° N, 26.0998° N] | Lon [89.8005° E, 92.8456° E]
+   • Valid Spatial Cells: 3,156 grid cells
+   • Spatial Blocks:      Garo Hills, West Khasi, East Khasi, Ri-Bhoi, Jaintia Hills
+
+2. INPUT DATASETS & FEATURE DEFINITIONS:
+   • Static Predictors (Model A): 16 features (elevation, slope, aspect, plan_curvature,
+     profile_curvature, twi, spi, ndvi_mean, soil_clay_fraction, soil_sand_fraction,
+     soil_bulk_density, soil_ph, distance_to_roads, distance_to_streams, landcover_code, lithology_code)
+   • Dynamic Rainfall (Model B): 10 features (rainfall_event_day, ari_3, ari_7, ari_15,
+     ari_30, max_1day_7d, max_3day_30d, rainy_days_7d, rainy_days_15d, rainy_days_30d)
+
+3. FROZEN MODEL ARTIFACT INTEGRITY (SHA-256):
+   • Model A (Static Susceptibility):   1691cd678c2a9184cf608a9db0e464daee1e9daf237fd2c387b6d936685d5631 [VERIFIED FROZEN]
+   • Model B (Dynamic Trigger Hazard):  e30aacc2f83eaca410a9a782089300ef1e920dd21051c042385d6159d97318f2 [VERIFIED FROZEN]
+
+4. REGIONAL INFERENCE RESULTS (N = 3,156):
+   • Model A Static P(S): Mean = 0.0589 (Min = 0.0009, Max = 0.7152)
+   • Model B Dynamic P(D): Mean = 0.6284 (Min = 0.6284, Max = 0.6284)
+   • Coupled Risk Score:   Mean = 0.0370 (Min = 0.0006, Max = 0.4494)
+
+5. OPERATIONAL ALERT TIER DISTRIBUTIONS:
+   • Level 1: Green  (Low / Baseline Monitoring): 2899 cells (91.9%)
+   • Level 2: Yellow (Advisory Watch):            137 cells (4.3%)
+   • Level 3: Orange (Warning Alert):             110 cells (3.5%)
+   • Level 4: Red    (Critical Action Trigger):   10 cells (0.3%)
+
+6. GENERATED SPATIAL PRODUCT FILES:
+   • data/phase4/section34_spatial_risk/phase4_section34_regional_risk_surface.geojson
+   • data/phase4/section34_spatial_risk/phase4_section34_regional_risk_surface.csv
+   • data/phase4/section34_spatial_risk/phase4_section34_block_risk_summary.csv
+   • data/phase4/section34_spatial_risk/phase4_section34_spatial_qc_report.csv
+   • data/phase4/section34_spatial_risk/phase4_section34_summary.json
+
+7. GOVERNANCE BANNER:
+   • Model A retrained: NO
+   • Model B retrained: NO
+   • Sections 14–33 modified: NO
+   • Operational public deployment claimed: NO
+   • Final QC Status: PASS
+================================================================================

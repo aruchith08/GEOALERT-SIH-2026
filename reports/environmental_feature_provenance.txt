@@ -1,0 +1,56 @@
+================================================================================
+PHASE 2C: GEO-ENVIRONMENTAL, SOIL & PROXIMITY SCIENTIFIC PROVENANCE REPORT
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Target Region: Meghalaya, North Eastern Region, India
+Authoritative Geospatial Engine: Google Earth Engine / OpenStreetMap / ISRIC SoilGrids
+Reference Script: gee/03_environmental_features.js
+Validation Pipeline: src/extract_environmental_features.py
+Total Landslide Events: 1,052 Validated Locations
+================================================================================
+
+1. DATASET PROVENANCE & IDENTIFIERS
+--------------------------------------------------------------------------------
+A. Land Cover & Vegetation:
+   - Dataset: ESA WorldCover 10m v200 (2021)
+   - ID: 'ESA/WorldCover/v200/2021'
+   - Provider: European Space Agency (ESA) / VITO Remote Sensing
+   - Spatial Resolution: 10 meters
+   - Citation: Zanaga, D., et al. (2022). ESA WorldCover 10 m 2021 v200. https://doi.org/10.5281/zenodo.5571936
+
+B. Normalized Difference Vegetation Index (NDVI):
+   - Dataset: Copernicus Sentinel-2 MSI Level-2A
+   - ID: 'COPERNICUS/S2_SR_HARMONIZED'
+   - Spatial Resolution: 10 meters
+   - Formula: (B8 - B4) / (B8 + B4) [Cloud-free baseline median]
+
+C. Soil Physical & Mechanical Properties (0–30 cm Topsoil Slip Zone):
+   - Datasets: ISRIC SoilGrids 250m v2.0
+   - Spatial Resolution: 250 meters
+   - Depth Interval: 0 to 30 cm mean (representing root zone and shallow landslide slip surface)
+   - Citation: Poggio, L., et al. (2021). SoilGrids 2.0: producing soil information for the globe
+     with quantified spatial uncertainty. SOIL, 7, 217–240.
+
+D. Geology & Regional Lithology:
+   - Dataset: Global Lithological Map (GLiM) & GSI Bhukosh Meghalaya Stratigraphic Units
+   - Citation: Hartmann, J., & Moosdorf, N. (2012). The new global lithological map database GLiM.
+     Geochemistry, Geophysics, Geosystems, 13(12). https://doi.org/10.1029/2012GC004370
+
+E. Proximity Metrics:
+   - Roads: OpenStreetMap Full Highway Network (27,552 vector segments across Meghalaya)
+   - Streams: OpenStreetMap Waterway Network (3,695 stream and river segments across Meghalaya)
+
+2. SCIENTIFIC RELEVANCE TO LANDSLIDE SUSCEPTIBILITY
+--------------------------------------------------------------------------------
+- Land Cover / Tree Cover: Forest canopy and root systems provide mechanical root anchoring
+  (root cohesion c_r) and regulate hillslope hydrology through evapotranspiration.
+- Soil Texture (Clay/Sand): Governs hydraulic conductivity K_s, pore-water pressure dissipation,
+  and internal friction angle phi' in the Mohr-Coulomb failure criterion tau = c' + (sigma_n - u)*tan(phi').
+- Soil Bulk Density: Directly defines soil dry unit weight gamma_d and porosity n.
+- Lithology: Metasediments (phyllites, schists) and weak sandstones possess planar foliation/bedding
+  discontinuities highly susceptible to translational sliding.
+- Road Distance: Over 72% of recorded landslides in Meghalaya occur within 100m of road corridors due to toe
+  excavation, slope steepening, and concentrated culvert drainage discharge.
+- Stream Distance: Fluvial undercutting and saturated toe conditions adjacent to stream channels.
+
+================================================================================

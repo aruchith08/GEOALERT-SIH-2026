@@ -1,0 +1,102 @@
+================================================================================
+PHASE 3C: GOOGLE COLAB MACHINE LEARNING PIPELINE SPECIFICATION
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Target Region: Meghalaya, North Eastern Region, India
+Execution Environment: Google Colab (Google Drive Mount)
+Notebook Path: notebooks/SIH_2026_Landslide_ML_Phase3C.ipynb
+Frozen Foundation Datasets:
+  - data/processed/meghalaya_environmental_features.csv (1,052 positives, 43 columns)
+  - data/phase3/pseudo_absence_candidates.csv (3,156 pseudo-absence candidates)
+Pipeline Preparation Date: 2026-08-31
+Status: READY FOR GOOGLE COLAB EXECUTION (No local ML training performed)
+================================================================================
+
+1. ARCHITECTURAL OVERVIEW & SEPARATION OF CONCERNS
+--------------------------------------------------------------------------------
+- Local Environment Role: Complete data extraction, provenance documentation,
+  multi-phase independent audits, pseudo-absence sampling, and Colab pipeline preparation.
+- Google Colab Role: Interactive model experimentation, training, spatial validation,
+  SHAP interpretability, hyperparameter tuning, and production artifact serialization.
+- Zero Local ML Training: Confirmed. No models trained on local computer.
+
+2. MODEL A: STATIC LANDSLIDE SUSCEPTIBILITY MODEL (LSI)
+--------------------------------------------------------------------------------
+A. Target Variable:
+   - Positive Class (1): 1,052 confirmed field-validated GSI landslide occurrences.
+   - Negative Class (0): Pseudo-absence candidates sampled with 500m exclusion buffer.
+
+B. Predictor Features (16 Static Geo-Environmental Variables):
+   1. elevation (SRTM 30m, meters)
+   2. slope (SRTM 30m, degrees)
+   3. aspect (SRTM 30m, degrees)
+   4. plan_curvature (SRTM 30m, rad/m)
+   5. profile_curvature (SRTM 30m, rad/m)
+   6. twi (Topographic Wetness Index, dimensionless)
+   7. spi (Stream Power Index, dimensionless)
+   8. landcover_code (ESA WorldCover 10m integer class)
+   9. ndvi_mean (Sentinel-2 MSI 10m annual baseline)
+   10. soil_clay_fraction (ISRIC SoilGrids 250m, 0-30cm, %)
+   11. soil_sand_fraction (ISRIC SoilGrids 250m, 0-30cm, %)
+   12. soil_bulk_density (ISRIC SoilGrids 250m, 0-30cm, g/cm3)
+   13. soil_ph (ISRIC SoilGrids 250m, 0-30cm, pH units)
+   14. lithology_code (GLiM Hartmann & Moosdorf / GSI, 2-letter code)
+   15. distance_to_roads (OSM 27,552 road segments, meters)
+   16. distance_to_streams (OSM 3,695 waterway segments, meters)
+
+C. Excluded Attributes (Zero Contamination Safeguard):
+   - Identifier columns: source_page, sl_no, slide_no, slide_name, nh_sh_location, state, district, history.
+   - Temporal tags: event_date, event_year, temporal_quality.
+   - Dynamic rainfall: rainfall_event_day, ari_3, ari_7, ari_15, ari_30, max_1day_7d, max_3day_30d, rainy_days_7d, 15d, 30d.
+
+3. SPATIAL CROSS-VALIDATION & DATA SPLIT STRATEGY
+--------------------------------------------------------------------------------
+A. Deterministic Spatial Sectors:
+   - Block 1: Garo Hills (West/East/South/South-West Garo Hills, Lon < 91.0)
+   - Block 2: West Khasi & South West Khasi Hills (91.0 <= Lon < 91.6, Lat < 25.65)
+   - Block 3: East Khasi Hills / Shillong Plateau (91.6 <= Lon < 92.0, Lat < 25.65)
+   - Block 4: Ri-Bhoi (Northern plateau slopes, Lat >= 25.65)
+   - Block 5: Jaintia Hills (East / West Jaintia Hills, Lon >= 92.0, Lat < 25.65)
+
+B. Spatial Train / Validation / Test Partitioning:
+   - Training Partition (~60%): Blocks 1, 2, and 4 (Garo Hills, West Khasi, Ri-Bhoi).
+   - Validation Partition (~20%): Block 5 (Jaintia Hills). Used for optimal threshold tuning.
+   - Test Partition (~20%): Block 3 (East Khasi Hills). Spatially independent holdout test.
+   - Leakage Prevention: Zero geographic coordinates or adjacent spatial cells overlap between sets.
+
+4. ROAD-BIAS SENSITIVITY EXPERIMENTAL FRAMEWORK
+--------------------------------------------------------------------------------
+- Background: 72.8% of positive landslides occur within 100m of roads in Meghalaya.
+- Diagnostic Action in Colab:
+  * Computes empirical Kolmogorov-Smirnov statistics and KDE density distributions between positives and negatives.
+  * Conducts sensitivity comparison:
+    Experiment 1: Full Model (including distance_to_roads)
+    Experiment 2: Sensitivity Model (excluding distance_to_roads)
+  * Measures whether distance_to_roads artificially dominates SHAP importance.
+
+5. SAMPLING IMBALANCE EXPERIMENTS
+--------------------------------------------------------------------------------
+- Experiment A (1:1 Ratio): 1,052 Positives + 1,052 Negatives (Primary Baseline).
+- Experiment B (1:2 Ratio): 1,052 Positives + 2,104 Negatives.
+- Experiment C (1:3 Ratio): 1,052 Positives + 3,156 Negatives.
+
+6. MODEL ALGORITHMS & HYPERPARAMETERS
+--------------------------------------------------------------------------------
+- Random Forest: 300 estimators, max_depth=12, class_weight='balanced', random_state=42.
+- XGBoost: 300 estimators, max_depth=6, lr=0.03, subsample=0.8, colsample_bytree=0.8, random_state=42.
+- Evaluation Metrics: PR-AUC, ROC-AUC, F1-Score, Recall, Balanced Accuracy, Brier Score.
+
+7. MODEL B: SEPARATE DYNAMIC RAINFALL TRIGGER MODEL SPECIFICATION
+--------------------------------------------------------------------------------
+- Authoritative Events: 186 EXACT_DATE landslides with verified 30-day antecedent CHIRPS rainfall.
+- Non-Imputation Rule: 866 records without exact dates remain NA; zero synthetic rainfall values.
+- Future Model B Architecture: Derives Intensity-Duration (I-D) thresholds and cumulative ARI-3/ARI-30
+  early warning trigger levels on verified monsoon events versus non-trigger dry/wet periods.
+
+8. PRODUCTION MODEL SERIALIZATION TARGETS
+--------------------------------------------------------------------------------
+- Serialized Artifacts in models/:
+  * xgboost_susceptibility.joblib (Trained Scikit-Learn Pipeline with Preprocessor)
+  * random_forest_susceptibility.joblib
+  * xgboost_susceptibility_metadata.json (Features, threshold, test metrics, timestamp)
+================================================================================

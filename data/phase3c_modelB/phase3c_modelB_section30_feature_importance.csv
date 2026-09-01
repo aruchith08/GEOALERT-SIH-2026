@@ -1,0 +1,11 @@
+Rank,Feature_Name,Standardized_Logistic_Coef,Odds_Ratio_per_1SD,Tree_Feature_Importance,Physical_Signal_Association
+1,ari_3,1.1263,3.0841,0.2501,Positive Trigger
+2,rainfall_event_day,0.1858,1.2041,0.1578,Positive Trigger
+3,ari_7,0.4267,1.5322,0.1064,Positive Trigger
+4,ari_30,-1.737,0.176,0.0957,Baseline Moderating Context
+5,max_3day_30d,1.0869,2.9651,0.0927,Positive Trigger
+6,ari_15,0.0205,1.0207,0.0777,Positive Trigger
+7,max_1day_7d,-0.5528,0.5754,0.0706,Baseline Moderating Context
+8,rainy_days_30d,0.9031,2.4672,0.0693,Positive Trigger
+9,rainy_days_15d,0.4653,1.5925,0.0445,Positive Trigger
+10,rainy_days_7d,-0.287,0.7505,0.035,Baseline Moderating Context

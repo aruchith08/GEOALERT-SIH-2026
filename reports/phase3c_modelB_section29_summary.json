@@ -1,0 +1,76 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 29: Supervised Model B Dataset Preparation & Geographic Partitioning",
+  "timestamp": "2026-09-01 18:58:19",
+  "status": "DATASET_PREPARATION_COMPLETE_100_PERCENT_VERIFIED",
+  "population_accounting": {
+    "positive_confirmed_events": 186,
+    "background_unobserved_observations": 558,
+    "total_derived_observations": 744,
+    "class_ratio": "1:3 (25.0% Positives : 75.0% Background)",
+    "binary_target_definition": "Positive -> y=1, Background -> y=0"
+  },
+  "feature_set": {
+    "dynamic_feature_count": 10,
+    "dynamic_features": [
+      "rainfall_event_day",
+      "ari_3",
+      "ari_7",
+      "ari_15",
+      "ari_30",
+      "max_1day_7d",
+      "max_3day_30d",
+      "rainy_days_7d",
+      "rainy_days_15d",
+      "rainy_days_30d"
+    ],
+    "static_features_recorded": [
+      "elevation",
+      "slope",
+      "aspect",
+      "plan_curvature",
+      "profile_curvature",
+      "twi",
+      "spi"
+    ]
+  },
+  "data_integrity_summary": {
+    "missing_dynamic_values": 0,
+    "infinite_values": 0,
+    "duplicate_background_keys": 0,
+    "cross_class_overlapping_keys": 0,
+    "min_geodesic_distance_km": 5.001,
+    "mean_geodesic_distance_km": 17.969
+  },
+  "geographic_split_design": {
+    "training_blocks": [
+      1,
+      2,
+      4
+    ],
+    "training_rows": 416,
+    "training_positives": 104,
+    "training_background": 312,
+    "validation_block": 5,
+    "validation_rows": 148,
+    "validation_positives": 37,
+    "validation_background": 111,
+    "holdout_test_block": 3,
+    "holdout_test_rows": 180,
+    "holdout_test_positives": 45,
+    "holdout_test_background": 135
+  },
+  "reproducibility": {
+    "random_seed": 42,
+    "reproducibility_verified": true
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_a_retrained": false,
+    "section24_dataset_modified": false,
+    "section28_dataset_modified": false,
+    "supervised_model_b_trained": false,
+    "operational_thresholds_created": false,
+    "operational_false_alarm_rate_claimed": false
+  }
+}

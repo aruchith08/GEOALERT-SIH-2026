@@ -1,0 +1,37 @@
+================================================================================
+PHASE 3B: SAMPLING STATISTICS & COMPARATIVE DISTRIBUTION REPORT
+================================================================================
+Date/Time: 2026-08-31 19:35:35
+Execution Time: 9.39 seconds
+Positive Landslides: N = 1,052
+Candidate Pseudo-Absences Generated: N = 3,156
+================================================================================
+
+1. SPATIAL BLOCK DISTRIBUTION COMPARISON
+--------------------------------------------------------------------------------
+Spatial Block Name           Positives (N=1052)   Negatives 1:1 (N=1052) Negatives 1:3 (N=3156)
+--------------------------------------------------------------------------------
+East Khasi Block               337 (32.0%)           210 (20.0%)             418 (13.2%)
+West Khasi Block               200 (19.0%)           213 (20.2%)             517 (16.4%)
+Jaintia Hills Block            260 (24.7%)           141 (13.4%)             466 (14.8%)
+Ri-Bhoi Block                  194 (18.4%)           200 (19.0%)             720 (22.8%)
+Garo Hills Block                61 ( 5.8%)           288 (27.4%)            1035 (32.8%)
+--------------------------------------------------------------------------------
+
+2. COMPARATIVE FEATURE DISTRIBUTIONS (POSITIVES VS. 1:1 PSEUDO-ABSENCES)
+--------------------------------------------------------------------------------
+Metric / Feature               Positives (Label=1)          Pseudo-Absences (Label=0)
+--------------------------------------------------------------------------------
+Min Dist to Landslide (m)      0.0 m (Colocated)            502.0 m (Strict >= 500m)
+Elevation (Mean / Median)      908.2m / 994.0m          867.8m / 998.9m
+Slope (Mean / Median)          21.3° / 20.9°          25.1° / 25.1°
+Road Distance (Mean / Median)  247.1m / 24.2m          100.0m / 77.5m
+Stream Distance (Mean / Med)   1740.4m / 1102.0m       1685.5m / 1073.3m
+--------------------------------------------------------------------------------
+
+3. EXCLUSION BUFFER VERIFICATION
+--------------------------------------------------------------------------------
+- Target Exclusion Radius: 500.0 m
+- Actual Minimum Distance to Nearest Landslide across all 3,156 candidates: 500.9 m
+- Violations (< 500m): ZERO (0 / 3,156)
+================================================================================

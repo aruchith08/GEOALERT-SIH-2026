@@ -1,0 +1,40 @@
+SIH 2026 PHASE 3C: SECTION 26 CONTROLLED BACKGROUND SAMPLING & TEMPORAL GAP PROPOSAL
+Generated: 2026-09-01 01:05:14
+Status: WRITTEN METHODOLOGY PROPOSAL — STOPPED FOR EXPLICIT AUTHORIZATION
+================================================================================
+
+1. SECTION 26A: CHIRPS CACHE AUDIT & TEMPORAL GAPS
+--------------------------------------------------------------------------------
+Current Cache: 1141 daily grids covering 17 event years.
+Temporal Deficiency: April, May, and October lack continuous 30-day non-event antecedent grids.
+Cause: Phase 2B downloaded grids only around positive event dates; +/-3d exclusion breaks non-event series.
+
+2. SECTION 26B: MINIMUM ADDITIONAL CHIRPS DATA REQUIRED (NO DOWNLOAD EXECUTED)
+--------------------------------------------------------------------------------
+Recommended Scope: March 1 to October 31 for all 17 event years (2007-2026).
+Total Grids Needed:    4,073 daily grids
+Already in Cache:      1,141 daily grids
+Missing to Download:   2,932 daily grids
+Data Volume:           ~22.09 MB (Extremely lightweight: 7.7 KB/day)
+Source:                CHIRPS Daily 0.05-deg Global Grid (UCSB CHG FTP/HTTP Archive)
+
+3. SECTION 26C: CONTROLLED STRATIFIED BACKGROUND SAMPLING DESIGN
+--------------------------------------------------------------------------------
+Stratification Grid:   5 Spatial Blocks x 7 Months (April-October) = 35 Strata
+Allocation Method:     Exact Proportional Quota matching Positive Events (1:3 Ratio, Target N=558)
+Spatial Isolation:     >= 5.0 km geodesic buffer from all 186 positive coordinates (2,641 candidates)
+Temporal Isolation:    >= 4 days (+/- 3 days storm exclusion from all 70 positive dates)
+Antecedent Constraint: Unbroken 30-day continuous antecedent history [T-29, T]
+Epistemological Role:  failure_status = 'UNOBSERVED' (Candidate Background, NOT True Negatives)
+
+4. SECTION 26D: FEASIBILITY ANALYSIS ACROSS 35 STRATA
+--------------------------------------------------------------------------------
+Total Positive Events: 186
+Target Background (1:3): 558
+Post-Acquisition Pool: ~1,122,425 spatio-temporal observation units
+Shortages:             0 (All 35 strata have massive candidate surpluses)
+
+5. SECTION 26E: DECISION GATE
+--------------------------------------------------------------------------------
+Zero downloading and zero dataset generation has been performed.
+Awaiting user review and explicit authorization before proceeding.

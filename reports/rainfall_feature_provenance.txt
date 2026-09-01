@@ -1,0 +1,47 @@
+================================================================================
+PHASE 2B: CHIRPS DAILY RAINFALL SCIENTIFIC PROVENANCE & SPECIFICATION
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Target Region: Meghalaya, North Eastern Region, India
+Authoritative Geospatial Engine: Google Earth Engine ('UCSB-CHG/CHIRPS/DAILY')
+Script Reference: gee/02_chirps_rainfall.js
+Validation Pipeline: src/extract_chirps_rainfall.py
+Total Landslide Events: 1,052 Validated Locations
+================================================================================
+
+1. PRIMARY DATASET PROVENANCE
+--------------------------------------------------------------------------------
+- Product Name: Climate Hazards Group InfraRed Precipitation with Station data (CHIRPS)
+- Dataset ID: 'UCSB-CHG/CHIRPS/DAILY'
+- Provider: Climate Hazards Center, University of California, Santa Barbara / USGS
+- Spatial Resolution: 0.05 arc-degrees (~5.5 km x 5.5 km grid cell spacing)
+- Temporal Resolution: Daily (1981-01-01 to Present)
+- Native Units: Precipitation in millimeters per day (mm/day)
+- Coordinate Reference System: WGS84 (EPSG:4326)
+- Primary Scientific Citation: Funk, C., et al. (2015). The climate hazards infrared
+  precipitation with stations—a new environmental record for monitoring extremes.
+  Scientific Data, 2, 150066. https://doi.org/10.1038/sdata.2015.66
+
+2. ANTECEDENT RAINFALL INDICES (ARI) & FORMULATIONS
+--------------------------------------------------------------------------------
+For each landslide occurrence with an authoritative exact event date T (YYYY-MM-DD):
+1. rainfall_event_day (mm): P(T) - Precipitation on event day.
+2. ari_3 (mm): Cumulative rainfall over 3-day window [T-2, T] = P(T) + P(T-1) + P(T-2).
+3. ari_7 (mm): Cumulative rainfall over 7-day window [T-6, T] = sum_{k=0..6} P(T-k).
+4. ari_15 (mm): Cumulative rainfall over 15-day window [T-14, T] = sum_{k=0..14} P(T-k).
+5. ari_30 (mm): Cumulative rainfall over 30-day window [T-29, T] = sum_{k=0..29} P(T-k).
+6. max_1day_7d (mm): Maximum single-day precipitation observed in window [T-6, T].
+7. max_3day_30d (mm): Maximum 3-consecutive-day cumulative rainfall in window [T-29, T].
+8. rainy_days_7d (count): Count of days with daily rainfall >= 2.5 mm (IMD standard) in [T-6, T].
+9. rainy_days_15d (count): Count of days with daily rainfall >= 2.5 mm in [T-14, T].
+10. rainy_days_30d (count): Count of days with daily rainfall >= 2.5 mm in [T-29, T].
+
+3. TEMPORAL UNCERTAINTY & MISSING VALUE POLICY
+--------------------------------------------------------------------------------
+- Exact Dates Available: 186 records (17.7%) -> Full dynamic antecedent rainfall calculated.
+- Year Only: 246 records (23.4%) -> Event-specific rainfall assigned 'NA'.
+- Month-Year Only: 14 records (1.3%) -> Event-specific rainfall assigned 'NA'.
+- No Date Provided: 597 records (56.7%) -> Event-specific rainfall assigned 'NA'.
+- Ambiguous Narrative: 9 records (0.9%) -> Event-specific rainfall assigned 'NA'.
+- Zero Date Fabrication: Dates are never synthesized or imputed.
+================================================================================

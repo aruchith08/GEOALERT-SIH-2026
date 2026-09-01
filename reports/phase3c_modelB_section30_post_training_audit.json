@@ -1,0 +1,91 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 30: Post-Training Independent Results Audit",
+  "timestamp": "2026-09-01 08:09:52",
+  "audit_status": "POST_TRAINING_AUDIT_COMPLETE_100_PERCENT_VERIFIED",
+  "overall_verdict": "PASS",
+  "population_verified": {
+    "positives": 186,
+    "background": 558,
+    "total": 744,
+    "ratio": "1:3"
+  },
+  "recalculated_primary_metrics": {
+    "ROC_AUC_Mean": 0.8908,
+    "ROC_AUC_Std": 0.0265,
+    "PR_AUC_Mean": 0.809,
+    "PR_AUC_Std": 0.0378,
+    "F1_Mean": 0.7533,
+    "F1_Std": 0.0277,
+    "Brier_Mean": 0.0925,
+    "Brier_Std": 0.008,
+    "Folds_Evaluated": 5
+  },
+  "recalculated_spatial_metrics": {
+    "ROC_AUC_Mean": 0.818,
+    "ROC_AUC_Std": 0.0643,
+    "PR_AUC_Mean": 0.6664,
+    "PR_AUC_Std": 0.0634,
+    "F1_Mean": 0.563,
+    "F1_Std": 0.0269,
+    "Brier_Mean": 0.1347,
+    "Brier_Std": 0.0116,
+    "Folds_Evaluated": 5
+  },
+  "recalculated_temporal_metrics": {
+    "ROC_AUC_Mean": 0.7156,
+    "ROC_AUC_Std": 0.2267,
+    "PR_AUC_Mean": 0.5582,
+    "PR_AUC_Std": 0.3138,
+    "F1_Mean": 0.4047,
+    "F1_Std": 0.3238,
+    "Brier_Mean": 0.129,
+    "Brier_Std": 0.0847,
+    "Folds_Evaluated": 17
+  },
+  "recalculated_baseline_metrics": {
+    "ROC_AUC_Mean": 0.8505,
+    "ROC_AUC_Std": 0.0375,
+    "PR_AUC_Mean": 0.7294,
+    "PR_AUC_Std": 0.0376,
+    "F1_Mean": 0.6528,
+    "F1_Std": 0.0502,
+    "Brier_Mean": 0.1157,
+    "Brier_Std": 0.0114,
+    "Folds_Evaluated": 5
+  },
+  "discrepancy_analysis": {
+    "Stratified_Block_Month_Performance": {
+      "ROC_AUC": 0.8908,
+      "Characteristics": "High discrimination (~0.891 ROC-AUC, ~0.809 PR-AUC) achieved when testing within the same spatial blocks and months. Demonstrates that dynamic rainfall signals are highly distinct between positive storm triggers and background climatology within homogeneous spatio-temporal strata."
+    },
+    "Spatial_Block_Out_Performance": {
+      "ROC_AUC": 0.818,
+      "Delta_from_Block_Month": -0.0728,
+      "Characteristics": "Slight moderate drop to ~0.818 ROC-AUC when completely holding out entire geographic blocks. High performance is maintained in East Khasi (0.878) and Jaintia Hills (0.907), while lower performance occurs in Garo Hills (0.786) and West Khasi (0.758), reflecting regional microclimatic or orographic gradient differences."
+    },
+    "Temporal_Year_Out_Performance": {
+      "ROC_AUC": 0.7156,
+      "Delta_from_Block_Month": -0.1752,
+      "Characteristics": "Higher variance across independent years (~0.716 ROC-AUC). High discrimination is maintained during major multi-event monsoon seasons (e.g. 2010: 0.912, 2019: 0.997, 2024: 0.843, 2025: 0.799, 2026: 1.000). Downward variance is driven by years with single isolated landslide records (e.g. 2013 with 1 event, ROC-AUC=0.026), where a single localized failure occurred under lower coarse-grid CHIRPS intensity, creating high evaluation sensitivity on small N."
+    }
+  },
+  "audit_checklist": {
+    "Training Population Count": "PASS",
+    "Metric Bounds (ROC-AUC in [0, 1])": "PASS",
+    "Probability Bounds (p in [0, 1])": "PASS",
+    "Brier Score Bounds (Brier >= 0)": "PASS",
+    "Preprocessing Leakage": "PASS",
+    "Feature Ordering & Metadata Alignment": "PASS",
+    "Model Artifact Integrity": "PASS",
+    "Operational Threshold Created": "PASS",
+    "Operational False-Alarm Rate Claimed": "PASS",
+    "Model A & Sections 14\u201330 Immutability": "PASS"
+  },
+  "governance": {
+    "model_a_modified": false,
+    "sections_14_to_30_modified": false,
+    "operational_threshold_created": false,
+    "operational_false_alarm_rate_claimed": false
+  }
+}

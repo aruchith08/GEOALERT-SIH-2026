@@ -1,0 +1,55 @@
+SIH 2026 PHASE 4: SECTION 36 INTERACTIVE WEB GIS DASHBOARD REPORT
+Generated: 2026-09-01 20:08:32
+================================================================================
+
+1. FRONTEND ARCHITECTURE & DIRECTORY STRUCTURE:
+   • Framework:          Next.js 15 with App Router, React 19, TypeScript, and Tailwind CSS
+   • Directory:          frontend/
+                         ├── app/
+                         │   ├── layout.tsx (Root layout with Navbar & Footer)
+                         │   ├── page.tsx (Main Risk Map & Inspector Dashboard)
+                         │   ├── risk-map/page.tsx (Full Map Route)
+                         │   ├── analytics/page.tsx (District & Spatial Block Benchmarks)
+                         │   ├── infrastructure/page.tsx (5 Highway Transport Corridors)
+                         │   ├── methodology/page.tsx (Dual-Model Coupling Blueprint)
+                         │   └── about/page.tsx (Governance, Provenance & Tech Stack)
+                         ├── components/
+                         │   ├── common/ (Navbar, Footer)
+                         │   ├── dashboard/ (KPICards, InspectorPanel)
+                         │   └── map/ (RiskMapWrapper, LeafletMap)
+                         ├── lib/ (types.ts, constants.ts, api.ts)
+                         ├── public/data/ (regional_risk_surface.geojson, section34_summary.json)
+                         ├── test_frontend.js (Automated 18-point verification test suite)
+                         ├── package.json
+                         └── README.md
+
+2. GEOSPATIAL VISUALIZATION & INTERACTIVE CAPABILITIES:
+   • Map Engine:         Leaflet Canvas-accelerated CircleMarkers (3,156 cells @ 60fps)
+   • Spatial Extent:     Lat [25.0201° N, 26.0998° N] | Lon [89.8005° E, 92.8456° E]
+   • Filters:            Spatial Block Selector (5 Blocks), Alert Tier Selector (4 Tiers), Min Risk Slider
+   • Inspector Drawer:   Decomposes Model A P(S), Model B P(D), Coupled Risk, Alert Tier, Elevation, Slope,
+                         Plain-English Spatio-Temporal Reasoning, and Recommended Advisory Action.
+
+3. HIGHWAY INFRASTRUCTURE CORRIDORS (SECTION 33 SIMULATIONS):
+   • NH-40 (Guwahati – Shillong Highway)
+   • NH-44 / NH-6 (Shillong – Silchar Arterial Link)
+   • SH-5 (Shillong – Sohra Gorge Pass)
+   • SH-12 (Tura – Williamnagar Connector)
+   • MDR-22 (Nongstoin – Mawkyrwat Spur)
+   • Scenarios: Dry Season vs. Active Monsoon vs. Severe Cloudburst
+
+4. SCIENTIFIC DISTINCTION & NON-OPERATIONAL DISCLAIMER:
+   • Research / Advisory Badge: Prominently displayed in Navbar and all informational panels.
+   • Plain Distinction: Distinguishes Retrospective ML Validation from Backend Inference and Future Live Ingestion.
+   • Public Warning Notice: Expressly declares non-operational research advisory status.
+
+5. GOVERNANCE BANNER:
+   • Model A modified: NO (SHA-256: 1691cd678c2a9184cf608a9db0e464daee1e9daf237fd2c387b6d936685d5631)
+   • Model A retrained: NO
+   • Model B modified: NO (SHA-256: e30aacc2f83eaca410a9a782089300ef1e920dd21051c042385d6159d97318f2)
+   • Model B retrained: NO
+   • Sections 14–35 modified: NO
+   • Section 34 GeoJSON modified: NO
+   • Coupling threshold modified: NO (T_coup = 0.0502)
+   • Final QC Status: PASS (18/18 Tests Passed)
+================================================================================

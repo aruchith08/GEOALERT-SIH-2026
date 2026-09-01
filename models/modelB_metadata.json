@@ -1,0 +1,107 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 30: Supervised Model B Geographic Training & Evaluation",
+  "timestamp": "2026-09-01 19:06:46",
+  "status": "TRAINING_COMPLETE_100_PERCENT_VERIFIED",
+  "model_name": "Model B (Dynamic Precipitation Trigger Model)",
+  "algorithm": "HistGradientBoostingClassifier",
+  "random_seed": 42,
+  "class_weight_strategy": "None (Preserved natural 1:3 controlled design ratio)",
+  "feature_set": {
+    "feature_count": 10,
+    "feature_names": [
+      "rainfall_event_day",
+      "ari_3",
+      "ari_7",
+      "ari_15",
+      "ari_30",
+      "max_1day_7d",
+      "max_3day_30d",
+      "rainy_days_7d",
+      "rainy_days_15d",
+      "rainy_days_30d"
+    ]
+  },
+  "hyperparameters": {
+    "max_iter": 100,
+    "max_depth": 4,
+    "min_samples_leaf": 15,
+    "learning_rate": 0.05,
+    "l2_regularization": 1.0,
+    "random_state": 42
+  },
+  "geographic_split": {
+    "training_partition": "Blocks 1, 2, 4 (Garo Hills, West Khasi, Ri-Bhoi) [N=416, Pos=104, Bg=312]",
+    "validation_partition": "Block 5 (Jaintia Hills) [N=148, Pos=37, Bg=111]",
+    "holdout_partition": "Block 3 (East Khasi / Shillong) [N=180, Pos=45, Bg=135]"
+  },
+  "optimal_decision_threshold": 0.2,
+  "performance_summary": {
+    "training_performance": {
+      "threshold": 0.5,
+      "roc_auc": 0.99,
+      "pr_auc": 0.9735,
+      "precision": 0.954,
+      "recall": 0.7981,
+      "sensitivity": 0.7981,
+      "specificity": 0.9872,
+      "f1_score": 0.8691,
+      "balanced_accuracy": 0.8926,
+      "brier_score": 0.048,
+      "true_positives": 83,
+      "false_positives": 4,
+      "true_negatives": 308,
+      "false_negatives": 21,
+      "total_evaluated": 416
+    },
+    "validation_performance_block_5": {
+      "threshold": 0.2,
+      "roc_auc": 0.8447,
+      "pr_auc": 0.6225,
+      "precision": 0.566,
+      "recall": 0.8108,
+      "sensitivity": 0.8108,
+      "specificity": 0.7928,
+      "f1_score": 0.6667,
+      "balanced_accuracy": 0.8018,
+      "brier_score": 0.1349,
+      "true_positives": 30,
+      "false_positives": 23,
+      "true_negatives": 88,
+      "false_negatives": 7,
+      "total_evaluated": 148
+    },
+    "final_holdout_performance_block_3": {
+      "threshold": 0.2,
+      "roc_auc": 0.7653,
+      "pr_auc": 0.6631,
+      "precision": 0.4918,
+      "recall": 0.6667,
+      "sensitivity": 0.6667,
+      "specificity": 0.7704,
+      "f1_score": 0.566,
+      "balanced_accuracy": 0.7185,
+      "brier_score": 0.1403,
+      "true_positives": 30,
+      "false_positives": 31,
+      "true_negatives": 104,
+      "false_negatives": 15,
+      "total_evaluated": 180
+    }
+  },
+  "top_predictors_ranked": [
+    "ari_3",
+    "rainfall_event_day",
+    "ari_7",
+    "ari_30",
+    "max_3day_30d"
+  ],
+  "governance": {
+    "model_a_modified": false,
+    "model_a_retrained": false,
+    "sections_14_to_29_modified": false,
+    "holdout_untouched_during_training": true,
+    "operational_false_alarm_rate_claimed": false,
+    "operational_deployment_claimed": false
+  }
+}

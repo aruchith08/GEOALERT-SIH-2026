@@ -1,0 +1,69 @@
+Operating_Profile,Threshold,Year,Total_Observations,Positive_Events,Background_Obs,TP,FP,TN,FN,Recall_POD,Precision_PPV,False_Alarm_Ratio_FAR,Total_Warnings
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2007,59,26,33,26,29,4,0,1.0,0.4727,0.5273,55
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2008,37,3,34,3,25,9,0,1.0,0.1071,0.8929,28
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2009,40,7,33,7,24,9,0,1.0,0.2258,0.7742,31
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2010,46,11,35,11,31,4,0,1.0,0.2619,0.7381,42
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2011,31,1,30,1,21,9,0,1.0,0.0455,0.9545,22
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2012,42,12,30,11,25,5,1,0.9167,0.3056,0.6944,36
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2013,40,1,39,0,35,4,1,0.0,0.0,1.0,35
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2014,39,5,34,5,29,5,0,1.0,0.1471,0.8529,34
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2017,37,1,36,1,27,9,0,1.0,0.0357,0.9643,28
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2018,35,1,34,1,24,10,0,1.0,0.04,0.96,25
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2019,48,7,41,7,27,14,0,1.0,0.2059,0.7941,34
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2020,39,11,28,11,23,5,0,1.0,0.3235,0.6765,34
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2022,45,14,31,14,26,5,0,1.0,0.35,0.65,40
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2023,43,3,40,1,21,19,2,0.3333,0.0455,0.9545,22
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2024,75,45,30,44,24,6,1,0.9778,0.6471,0.3529,68
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2025,67,37,30,35,26,4,2,0.9459,0.5738,0.4262,61
+High_Recall_Life_Safety (Target POD >= 95%),0.04,2026,21,1,20,1,17,3,0,1.0,0.0556,0.9444,18
+Early_Warning_Protection (Target POD >= 90%),0.1,2007,59,26,33,23,20,13,3,0.8846,0.5349,0.4651,43
+Early_Warning_Protection (Target POD >= 90%),0.1,2008,37,3,34,3,13,21,0,1.0,0.1875,0.8125,16
+Early_Warning_Protection (Target POD >= 90%),0.1,2009,40,7,33,6,13,20,1,0.8571,0.3158,0.6842,19
+Early_Warning_Protection (Target POD >= 90%),0.1,2010,46,11,35,11,16,19,0,1.0,0.4074,0.5926,27
+Early_Warning_Protection (Target POD >= 90%),0.1,2011,31,1,30,1,12,18,0,1.0,0.0769,0.9231,13
+Early_Warning_Protection (Target POD >= 90%),0.1,2012,42,12,30,11,16,14,1,0.9167,0.4074,0.5926,27
+Early_Warning_Protection (Target POD >= 90%),0.1,2013,40,1,39,0,21,18,1,0.0,0.0,1.0,21
+Early_Warning_Protection (Target POD >= 90%),0.1,2014,39,5,34,4,22,12,1,0.8,0.1538,0.8462,26
+Early_Warning_Protection (Target POD >= 90%),0.1,2017,37,1,36,0,17,19,1,0.0,0.0,1.0,17
+Early_Warning_Protection (Target POD >= 90%),0.1,2018,35,1,34,1,12,22,0,1.0,0.0769,0.9231,13
+Early_Warning_Protection (Target POD >= 90%),0.1,2019,48,7,41,7,13,28,0,1.0,0.35,0.65,20
+Early_Warning_Protection (Target POD >= 90%),0.1,2020,39,11,28,9,15,13,2,0.8182,0.375,0.625,24
+Early_Warning_Protection (Target POD >= 90%),0.1,2022,45,14,31,14,10,21,0,1.0,0.5833,0.4167,24
+Early_Warning_Protection (Target POD >= 90%),0.1,2023,43,3,40,1,9,31,2,0.3333,0.1,0.9,10
+Early_Warning_Protection (Target POD >= 90%),0.1,2024,75,45,30,42,6,24,3,0.9333,0.875,0.125,48
+Early_Warning_Protection (Target POD >= 90%),0.1,2025,67,37,30,35,11,19,2,0.9459,0.7609,0.2391,46
+Early_Warning_Protection (Target POD >= 90%),0.1,2026,21,1,20,1,10,10,0,1.0,0.0909,0.9091,11
+Cost_Optimal_Disaster_Priority (c=5),0.18,2007,59,26,33,18,12,21,8,0.6923,0.6,0.4,30
+Cost_Optimal_Disaster_Priority (c=5),0.18,2008,37,3,34,2,4,30,1,0.6667,0.3333,0.6667,6
+Cost_Optimal_Disaster_Priority (c=5),0.18,2009,40,7,33,5,6,27,2,0.7143,0.4545,0.5455,11
+Cost_Optimal_Disaster_Priority (c=5),0.18,2010,46,11,35,11,9,26,0,1.0,0.55,0.45,20
+Cost_Optimal_Disaster_Priority (c=5),0.18,2011,31,1,30,0,4,26,1,0.0,0.0,1.0,4
+Cost_Optimal_Disaster_Priority (c=5),0.18,2012,42,12,30,10,11,19,2,0.8333,0.4762,0.5238,21
+Cost_Optimal_Disaster_Priority (c=5),0.18,2013,40,1,39,0,14,25,1,0.0,0.0,1.0,14
+Cost_Optimal_Disaster_Priority (c=5),0.18,2014,39,5,34,4,16,18,1,0.8,0.2,0.8,20
+Cost_Optimal_Disaster_Priority (c=5),0.18,2017,37,1,36,0,8,28,1,0.0,0.0,1.0,8
+Cost_Optimal_Disaster_Priority (c=5),0.18,2018,35,1,34,0,4,30,1,0.0,0.0,1.0,4
+Cost_Optimal_Disaster_Priority (c=5),0.18,2019,48,7,41,7,7,34,0,1.0,0.5,0.5,14
+Cost_Optimal_Disaster_Priority (c=5),0.18,2020,39,11,28,9,9,19,2,0.8182,0.5,0.5,18
+Cost_Optimal_Disaster_Priority (c=5),0.18,2022,45,14,31,14,6,25,0,1.0,0.7,0.3,20
+Cost_Optimal_Disaster_Priority (c=5),0.18,2023,43,3,40,1,3,37,2,0.3333,0.25,0.75,4
+Cost_Optimal_Disaster_Priority (c=5),0.18,2024,75,45,30,40,3,27,5,0.8889,0.9302,0.0698,43
+Cost_Optimal_Disaster_Priority (c=5),0.18,2025,67,37,30,34,6,24,3,0.9189,0.85,0.15,40
+Cost_Optimal_Disaster_Priority (c=5),0.18,2026,21,1,20,1,7,13,0,1.0,0.125,0.875,8
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2007,59,26,33,15,4,29,11,0.5769,0.7895,0.2105,19
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2008,37,3,34,1,0,34,2,0.3333,1.0,0.0,1
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2009,40,7,33,5,1,32,2,0.7143,0.8333,0.1667,6
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2010,46,11,35,10,2,33,1,0.9091,0.8333,0.1667,12
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2011,31,1,30,0,0,30,1,0.0,NA,NA,0
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2012,42,12,30,10,3,27,2,0.8333,0.7692,0.2308,13
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2013,40,1,39,0,4,35,1,0.0,0.0,1.0,4
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2014,39,5,34,3,6,28,2,0.6,0.3333,0.6667,9
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2017,37,1,36,0,4,32,1,0.0,0.0,1.0,4
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2018,35,1,34,0,0,34,1,0.0,NA,NA,0
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2019,48,7,41,5,0,41,2,0.7143,1.0,0.0,5
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2020,39,11,28,9,1,27,2,0.8182,0.9,0.1,10
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2022,45,14,31,9,2,29,5,0.6429,0.8182,0.1818,11
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2023,43,3,40,1,0,40,2,0.3333,1.0,0.0,1
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2024,75,45,30,35,0,30,10,0.7778,1.0,0.0,35
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2025,67,37,30,30,4,26,7,0.8108,0.8824,0.1176,34
+Balanced_Harmonic_F1 (Max F1 Score),0.38,2026,21,1,20,1,0,20,0,1.0,1.0,0.0,1

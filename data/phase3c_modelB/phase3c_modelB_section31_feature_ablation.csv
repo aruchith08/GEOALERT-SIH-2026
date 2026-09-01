@@ -1,0 +1,12 @@
+Ablation_Experiment,Feature_Removed,Remaining_Feature_Count,Val_ROC_AUC,Val_PR_AUC,Val_F1_at_T020,Holdout_ROC_AUC,Holdout_PR_AUC,Holdout_F1_at_T020,Holdout_AUC_Impact,Significance
+Full 10-Feature Model (Control),None (All 10 Included),10,0.8447,0.6225,0.6667,0.7653,0.6631,0.566,0.0,Control Baseline
+Remove rainfall_event_day,rainfall_event_day,9,0.8162,0.6012,0.5895,0.7382,0.6028,0.5714,-0.0272,Critical Feature (Significant Drop when Removed)
+Remove ari_3,ari_3,9,0.8169,0.6442,0.6207,0.7606,0.6838,0.5243,-0.0048,Moderate / Complementary Feature
+Remove ari_7,ari_7,9,0.8476,0.638,0.6742,0.7622,0.6491,0.5636,-0.0031,Moderate / Complementary Feature
+Remove ari_15,ari_15,9,0.8834,0.7057,0.6522,0.7775,0.7034,0.5893,0.0122,Potentially Noisy / Redundant
+Remove ari_30,ari_30,9,0.8753,0.6662,0.6593,0.7138,0.5383,0.487,-0.0515,Critical Feature (Significant Drop when Removed)
+Remove max_1day_7d,max_1day_7d,9,0.842,0.6777,0.5412,0.756,0.666,0.5487,-0.0093,Moderate / Complementary Feature
+Remove max_3day_30d,max_3day_30d,9,0.888,0.7178,0.7143,0.7494,0.6782,0.549,-0.016,Critical Feature (Significant Drop when Removed)
+Remove rainy_days_7d,rainy_days_7d,9,0.8439,0.6124,0.6316,0.7604,0.676,0.566,-0.0049,Moderate / Complementary Feature
+Remove rainy_days_15d,rainy_days_15d,9,0.8437,0.6164,0.5977,0.7431,0.6516,0.5607,-0.0222,Critical Feature (Significant Drop when Removed)
+Remove rainy_days_30d,rainy_days_30d,9,0.8598,0.6377,0.6316,0.7529,0.6431,0.5225,-0.0124,Critical Feature (Significant Drop when Removed)

@@ -1,0 +1,75 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring System",
+  "section": "Section 35: Backend Risk API & Real-Time Inference Layer",
+  "timestamp": "2026-09-01T19:59:37.905135",
+  "status": "BACKEND_API_DEPLOYED_AND_VERIFIED",
+  "api_endpoints": [
+    {
+      "method": "GET",
+      "path": "/",
+      "description": "API Root Info & Docs link"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/health",
+      "description": "Backend & Model Health Status"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/metadata",
+      "description": "Model Provenance & Feature Schema"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/risk",
+      "description": "Single-Point Inference (16 static + 10 dynamic features)"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/risk/grid",
+      "description": "Statewide 3,156-point GeoJSON Surface"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/risk/grid/summary",
+      "description": "District / Block Risk Summary Tables"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/risk/location",
+      "description": "Nearest Precomputed Grid Cell Lookup"
+    }
+  ],
+  "frozen_models": {
+    "model_a": {
+      "name": "Static Susceptibility (Model A)",
+      "path": "models/expC_random_forest.joblib",
+      "sha256": "1691cd678c2a9184cf608a9db0e464daee1e9daf237fd2c387b6d936685d5631",
+      "hash_verified": true
+    },
+    "model_b": {
+      "name": "Dynamic Precipitation Trigger Hazard (Model B)",
+      "path": "models/modelB_production_pipeline.joblib",
+      "sha256": "e30aacc2f83eaca410a9a782089300ef1e920dd21051c042385d6159d97318f2",
+      "hash_verified": true
+    }
+  },
+  "coupling": {
+    "equation": "Risk(x, y, t) = P(S) * P(D)",
+    "coupling_threshold": 0.0502,
+    "operational_alert_tiers": {
+      "Green": "Risk < 0.0502 OR P(S) < 0.1500",
+      "Yellow": "0.0502 <= Risk < 0.1500",
+      "Orange": "0.1500 <= Risk < 0.3500",
+      "Red": "Risk >= 0.3500"
+    }
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_a_retrained": false,
+    "model_b_modified": false,
+    "model_b_retrained": false,
+    "sections_14_to_34_modified": false,
+    "operational_public_broadcast_claimed": false
+  }
+}

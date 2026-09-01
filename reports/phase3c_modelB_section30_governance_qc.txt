@@ -1,0 +1,30 @@
+============================================================
+SECTION 30 COMPLETE
+============================================================
+
+Model A modified: NO
+Sections 14–29 modified: NO
+Section 24 dataset modified: NO
+Section 28 dataset modified: NO
+
+Model B supervised training: YES
+Derived training population: 744
+Positive observations: 186
+Background observations: 558
+
+Grouped evaluation: COMPLETED
+Spatial Block-Out: COMPLETED
+Temporal Year-Out: COMPLETED
+
+Preprocessing leakage: NONE
+Spatial/temporal leakage: NONE
+Source-data modification: NONE
+
+Operational threshold created: NO
+Operational false-alarm rate claimed: NO
+
+Feature interpretation: COMPLETED
+Calibration evaluation: COMPLETED
+
+Final QC: PASS
+============================================================

@@ -1,0 +1,64 @@
+================================================================================
+PHASE 2B: CHIRPS RAINFALL EXTRACTION & QUALITY AUDIT REPORT
+================================================================================
+Date/Time: 2026-08-31 16:25:21
+Execution Time: 95.16 seconds
+Total Input Records: 1,052
+Total Output Records: 1,052
+Total Columns: 32
+================================================================================
+
+1. TEMPORAL CLASSIFICATION BREAKDOWN (N = 1,052)
+--------------------------------------------------------------------------------
+Category           Count      Percentage   Rainfall Extraction Action
+--------------------------------------------------------------------------------
+EXACT_DATE         186        17.7       % Dynamic ARI-3/7/15/30 extracted
+YEAR_ONLY          246        23.4       % Assigned 'NA' (Preserves year)
+MONTH_YEAR         14         1.3        % Assigned 'NA' (Preserves month/year)
+NO_DATE            597        56.7       % Assigned 'NA' (No temporal record)
+AMBIGUOUS          9          0.9        % Assigned 'NA' (Multi-date/uncertain)
+--------------------------------------------------------------------------------
+
+2. STAGE 2B-2: 10-RECORD TEMPORAL VALIDATION SAMPLE RESULTS
+--------------------------------------------------------------------------------
+Sl.No    District           Event Date   EventDay(mm)   ARI-3(mm)    ARI-7(mm)    ARI-30(mm)   Max1d_7d   Rainy(7/15/30)
+---------------------------------------------------------------------------------------------------------
+19658    East Jaintia Hills 2018-05-07   65.9           127.6        167.3        328.5        65.9       4/5/8
+19675    Jaintia Hills      2007-07-31   41.6           145.6        317.8        554.6        68.2       7/12/19
+19737    West Khasi Hills   2008-08-12   40.0           76.5         208.4        820.6        66.0       6/11/23
+19739    West Khasi Hills   2008-08-10   24.6           86.0         178.8        806.4        61.5       6/12/25
+19885    East Khasi Hills   2024-05-30   29.3           292.7        400.8        601.2        175.6      6/11/14
+19895    East Khasi Hills   2022-04-04   24.8           37.1         46.0         77.3         24.8       3/4/7
+19902    East Khasi Hills   2009-06-29   60.9           81.1         167.6        886.2        60.9       5/10/16
+19914    South West Khasi Hills 2013-08-06   0.0            91.6         226.0        1076.0       65.4       6/13/23
+19915    West Khasi Hills   2007-07-19   39.1           221.9        355.0        690.1        104.4      7/10/20
+20536    East Khasi Hills   2014-09-23   25.6           179.6        240.6        421.4        89.8       5/10/20
+---------------------------------------------------------------------------------------------------------
+Validation Status: PASS (All 10 sample points exhibit physically plausible monsoon rainfall).
+
+3. ANTECEDENT RAINFALL DISTRIBUTIONS ON EXACT-DATE EVENTS (N = 186)
+--------------------------------------------------------------------------------
+Feature              Min      P5       P25      Median   Mean     P75      P95      Max      Std     
+-----------------------------------------------------------------------------------------------
+rainfall_event_day   0.0      0.0      23.8     44.9     51.0     81.9     111.3    159.3    37.7    
+ari_3                0.0      18.7     78.2     127.8    129.7    171.5    251.6    330.4    72.6    
+ari_7                0.0      45.5     137.0    198.2    203.1    277.7    346.3    411.4    94.4    
+ari_15               0.0      132.3    252.9    344.4    348.7    452.5    545.6    810.6    144.4   
+ari_30               60.3     210.4    408.1    538.2    576.3    772.1    968.8    1076.0   232.6   
+max_1day_7d          0.0      19.4     51.3     70.8     72.4     98.0     120.3    175.6    33.0    
+max_3day_30d         27.1     73.6     127.7    171.8    175.6    209.1    313.7    332.2    65.5    
+rainy_days_7d        0.0      2.2      4.0      5.0      5.1      6.0      7.0      7.0      1.6     
+rainy_days_15d       0.0      5.2      9.0      10.0     10.1     11.0     13.0     15.0     2.4     
+rainy_days_30d       5.0      9.0      16.0     19.0     17.6     20.0     24.0     28.0     4.6     
+-----------------------------------------------------------------------------------------------
+
+
+4. SCIENTIFIC & QUALITY AUDIT FINDINGS
+--------------------------------------------------------------------------------
+1. Total Landslide Records: Exactly 1,052 rows preserved.
+2. Coordinate Integrity: 100% GSI authoritative coordinates retained without drift.
+3. Temporal Honesty: Exactly 186 records with verified dates have dynamic ARI features;
+   all 866 records without exact dates are strictly assigned 'NA'.
+4. Rainfall Ranges: ARI-30 ranges from 60.3mm to 1076.0mm (Mean: 576.3mm),
+   accurately capturing the extreme monsoon rainfall regimes of Meghalaya.
+================================================================================

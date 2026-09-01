@@ -1,0 +1,55 @@
+Evaluation_Strategy,Model_Type,Fold_ID,Train_N,Train_Pos,Train_Bg,Val_N,Val_Pos,Val_Bg,ROC_AUC,PR_AUC,Precision_demo,Recall_demo,F1_demo,Brier_Score,TP,FP,TN,FN
+Stratified_Block_Month_5Fold,Baseline_LogisticRegression,Fold_1,571,136,435,173,50,123,0.8637,0.7473,0.8387,0.52,0.642,0.1278,26,5,118,24
+Stratified_Block_Month_5Fold,Baseline_LogisticRegression,Fold_2,586,144,442,158,42,116,0.8908,0.7671,0.8182,0.6429,0.72,0.1071,27,6,110,15
+Stratified_Block_Month_5Fold,Baseline_LogisticRegression,Fold_3,596,151,445,148,35,113,0.7856,0.6602,0.72,0.5143,0.6,0.1315,18,7,106,17
+Stratified_Block_Month_5Fold,Baseline_LogisticRegression,Fold_4,608,155,453,136,31,105,0.8783,0.7509,0.7692,0.6452,0.7018,0.1063,20,6,99,11
+Stratified_Block_Month_5Fold,Baseline_LogisticRegression,Fold_5,615,158,457,129,28,101,0.8342,0.7215,0.6818,0.5357,0.6,0.106,15,7,94,13
+Stratified_Block_Month_5Fold,Primary_ModelB_GradientBoosted,Fold_1,571,136,435,173,50,123,0.8767,0.8095,0.8649,0.64,0.7356,0.1045,32,5,118,18
+Stratified_Block_Month_5Fold,Primary_ModelB_GradientBoosted,Fold_2,586,144,442,158,42,116,0.8639,0.8247,0.8824,0.7143,0.7895,0.0954,30,4,112,12
+Stratified_Block_Month_5Fold,Primary_ModelB_GradientBoosted,Fold_3,596,151,445,148,35,113,0.9411,0.8662,0.875,0.6,0.7119,0.086,21,3,110,14
+Stratified_Block_Month_5Fold,Primary_ModelB_GradientBoosted,Fold_4,608,155,453,136,31,105,0.8885,0.7506,0.7667,0.7419,0.7541,0.0951,23,7,98,8
+Stratified_Block_Month_5Fold,Primary_ModelB_GradientBoosted,Fold_5,615,158,457,129,28,101,0.8837,0.7939,0.9048,0.6786,0.7755,0.0816,19,2,99,9
+Spatial_Block_Out,Baseline_LogisticRegression,East Khasi Block,564,141,423,180,45,135,0.8421,0.753,0.7714,0.6,0.675,0.1144,27,8,127,18
+Spatial_Block_Out,Baseline_LogisticRegression,Garo Hills Block,712,178,534,32,8,24,0.8854,0.6429,0.625,0.625,0.625,0.129,5,3,21,3
+Spatial_Block_Out,Baseline_LogisticRegression,Jaintia Hills Block,596,149,447,148,37,111,0.9194,0.7758,0.8333,0.5405,0.6557,0.1038,20,4,107,17
+Spatial_Block_Out,Baseline_LogisticRegression,Ri-Bhoi Block,532,133,399,212,53,159,0.7941,0.6524,0.7407,0.3774,0.5,0.1342,20,7,152,33
+Spatial_Block_Out,Baseline_LogisticRegression,West Khasi Block,572,143,429,172,43,129,0.7885,0.6443,0.65,0.6047,0.6265,0.142,26,14,115,17
+Spatial_Block_Out,Primary_ModelB_GradientBoosted,East Khasi Block,564,141,423,180,45,135,0.7782,0.66,0.75,0.4,0.5217,0.1318,18,6,129,27
+Spatial_Block_Out,Primary_ModelB_GradientBoosted,Garo Hills Block,712,178,534,32,8,24,0.8854,0.6208,0.6667,0.5,0.5714,0.1354,4,2,22,4
+Spatial_Block_Out,Primary_ModelB_GradientBoosted,Jaintia Hills Block,596,149,447,148,37,111,0.9065,0.7903,0.8824,0.4054,0.5556,0.1144,15,2,109,22
+Spatial_Block_Out,Primary_ModelB_GradientBoosted,Ri-Bhoi Block,532,133,399,212,53,159,0.7619,0.6351,0.7931,0.434,0.561,0.1467,23,6,153,30
+Spatial_Block_Out,Primary_ModelB_GradientBoosted,West Khasi Block,572,143,429,172,43,129,0.7582,0.6259,0.697,0.5349,0.6053,0.1451,23,10,119,20
+Temporal_Year_Out,Baseline_LogisticRegression,2007,685,160,525,59,26,33,0.704,0.6797,0.75,0.4615,0.5714,0.2303,12,4,29,14
+Temporal_Year_Out,Baseline_LogisticRegression,2008,707,183,524,37,3,34,0.8333,0.4843,1.0,0.3333,0.5,0.0666,1,0,34,2
+Temporal_Year_Out,Baseline_LogisticRegression,2009,704,179,525,40,7,33,0.8398,0.6029,0.0,0.0,0.0,0.112,0,1,32,7
+Temporal_Year_Out,Baseline_LogisticRegression,2010,698,175,523,46,11,35,0.9506,0.7985,0.7333,1.0,0.8462,0.1116,11,4,31,0
+Temporal_Year_Out,Baseline_LogisticRegression,2011,713,185,528,31,1,30,0.9667,0.5,0.0,0.0,0.0,0.0315,0,0,30,1
+Temporal_Year_Out,Baseline_LogisticRegression,2012,702,174,528,42,12,30,0.8972,0.8978,0.7143,0.8333,0.7692,0.1031,10,4,26,2
+Temporal_Year_Out,Baseline_LogisticRegression,2013,704,185,519,40,1,39,0.2308,0.0323,0.0,0.0,0.0,0.1124,0,4,35,1
+Temporal_Year_Out,Baseline_LogisticRegression,2014,705,181,524,39,5,34,0.8882,0.7292,0.4286,0.6,0.5,0.1076,3,4,30,2
+Temporal_Year_Out,Baseline_LogisticRegression,2017,707,185,522,37,1,36,0.9167,0.25,0.0,0.0,0.0,0.0679,0,2,34,1
+Temporal_Year_Out,Baseline_LogisticRegression,2018,709,185,524,35,1,34,0.9118,0.25,0.0,0.0,0.0,0.0506,0,1,33,1
+Temporal_Year_Out,Baseline_LogisticRegression,2019,696,179,517,48,7,41,0.9756,0.9286,1.0,0.8571,0.9231,0.0368,6,0,41,1
+Temporal_Year_Out,Baseline_LogisticRegression,2020,705,175,530,39,11,28,0.7208,0.4857,0.25,0.0909,0.1333,0.2185,1,3,25,10
+Temporal_Year_Out,Baseline_LogisticRegression,2022,699,172,527,45,14,31,0.7558,0.7123,0.8333,0.3571,0.5,0.1703,5,1,30,9
+Temporal_Year_Out,Baseline_LogisticRegression,2023,701,183,518,43,3,40,0.525,0.3874,0.5,0.3333,0.4,0.0745,1,1,39,2
+Temporal_Year_Out,Baseline_LogisticRegression,2024,669,141,528,75,45,30,0.9244,0.9508,1.0,0.3556,0.5246,0.2472,16,0,30,29
+Temporal_Year_Out,Baseline_LogisticRegression,2025,677,149,528,67,37,30,0.8658,0.89,0.8571,0.6486,0.7385,0.1826,24,4,26,13
+Temporal_Year_Out,Baseline_LogisticRegression,2026,723,185,538,21,1,20,0.9,0.3333,0.0,0.0,0.0,0.0635,0,1,19,1
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2007,685,160,525,59,26,33,0.6981,0.72,0.75,0.4615,0.5714,0.2329,12,4,29,14
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2008,707,183,524,37,3,34,0.6176,0.4143,0.5,0.3333,0.4,0.0716,1,1,33,2
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2009,704,179,525,40,7,33,0.7662,0.4323,0.0,0.0,0.0,0.1408,0,2,31,7
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2010,698,175,523,46,11,35,0.9117,0.7933,0.625,0.4545,0.5263,0.1122,5,3,32,6
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2011,713,185,528,31,1,30,0.7667,0.125,0.0,0.0,0.0,0.0341,0,0,30,1
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2012,702,174,528,42,12,30,0.7361,0.5743,0.2,0.0833,0.1176,0.2195,1,4,26,11
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2013,704,185,519,40,1,39,0.0256,0.0256,0.0,0.0,0.0,0.1266,0,5,34,1
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2014,705,181,524,39,5,34,0.6647,0.6544,0.4286,0.6,0.5,0.1531,3,4,30,2
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2017,707,185,522,37,1,36,0.4444,0.0476,0.0,0.0,0.0,0.0581,0,2,34,1
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2018,709,185,524,35,1,34,0.8529,0.1667,0.0,0.0,0.0,0.045,0,1,33,1
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2019,696,179,517,48,7,41,0.9965,0.9821,1.0,0.7143,0.8333,0.0362,5,0,41,2
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2020,705,175,530,39,11,28,0.8669,0.7533,0.9,0.8182,0.8571,0.1138,9,1,27,2
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2022,699,172,527,45,14,31,0.659,0.6534,1.0,0.3571,0.5263,0.1946,5,0,31,9
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2023,701,183,518,43,3,40,0.5167,0.3857,1.0,0.3333,0.5,0.0568,1,0,40,2
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2024,669,141,528,75,45,30,0.843,0.9051,1.0,0.2444,0.3929,0.3324,11,0,30,34
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2025,677,149,528,67,37,30,0.7991,0.8559,0.8333,0.5405,0.6557,0.2263,20,4,26,17
+Temporal_Year_Out,Primary_ModelB_GradientBoosted,2026,723,185,538,21,1,20,1.0,1.0,1.0,1.0,1.0,0.0382,1,0,20,0

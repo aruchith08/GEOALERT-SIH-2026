@@ -1,0 +1,70 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 26F: Minimum-Data Acquisition Audit",
+  "timestamp": "2026-09-01 01:08:27",
+  "status": "AUDIT_COMPLETE_NO_DOWNLOADS_EXECUTED",
+  "section26b_arithmetic_verification": {
+    "event_years_count": 17,
+    "event_years_list": [
+      2007,
+      2008,
+      2009,
+      2010,
+      2011,
+      2012,
+      2013,
+      2014,
+      2017,
+      2018,
+      2019,
+      2020,
+      2022,
+      2023,
+      2024,
+      2025,
+      2026
+    ],
+    "date_ranges_per_year": "March 1 to October 31 (March 1 to July 31 for 2026)",
+    "total_required_season_dates": 4073,
+    "already_cached_dates": 1141,
+    "missing_season_dates": 2932,
+    "file_size_per_grid_bytes": 7900,
+    "estimated_season_download_mb": 22.09,
+    "arithmetic_verification_result": "EXACT_MATCH_CONFIRMED"
+  },
+  "acquisition_options_comparison": {
+    "option_1_full_season": {
+      "description": "Full March-October seasonal coverage across all 17 event years",
+      "missing_grids_to_download": 2932,
+      "download_volume_mb": 22.09,
+      "scientific_justification": "Optimal: Guarantees complete, unbiased climatological sampling across all 17 years; eliminates inter-annual selection bias."
+    },
+    "option_2_event_years_season": {
+      "description": "Full March-October season for the 8 years containing April/May/October events",
+      "missing_grids_to_download": 1249,
+      "download_volume_mb": 9.41,
+      "scientific_justification": "Moderate: Covers all seasonal months for years with non-monsoon landslide triggering."
+    },
+    "option_3_minimal_targeted": {
+      "description": "Strict minimal 30-day antecedent windows for April, May, and October in 8 specific event years",
+      "missing_grids_to_download": 247,
+      "download_volume_mb": 1.86,
+      "scientific_justification": "Mathematical Minimum: Sufficient to generate quotas (69 April dates, 121 May dates, 20 Oct dates), but restricts background to landslide-active years."
+    }
+  },
+  "strata_feasibility": {
+    "total_strata": 35,
+    "total_positive_events": 186,
+    "total_target_background_1to3": 558,
+    "feasibility_under_option1": "100% Feasible with massive surplus (0 shortages)",
+    "feasibility_under_option3": "100% Feasible with sufficient surplus (0 shortages)"
+  },
+  "governance": {
+    "model_a_modified": false,
+    "model_b_trained": false,
+    "existing_558_dataset_modified": false,
+    "binary_labels_created": false,
+    "operational_thresholds_created": false,
+    "download_executed": false
+  }
+}

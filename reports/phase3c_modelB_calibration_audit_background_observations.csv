@@ -1,0 +1,559 @@
+observation_class,failure_status,observation_date,latitude,longitude,spatial_block_id,spatial_block_name,month,is_monsoon,rainfall_event_day,ari_3,ari_7,ari_15,ari_30,max_1day_7d,max_3day_30d,rainy_days_7d,rainy_days_15d,rainy_days_30d
+candidate_background_observation,UNOBSERVED,2024-08-14,25.529692,92.569066,5,Jaintia Hills Block,8,True,0.0,19.12,19.12,89.46,331.0,19.12,129.4,1,4,13
+candidate_background_observation,UNOBSERVED,2014-09-09,25.665308,92.700576,4,Ri-Bhoi Block,9,True,0.0,27.2,98.5,150.05,385.61,36.26,101.66,3,6,15
+candidate_background_observation,UNOBSERVED,2014-09-12,25.901188,92.821593,4,Ri-Bhoi Block,9,True,0.0,0.0,67.26,146.21,320.43,44.84,78.7,2,7,16
+candidate_background_observation,UNOBSERVED,2012-07-12,25.9663,91.210608,4,Ri-Bhoi Block,7,True,24.08,24.08,79.1,264.39,617.52,24.08,140.79,4,9,24
+candidate_background_observation,UNOBSERVED,2012-07-10,25.123822,92.171691,5,Jaintia Hills Block,7,True,8.24,8.24,46.67,212.77,642.55,30.2,199.19,3,9,22
+candidate_background_observation,UNOBSERVED,2012-07-19,25.125592,89.844583,1,Garo Hills Block,7,True,37.11,111.33,274.15,395.08,592.73,86.59,166.56,7,12,23
+candidate_background_observation,UNOBSERVED,2007-08-05,25.986911,92.640517,4,Ri-Bhoi Block,8,True,10.27,20.53,30.8,191.62,410.91,10.27,102.97,3,7,15
+candidate_background_observation,UNOBSERVED,2025-06-20,25.537426,89.855316,1,Garo Hills Block,6,True,0.0,17.65,26.99,34.78,497.57,17.65,287.85,2,4,11
+candidate_background_observation,UNOBSERVED,2007-08-29,25.306395,92.347499,5,Jaintia Hills Block,8,True,13.47,40.41,113.81,251.14,473.61,29.96,114.04,6,9,17
+candidate_background_observation,UNOBSERVED,2024-06-09,25.824538,92.555451,4,Ri-Bhoi Block,6,True,0.0,18.03,18.03,301.51,368.63,18.03,222.73,1,6,11
+candidate_background_observation,UNOBSERVED,2025-06-05,25.33019,92.667537,5,Jaintia Hills Block,6,True,0.0,0.0,233.3,358.1,615.31,91.89,209.13,4,8,20
+candidate_background_observation,UNOBSERVED,2012-07-14,25.678469,90.137288,1,Garo Hills Block,7,True,35.76,83.43,92.18,312.01,820.02,35.76,234.54,4,9,21
+candidate_background_observation,UNOBSERVED,2024-06-22,25.506976,90.87492,1,Garo Hills Block,6,True,0.0,0.0,265.47,513.55,1049.49,82.96,215.7,4,12,22
+candidate_background_observation,UNOBSERVED,2007-08-14,25.602014,92.22814,5,Jaintia Hills Block,8,True,15.7,29.43,103.32,148.03,498.8,54.93,151.63,4,7,16
+candidate_background_observation,UNOBSERVED,2012-07-19,26.084024,92.270235,4,Ri-Bhoi Block,7,True,0.0,43.64,124.3,166.6,487.09,60.49,104.46,4,7,19
+candidate_background_observation,UNOBSERVED,2007-09-03,25.555374,90.755415,1,Garo Hills Block,9,True,13.3,79.79,146.87,241.42,528.38,39.9,104.31,6,11,23
+candidate_background_observation,UNOBSERVED,2014-08-29,26.098438,91.895085,4,Ri-Bhoi Block,8,True,0.0,0.0,63.29,112.26,251.79,39.55,63.29,3,6,16
+candidate_background_observation,UNOBSERVED,2024-07-27,25.634009,91.428339,2,West Khasi Block,7,True,47.98,63.97,103.73,383.94,773.71,47.98,211.98,3,9,15
+candidate_background_observation,UNOBSERVED,2024-08-24,25.353709,92.244591,5,Jaintia Hills Block,8,True,12.11,25.25,148.88,251.59,411.1,54.6,105.43,7,9,15
+candidate_background_observation,UNOBSERVED,2014-09-04,25.319985,90.053767,1,Garo Hills Block,9,True,12.87,12.87,61.67,187.45,490.1,20.91,110.74,4,10,23
+candidate_background_observation,UNOBSERVED,2025-06-18,25.16782,92.230868,5,Jaintia Hills Block,6,True,0.0,77.26,158.26,170.99,931.63,51.5,346.86,6,7,18
+candidate_background_observation,UNOBSERVED,2012-07-22,25.613076,92.694793,5,Jaintia Hills Block,7,True,0.0,47.27,105.97,190.52,468.67,32.59,158.31,4,7,17
+candidate_background_observation,UNOBSERVED,2012-07-17,25.526847,92.6201,5,Jaintia Hills Block,7,True,0.0,59.59,99.31,141.0,489.96,59.59,165.17,2,6,18
+candidate_background_observation,UNOBSERVED,2024-07-22,25.113085,91.354535,2,West Khasi Block,7,True,0.0,33.07,165.33,662.52,1121.07,66.13,378.64,4,9,16
+candidate_background_observation,UNOBSERVED,2012-08-06,26.095158,90.1625,1,Garo Hills Block,8,True,0.0,42.25,56.33,159.57,555.1,28.17,145.45,3,7,19
+candidate_background_observation,UNOBSERVED,2014-09-08,25.187629,92.409663,5,Jaintia Hills Block,9,True,0.0,83.01,138.17,253.21,651.48,59.29,175.94,5,11,20
+candidate_background_observation,UNOBSERVED,2025-06-05,25.036721,90.632397,1,Garo Hills Block,6,True,0.0,0.0,462.16,660.59,1137.77,175.51,437.92,4,7,16
+candidate_background_observation,UNOBSERVED,2012-07-02,25.607736,92.056379,5,Jaintia Hills Block,7,True,31.99,98.73,144.15,351.98,693.38,45.42,131.63,5,13,24
+candidate_background_observation,UNOBSERVED,2012-07-02,25.723425,90.41751,1,Garo Hills Block,7,True,13.66,117.32,180.0,449.91,867.65,62.67,189.88,5,12,25
+candidate_background_observation,UNOBSERVED,2012-07-07,25.206418,89.808028,1,Garo Hills Block,7,True,13.55,75.09,124.55,259.61,411.14,41.21,87.69,6,13,21
+candidate_background_observation,UNOBSERVED,2007-08-08,25.656628,91.237076,4,Ri-Bhoi Block,8,True,0.0,7.21,28.64,312.01,605.16,21.42,189.81,2,8,18
+candidate_background_observation,UNOBSERVED,2019-07-03,25.229473,92.477178,5,Jaintia Hills Block,7,True,0.0,8.12,91.12,322.14,463.83,83.0,193.67,2,7,14
+candidate_background_observation,UNOBSERVED,2012-08-11,25.715036,90.068418,1,Garo Hills Block,8,True,0.0,33.68,63.39,193.23,578.91,16.84,144.59,4,9,20
+candidate_background_observation,UNOBSERVED,2009-07-09,25.172032,90.485935,1,Garo Hills Block,7,True,0.0,0.0,67.16,313.46,645.98,44.77,155.37,2,8,20
+candidate_background_observation,UNOBSERVED,2025-06-19,25.857344,92.595293,4,Ri-Bhoi Block,6,True,0.0,21.58,119.88,126.26,506.28,64.75,285.83,5,6,12
+candidate_background_observation,UNOBSERVED,2025-06-19,25.920591,91.875278,4,Ri-Bhoi Block,6,True,0.0,0.0,64.33,71.06,434.23,36.63,184.32,4,5,14
+candidate_background_observation,UNOBSERVED,2024-06-06,26.015466,92.645536,4,Ri-Bhoi Block,6,True,0.0,0.0,0.0,275.19,339.38,0.0,200.14,0,5,10
+candidate_background_observation,UNOBSERVED,2007-08-11,25.259717,91.646489,3,East Khasi Block,8,True,82.79,127.97,150.57,374.98,1059.64,82.79,269.12,4,9,21
+candidate_background_observation,UNOBSERVED,2012-08-13,25.107242,90.981238,1,Garo Hills Block,8,True,0.0,77.27,173.7,299.48,785.59,51.52,194.96,6,13,25
+candidate_background_observation,UNOBSERVED,2014-08-27,25.439614,92.440468,5,Jaintia Hills Block,8,True,0.0,26.37,135.42,290.09,446.66,42.41,103.0,6,10,17
+candidate_background_observation,UNOBSERVED,2024-08-20,26.028856,91.194761,4,Ri-Bhoi Block,8,True,9.16,18.33,30.74,150.08,287.17,12.41,56.43,3,10,17
+candidate_background_observation,UNOBSERVED,2024-08-20,25.365365,91.236885,2,West Khasi Block,8,True,78.17,78.17,173.11,291.79,616.27,78.17,161.84,3,5,13
+candidate_background_observation,UNOBSERVED,2024-08-22,25.180703,91.924108,3,East Khasi Block,8,True,8.61,65.27,152.03,304.72,613.17,65.07,126.12,5,8,19
+candidate_background_observation,UNOBSERVED,2012-07-12,25.486877,91.661211,3,East Khasi Block,7,True,21.56,21.56,32.77,205.19,656.96,21.56,153.13,2,7,20
+candidate_background_observation,UNOBSERVED,2014-08-31,25.647595,91.343249,2,West Khasi Block,8,True,14.41,64.82,89.27,211.0,442.38,36.01,124.82,5,11,21
+candidate_background_observation,UNOBSERVED,2014-09-02,25.084941,91.980842,3,East Khasi Block,9,True,0.0,43.1,96.98,279.73,667.81,29.63,210.69,5,11,19
+candidate_background_observation,UNOBSERVED,2024-07-10,25.077269,92.276944,5,Jaintia Hills Block,7,True,0.0,55.92,55.92,429.1,1095.76,55.92,303.43,1,5,18
+candidate_background_observation,UNOBSERVED,2024-06-23,25.022222,91.534535,2,West Khasi Block,6,True,0.0,28.29,301.69,780.69,1523.26,105.15,315.5,4,12,20
+candidate_background_observation,UNOBSERVED,2007-08-27,25.505906,92.418039,5,Jaintia Hills Block,8,True,27.59,74.04,140.06,259.79,439.48,37.72,96.33,6,10,17
+candidate_background_observation,UNOBSERVED,2007-09-02,25.09688,91.62635,3,East Khasi Block,9,True,51.54,103.08,197.71,463.11,818.96,51.54,203.44,4,10,19
+candidate_background_observation,UNOBSERVED,2012-07-04,25.057135,91.421284,2,West Khasi Block,7,True,0.0,46.95,130.81,428.8,817.62,60.38,167.65,4,12,25
+candidate_background_observation,UNOBSERVED,2012-08-08,26.091324,91.960861,4,Ri-Bhoi Block,8,True,0.0,56.59,111.09,244.03,439.83,42.44,87.86,5,11,21
+candidate_background_observation,UNOBSERVED,2007-08-27,25.47042,90.498806,1,Garo Hills Block,8,True,35.54,57.13,95.23,247.91,496.08,35.54,107.08,5,10,21
+candidate_background_observation,UNOBSERVED,2024-07-20,25.6599,90.19792,1,Garo Hills Block,7,True,28.01,84.04,195.93,296.21,695.04,83.87,182.99,6,8,16
+candidate_background_observation,UNOBSERVED,2025-06-17,25.241059,91.139788,2,West Khasi Block,6,True,0.0,28.49,124.72,183.4,1070.58,45.88,488.39,5,6,17
+candidate_background_observation,UNOBSERVED,2012-07-15,25.195208,90.745286,1,Garo Hills Block,7,True,49.89,108.09,167.18,306.18,699.04,49.89,135.92,6,13,26
+candidate_background_observation,UNOBSERVED,2007-08-04,25.897963,89.918565,1,Garo Hills Block,8,True,0.0,0.0,80.69,248.59,483.09,40.34,133.71,3,9,20
+candidate_background_observation,UNOBSERVED,2024-07-27,25.043357,91.274959,2,West Khasi Block,7,True,30.0,30.0,56.72,232.35,910.14,30.0,259.37,2,9,19
+candidate_background_observation,UNOBSERVED,2012-06-30,25.907846,92.635174,4,Ri-Bhoi Block,6,True,28.09,56.18,149.79,233.01,563.0,42.13,148.53,5,11,24
+candidate_background_observation,UNOBSERVED,2012-08-03,25.550835,92.775358,5,Jaintia Hills Block,8,True,0.0,14.69,70.43,200.15,356.14,18.58,83.61,4,9,16
+candidate_background_observation,UNOBSERVED,2014-09-03,25.114585,91.898194,3,East Khasi Block,9,True,9.34,37.37,100.92,227.14,673.46,36.32,212.52,5,10,21
+candidate_background_observation,UNOBSERVED,2012-07-09,26.091007,90.402081,1,Garo Hills Block,7,True,34.71,52.06,128.84,361.4,728.45,63.98,191.93,4,10,23
+candidate_background_observation,UNOBSERVED,2024-06-07,25.771843,90.629584,1,Garo Hills Block,6,True,0.0,37.58,186.91,506.25,583.67,59.73,228.1,5,8,13
+candidate_background_observation,UNOBSERVED,2012-07-31,25.098136,92.197857,5,Jaintia Hills Block,7,True,10.8,21.61,108.04,286.63,558.8,54.02,174.5,5,10,18
+candidate_background_observation,UNOBSERVED,2007-09-02,25.42471,92.622864,5,Jaintia Hills Block,9,True,33.0,74.79,118.73,275.34,446.3,33.0,78.69,7,15,23
+candidate_background_observation,UNOBSERVED,2012-07-01,25.078395,91.650454,3,East Khasi Block,7,True,16.35,62.36,218.43,397.24,889.11,92.02,201.62,5,12,24
+candidate_background_observation,UNOBSERVED,2024-08-19,25.397432,92.06251,5,Jaintia Hills Block,8,True,32.87,49.31,112.96,207.46,377.57,47.74,72.91,4,7,13
+candidate_background_observation,UNOBSERVED,2012-08-06,25.195444,91.129782,2,West Khasi Block,8,True,0.0,16.18,141.84,364.04,869.94,48.55,202.19,5,12,24
+candidate_background_observation,UNOBSERVED,2009-07-13,25.734609,90.748677,1,Garo Hills Block,7,True,18.76,28.15,42.55,331.5,553.09,18.76,178.28,3,9,17
+candidate_background_observation,UNOBSERVED,2012-07-07,25.031176,90.017683,1,Garo Hills Block,7,True,29.87,70.93,131.86,260.44,394.31,29.87,76.92,6,13,20
+candidate_background_observation,UNOBSERVED,2007-08-04,25.071674,91.786564,3,East Khasi Block,8,True,23.99,23.99,244.84,544.55,958.86,98.43,285.91,5,9,16
+candidate_background_observation,UNOBSERVED,2024-07-10,25.531833,90.390786,1,Garo Hills Block,7,True,0.0,0.0,113.09,351.3,844.77,75.39,202.14,2,8,21
+candidate_background_observation,UNOBSERVED,2024-08-15,25.042279,91.009057,2,West Khasi Block,8,True,45.42,60.56,203.39,301.85,506.49,75.7,142.83,5,8,15
+candidate_background_observation,UNOBSERVED,2024-08-21,25.915209,91.640424,4,Ri-Bhoi Block,8,True,17.08,32.61,82.26,163.01,319.56,26.35,65.27,6,9,17
+candidate_background_observation,UNOBSERVED,2024-08-13,25.455866,90.028644,1,Garo Hills Block,8,True,17.48,87.42,87.42,206.56,458.3,52.45,99.28,3,6,15
+candidate_background_observation,UNOBSERVED,2024-08-19,25.193585,91.786689,3,East Khasi Block,8,True,101.29,101.29,214.33,366.96,683.2,113.04,172.86,2,7,14
+candidate_background_observation,UNOBSERVED,2012-08-06,25.985324,91.000134,4,Ri-Bhoi Block,8,True,40.1,139.28,176.47,425.17,763.78,61.99,155.18,5,11,21
+candidate_background_observation,UNOBSERVED,2019-07-02,25.725132,92.423438,4,Ri-Bhoi Block,7,True,0.0,23.65,142.63,178.62,316.51,67.99,118.98,4,7,15
+candidate_background_observation,UNOBSERVED,2024-07-25,25.505906,92.418039,5,Jaintia Hills Block,7,True,0.0,0.0,118.16,223.17,513.16,52.68,200.33,3,7,13
+candidate_background_observation,UNOBSERVED,2012-07-04,25.857344,92.595293,4,Ri-Bhoi Block,7,True,0.0,39.77,134.18,307.22,496.69,39.77,107.54,5,12,24
+candidate_background_observation,UNOBSERVED,2024-06-05,25.09209,90.155159,1,Garo Hills Block,6,True,45.1,67.65,114.49,208.16,283.98,46.84,93.68,3,4,8
+candidate_background_observation,UNOBSERVED,2009-07-11,25.186292,92.220838,5,Jaintia Hills Block,7,True,0.0,0.0,72.6,332.98,704.5,72.6,179.62,1,7,20
+candidate_background_observation,UNOBSERVED,2007-08-11,25.731746,90.004499,1,Garo Hills Block,8,True,34.37,46.99,91.38,219.98,518.35,34.37,166.85,4,7,18
+candidate_background_observation,UNOBSERVED,2009-07-07,25.391241,92.068211,5,Jaintia Hills Block,7,True,20.73,20.73,215.14,420.95,763.99,97.2,194.4,4,10,19
+candidate_background_observation,UNOBSERVED,2007-09-01,25.625004,89.950221,1,Garo Hills Block,9,True,19.11,28.0,90.23,164.36,361.4,19.11,87.05,6,12,22
+candidate_background_observation,UNOBSERVED,2024-06-22,25.996868,90.145134,1,Garo Hills Block,6,True,0.0,14.01,224.11,461.94,1037.3,70.03,299.53,5,13,21
+candidate_background_observation,UNOBSERVED,2024-06-05,25.662232,91.513822,4,Ri-Bhoi Block,6,True,0.0,41.76,151.72,387.37,433.92,41.76,185.09,4,8,13
+candidate_background_observation,UNOBSERVED,2024-08-15,25.170323,89.810333,1,Garo Hills Block,8,True,6.12,18.36,70.62,170.62,290.65,24.47,84.45,5,8,14
+candidate_background_observation,UNOBSERVED,2007-08-12,25.176112,91.579993,2,West Khasi Block,8,True,0.0,125.16,146.34,318.91,1047.82,82.8,292.28,4,9,21
+candidate_background_observation,UNOBSERVED,2024-08-21,25.981324,92.420091,4,Ri-Bhoi Block,8,True,10.27,29.22,61.31,156.02,285.48,13.13,81.31,6,9,15
+candidate_background_observation,UNOBSERVED,2007-08-26,25.401833,91.271477,2,West Khasi Block,8,True,69.49,145.06,170.25,355.4,646.3,69.49,178.5,4,9,15
+candidate_background_observation,UNOBSERVED,2025-06-19,25.048455,92.05433,5,Jaintia Hills Block,6,True,0.0,25.64,171.37,213.58,955.27,76.91,353.87,5,8,18
+candidate_background_observation,UNOBSERVED,2014-08-31,25.716309,90.001048,1,Garo Hills Block,8,True,7.61,45.65,83.7,192.65,385.24,30.43,83.77,6,11,21
+candidate_background_observation,UNOBSERVED,2012-08-02,25.205868,90.731567,1,Garo Hills Block,8,True,44.27,82.94,104.75,326.85,706.87,44.27,140.13,6,12,25
+candidate_background_observation,UNOBSERVED,2024-07-31,25.551156,90.323957,1,Garo Hills Block,7,True,0.0,0.0,86.59,240.38,468.26,42.31,97.32,3,8,11
+candidate_background_observation,UNOBSERVED,2024-08-16,25.445955,90.212158,1,Garo Hills Block,8,True,15.93,37.06,143.73,268.29,479.73,42.26,136.56,6,9,15
+candidate_background_observation,UNOBSERVED,2024-07-18,25.820931,90.978652,1,Garo Hills Block,7,True,30.21,75.53,178.68,350.44,563.84,103.16,182.17,4,8,16
+candidate_background_observation,UNOBSERVED,2012-07-08,25.331201,90.788127,1,Garo Hills Block,7,True,0.0,45.19,135.0,394.11,777.53,33.68,148.91,6,12,24
+candidate_background_observation,UNOBSERVED,2007-08-22,25.125592,89.844583,1,Garo Hills Block,8,True,0.0,0.0,42.61,179.2,442.08,15.98,128.32,4,10,19
+candidate_background_observation,UNOBSERVED,2024-06-22,25.464679,92.368105,5,Jaintia Hills Block,6,True,8.76,8.76,350.83,518.54,978.96,106.9,311.52,5,13,19
+candidate_background_observation,UNOBSERVED,2014-09-12,25.933809,92.04394,4,Ri-Bhoi Block,9,True,33.26,67.74,130.23,210.21,379.02,35.71,79.7,5,11,19
+candidate_background_observation,UNOBSERVED,2014-08-29,25.792916,92.203887,4,Ri-Bhoi Block,8,True,4.87,14.6,83.85,209.05,352.12,29.26,90.08,7,11,19
+candidate_background_observation,UNOBSERVED,2007-08-26,25.205176,91.859006,3,East Khasi Block,8,True,126.36,219.06,256.13,477.91,812.22,126.36,219.06,5,10,19
+candidate_background_observation,UNOBSERVED,2024-07-29,25.840327,92.401601,4,Ri-Bhoi Block,7,True,22.47,56.18,84.39,237.78,418.1,22.47,102.57,5,12,18
+candidate_background_observation,UNOBSERVED,2024-06-23,26.037731,92.808266,4,Ri-Bhoi Block,6,True,0.0,0.0,186.54,270.84,580.12,103.64,222.68,3,10,16
+candidate_background_observation,UNOBSERVED,2024-08-18,25.716973,91.064944,4,Ri-Bhoi Block,8,True,0.0,0.0,85.98,183.77,471.2,34.39,147.28,3,6,13
+candidate_background_observation,UNOBSERVED,2024-08-12,25.723358,90.816146,1,Garo Hills Block,8,True,19.62,19.62,94.19,186.55,628.72,24.86,165.12,4,7,19
+candidate_background_observation,UNOBSERVED,2024-06-23,25.238455,90.452498,1,Garo Hills Block,6,True,12.01,24.03,244.38,533.59,993.59,82.63,192.81,6,14,24
+candidate_background_observation,UNOBSERVED,2024-08-18,25.642887,91.72296,3,East Khasi Block,8,True,0.0,0.0,55.88,120.95,278.68,22.35,68.48,3,6,13
+candidate_background_observation,UNOBSERVED,2024-08-01,25.918171,92.532887,4,Ri-Bhoi Block,8,True,0.0,12.15,97.23,180.95,391.75,24.31,122.46,5,10,17
+candidate_background_observation,UNOBSERVED,2024-08-01,25.927779,92.494273,4,Ri-Bhoi Block,8,True,0.0,22.44,89.77,169.71,384.91,22.44,118.78,5,10,17
+candidate_background_observation,UNOBSERVED,2009-07-12,25.128633,91.218252,2,West Khasi Block,7,True,0.0,0.0,36.27,540.12,943.84,36.27,326.99,1,9,22
+candidate_background_observation,UNOBSERVED,2024-07-22,25.39474,89.85825,1,Garo Hills Block,7,True,0.0,0.0,76.93,229.73,488.87,25.64,103.53,4,6,14
+candidate_background_observation,UNOBSERVED,2014-09-09,25.516769,92.776532,5,Jaintia Hills Block,9,True,0.0,42.84,103.58,145.92,386.18,42.84,81.01,4,8,19
+candidate_background_observation,UNOBSERVED,2007-08-07,25.699903,91.43689,4,Ri-Bhoi Block,8,True,7.13,7.13,27.41,324.05,537.44,7.13,186.9,4,10,19
+candidate_background_observation,UNOBSERVED,2025-06-05,25.123345,92.589483,5,Jaintia Hills Block,6,True,0.0,0.0,296.72,544.93,990.87,160.73,289.31,4,9,21
+candidate_background_observation,UNOBSERVED,2019-07-02,25.101031,90.9068,1,Garo Hills Block,7,True,0.0,9.4,265.64,490.95,719.57,119.58,286.44,4,10,19
+candidate_background_observation,UNOBSERVED,2024-08-17,25.442167,92.728948,5,Jaintia Hills Block,8,True,0.0,18.08,36.15,90.57,265.08,18.08,89.03,2,5,12
+candidate_background_observation,UNOBSERVED,2024-06-03,25.292844,89.844979,1,Garo Hills Block,6,True,17.93,35.87,136.49,223.34,259.52,50.31,100.62,4,6,8
+candidate_background_observation,UNOBSERVED,2012-08-17,25.631012,90.914627,1,Garo Hills Block,8,True,54.79,124.97,186.57,441.09,853.6,54.79,173.07,6,14,25
+candidate_background_observation,UNOBSERVED,2012-07-19,25.789386,90.923542,1,Garo Hills Block,7,True,0.0,54.15,221.06,328.46,764.8,81.22,171.5,5,11,21
+candidate_background_observation,UNOBSERVED,2012-08-03,25.144112,91.931735,3,East Khasi Block,8,True,22.54,90.15,161.19,305.17,892.41,45.08,286.63,6,9,18
+candidate_background_observation,UNOBSERVED,2009-07-12,25.550039,89.867981,1,Garo Hills Block,7,True,0.0,0.0,22.33,320.23,529.46,11.16,181.99,2,9,20
+candidate_background_observation,UNOBSERVED,2007-08-07,26.069001,90.159473,1,Garo Hills Block,8,True,0.0,45.59,45.59,343.29,553.67,32.77,167.89,2,9,17
+candidate_background_observation,UNOBSERVED,2024-06-03,25.793794,90.978806,1,Garo Hills Block,6,True,0.0,117.48,292.43,403.05,521.59,116.63,174.95,4,7,12
+candidate_background_observation,UNOBSERVED,2012-07-01,25.763073,90.773916,1,Garo Hills Block,7,True,61.23,101.64,237.46,397.8,809.5,68.47,149.96,5,11,22
+candidate_background_observation,UNOBSERVED,2012-08-11,25.587271,92.770795,5,Jaintia Hills Block,8,True,26.01,63.54,128.6,250.23,525.18,36.92,90.15,6,12,21
+candidate_background_observation,UNOBSERVED,2007-08-14,25.076458,90.573044,1,Garo Hills Block,8,True,46.21,76.53,144.49,209.89,749.36,50.54,201.11,6,9,20
+candidate_background_observation,UNOBSERVED,2012-07-06,25.974348,92.733844,4,Ri-Bhoi Block,7,True,9.56,18.55,119.42,279.51,465.65,28.94,98.24,6,11,23
+candidate_background_observation,UNOBSERVED,2025-06-15,25.209289,89.864983,1,Garo Hills Block,6,True,2.66,3.84,6.55,125.36,593.31,2.66,232.4,1,3,12
+candidate_background_observation,UNOBSERVED,2012-07-12,25.967893,92.094936,4,Ri-Bhoi Block,7,True,11.28,22.55,51.41,188.54,535.11,21.64,115.12,4,9,22
+candidate_background_observation,UNOBSERVED,2009-07-13,25.157714,91.475917,2,West Khasi Block,7,True,24.86,24.86,71.61,591.85,1047.68,46.75,384.92,2,8,21
+candidate_background_observation,UNOBSERVED,2024-08-24,25.316608,90.632898,1,Garo Hills Block,8,True,11.84,36.15,139.7,284.7,511.26,85.83,121.49,5,8,15
+candidate_background_observation,UNOBSERVED,2024-08-02,26.095158,90.1625,1,Garo Hills Block,8,True,0.0,39.73,65.18,141.07,534.58,39.73,136.47,2,6,15
+candidate_background_observation,UNOBSERVED,2007-08-25,25.062393,90.731605,1,Garo Hills Block,8,True,34.88,43.6,61.04,245.71,501.08,34.88,128.79,3,9,18
+candidate_background_observation,UNOBSERVED,2024-07-10,25.101198,91.073728,2,West Khasi Block,7,True,73.3,109.96,188.0,467.21,987.36,73.3,223.84,4,10,23
+candidate_background_observation,UNOBSERVED,2024-07-25,25.672579,92.291073,4,Ri-Bhoi Block,7,True,0.0,25.83,98.66,230.33,527.4,31.33,149.62,4,9,20
+candidate_background_observation,UNOBSERVED,2012-07-22,25.840245,92.502526,4,Ri-Bhoi Block,7,True,0.0,59.51,131.89,228.48,501.67,41.41,112.5,5,8,18
+candidate_background_observation,UNOBSERVED,2009-07-07,25.888438,92.215481,4,Ri-Bhoi Block,7,True,16.64,26.52,95.72,186.58,297.42,39.54,86.36,5,10,15
+candidate_background_observation,UNOBSERVED,2024-07-29,25.379545,90.337269,1,Garo Hills Block,7,True,0.0,52.04,114.5,324.73,640.64,31.23,173.18,5,10,14
+candidate_background_observation,UNOBSERVED,2025-06-17,25.978568,91.235825,4,Ri-Bhoi Block,6,True,0.0,16.11,36.91,36.91,521.74,10.77,234.72,5,5,16
+candidate_background_observation,UNOBSERVED,2012-08-12,25.825803,91.133261,4,Ri-Bhoi Block,8,True,13.02,71.51,185.06,367.37,867.47,64.89,165.88,6,12,22
+candidate_background_observation,UNOBSERVED,2024-08-13,25.046918,91.1321,2,West Khasi Block,8,True,0.0,160.44,187.6,314.97,576.52,100.27,187.6,3,5,13
+candidate_background_observation,UNOBSERVED,2024-08-21,25.06517,92.260644,5,Jaintia Hills Block,8,True,35.68,103.69,194.23,284.89,496.65,56.54,103.69,5,7,14
+candidate_background_observation,UNOBSERVED,2012-08-15,25.931746,91.118809,4,Ri-Bhoi Block,8,True,17.63,35.25,115.61,324.03,753.08,35.25,166.73,5,10,21
+candidate_background_observation,UNOBSERVED,2012-07-15,26.038346,92.000611,4,Ri-Bhoi Block,7,True,0.0,71.51,100.11,204.71,510.03,57.21,124.89,4,9,20
+candidate_background_observation,UNOBSERVED,2014-08-28,25.810848,91.948463,4,Ri-Bhoi Block,8,True,5.62,16.86,90.53,201.44,309.56,28.65,84.94,6,12,21
+candidate_background_observation,UNOBSERVED,2012-08-09,25.951688,90.997921,1,Garo Hills Block,8,True,14.93,29.85,205.18,397.79,790.76,64.24,162.48,6,11,20
+candidate_background_observation,UNOBSERVED,2012-07-30,25.467172,91.426536,2,West Khasi Block,7,True,0.0,42.77,256.11,587.36,898.72,102.24,229.27,6,12,22
+candidate_background_observation,UNOBSERVED,2024-08-18,25.153924,89.826835,1,Garo Hills Block,8,True,0.0,15.41,42.06,122.19,279.81,15.41,82.12,4,7,12
+candidate_background_observation,UNOBSERVED,2025-06-19,25.631446,90.604483,1,Garo Hills Block,6,True,0.0,36.23,71.21,98.14,707.41,18.12,369.48,6,9,17
+candidate_background_observation,UNOBSERVED,2012-07-18,26.021617,91.389024,4,Ri-Bhoi Block,7,True,60.49,90.74,187.45,247.71,569.35,69.08,121.13,5,9,19
+candidate_background_observation,UNOBSERVED,2007-09-01,25.985299,92.354763,4,Ri-Bhoi Block,9,True,0.0,7.63,83.94,233.4,402.41,22.89,97.75,5,11,18
+candidate_background_observation,UNOBSERVED,2024-07-18,25.859334,90.498411,1,Garo Hills Block,7,True,9.4,56.4,194.7,335.74,588.7,69.15,157.1,5,10,18
+candidate_background_observation,UNOBSERVED,2025-06-15,25.555374,90.755415,1,Garo Hills Block,6,True,6.89,19.38,57.36,197.01,894.25,27.04,421.64,6,7,18
+candidate_background_observation,UNOBSERVED,2012-07-21,25.934773,92.325132,4,Ri-Bhoi Block,7,True,26.83,54.47,144.01,258.08,556.63,27.65,115.87,6,10,21
+candidate_background_observation,UNOBSERVED,2024-08-17,25.108966,90.20658,1,Garo Hills Block,8,True,12.99,20.95,76.62,172.62,300.33,31.81,74.92,4,8,15
+candidate_background_observation,UNOBSERVED,2012-08-15,25.286487,91.172791,2,West Khasi Block,8,True,0.0,0.0,144.87,332.93,835.37,49.94,189.1,4,9,22
+candidate_background_observation,UNOBSERVED,2024-08-02,26.0791,90.868331,1,Garo Hills Block,8,True,18.0,18.0,48.33,136.98,422.38,22.74,118.1,3,8,16
+candidate_background_observation,UNOBSERVED,2014-09-12,25.265161,90.474894,1,Garo Hills Block,9,True,0.0,0.0,72.78,174.53,620.21,31.19,188.82,3,7,19
+candidate_background_observation,UNOBSERVED,2009-07-07,25.527433,90.808919,1,Garo Hills Block,7,True,0.0,0.0,191.45,396.03,758.47,119.65,235.48,3,9,20
+candidate_background_observation,UNOBSERVED,2024-07-18,25.888539,90.350997,1,Garo Hills Block,7,True,13.17,52.67,192.48,490.82,720.07,55.92,208.74,6,12,20
+candidate_background_observation,UNOBSERVED,2012-08-05,26.04035,92.635044,4,Ri-Bhoi Block,8,True,27.79,83.36,140.43,279.15,521.08,55.57,109.27,5,10,18
+candidate_background_observation,UNOBSERVED,2012-07-10,25.841763,92.807385,4,Ri-Bhoi Block,7,True,0.0,10.62,47.04,199.91,414.77,21.25,97.48,4,10,22
+candidate_background_observation,UNOBSERVED,2024-08-10,25.850239,90.527087,1,Garo Hills Block,8,True,0.0,24.27,80.11,176.69,472.82,31.58,126.15,4,7,18
+candidate_background_observation,UNOBSERVED,2007-08-13,25.859334,90.498411,1,Garo Hills Block,8,True,75.27,150.54,174.18,296.4,554.79,75.27,177.32,6,10,18
+candidate_background_observation,UNOBSERVED,2024-08-11,25.118371,89.949837,1,Garo Hills Block,8,True,37.43,79.81,79.81,214.41,370.93,42.38,91.56,2,5,12
+candidate_background_observation,UNOBSERVED,2012-08-15,25.221136,91.575198,2,West Khasi Block,8,True,0.0,0.0,129.69,435.16,992.58,62.51,274.42,3,10,20
+candidate_background_observation,UNOBSERVED,2024-08-18,25.674689,91.501183,4,Ri-Bhoi Block,8,True,0.0,0.0,77.07,161.46,396.97,30.83,93.74,3,5,12
+candidate_background_observation,UNOBSERVED,2012-07-13,25.746044,92.186307,4,Ri-Bhoi Block,7,True,16.91,16.91,38.83,183.47,572.51,21.92,144.49,2,8,20
+candidate_background_observation,UNOBSERVED,2024-08-12,25.09336,90.129889,1,Garo Hills Block,8,True,26.71,84.86,107.38,210.86,371.61,35.62,84.86,4,7,15
+candidate_background_observation,UNOBSERVED,2014-09-03,25.493745,92.090149,5,Jaintia Hills Block,9,True,17.16,22.87,62.83,176.77,358.74,22.83,101.11,5,11,17
+candidate_background_observation,UNOBSERVED,2024-07-27,25.46779,89.853999,1,Garo Hills Block,7,True,52.43,121.02,121.02,244.03,575.01,52.43,121.02,3,8,15
+candidate_background_observation,UNOBSERVED,2007-08-12,26.093275,92.023152,4,Ri-Bhoi Block,8,True,17.47,61.89,76.11,123.14,395.44,34.94,103.57,5,6,17
+candidate_background_observation,UNOBSERVED,2019-07-03,26.028856,91.194761,4,Ri-Bhoi Block,7,True,5.12,30.74,146.27,255.41,427.55,49.52,165.05,6,10,18
+candidate_background_observation,UNOBSERVED,2012-07-16,25.167645,91.889695,3,East Khasi Block,7,True,32.93,165.59,220.86,325.98,726.66,77.38,199.61,5,8,19
+candidate_background_observation,UNOBSERVED,2024-07-23,25.220323,91.531154,2,West Khasi Block,7,True,0.0,0.0,156.56,727.66,1273.72,52.19,371.08,4,10,19
+candidate_background_observation,UNOBSERVED,2014-09-12,25.098136,92.479519,5,Jaintia Hills Block,9,True,0.0,0.0,91.49,203.08,625.51,52.28,153.86,3,10,23
+candidate_background_observation,UNOBSERVED,2025-06-17,25.18695,91.049248,2,West Khasi Block,6,True,0.0,74.1,159.1,231.81,1086.12,48.13,414.65,6,7,18
+candidate_background_observation,UNOBSERVED,2024-06-24,25.664193,90.638687,1,Garo Hills Block,6,True,13.71,20.57,132.19,392.58,897.13,79.73,200.35,4,12,22
+candidate_background_observation,UNOBSERVED,2025-06-18,25.731209,92.402003,4,Ri-Bhoi Block,6,True,0.0,55.87,94.06,125.13,477.49,41.9,228.0,5,7,15
+candidate_background_observation,UNOBSERVED,2012-08-16,25.593598,91.045077,2,West Khasi Block,8,True,34.1,56.94,98.43,374.45,740.62,34.1,137.53,5,13,24
+candidate_background_observation,UNOBSERVED,2012-07-15,26.032117,90.309477,1,Garo Hills Block,7,True,34.47,103.42,195.56,299.61,798.88,57.67,218.66,6,8,21
+candidate_background_observation,UNOBSERVED,2024-08-22,25.05217,91.525149,2,West Khasi Block,8,True,19.17,130.71,209.26,398.14,793.57,78.54,190.09,4,7,18
+candidate_background_observation,UNOBSERVED,2012-07-02,25.953016,91.786153,4,Ri-Bhoi Block,7,True,32.45,127.53,153.44,348.07,682.27,51.81,127.53,4,11,23
+candidate_background_observation,UNOBSERVED,2012-07-18,25.763023,90.784584,1,Garo Hills Block,7,True,71.26,142.51,263.98,318.31,770.72,71.26,160.43,6,12,23
+candidate_background_observation,UNOBSERVED,2012-07-11,25.648029,92.595521,5,Jaintia Hills Block,7,True,0.0,0.0,32.43,147.4,525.83,14.6,136.99,3,8,21
+candidate_background_observation,UNOBSERVED,2012-07-02,25.569078,90.280004,1,Garo Hills Block,7,True,35.59,125.78,194.02,476.7,911.42,54.6,181.41,5,11,23
+candidate_background_observation,UNOBSERVED,2025-06-04,25.159988,91.572207,2,West Khasi Block,6,True,0.0,41.57,533.43,808.96,1498.68,207.86,411.72,5,11,25
+candidate_background_observation,UNOBSERVED,2007-08-23,25.646359,90.07146,1,Garo Hills Block,8,True,37.65,50.21,82.13,232.03,544.57,37.65,133.74,4,9,18
+candidate_background_observation,UNOBSERVED,2014-08-27,25.576219,90.088029,1,Garo Hills Block,8,True,7.94,32.05,130.87,323.33,461.82,49.41,108.43,7,14,24
+candidate_background_observation,UNOBSERVED,2012-07-04,25.109561,91.757415,3,East Khasi Block,7,True,21.25,63.76,118.58,417.52,793.95,54.82,201.07,4,12,22
+candidate_background_observation,UNOBSERVED,2009-07-06,25.569078,90.280004,1,Garo Hills Block,7,True,20.26,38.79,296.4,462.31,849.4,109.38,220.56,6,11,24
+candidate_background_observation,UNOBSERVED,2024-08-11,25.843666,90.414458,1,Garo Hills Block,8,True,0.0,0.0,57.37,135.2,453.34,38.91,148.78,2,4,14
+candidate_background_observation,UNOBSERVED,2024-07-31,25.187629,92.409663,5,Jaintia Hills Block,7,True,0.0,43.75,65.63,150.33,205.55,21.88,65.63,3,7,10
+candidate_background_observation,UNOBSERVED,2025-06-18,25.631446,90.604483,1,Garo Hills Block,6,True,18.12,54.35,74.68,98.14,739.45,18.12,369.48,7,9,18
+candidate_background_observation,UNOBSERVED,2024-07-23,25.833225,92.274046,4,Ri-Bhoi Block,7,True,0.0,20.76,87.87,198.56,494.24,33.56,148.58,5,7,17
+candidate_background_observation,UNOBSERVED,2009-07-10,25.50877,92.487652,5,Jaintia Hills Block,7,True,0.0,25.2,50.39,235.21,406.69,25.2,127.08,2,9,17
+candidate_background_observation,UNOBSERVED,2012-08-10,25.599154,91.798675,3,East Khasi Block,8,True,21.25,42.51,120.75,236.31,642.39,31.88,156.28,6,11,23
+candidate_background_observation,UNOBSERVED,2012-08-11,25.824172,89.944929,1,Garo Hills Block,8,True,0.0,52.44,63.65,161.1,491.47,26.22,135.38,3,7,19
+candidate_background_observation,UNOBSERVED,2024-06-22,25.836996,90.137267,1,Garo Hills Block,6,True,0.0,14.61,233.7,472.37,1046.05,73.03,238.63,5,13,21
+candidate_background_observation,UNOBSERVED,2024-08-24,25.448639,90.601919,1,Garo Hills Block,8,True,10.15,37.17,110.97,244.04,509.07,56.9,100.74,5,10,20
+candidate_background_observation,UNOBSERVED,2025-06-04,25.507368,91.594325,2,West Khasi Block,6,True,0.0,0.0,439.67,548.81,880.46,168.21,379.35,4,9,22
+candidate_background_observation,UNOBSERVED,2025-06-04,25.20543,90.11273,1,Garo Hills Block,6,True,0.0,31.19,345.03,536.39,857.91,132.17,256.92,4,8,19
+candidate_background_observation,UNOBSERVED,2012-08-13,25.642887,91.72296,3,East Khasi Block,8,True,0.0,48.84,149.8,298.6,731.89,32.56,137.34,6,13,26
+candidate_background_observation,UNOBSERVED,2024-06-23,25.128573,91.313469,2,West Khasi Block,6,True,0.0,21.6,255.36,625.04,1185.44,97.4,294.67,4,12,21
+candidate_background_observation,UNOBSERVED,2024-08-17,25.458025,91.981088,3,East Khasi Block,8,True,0.0,63.75,85.0,157.32,358.3,63.75,86.22,2,5,14
+candidate_background_observation,UNOBSERVED,2012-08-02,25.669962,90.893399,1,Garo Hills Block,8,True,24.18,74.79,154.09,412.5,836.1,39.65,208.46,6,11,23
+candidate_background_observation,UNOBSERVED,2024-07-26,25.252117,92.809108,5,Jaintia Hills Block,7,True,0.0,17.64,35.27,62.19,349.84,17.64,198.94,2,3,9
+candidate_background_observation,UNOBSERVED,2009-07-05,25.38699,89.910538,1,Garo Hills Block,7,True,0.0,55.65,250.03,311.64,565.24,79.21,162.69,6,9,21
+candidate_background_observation,UNOBSERVED,2025-06-06,25.242529,91.041626,2,West Khasi Block,6,True,0.0,0.0,384.2,771.8,1288.99,208.61,431.73,3,7,17
+candidate_background_observation,UNOBSERVED,2025-06-04,25.92643,90.893547,1,Garo Hills Block,6,True,0.0,22.0,443.19,577.22,991.03,148.08,347.15,5,10,23
+candidate_background_observation,UNOBSERVED,2024-07-21,25.466989,92.733264,5,Jaintia Hills Block,7,True,53.64,89.03,106.72,106.72,476.31,53.64,170.21,4,4,15
+candidate_background_observation,UNOBSERVED,2007-08-24,26.031038,89.96746,1,Garo Hills Block,8,True,0.0,42.6,54.99,184.47,362.77,28.4,92.43,3,8,15
+candidate_background_observation,UNOBSERVED,2012-08-03,25.114585,91.898194,3,East Khasi Block,8,True,23.08,92.31,151.08,333.23,923.49,46.16,299.27,6,11,21
+candidate_background_observation,UNOBSERVED,2024-07-10,26.077232,91.569526,4,Ri-Bhoi Block,7,True,0.0,40.5,115.76,193.07,444.25,56.45,134.99,4,9,21
+candidate_background_observation,UNOBSERVED,2024-06-08,25.468914,92.337724,5,Jaintia Hills Block,6,True,9.7,9.7,63.38,470.12,530.41,53.68,311.52,2,7,12
+candidate_background_observation,UNOBSERVED,2024-08-14,25.1577,90.083743,1,Garo Hills Block,8,True,0.0,30.04,97.47,187.96,329.02,37.4,97.47,3,4,11
+candidate_background_observation,UNOBSERVED,2007-08-28,25.595833,92.039591,5,Jaintia Hills Block,8,True,16.14,56.48,121.9,227.18,362.32,28.04,86.72,7,12,18
+candidate_background_observation,UNOBSERVED,2024-07-19,25.53995,89.935406,1,Garo Hills Block,7,True,16.08,80.42,130.95,370.67,598.18,48.25,136.38,5,9,18
+candidate_background_observation,UNOBSERVED,2024-08-17,25.285972,92.555394,5,Jaintia Hills Block,8,True,0.0,33.79,50.69,127.69,244.88,33.79,77.0,2,4,11
+candidate_background_observation,UNOBSERVED,2012-08-09,25.414249,90.105645,1,Garo Hills Block,8,True,20.5,61.51,128.71,251.03,774.25,53.77,216.45,5,10,22
+candidate_background_observation,UNOBSERVED,2012-08-01,25.041222,92.17761,5,Jaintia Hills Block,8,True,21.54,35.15,130.44,276.3,579.23,54.45,166.96,5,9,17
+candidate_background_observation,UNOBSERVED,2012-07-10,25.988482,92.726932,4,Ri-Bhoi Block,7,True,0.0,14.63,53.44,235.57,464.53,29.25,99.09,3,9,22
+candidate_background_observation,UNOBSERVED,2014-09-14,25.170689,92.169143,5,Jaintia Hills Block,9,True,0.0,41.97,55.43,244.93,580.19,20.98,107.74,3,10,21
+candidate_background_observation,UNOBSERVED,2019-07-03,25.686743,91.034978,4,Ri-Bhoi Block,7,True,0.0,19.33,124.67,289.49,454.57,60.19,195.62,3,7,14
+candidate_background_observation,UNOBSERVED,2024-06-23,25.708848,89.828502,1,Garo Hills Block,6,True,0.0,0.0,163.32,416.48,842.08,62.82,168.85,4,12,20
+candidate_background_observation,UNOBSERVED,2014-09-04,25.116086,91.28528,2,West Khasi Block,9,True,29.8,49.67,140.33,271.4,787.92,47.2,233.69,6,12,23
+candidate_background_observation,UNOBSERVED,2014-09-06,25.688319,92.322439,4,Ri-Bhoi Block,9,True,46.68,86.47,110.34,225.26,414.07,46.68,88.1,5,12,20
+candidate_background_observation,UNOBSERVED,2024-08-14,25.075441,90.959458,1,Garo Hills Block,8,True,0.0,65.63,226.99,355.04,671.47,109.39,205.11,4,7,14
+candidate_background_observation,UNOBSERVED,2024-07-29,25.090021,92.12609,5,Jaintia Hills Block,7,True,20.92,83.68,108.11,193.57,515.94,41.84,243.77,4,8,12
+candidate_background_observation,UNOBSERVED,2012-07-07,25.251924,90.885704,1,Garo Hills Block,7,True,18.72,68.56,130.81,385.75,833.82,31.12,163.36,7,14,27
+candidate_background_observation,UNOBSERVED,2012-08-05,25.423206,89.847326,1,Garo Hills Block,8,True,0.0,40.13,60.2,163.99,512.13,30.1,159.9,3,8,17
+candidate_background_observation,UNOBSERVED,2009-07-06,25.824172,89.944929,1,Garo Hills Block,7,True,13.87,13.87,212.55,335.22,739.35,94.31,191.87,5,10,22
+candidate_background_observation,UNOBSERVED,2024-06-09,26.047732,92.686242,4,Ri-Bhoi Block,6,True,0.0,27.28,27.28,305.76,369.13,27.28,202.53,1,6,11
+candidate_background_observation,UNOBSERVED,2025-06-21,25.195208,90.745286,1,Garo Hills Block,6,True,16.41,16.41,32.28,132.69,858.6,16.41,436.1,2,7,15
+candidate_background_observation,UNOBSERVED,2012-08-16,25.776331,90.415185,1,Garo Hills Block,8,True,26.3,41.86,114.56,264.2,565.41,46.69,145.15,4,9,20
+candidate_background_observation,UNOBSERVED,2012-08-03,25.635083,91.719125,3,East Khasi Block,8,True,10.66,63.94,98.23,333.8,611.35,31.97,137.34,5,12,22
+candidate_background_observation,UNOBSERVED,2014-09-05,25.359968,89.959664,1,Garo Hills Block,9,True,0.0,8.69,45.97,179.67,468.09,18.64,113.18,3,9,21
+candidate_background_observation,UNOBSERVED,2012-08-01,25.970976,91.552567,4,Ri-Bhoi Block,8,True,20.56,34.8,105.97,304.4,460.68,28.47,114.37,6,10,17
+candidate_background_observation,UNOBSERVED,2014-09-11,25.369807,90.215564,1,Garo Hills Block,9,True,13.6,13.6,84.42,169.75,580.78,35.41,117.87,4,10,23
+candidate_background_observation,UNOBSERVED,2025-06-19,25.683296,90.37401,1,Garo Hills Block,6,True,0.0,23.13,71.24,106.05,794.5,23.13,492.36,5,8,16
+candidate_background_observation,UNOBSERVED,2009-07-13,25.607736,92.056379,5,Jaintia Hills Block,7,True,7.66,15.32,49.1,277.88,470.92,22.52,148.49,4,9,19
+candidate_background_observation,UNOBSERVED,2007-08-25,25.525179,92.752621,5,Jaintia Hills Block,8,True,21.13,42.26,101.7,245.74,332.11,24.23,79.99,6,11,15
+candidate_background_observation,UNOBSERVED,2024-08-16,25.52792,89.88844,1,Garo Hills Block,8,True,14.74,14.74,69.75,184.84,360.83,27.5,95.86,4,8,14
+candidate_background_observation,UNOBSERVED,2024-06-21,25.066869,90.862858,1,Garo Hills Block,6,True,0.0,42.19,299.21,580.59,914.88,70.32,196.9,5,13,20
+candidate_background_observation,UNOBSERVED,2007-09-03,25.910022,89.816239,1,Garo Hills Block,9,True,45.79,61.05,85.25,170.16,362.53,45.79,71.7,5,10,21
+candidate_background_observation,UNOBSERVED,2012-07-12,25.152131,91.906635,3,East Khasi Block,7,True,0.0,11.05,36.74,190.95,719.09,25.68,199.61,2,7,19
+candidate_background_observation,UNOBSERVED,2014-09-03,25.950258,92.680851,4,Ri-Bhoi Block,9,True,0.0,28.75,54.63,151.84,285.71,21.57,86.14,4,9,16
+candidate_background_observation,UNOBSERVED,2007-08-10,25.422998,92.769079,5,Jaintia Hills Block,8,True,18.64,18.64,48.4,59.51,407.62,18.64,180.58,4,5,13
+candidate_background_observation,UNOBSERVED,2014-09-08,25.123196,91.274193,2,West Khasi Block,9,True,13.49,121.43,184.11,326.41,859.85,53.97,223.78,7,12,24
+candidate_background_observation,UNOBSERVED,2014-09-09,25.04941,92.228229,5,Jaintia Hills Block,9,True,0.0,70.85,163.23,262.79,747.15,53.14,180.65,6,11,24
+candidate_background_observation,UNOBSERVED,2007-09-03,25.320221,90.421765,1,Garo Hills Block,9,True,12.54,62.69,105.13,215.97,488.96,50.16,93.4,5,9,21
+candidate_background_observation,UNOBSERVED,2025-06-15,25.986715,91.810696,4,Ri-Bhoi Block,6,True,9.61,34.81,44.09,127.1,536.11,20.26,213.24,5,7,18
+candidate_background_observation,UNOBSERVED,2019-07-03,25.385905,90.335661,1,Garo Hills Block,7,True,0.0,10.0,191.03,511.12,730.27,103.45,315.34,3,8,15
+candidate_background_observation,UNOBSERVED,2012-07-22,25.472059,91.238885,2,West Khasi Block,7,True,0.0,109.07,309.76,480.51,871.79,86.01,200.69,6,12,20
+candidate_background_observation,UNOBSERVED,2012-08-04,25.39237,92.525628,5,Jaintia Hills Block,8,True,43.02,57.36,88.68,253.9,512.58,43.02,134.74,4,9,17
+candidate_background_observation,UNOBSERVED,2024-08-18,25.043246,91.441197,2,West Khasi Block,8,True,0.0,0.0,141.29,298.68,543.71,94.2,141.29,2,4,10
+candidate_background_observation,UNOBSERVED,2012-07-16,25.035193,90.830263,1,Garo Hills Block,7,True,64.75,129.46,207.11,291.45,666.08,64.75,157.27,6,12,24
+candidate_background_observation,UNOBSERVED,2007-08-31,25.135911,91.465798,2,West Khasi Block,8,True,0.0,28.95,234.74,360.08,696.09,86.86,183.53,5,10,18
+candidate_background_observation,UNOBSERVED,2012-07-08,25.402218,92.518938,5,Jaintia Hills Block,7,True,8.65,25.96,78.33,384.12,763.86,26.18,216.24,5,11,22
+candidate_background_observation,UNOBSERVED,2024-06-22,25.521967,92.842417,5,Jaintia Hills Block,6,True,11.84,11.84,249.99,362.37,731.56,85.06,234.59,5,11,18
+candidate_background_observation,UNOBSERVED,2007-09-01,25.243941,91.692949,3,East Khasi Block,9,True,30.74,30.74,189.68,332.38,697.54,52.98,167.12,4,8,15
+candidate_background_observation,UNOBSERVED,2012-08-03,25.39474,89.85825,1,Garo Hills Block,8,True,10.03,30.1,66.97,173.64,561.9,20.07,159.9,4,8,18
+candidate_background_observation,UNOBSERVED,2025-06-19,25.591619,91.751572,3,East Khasi Block,6,True,0.0,0.0,93.96,107.38,497.36,44.26,246.74,4,6,14
+candidate_background_observation,UNOBSERVED,2012-07-05,25.020054,91.565181,2,West Khasi Block,7,True,30.76,61.51,129.66,390.43,788.0,52.77,195.76,5,12,24
+candidate_background_observation,UNOBSERVED,2024-06-07,25.389362,92.33564,5,Jaintia Hills Block,6,True,0.0,0.0,126.41,527.87,592.98,63.2,354.23,2,6,11
+candidate_background_observation,UNOBSERVED,2024-06-07,25.617657,92.048126,5,Jaintia Hills Block,6,True,0.0,0.0,51.68,338.64,417.85,51.68,248.7,1,5,11
+candidate_background_observation,UNOBSERVED,2007-08-31,26.051009,92.623655,4,Ri-Bhoi Block,8,True,7.37,36.85,127.61,226.0,420.14,39.18,93.84,7,10,19
+candidate_background_observation,UNOBSERVED,2007-08-11,26.059019,92.744617,4,Ri-Bhoi Block,8,True,33.14,53.21,82.99,147.93,397.16,33.14,100.44,5,8,17
+candidate_background_observation,UNOBSERVED,2025-06-07,25.989607,92.501605,4,Ri-Bhoi Block,6,True,0.0,0.0,84.17,352.03,543.89,56.12,216.2,2,6,15
+candidate_background_observation,UNOBSERVED,2024-08-01,26.029323,91.117957,4,Ri-Bhoi Block,8,True,0.0,10.0,70.02,171.09,395.36,30.01,112.39,4,7,14
+candidate_background_observation,UNOBSERVED,2024-08-22,25.45456,89.87155,1,Garo Hills Block,8,True,16.56,34.37,71.33,128.3,364.35,24.64,121.02,5,8,15
+candidate_background_observation,UNOBSERVED,2024-06-04,25.315278,89.942843,1,Garo Hills Block,6,True,0.0,21.03,158.33,248.2,329.87,58.13,116.27,4,6,9
+candidate_background_observation,UNOBSERVED,2025-06-15,25.062393,90.731605,1,Garo Hills Block,6,True,13.98,34.84,102.58,287.05,1077.95,50.72,412.28,6,8,18
+candidate_background_observation,UNOBSERVED,2014-09-04,25.624128,91.319274,2,West Khasi Block,9,True,8.3,41.51,126.3,225.89,447.48,37.88,132.39,7,13,22
+candidate_background_observation,UNOBSERVED,2024-07-20,25.687481,91.991246,4,Ri-Bhoi Block,7,True,23.78,59.45,190.08,246.53,559.88,94.95,155.97,6,9,19
+candidate_background_observation,UNOBSERVED,2014-09-06,25.052857,90.800849,1,Garo Hills Block,9,True,38.93,74.4,106.42,255.86,636.78,38.93,167.53,6,13,23
+candidate_background_observation,UNOBSERVED,2007-08-09,25.49536,91.362907,2,West Khasi Block,8,True,0.0,10.87,10.87,290.15,799.17,10.87,231.65,1,6,15
+candidate_background_observation,UNOBSERVED,2024-07-30,26.084871,92.660182,4,Ri-Bhoi Block,7,True,12.99,64.95,118.75,212.28,468.1,27.82,100.77,6,12,21
+candidate_background_observation,UNOBSERVED,2025-06-05,25.185168,91.939569,3,East Khasi Block,6,True,0.0,0.0,445.72,704.9,1213.09,238.11,445.72,3,7,20
+candidate_background_observation,UNOBSERVED,2024-08-10,25.951125,92.511848,4,Ri-Bhoi Block,8,True,21.55,21.55,55.87,159.98,369.93,21.55,118.78,3,9,18
+candidate_background_observation,UNOBSERVED,2024-08-17,25.030302,91.028815,2,West Khasi Block,8,True,0.0,54.92,183.06,293.8,496.84,91.53,161.21,3,6,13
+candidate_background_observation,UNOBSERVED,2007-08-13,25.17845,90.764397,1,Garo Hills Block,8,True,15.57,93.41,126.55,232.32,792.4,62.27,214.16,5,8,19
+candidate_background_observation,UNOBSERVED,2007-08-12,25.3236,92.80727,5,Jaintia Hills Block,8,True,13.86,81.22,86.37,104.7,396.81,41.58,129.46,4,6,15
+candidate_background_observation,UNOBSERVED,2024-08-15,25.09688,91.62635,3,East Khasi Block,8,True,120.53,120.53,210.93,379.7,746.13,120.53,196.7,3,7,15
+candidate_background_observation,UNOBSERVED,2007-08-05,25.618143,91.415813,2,West Khasi Block,8,True,0.0,9.86,85.07,359.06,677.88,50.14,198.79,3,8,18
+candidate_background_observation,UNOBSERVED,2007-08-08,25.082411,90.228993,1,Garo Hills Block,8,True,6.55,19.64,19.64,302.58,609.03,13.09,157.81,2,9,18
+candidate_background_observation,UNOBSERVED,2012-08-05,25.644792,91.734861,3,East Khasi Block,8,True,19.47,58.4,130.32,295.12,624.01,29.2,140.15,6,13,24
+candidate_background_observation,UNOBSERVED,2024-07-22,25.326832,90.337072,1,Garo Hills Block,7,True,0.0,0.0,90.28,295.8,648.79,30.09,185.19,3,7,16
+candidate_background_observation,UNOBSERVED,2014-09-05,25.893696,92.241111,4,Ri-Bhoi Block,9,True,11.82,41.38,80.81,199.88,339.73,29.56,102.57,5,11,17
+candidate_background_observation,UNOBSERVED,2024-06-23,25.578522,90.928497,1,Garo Hills Block,6,True,17.02,17.02,214.02,449.79,1000.17,82.08,212.07,4,12,21
+candidate_background_observation,UNOBSERVED,2007-08-26,25.331201,90.788127,1,Garo Hills Block,8,True,11.48,42.34,62.92,254.41,500.95,20.58,131.74,4,11,19
+candidate_background_observation,UNOBSERVED,2012-07-02,25.763889,91.731034,4,Ri-Bhoi Block,7,True,29.32,147.55,175.31,357.81,659.11,69.38,147.55,4,12,23
+candidate_background_observation,UNOBSERVED,2024-06-04,25.282766,92.012507,5,Jaintia Hills Block,6,True,61.7,123.4,448.08,623.4,768.42,233.76,379.86,5,7,13
+candidate_background_observation,UNOBSERVED,2012-07-14,25.848661,92.561388,4,Ri-Bhoi Block,7,True,63.96,63.96,72.73,214.93,506.36,63.96,115.14,2,7,19
+candidate_background_observation,UNOBSERVED,2024-06-22,26.032081,91.714241,4,Ri-Bhoi Block,6,True,0.0,0.0,240.08,351.26,544.72,70.61,197.71,4,12,16
+candidate_background_observation,UNOBSERVED,2024-08-20,25.046767,91.462329,2,West Khasi Block,8,True,43.39,108.46,202.66,343.95,652.17,94.2,141.29,3,5,12
+candidate_background_observation,UNOBSERVED,2007-08-07,25.047141,91.060022,2,West Khasi Block,8,True,6.71,6.71,37.4,449.06,852.73,30.69,229.39,2,9,19
+candidate_background_observation,UNOBSERVED,2024-08-15,25.91447,90.320118,1,Garo Hills Block,8,True,55.93,55.93,55.93,195.69,368.36,55.93,89.22,1,6,13
+candidate_background_observation,UNOBSERVED,2009-07-08,25.800258,92.348383,4,Ri-Bhoi Block,7,True,33.93,50.9,127.12,229.67,344.29,45.73,91.46,4,9,16
+candidate_background_observation,UNOBSERVED,2024-06-10,25.562592,91.71353,3,East Khasi Block,6,True,20.09,60.26,60.26,352.11,452.39,20.09,206.67,3,8,15
+candidate_background_observation,UNOBSERVED,2014-09-13,25.106371,91.44796,2,West Khasi Block,9,True,47.66,71.5,159.35,400.83,860.81,73.21,249.74,4,12,23
+candidate_background_observation,UNOBSERVED,2007-08-23,25.813912,90.193269,1,Garo Hills Block,8,True,47.05,47.05,59.71,260.86,558.33,47.05,142.81,2,9,17
+candidate_background_observation,UNOBSERVED,2007-08-12,25.117418,91.603852,3,East Khasi Block,8,True,0.0,146.68,156.12,383.62,1068.38,108.94,274.11,3,8,20
+candidate_background_observation,UNOBSERVED,2012-08-01,25.736821,89.943239,1,Garo Hills Block,8,True,0.0,10.9,98.06,239.38,562.5,32.69,153.81,5,10,20
+candidate_background_observation,UNOBSERVED,2025-06-20,25.043357,91.274959,2,West Khasi Block,6,True,0.0,0.0,64.58,155.24,768.36,39.27,400.3,2,6,13
+candidate_background_observation,UNOBSERVED,2012-08-09,26.078456,91.000843,4,Ri-Bhoi Block,8,True,0.0,16.77,159.75,322.95,646.23,50.31,159.03,5,10,19
+candidate_background_observation,UNOBSERVED,2009-07-05,25.961619,92.601673,4,Ri-Bhoi Block,7,True,0.0,36.79,109.75,136.41,315.79,36.79,77.89,4,6,14
+candidate_background_observation,UNOBSERVED,2007-08-06,25.555374,90.755415,1,Garo Hills Block,8,True,17.52,43.47,81.63,382.45,687.03,38.16,187.83,4,10,20
+candidate_background_observation,UNOBSERVED,2024-06-03,25.545933,91.961378,3,East Khasi Block,6,True,0.0,46.52,251.35,310.55,390.16,126.05,204.83,4,7,13
+candidate_background_observation,UNOBSERVED,2009-07-07,25.730022,90.692901,1,Garo Hills Block,7,True,0.0,7.92,139.34,322.84,647.45,109.51,206.55,3,7,18
+candidate_background_observation,UNOBSERVED,2024-08-11,25.248654,90.243122,1,Garo Hills Block,8,True,33.45,61.64,89.83,220.65,403.25,33.45,87.37,3,7,14
+candidate_background_observation,UNOBSERVED,2025-06-17,25.119844,91.87233,3,East Khasi Block,6,True,14.09,75.56,139.79,142.43,1070.91,42.26,469.3,7,8,19
+candidate_background_observation,UNOBSERVED,2025-06-20,25.119603,91.350985,2,West Khasi Block,6,True,0.0,0.0,75.86,169.98,828.41,47.32,410.29,2,6,13
+candidate_background_observation,UNOBSERVED,2024-08-19,25.773966,90.748468,1,Garo Hills Block,8,True,0.0,24.4,66.29,183.43,358.86,27.92,90.99,3,8,13
+candidate_background_observation,UNOBSERVED,2012-08-15,25.763,92.216993,4,Ri-Bhoi Block,8,True,0.0,29.87,91.26,245.98,582.91,30.97,139.61,4,10,20
+candidate_background_observation,UNOBSERVED,2009-07-07,25.670178,90.148031,1,Garo Hills Block,7,True,14.18,28.35,192.47,428.95,812.31,102.57,227.16,5,11,23
+candidate_background_observation,UNOBSERVED,2007-08-28,25.906882,89.851016,1,Garo Hills Block,8,True,12.13,42.46,97.86,182.53,377.1,23.75,78.17,6,11,17
+candidate_background_observation,UNOBSERVED,2024-08-17,25.839498,92.706989,4,Ri-Bhoi Block,8,True,9.09,9.09,34.16,90.21,273.72,25.07,61.65,2,6,16
+candidate_background_observation,UNOBSERVED,2014-09-03,25.646365,92.691563,5,Jaintia Hills Block,9,True,0.0,17.52,51.54,137.25,303.23,22.68,101.66,3,8,14
+candidate_background_observation,UNOBSERVED,2024-08-23,25.057629,92.136268,5,Jaintia Hills Block,8,True,6.61,47.17,137.28,261.22,462.72,54.07,106.84,6,8,13
+candidate_background_observation,UNOBSERVED,2012-08-13,25.835571,92.630522,4,Ri-Bhoi Block,8,True,0.0,24.78,105.18,241.51,514.74,40.2,97.46,4,11,22
+candidate_background_observation,UNOBSERVED,2025-06-05,25.808154,90.302244,1,Garo Hills Block,6,True,0.0,0.0,381.52,554.61,969.34,130.1,350.75,4,7,21
+candidate_background_observation,UNOBSERVED,2014-09-05,25.512223,91.960107,3,East Khasi Block,9,True,9.77,39.09,75.95,154.71,327.46,19.54,87.41,7,13,22
+candidate_background_observation,UNOBSERVED,2014-09-04,25.314915,91.656438,3,East Khasi Block,9,True,32.89,57.56,139.73,248.33,632.48,32.89,185.6,7,13,24
+candidate_background_observation,UNOBSERVED,2024-06-21,25.843823,91.364886,4,Ri-Bhoi Block,6,True,0.0,40.74,243.62,353.3,722.02,67.9,190.89,5,12,19
+candidate_background_observation,UNOBSERVED,2024-06-08,26.003659,92.381991,4,Ri-Bhoi Block,6,True,0.0,0.0,0.0,225.51,277.45,0.0,164.01,0,5,10
+candidate_background_observation,UNOBSERVED,2009-07-10,25.798565,92.021836,4,Ri-Bhoi Block,7,True,0.0,26.42,39.63,215.49,377.66,26.42,138.06,2,8,18
+candidate_background_observation,UNOBSERVED,2007-08-04,25.067113,92.194179,5,Jaintia Hills Block,8,True,22.0,43.99,289.82,532.49,882.98,83.94,223.83,6,12,20
+candidate_background_observation,UNOBSERVED,2014-08-31,25.123345,92.589483,5,Jaintia Hills Block,8,True,7.8,39.01,107.2,292.18,546.4,36.98,148.45,7,13,23
+candidate_background_observation,UNOBSERVED,2012-07-17,25.937828,90.196555,1,Garo Hills Block,7,True,20.08,103.25,167.77,293.48,741.06,43.01,230.19,6,11,23
+candidate_background_observation,UNOBSERVED,2024-08-18,25.082491,89.817129,1,Garo Hills Block,8,True,0.0,27.46,47.78,123.62,272.37,27.46,78.16,4,7,11
+candidate_background_observation,UNOBSERVED,2024-08-17,25.117411,91.648346,3,East Khasi Block,8,True,0.0,120.53,210.93,267.19,705.95,120.53,196.7,3,5,13
+candidate_background_observation,UNOBSERVED,2012-07-11,25.196062,91.932742,3,East Khasi Block,7,True,11.98,11.98,75.0,164.19,715.41,42.54,201.14,4,8,21
+candidate_background_observation,UNOBSERVED,2014-09-13,25.781304,90.059861,1,Garo Hills Block,9,True,31.43,62.87,109.58,208.45,413.76,31.43,79.21,5,11,23
+candidate_background_observation,UNOBSERVED,2007-08-11,25.420732,90.781089,1,Garo Hills Block,8,True,67.58,87.81,108.04,260.66,827.71,67.58,216.66,4,8,19
+candidate_background_observation,UNOBSERVED,2007-08-14,25.720591,91.744208,4,Ri-Bhoi Block,8,True,17.52,32.84,106.07,142.73,552.18,61.3,158.79,4,7,16
+candidate_background_observation,UNOBSERVED,2024-08-13,25.192472,90.307479,1,Garo Hills Block,8,True,0.0,68.72,127.43,245.93,426.35,39.14,107.86,4,7,15
+candidate_background_observation,UNOBSERVED,2024-08-01,25.802376,91.031624,4,Ri-Bhoi Block,8,True,0.0,0.0,132.74,250.14,578.88,49.78,146.83,4,9,17
+candidate_background_observation,UNOBSERVED,2012-06-30,25.41811,90.000819,1,Garo Hills Block,6,True,22.27,22.27,188.73,354.64,688.78,56.93,150.15,5,11,24
+candidate_background_observation,UNOBSERVED,2025-06-05,26.037332,90.459375,1,Garo Hills Block,6,True,0.0,0.0,315.51,496.66,891.0,148.01,325.63,3,6,19
+candidate_background_observation,UNOBSERVED,2024-08-18,25.849872,90.07208,1,Garo Hills Block,8,True,0.0,0.0,39.88,92.17,250.39,19.94,86.1,2,5,13
+candidate_background_observation,UNOBSERVED,2024-07-26,26.004157,91.031458,4,Ri-Bhoi Block,7,True,7.75,62.11,82.97,155.71,390.74,54.35,99.71,3,5,15
+candidate_background_observation,UNOBSERVED,2007-08-06,25.437329,91.039285,2,West Khasi Block,8,True,11.17,11.17,61.31,408.58,822.15,50.14,213.56,2,9,19
+candidate_background_observation,UNOBSERVED,2009-07-05,26.021556,91.027965,4,Ri-Bhoi Block,7,True,0.0,26.59,233.45,262.66,474.27,106.38,163.79,4,8,15
+candidate_background_observation,UNOBSERVED,2014-09-13,25.726325,91.94705,4,Ri-Bhoi Block,9,True,10.86,43.44,67.93,161.12,315.2,21.72,56.48,5,13,25
+candidate_background_observation,UNOBSERVED,2012-07-17,25.994771,92.135756,4,Ri-Bhoi Block,7,True,43.48,43.48,128.22,180.44,523.83,43.48,122.72,5,9,20
+candidate_background_observation,UNOBSERVED,2014-09-15,25.099724,91.04827,2,West Khasi Block,9,True,0.0,71.52,126.5,294.22,695.07,35.76,191.93,5,11,24
+candidate_background_observation,UNOBSERVED,2012-07-30,25.166293,91.105368,2,West Khasi Block,7,True,0.0,28.85,183.58,476.23,710.91,85.32,197.32,6,11,23
+candidate_background_observation,UNOBSERVED,2024-08-01,25.48976,91.559371,2,West Khasi Block,8,True,0.0,55.62,194.68,314.88,878.05,55.62,260.14,5,8,15
+candidate_background_observation,UNOBSERVED,2007-08-23,26.074166,92.718825,4,Ri-Bhoi Block,8,True,20.19,70.66,118.1,257.03,443.35,47.45,92.77,4,9,16
+candidate_background_observation,UNOBSERVED,2019-07-02,25.740624,90.664363,1,Garo Hills Block,7,True,0.0,23.13,286.66,384.0,561.09,131.76,263.53,4,8,15
+candidate_background_observation,UNOBSERVED,2025-06-18,25.506629,90.670851,1,Garo Hills Block,6,True,18.77,37.55,65.33,101.25,868.69,18.77,439.24,6,8,18
+candidate_background_observation,UNOBSERVED,2009-07-09,25.281815,91.875349,3,East Khasi Block,7,True,13.77,41.32,105.85,460.83,882.7,64.53,254.39,3,9,19
+candidate_background_observation,UNOBSERVED,2007-08-08,25.389692,91.143073,2,West Khasi Block,8,True,0.0,21.1,21.1,397.28,831.87,10.55,231.65,2,9,19
+candidate_background_observation,UNOBSERVED,2024-07-24,26.026793,90.808523,1,Garo Hills Block,7,True,48.05,48.05,80.98,209.62,484.16,48.05,134.81,3,8,19
+candidate_background_observation,UNOBSERVED,2012-07-22,25.159484,91.617705,3,East Khasi Block,7,True,0.0,92.93,407.93,589.08,1003.16,140.0,280.0,6,11,22
+candidate_background_observation,UNOBSERVED,2014-09-14,25.241719,91.25706,2,West Khasi Block,9,True,19.55,58.64,74.45,278.32,739.23,39.09,213.98,3,11,24
+candidate_background_observation,UNOBSERVED,2025-06-19,25.954957,89.897934,1,Garo Hills Block,6,True,0.0,46.18,129.85,141.91,571.34,69.26,219.34,5,7,14
+candidate_background_observation,UNOBSERVED,2024-07-19,25.607715,91.457583,2,West Khasi Block,7,True,26.7,80.09,233.72,402.97,805.39,126.94,211.73,5,7,16
+candidate_background_observation,UNOBSERVED,2024-08-19,25.565577,91.420559,2,West Khasi Block,8,True,0.0,0.0,67.24,142.52,437.92,44.83,141.44,2,4,12
+candidate_background_observation,UNOBSERVED,2014-09-03,25.854298,90.321382,1,Garo Hills Block,9,True,0.0,32.71,96.84,242.12,433.17,40.08,95.25,6,12,21
+candidate_background_observation,UNOBSERVED,2014-08-31,25.045998,91.110821,2,West Khasi Block,8,True,10.51,63.06,112.71,392.84,688.6,42.04,196.73,6,13,22
+candidate_background_observation,UNOBSERVED,2012-08-03,25.428873,92.067028,5,Jaintia Hills Block,8,True,0.0,69.88,122.36,264.02,694.89,34.99,201.69,4,8,17
+candidate_background_observation,UNOBSERVED,2024-07-18,25.569078,90.280004,1,Garo Hills Block,7,True,24.33,48.66,120.84,276.54,586.74,72.18,137.75,3,5,16
+candidate_background_observation,UNOBSERVED,2025-06-18,26.090552,91.892409,4,Ri-Bhoi Block,6,True,0.0,39.23,69.89,75.43,462.93,39.23,220.62,4,5,14
+candidate_background_observation,UNOBSERVED,2014-09-05,25.38213,92.258091,5,Jaintia Hills Block,9,True,6.26,56.32,111.75,270.66,512.7,31.29,124.88,7,14,22
+candidate_background_observation,UNOBSERVED,2024-07-24,25.174667,90.708414,1,Garo Hills Block,7,True,0.0,0.0,44.84,275.22,630.57,29.89,165.95,2,6,15
+candidate_background_observation,UNOBSERVED,2024-06-22,25.556786,89.897794,1,Garo Hills Block,6,True,0.0,12.32,184.87,392.94,739.04,61.62,147.9,5,13,21
+candidate_background_observation,UNOBSERVED,2024-08-17,25.210022,90.573856,1,Garo Hills Block,8,True,0.0,35.08,87.7,232.91,390.57,35.08,93.41,4,9,16
+candidate_background_observation,UNOBSERVED,2024-08-21,25.498522,90.305534,1,Garo Hills Block,8,True,8.56,32.48,91.8,222.59,458.48,35.4,123.37,4,10,17
+candidate_background_observation,UNOBSERVED,2014-09-09,25.867734,92.828102,4,Ri-Bhoi Block,9,True,0.0,25.82,94.64,144.96,318.82,43.04,79.96,3,7,17
+candidate_background_observation,UNOBSERVED,2024-07-24,25.991902,91.166891,4,Ri-Bhoi Block,7,True,44.42,44.42,83.93,147.39,390.71,44.42,118.69,3,4,14
+candidate_background_observation,UNOBSERVED,2014-08-31,25.088083,92.305065,5,Jaintia Hills Block,8,True,7.7,46.18,99.19,336.56,613.57,30.79,167.31,6,13,22
+candidate_background_observation,UNOBSERVED,2024-08-24,25.064924,89.870488,1,Garo Hills Block,8,True,5.58,18.86,39.14,113.91,286.6,14.42,83.27,4,9,14
+candidate_background_observation,UNOBSERVED,2024-08-01,25.11352,92.062564,5,Jaintia Hills Block,8,True,0.0,0.0,86.47,194.56,363.05,43.23,92.89,3,5,10
+candidate_background_observation,UNOBSERVED,2009-07-10,25.166757,90.003215,1,Garo Hills Block,7,True,0.0,0.0,24.12,255.01,467.69,12.06,134.41,2,7,17
+candidate_background_observation,UNOBSERVED,2025-06-16,26.076774,91.594722,4,Ri-Bhoi Block,6,True,27.57,46.95,57.68,79.08,407.5,27.57,178.68,5,6,17
+candidate_background_observation,UNOBSERVED,2012-08-08,25.104866,89.904963,1,Garo Hills Block,8,True,29.29,29.29,88.15,119.86,511.01,35.31,163.43,4,7,19
+candidate_background_observation,UNOBSERVED,2007-08-13,25.12655,91.688234,3,East Khasi Block,8,True,0.0,124.34,165.74,334.42,1038.68,93.25,266.39,4,9,21
+candidate_background_observation,UNOBSERVED,2012-07-13,25.965963,92.515444,4,Ri-Bhoi Block,7,True,0.0,0.0,27.87,172.92,447.65,16.72,105.54,2,8,20
+candidate_background_observation,UNOBSERVED,2007-08-08,25.67422,92.736755,4,Ri-Bhoi Block,8,True,0.0,15.74,42.62,188.99,365.34,26.88,122.44,2,5,13
+candidate_background_observation,UNOBSERVED,2014-09-07,25.933053,90.705241,1,Garo Hills Block,9,True,36.3,74.69,124.37,289.06,508.29,36.3,110.06,7,13,20
+candidate_background_observation,UNOBSERVED,2012-07-08,25.675848,91.253704,4,Ri-Bhoi Block,7,True,0.0,15.15,64.69,342.34,660.74,37.15,157.06,3,10,22
+candidate_background_observation,UNOBSERVED,2024-08-17,25.890498,91.913564,4,Ri-Bhoi Block,8,True,0.0,38.38,64.86,164.8,308.83,26.49,67.98,3,8,16
+candidate_background_observation,UNOBSERVED,2012-07-14,25.856436,89.903057,1,Garo Hills Block,7,True,18.84,75.35,95.32,278.38,793.48,28.26,225.8,5,11,25
+candidate_background_observation,UNOBSERVED,2007-08-29,26.099303,90.358512,1,Garo Hills Block,8,True,7.43,22.29,84.58,153.25,382.04,37.95,98.86,5,8,16
+candidate_background_observation,UNOBSERVED,2007-08-10,25.258483,92.199092,5,Jaintia Hills Block,8,True,40.53,40.53,59.93,304.97,806.94,40.53,255.2,2,7,16
+candidate_background_observation,UNOBSERVED,2024-08-21,25.34638,89.828776,1,Garo Hills Block,8,True,7.02,19.64,57.5,138.97,330.92,25.24,125.96,4,7,12
+candidate_background_observation,UNOBSERVED,2012-07-20,25.499945,91.596278,2,West Khasi Block,7,True,68.44,205.31,389.58,447.94,878.37,68.44,205.31,7,10,22
+candidate_background_observation,UNOBSERVED,2014-08-31,25.022651,91.067919,2,West Khasi Block,8,True,26.16,78.47,126.78,448.28,801.93,52.32,219.65,4,11,21
+candidate_background_observation,UNOBSERVED,2024-07-10,25.140559,92.00706,5,Jaintia Hills Block,7,True,0.0,57.9,57.9,442.86,1135.42,57.9,329.45,1,6,18
+candidate_background_observation,UNOBSERVED,2012-07-21,26.085596,92.317702,4,Ri-Bhoi Block,7,True,22.36,22.36,83.91,185.96,438.94,41.03,91.24,3,8,19
+candidate_background_observation,UNOBSERVED,2012-08-10,25.987136,91.279158,4,Ri-Bhoi Block,8,True,22.72,45.44,189.5,334.74,657.71,45.44,121.34,7,13,23
+candidate_background_observation,UNOBSERVED,2024-07-20,25.763073,90.773916,1,Garo Hills Block,7,True,35.77,89.42,239.55,247.2,495.53,85.77,132.24,7,8,17
+candidate_background_observation,UNOBSERVED,2024-06-10,25.023476,91.540369,2,West Khasi Block,6,True,60.12,240.48,270.54,829.78,986.11,90.18,315.5,4,9,15
+candidate_background_observation,UNOBSERVED,2025-06-21,25.683296,90.37401,1,Garo Hills Block,6,True,0.0,0.0,58.33,106.05,750.09,23.13,492.36,3,8,15
+candidate_background_observation,UNOBSERVED,2012-08-05,25.284373,89.950815,1,Garo Hills Block,8,True,0.0,46.22,57.78,178.99,583.56,34.67,190.5,3,8,19
+candidate_background_observation,UNOBSERVED,2024-07-19,26.077723,92.669847,4,Ri-Bhoi Block,7,True,9.39,28.16,123.55,226.34,441.35,33.61,100.77,6,11,19
+candidate_background_observation,UNOBSERVED,2014-09-07,25.576124,90.30438,1,Garo Hills Block,9,True,37.94,81.09,96.73,270.53,535.48,37.94,110.56,6,14,23
+candidate_background_observation,UNOBSERVED,2012-08-14,25.838167,92.721966,4,Ri-Bhoi Block,8,True,12.5,12.5,91.94,255.66,490.36,40.82,99.32,4,12,21
+candidate_background_observation,UNOBSERVED,2009-07-08,26.042855,91.638872,4,Ri-Bhoi Block,7,True,17.75,35.51,94.27,204.93,366.55,58.77,121.42,4,12,22
+candidate_background_observation,UNOBSERVED,2012-07-31,25.076017,89.906706,1,Garo Hills Block,7,True,10.57,10.57,31.71,228.46,534.9,10.57,163.43,3,9,20
+candidate_background_observation,UNOBSERVED,2014-08-29,25.867126,90.977803,1,Garo Hills Block,8,True,16.42,24.63,129.78,234.74,428.82,48.47,96.94,6,13,24
+candidate_background_observation,UNOBSERVED,2007-09-03,25.644488,91.319296,2,West Khasi Block,9,True,20.57,82.28,145.26,284.53,586.17,30.86,110.73,6,13,21
+candidate_background_observation,UNOBSERVED,2007-08-22,25.906278,90.190247,1,Garo Hills Block,8,True,9.4,20.93,43.99,213.95,521.83,11.53,166.4,4,10,18
+candidate_background_observation,UNOBSERVED,2012-07-16,25.459354,92.386314,5,Jaintia Hills Block,7,True,0.0,157.41,173.15,259.81,654.52,78.7,209.52,3,8,18
+candidate_background_observation,UNOBSERVED,2009-07-08,25.15737,90.721506,1,Garo Hills Block,7,True,0.0,0.0,162.98,353.61,704.57,81.49,175.77,4,9,22
+candidate_background_observation,UNOBSERVED,2024-07-29,25.807633,91.99066,4,Ri-Bhoi Block,7,True,24.36,73.07,73.07,268.57,537.61,24.36,119.75,3,9,14
+candidate_background_observation,UNOBSERVED,2014-09-05,25.194847,90.560351,1,Garo Hills Block,9,True,0.0,35.15,82.59,267.59,639.19,35.15,151.22,3,10,21
+candidate_background_observation,UNOBSERVED,2025-06-21,25.04369,91.559849,2,West Khasi Block,6,True,31.18,31.18,87.74,199.88,956.25,31.18,353.91,3,8,19
+candidate_background_observation,UNOBSERVED,2007-09-04,25.805138,90.952995,1,Garo Hills Block,9,True,35.08,87.7,181.56,268.36,529.33,52.62,111.93,6,11,22
+candidate_background_observation,UNOBSERVED,2007-08-10,25.420732,90.781089,1,Garo Hills Block,8,True,20.23,20.23,40.46,263.99,774.04,20.23,216.66,3,8,19
+candidate_background_observation,UNOBSERVED,2007-08-09,25.448779,90.083524,1,Garo Hills Block,8,True,0.0,0.0,61.67,275.67,617.34,36.09,157.54,3,8,18
+candidate_background_observation,UNOBSERVED,2014-09-01,25.339321,90.658318,1,Garo Hills Block,9,True,3.98,66.24,107.75,367.65,671.85,34.59,160.65,6,13,24
+candidate_background_observation,UNOBSERVED,2024-06-09,25.748838,92.083263,4,Ri-Bhoi Block,6,True,15.77,15.77,15.77,317.16,371.76,15.77,203.08,1,7,12
+candidate_background_observation,UNOBSERVED,2012-07-11,25.760609,91.075118,4,Ri-Bhoi Block,7,True,0.0,16.87,50.6,258.22,638.19,16.87,155.22,4,9,20
+candidate_background_observation,UNOBSERVED,2024-08-24,26.030798,90.73336,1,Garo Hills Block,8,True,3.52,23.68,62.96,122.54,253.15,15.0,61.01,6,8,14
+candidate_background_observation,UNOBSERVED,2025-06-17,26.096404,91.317173,4,Ri-Bhoi Block,6,True,0.0,24.72,42.91,42.91,494.73,20.06,241.42,5,5,16
+candidate_background_observation,UNOBSERVED,2014-09-09,25.654271,89.803514,1,Garo Hills Block,9,True,0.0,32.7,62.88,135.18,380.62,32.7,101.44,4,10,21
+candidate_background_observation,UNOBSERVED,2007-09-04,25.765007,91.269604,4,Ri-Bhoi Block,9,True,27.46,68.65,180.04,305.01,598.87,41.19,100.97,6,12,21
+candidate_background_observation,UNOBSERVED,2012-08-09,25.934275,91.102061,4,Ri-Bhoi Block,8,True,15.04,30.07,196.8,388.02,780.5,66.62,166.73,5,11,21
+candidate_background_observation,UNOBSERVED,2024-07-10,25.857158,91.120895,4,Ri-Bhoi Block,7,True,0.0,32.54,151.54,349.92,666.24,79.33,158.67,4,11,22
+candidate_background_observation,UNOBSERVED,2012-07-07,25.939633,91.260388,4,Ri-Bhoi Block,7,True,18.83,46.0,141.08,331.48,626.16,54.33,147.1,4,9,23
+candidate_background_observation,UNOBSERVED,2007-08-04,25.803104,92.743346,4,Ri-Bhoi Block,8,True,9.78,9.78,54.46,177.29,347.59,44.67,104.22,2,5,13
+candidate_background_observation,UNOBSERVED,2007-08-22,25.954664,90.70433,1,Garo Hills Block,8,True,9.94,9.94,61.44,260.94,590.86,34.33,200.45,3,9,16
+candidate_background_observation,UNOBSERVED,2007-09-02,25.888539,90.350997,1,Garo Hills Block,9,True,19.14,38.27,87.87,192.16,444.82,24.8,114.91,6,12,23
+candidate_background_observation,UNOBSERVED,2012-08-13,25.552037,90.415276,1,Garo Hills Block,8,True,0.0,29.09,128.86,234.31,803.99,42.76,242.78,4,8,20
+candidate_background_observation,UNOBSERVED,2007-08-11,25.753745,92.656898,4,Ri-Bhoi Block,8,True,45.63,66.1,79.74,175.96,404.25,45.63,93.68,3,8,17
+candidate_background_observation,UNOBSERVED,2025-06-06,26.094772,91.017283,4,Ri-Bhoi Block,6,True,0.0,0.0,174.08,386.05,778.72,105.98,282.62,2,5,17
+candidate_background_observation,UNOBSERVED,2024-06-03,25.079529,91.598117,2,West Khasi Block,6,True,0.0,106.96,437.53,581.76,740.14,150.26,330.57,5,8,14
+candidate_background_observation,UNOBSERVED,2024-08-22,25.396137,90.988125,1,Garo Hills Block,8,True,21.96,120.05,120.05,295.57,572.49,67.2,128.7,3,8,14
+candidate_background_observation,UNOBSERVED,2012-08-01,25.543287,92.821159,5,Jaintia Hills Block,8,True,14.69,51.85,135.46,245.13,367.84,46.45,83.61,6,11,17
+candidate_background_observation,UNOBSERVED,2012-07-03,25.103433,92.164083,5,Jaintia Hills Block,7,True,15.1,45.3,85.57,377.58,777.73,26.84,199.19,5,12,23
+candidate_background_observation,UNOBSERVED,2014-09-06,25.6599,90.19792,1,Garo Hills Block,9,True,31.74,31.74,55.08,228.76,474.28,31.74,111.82,4,12,22
+candidate_background_observation,UNOBSERVED,2012-08-09,25.779015,91.232813,4,Ri-Bhoi Block,8,True,28.58,100.04,226.89,402.69,823.15,57.17,156.04,7,14,24
+candidate_background_observation,UNOBSERVED,2007-08-11,25.373555,91.328382,2,West Khasi Block,8,True,83.59,127.19,141.72,332.67,981.49,83.59,250.7,3,7,18
+candidate_background_observation,UNOBSERVED,2012-07-01,25.479938,90.370878,1,Garo Hills Block,7,True,30.4,77.3,192.21,432.84,858.75,56.29,168.87,6,12,23
+candidate_background_observation,UNOBSERVED,2012-07-09,25.841763,92.807385,4,Ri-Bhoi Block,7,True,0.0,31.87,62.21,231.79,435.08,21.25,97.48,5,11,23
+candidate_background_observation,UNOBSERVED,2024-07-29,25.180703,91.924108,3,East Khasi Block,7,True,50.45,126.12,170.76,398.25,714.15,50.45,276.56,5,10,14
+candidate_background_observation,UNOBSERVED,2009-07-13,26.040425,91.29493,4,Ri-Bhoi Block,7,True,8.1,16.21,87.86,258.22,417.55,30.71,121.31,5,9,18
+candidate_background_observation,UNOBSERVED,2007-08-10,25.90277,90.506953,1,Garo Hills Block,8,True,13.04,19.56,53.01,172.98,476.39,20.4,170.22,5,8,17
+candidate_background_observation,UNOBSERVED,2024-08-11,25.6854,91.246693,4,Ri-Bhoi Block,8,True,0.0,0.0,68.43,160.73,531.7,44.78,183.06,2,5,16
+candidate_background_observation,UNOBSERVED,2012-08-12,25.65932,92.161919,4,Ri-Bhoi Block,8,True,0.0,47.91,99.8,235.2,676.51,25.94,156.27,5,10,21
+candidate_background_observation,UNOBSERVED,2012-07-16,25.771291,92.619165,4,Ri-Bhoi Block,7,True,14.4,112.49,112.49,179.76,466.77,65.4,114.59,3,9,21
+candidate_background_observation,UNOBSERVED,2024-07-28,26.069757,92.788239,4,Ri-Bhoi Block,7,True,17.17,42.93,78.34,277.06,504.75,35.42,108.64,4,11,18
+candidate_background_observation,UNOBSERVED,2024-06-06,25.149855,91.600277,3,East Khasi Block,6,True,33.94,33.94,190.72,640.82,766.8,78.39,342.62,3,9,14
+candidate_background_observation,UNOBSERVED,2012-08-13,25.124708,90.871212,1,Garo Hills Block,8,True,33.37,100.11,198.7,320.85,783.72,33.37,181.8,7,13,25
+candidate_background_observation,UNOBSERVED,2012-07-14,25.825143,91.341263,4,Ri-Bhoi Block,7,True,69.17,83.0,107.43,307.3,617.08,69.17,162.79,4,9,22
+candidate_background_observation,UNOBSERVED,2024-08-24,25.603836,92.13088,5,Jaintia Hills Block,8,True,11.88,26.41,105.3,174.31,308.12,32.99,92.34,6,10,14
+candidate_background_observation,UNOBSERVED,2014-09-04,25.613076,92.694793,5,Jaintia Hills Block,9,True,27.13,54.27,93.01,198.49,376.79,27.13,100.24,5,10,16
+candidate_background_observation,UNOBSERVED,2012-08-13,25.128573,91.313469,2,West Khasi Block,8,True,0.0,52.52,203.67,383.09,993.83,64.78,229.13,6,13,26
+candidate_background_observation,UNOBSERVED,2012-08-06,25.145133,91.367238,2,West Khasi Block,8,True,0.0,38.93,169.87,376.68,888.28,38.93,240.88,6,13,23
+candidate_background_observation,UNOBSERVED,2024-08-02,25.906882,89.851016,1,Garo Hills Block,8,True,0.0,17.21,58.08,103.6,461.74,30.65,123.27,3,6,16
+candidate_background_observation,UNOBSERVED,2009-07-10,25.971194,90.258352,1,Garo Hills Block,7,True,0.0,17.04,71.57,259.32,622.33,17.04,174.3,5,8,20
+candidate_background_observation,UNOBSERVED,2012-08-14,25.825143,91.341263,4,Ri-Bhoi Block,8,True,12.63,37.9,132.33,370.89,749.05,27.67,153.92,6,13,23
+candidate_background_observation,UNOBSERVED,2024-07-20,25.326832,90.337072,1,Garo Hills Block,7,True,0.0,30.09,187.1,295.8,659.33,72.61,185.19,5,7,17
+candidate_background_observation,UNOBSERVED,2024-08-16,26.02399,90.209019,1,Garo Hills Block,8,True,0.0,21.1,42.21,150.79,313.07,21.1,97.39,2,6,12
+candidate_background_observation,UNOBSERVED,2007-08-30,25.91935,92.188126,4,Ri-Bhoi Block,8,True,9.76,48.81,114.99,232.23,399.31,36.9,98.79,6,10,19
+candidate_background_observation,UNOBSERVED,2025-06-20,25.326482,91.526096,2,West Khasi Block,6,True,0.0,0.0,120.34,189.13,821.3,51.68,415.13,3,7,15
+candidate_background_observation,UNOBSERVED,2012-07-05,25.290504,92.799601,5,Jaintia Hills Block,7,True,0.0,14.51,88.27,341.08,640.61,29.82,198.36,5,9,17
+candidate_background_observation,UNOBSERVED,2012-07-14,25.761282,90.44773,1,Garo Hills Block,7,True,34.6,92.28,101.79,333.61,763.85,34.6,196.56,4,10,22
+candidate_background_observation,UNOBSERVED,2014-08-28,25.023476,91.540369,2,West Khasi Block,8,True,31.18,31.18,167.9,592.11,927.97,43.75,282.32,5,12,23
+candidate_background_observation,UNOBSERVED,2007-08-09,25.624046,90.371604,1,Garo Hills Block,8,True,0.0,0.0,28.77,241.38,552.88,14.78,145.48,2,6,18
+candidate_background_observation,UNOBSERVED,2007-08-14,26.09061,92.611038,4,Ri-Bhoi Block,8,True,46.8,101.4,168.91,224.71,427.91,46.8,103.15,6,10,17
+candidate_background_observation,UNOBSERVED,2014-09-05,25.599154,91.798675,3,East Khasi Block,9,True,9.68,43.54,88.72,181.38,341.88,19.37,107.95,7,14,20
+candidate_background_observation,UNOBSERVED,2009-07-13,25.571033,91.413765,2,West Khasi Block,7,True,20.11,20.11,58.44,413.0,800.7,38.33,322.55,2,6,16
+candidate_background_observation,UNOBSERVED,2014-08-30,25.379648,90.939377,1,Garo Hills Block,8,True,50.3,80.49,179.89,482.91,825.85,50.45,197.26,6,14,23
+candidate_background_observation,UNOBSERVED,2007-08-13,25.311049,90.540281,1,Garo Hills Block,8,True,29.8,104.31,138.74,249.65,749.22,44.7,199.35,6,10,21
+candidate_background_observation,UNOBSERVED,2024-08-23,26.023446,90.478689,1,Garo Hills Block,8,True,3.67,22.54,58.72,132.24,285.36,18.09,75.96,5,7,13
+candidate_background_observation,UNOBSERVED,2024-06-04,25.551226,89.859812,1,Garo Hills Block,6,True,0.0,69.57,233.04,279.8,378.25,93.52,140.28,5,6,9
+candidate_background_observation,UNOBSERVED,2012-07-07,25.987046,90.29583,1,Garo Hills Block,7,True,0.0,92.48,107.19,442.73,798.64,73.53,235.21,3,10,24
+candidate_background_observation,UNOBSERVED,2024-06-22,25.239687,92.814086,5,Jaintia Hills Block,6,True,10.27,20.54,340.89,510.15,1110.21,100.11,363.92,6,11,20
+candidate_background_observation,UNOBSERVED,2012-08-06,25.669962,90.893399,1,Garo Hills Block,8,True,19.73,92.25,191.21,355.86,881.34,60.44,208.46,7,13,23
+candidate_background_observation,UNOBSERVED,2014-08-30,25.119603,91.350985,2,West Khasi Block,8,True,57.4,71.75,121.99,434.92,765.72,57.4,228.87,4,11,23
+candidate_background_observation,UNOBSERVED,2012-07-31,26.018727,92.398102,4,Ri-Bhoi Block,7,True,28.09,28.09,130.75,228.57,411.3,42.14,91.01,5,10,19
+candidate_background_observation,UNOBSERVED,2009-07-07,25.402608,90.448043,1,Garo Hills Block,7,True,0.0,19.58,195.84,451.05,882.3,97.92,191.75,5,12,25
+candidate_background_observation,UNOBSERVED,2012-08-13,25.619303,90.373525,1,Garo Hills Block,8,True,0.0,38.04,130.82,226.82,740.8,55.67,266.26,4,7,17
+candidate_background_observation,UNOBSERVED,2024-08-15,25.395855,90.285496,1,Garo Hills Block,8,True,16.21,48.62,140.52,279.79,487.91,43.29,117.63,5,9,18
+candidate_background_observation,UNOBSERVED,2024-08-16,25.266804,90.031594,1,Garo Hills Block,8,True,0.0,9.32,118.88,197.12,347.91,37.29,100.24,5,6,11
+candidate_background_observation,UNOBSERVED,2012-07-18,25.946268,92.537402,4,Ri-Bhoi Block,7,True,22.4,44.81,133.54,166.86,486.98,59.15,115.77,5,7,19
+candidate_background_observation,UNOBSERVED,2024-08-23,25.641562,92.622057,5,Jaintia Hills Block,8,True,6.18,22.26,80.15,107.94,253.1,28.95,73.9,5,6,12
+candidate_background_observation,UNOBSERVED,2024-08-24,25.33166,91.688402,3,East Khasi Block,8,True,13.34,35.71,149.16,296.98,587.38,38.46,159.91,6,10,17
+candidate_background_observation,UNOBSERVED,2024-07-22,25.15648,92.769761,5,Jaintia Hills Block,7,True,0.0,27.29,38.54,38.54,488.22,16.03,205.19,3,3,12
+candidate_background_observation,UNOBSERVED,2007-08-24,25.66952,90.172832,1,Garo Hills Block,8,True,10.82,43.3,93.67,277.92,553.28,32.47,141.61,5,10,18
+candidate_background_observation,UNOBSERVED,2012-08-17,25.921141,90.969089,1,Garo Hills Block,8,True,16.7,46.42,124.55,387.26,753.25,26.04,168.45,7,14,23
+candidate_background_observation,UNOBSERVED,2024-06-09,26.030341,90.831209,1,Garo Hills Block,6,True,16.02,24.03,99.94,498.91,628.1,45.26,257.04,5,10,16
+candidate_background_observation,UNOBSERVED,2012-08-09,25.604358,92.097605,5,Jaintia Hills Block,8,True,12.55,50.2,103.84,291.74,702.85,27.4,179.24,6,12,22
+candidate_background_observation,UNOBSERVED,2025-06-06,25.104866,89.904963,1,Garo Hills Block,6,True,0.0,0.0,209.23,374.55,627.5,96.19,209.23,3,7,16
+candidate_background_observation,UNOBSERVED,2012-07-11,25.178355,90.991831,1,Garo Hills Block,7,True,11.3,20.78,78.04,235.09,694.94,19.36,150.16,5,12,25
+candidate_background_observation,UNOBSERVED,2014-09-10,25.833323,90.595587,1,Garo Hills Block,9,True,0.0,0.0,82.27,212.66,557.98,35.18,115.91,4,11,21
+candidate_background_observation,UNOBSERVED,2007-08-25,25.718258,90.357087,1,Garo Hills Block,8,True,15.61,54.64,71.32,300.32,477.87,23.42,121.29,5,13,20
+candidate_background_observation,UNOBSERVED,2007-08-09,25.119844,91.87233,3,East Khasi Block,8,True,0.0,11.9,35.53,342.91,944.86,23.63,285.41,2,7,16
+candidate_background_observation,UNOBSERVED,2024-08-21,25.985847,91.249353,4,Ri-Bhoi Block,8,True,15.43,31.37,55.7,132.23,243.42,16.36,43.81,5,11,19
+candidate_background_observation,UNOBSERVED,2024-06-21,25.202103,90.770543,1,Garo Hills Block,6,True,0.0,54.75,314.87,558.18,1011.78,68.44,226.91,6,14,23
+candidate_background_observation,UNOBSERVED,2012-07-15,26.088883,92.668912,4,Ri-Bhoi Block,7,True,17.95,89.77,89.77,200.87,447.58,53.86,114.11,3,8,20
+candidate_background_observation,UNOBSERVED,2024-07-20,25.939554,92.564075,4,Ri-Bhoi Block,7,True,10.56,31.69,152.71,187.91,476.96,59.07,136.99,7,8,19
+candidate_background_observation,UNOBSERVED,2024-07-30,25.234283,91.306661,2,West Khasi Block,7,True,41.17,123.51,205.85,393.54,1172.49,41.17,454.0,5,9,16
+candidate_background_observation,UNOBSERVED,2014-09-08,25.843823,91.364886,4,Ri-Bhoi Block,9,True,0.0,52.89,99.99,188.29,408.14,35.26,89.12,6,12,23
+candidate_background_observation,UNOBSERVED,2012-08-02,25.407796,89.938734,1,Garo Hills Block,8,True,10.47,10.47,82.41,255.75,636.71,35.97,169.49,4,8,18
+candidate_background_observation,UNOBSERVED,2007-08-28,25.251177,91.120196,2,West Khasi Block,8,True,17.96,107.75,202.99,372.3,610.16,53.87,145.94,6,11,17
+candidate_background_observation,UNOBSERVED,2024-07-25,25.891421,90.975482,1,Garo Hills Block,7,True,17.72,53.15,95.83,200.38,482.47,35.43,148.21,4,8,17
+candidate_background_observation,UNOBSERVED,2024-07-23,25.044002,90.983735,1,Garo Hills Block,7,True,0.0,0.0,64.13,300.53,679.17,32.06,175.11,2,7,19
+candidate_background_observation,UNOBSERVED,2024-06-05,25.959073,90.736369,1,Garo Hills Block,6,True,26.64,79.92,325.1,533.02,621.29,138.62,277.24,5,7,12
+candidate_background_observation,UNOBSERVED,2024-08-17,25.035686,92.013284,5,Jaintia Hills Block,8,True,0.0,76.83,153.66,250.76,514.91,76.83,122.47,2,4,9
+candidate_background_observation,UNOBSERVED,2014-09-11,25.50508,91.142368,2,West Khasi Block,9,True,0.0,0.0,98.09,227.22,647.05,44.73,153.65,4,11,23
+candidate_background_observation,UNOBSERVED,2024-08-11,25.089863,92.286002,5,Jaintia Hills Block,8,True,0.0,17.71,35.43,179.94,266.98,17.71,89.4,2,5,9
+candidate_background_observation,UNOBSERVED,2024-06-09,25.529384,91.541674,2,West Khasi Block,6,True,21.6,43.19,64.79,471.09,545.87,21.6,223.98,3,10,16
+candidate_background_observation,UNOBSERVED,2012-08-08,25.306395,92.347499,5,Jaintia Hills Block,8,True,21.79,43.58,179.89,317.48,661.03,68.16,191.02,5,9,17
+candidate_background_observation,UNOBSERVED,2014-09-15,25.163326,92.236798,5,Jaintia Hills Block,9,True,0.0,13.98,27.96,217.82,559.0,13.98,119.58,2,9,20
+candidate_background_observation,UNOBSERVED,2014-09-16,25.6726,92.322832,4,Ri-Bhoi Block,9,True,0.0,16.61,41.54,161.89,325.73,16.61,86.9,4,9,20
+candidate_background_observation,UNOBSERVED,2025-06-16,25.499945,91.596278,2,West Khasi Block,6,True,46.63,119.17,157.59,157.59,828.88,48.32,379.35,6,6,18
+candidate_background_observation,UNOBSERVED,2012-07-17,25.997906,92.22652,4,Ri-Bhoi Block,7,True,27.25,54.5,146.96,206.42,554.71,73.97,112.67,4,9,20
+candidate_background_observation,UNOBSERVED,2012-08-08,25.038524,91.145644,2,West Khasi Block,8,True,36.29,72.59,135.86,269.7,706.73,36.29,190.69,6,12,24
+candidate_background_observation,UNOBSERVED,2012-08-15,25.493745,92.090149,5,Jaintia Hills Block,8,True,11.1,11.1,64.64,273.07,620.49,22.21,149.9,4,11,22
+candidate_background_observation,UNOBSERVED,2012-08-17,25.56258,91.419958,2,West Khasi Block,8,True,18.27,36.54,76.41,326.37,792.74,19.94,158.73,4,11,23
+candidate_background_observation,UNOBSERVED,2007-08-22,25.723425,90.41751,1,Garo Hills Block,8,True,8.79,8.79,61.88,252.6,588.7,17.7,151.77,5,10,19
+candidate_background_observation,UNOBSERVED,2019-07-02,25.954706,89.866067,1,Garo Hills Block,7,True,0.0,35.67,295.02,445.76,699.07,108.06,311.29,4,8,16
+candidate_background_observation,UNOBSERVED,2025-06-07,25.181852,91.544078,2,West Khasi Block,6,True,0.0,0.0,250.47,779.94,1422.29,200.38,434.27,2,9,21
+candidate_background_observation,UNOBSERVED,2025-06-19,25.11701,91.885353,3,East Khasi Block,6,True,0.0,19.3,137.54,157.25,939.51,57.89,447.17,5,8,17
+candidate_background_observation,UNOBSERVED,2007-08-28,25.793458,90.213027,1,Garo Hills Block,8,True,6.83,54.66,113.48,191.66,481.95,47.05,124.76,5,9,18
+candidate_background_observation,UNOBSERVED,2012-08-01,25.082891,91.494137,2,West Khasi Block,8,True,47.36,78.25,186.35,470.4,833.19,47.36,235.88,6,10,22
+candidate_background_observation,UNOBSERVED,2007-08-12,25.370409,92.327265,5,Jaintia Hills Block,8,True,28.44,116.61,127.05,239.98,752.44,56.88,211.19,4,8,18
+candidate_background_observation,UNOBSERVED,2025-06-18,25.961269,91.279226,4,Ri-Bhoi Block,6,True,7.61,30.43,56.34,62.46,528.98,22.82,243.54,5,6,15
+candidate_background_observation,UNOBSERVED,2024-06-24,26.083698,91.587822,4,Ri-Bhoi Block,6,True,0.0,9.01,112.07,300.92,461.74,64.41,167.47,3,11,16
+candidate_background_observation,UNOBSERVED,2012-07-13,25.70705,91.509472,4,Ri-Bhoi Block,7,True,11.83,23.67,44.6,237.51,574.15,13.96,162.3,4,9,22
+candidate_background_observation,UNOBSERVED,2024-08-11,25.523613,90.033277,1,Garo Hills Block,8,True,41.47,41.47,70.43,189.31,447.26,41.47,118.88,2,4,13
+candidate_background_observation,UNOBSERVED,2007-08-10,25.188129,90.346811,1,Garo Hills Block,8,True,4.94,9.87,29.61,224.31,584.21,9.87,161.52,4,10,19
+candidate_background_observation,UNOBSERVED,2007-08-10,26.059186,92.790266,4,Ri-Bhoi Block,8,True,22.46,22.46,63.98,94.98,359.93,22.46,123.98,4,5,15
+candidate_background_observation,UNOBSERVED,2014-09-07,25.695914,91.047889,4,Ri-Bhoi Block,9,True,40.22,100.34,140.11,317.88,573.01,40.22,125.02,7,14,22
+candidate_background_observation,UNOBSERVED,2012-07-06,25.925733,92.201114,4,Ri-Bhoi Block,7,True,0.0,8.02,137.22,277.61,582.85,49.04,119.96,5,9,22
+candidate_background_observation,UNOBSERVED,2024-07-30,25.039475,91.498995,2,West Khasi Block,7,True,26.57,132.84,186.24,361.85,974.07,53.14,239.18,5,10,14
+candidate_background_observation,UNOBSERVED,2012-07-19,25.056102,90.936656,1,Garo Hills Block,7,True,0.0,132.92,277.76,392.67,745.21,88.61,177.22,6,11,22
+candidate_background_observation,UNOBSERVED,2012-07-31,25.730022,90.692901,1,Garo Hills Block,7,True,0.0,18.27,127.91,458.36,778.37,54.82,218.81,4,10,21
+candidate_background_observation,UNOBSERVED,2024-07-31,25.595833,92.039591,5,Jaintia Hills Block,7,True,0.0,31.94,79.85,179.37,330.32,31.94,142.46,3,7,11
+candidate_background_observation,UNOBSERVED,2024-07-25,25.642902,90.304883,1,Garo Hills Block,7,True,29.27,58.53,100.62,349.61,673.53,29.27,144.98,4,10,19
+candidate_background_observation,UNOBSERVED,2007-09-01,25.855344,89.827026,1,Garo Hills Block,9,True,25.64,40.81,86.32,168.98,355.67,25.64,85.79,6,12,20
+candidate_background_observation,UNOBSERVED,2024-07-21,25.141906,90.386498,1,Garo Hills Block,7,True,0.0,21.88,113.84,266.76,634.8,48.2,221.18,4,8,17
+candidate_background_observation,UNOBSERVED,2024-07-31,26.048691,92.346657,4,Ri-Bhoi Block,7,True,0.0,41.0,81.99,170.05,335.05,27.33,68.5,4,9,16
+candidate_background_observation,UNOBSERVED,2007-08-14,25.931746,91.118809,4,Ri-Bhoi Block,8,True,26.96,74.13,121.31,232.93,534.64,47.18,153.55,3,7,16
+candidate_background_observation,UNOBSERVED,2024-08-22,25.968364,91.586849,4,Ri-Bhoi Block,8,True,10.04,25.91,60.97,137.52,302.12,17.53,62.85,5,10,19
+candidate_background_observation,UNOBSERVED,2012-08-15,25.246726,92.167263,5,Jaintia Hills Block,8,True,0.0,0.0,81.12,302.58,644.56,54.08,133.43,2,9,20
+candidate_background_observation,UNOBSERVED,2024-07-21,25.043357,91.274959,2,West Khasi Block,7,True,0.0,50.16,146.33,476.8,976.61,33.44,259.37,6,11,23
+candidate_background_observation,UNOBSERVED,2007-08-28,25.229493,91.93797,3,East Khasi Block,8,True,0.0,125.17,252.24,368.14,683.76,125.17,215.93,5,8,17
+candidate_background_observation,UNOBSERVED,2012-07-21,26.0522,90.358147,1,Garo Hills Block,7,True,27.24,131.33,292.2,451.85,876.7,62.45,201.68,6,12,22
+candidate_background_observation,UNOBSERVED,2007-09-02,25.779015,91.232813,4,Ri-Bhoi Block,9,True,27.81,69.53,168.78,260.3,505.11,41.72,115.79,6,11,19
+candidate_background_observation,UNOBSERVED,2014-09-06,25.229637,90.265716,1,Garo Hills Block,9,True,16.13,36.68,45.93,233.03,585.99,20.55,134.0,3,10,23
+candidate_background_observation,UNOBSERVED,2007-08-04,25.648029,92.595521,5,Jaintia Hills Block,8,True,18.67,18.67,71.91,207.01,402.88,34.58,107.4,3,7,14
+candidate_background_observation,UNOBSERVED,2024-08-12,25.704993,90.879412,1,Garo Hills Block,8,True,32.72,32.72,112.22,226.16,728.19,34.07,182.13,4,7,18
+candidate_background_observation,UNOBSERVED,2025-06-05,25.420732,90.781089,1,Garo Hills Block,6,True,0.0,0.0,457.01,724.91,1276.79,189.57,425.42,4,7,22
+candidate_background_observation,UNOBSERVED,2012-08-04,25.896889,92.436182,4,Ri-Bhoi Block,8,True,29.47,58.94,106.81,261.93,487.04,38.04,108.28,5,11,20
+candidate_background_observation,UNOBSERVED,2024-06-07,25.955813,92.842955,4,Ri-Bhoi Block,6,True,0.0,0.0,0.0,273.46,333.32,0.0,218.77,0,5,10
+candidate_background_observation,UNOBSERVED,2024-08-21,25.934773,92.325132,4,Ri-Bhoi Block,8,True,11.63,30.05,81.53,155.95,282.31,23.85,79.35,7,9,15
+candidate_background_observation,UNOBSERVED,2024-08-22,26.092228,90.187906,1,Garo Hills Block,8,True,12.51,14.88,45.58,134.06,273.51,15.35,104.06,3,6,11
+candidate_background_observation,UNOBSERVED,2012-07-10,25.052333,91.519093,2,West Khasi Block,7,True,7.11,7.11,59.63,257.88,684.12,30.27,187.39,4,10,24
+candidate_background_observation,UNOBSERVED,2012-07-13,25.451073,91.166224,2,West Khasi Block,7,True,22.94,61.18,88.25,301.36,771.73,30.59,155.93,4,10,22
+candidate_background_observation,UNOBSERVED,2007-08-06,25.113258,91.767504,3,East Khasi Block,8,True,0.0,21.68,65.5,535.18,947.55,22.14,266.5,3,10,18

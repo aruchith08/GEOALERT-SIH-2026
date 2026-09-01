@@ -1,0 +1,4 @@
+Model_Name,Threshold,ROC_AUC,PR_AUC,Recall,Precision,Specificity,F1_Score,Brier_Score,TP,FP,TN,FN
+Model A Alone (Static Susceptibility),0.249,0.9931,0.982,0.9556,0.7963,0.9185,0.8687,0.0365,43,11,124,2
+Model B Alone (Dynamic Precipitation),0.2,0.7653,0.6631,0.6667,0.4918,0.7704,0.566,0.1403,30,31,104,15
+Coupled Model A + B (Multiplicative Risk),0.0502,0.9526,0.9098,0.8222,0.8043,0.9333,0.8132,0.1286,37,9,126,8

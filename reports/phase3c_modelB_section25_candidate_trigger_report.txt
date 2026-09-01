@@ -1,0 +1,32 @@
+SIH 2026 PHASE 3C: SECTION 25 CANDIDATE EMPIRICAL RAINFALL TRIGGER REPORT
+Generated: 2026-09-01 00:57:10
+
+1. EXECUTIVE SUMMARY:
+   Non-parametric bivariate trigger envelope formulated using 186 positive events vs 558 monsoon background observations.
+
+2. CANDIDATE ENVELOPE FORMULATIONS:
+   • 90% Event-Coverage Envelope: P0 + 0.05 * ARI_30 >= 26.87 mm (Coverage = 90.3%, BG Exceedance = 77.8%)
+   • 95% Event-Coverage Envelope: P0 + 0.05 * ARI_30 >= 23.63 mm (Coverage = 94.6%, BG Exceedance = 84.8%)
+
+3. ANTECEDENT WINDOW SENSITIVITY (ARI-15 & ARI-7):
+         Antecedent_Window                 Formulation  Positive_Coverage_Pct  Background_Exceedance_Pct                                           Physical_Mechanism
+30-Day Antecedent (ARI-30) P0 + 0.05 * ARI_30 >= 26.87                  90.32                      77.78 Long-term groundwater saturation & deep soil preconditioning
+15-Day Antecedent (ARI-15) P0 + 0.08 * ARI_15 >= 23.67                  90.32                      70.25           Medium-term regolith wetting & pore-water build-up
+  7-Day Antecedent (ARI-7)  P0 + 0.15 * ARI_7 >= 19.26                  89.78                      68.28         Short-term shallow saturation & acute storm sequence
+
+4. MULTI-EVENT STORM CLUSTERS (29 dates hosting 78% of events):
+Cluster_Date  Landslides_Triggered  Mean_P0  Mean_ARI3  Mean_ARI30 Envelope_90_Coverage
+  2025-05-30                    20    61.45     150.42      499.97         20/20 (100%)
+  2024-05-28                    11    75.24     124.19      262.24         11/11 (100%)
+  2020-05-26                     9   100.58     120.37      338.76           9/9 (100%)
+  2012-06-26                     9    97.03     202.21      966.62           9/9 (100%)
+  2024-07-02                     8     0.00     145.89      670.93            5/8 (62%)
+  2007-07-19                     7    51.98     224.29      689.46           7/7 (100%)
+
+5. CONCEPTUAL 2D DECISION MATRIX:
+   Integrates frozen Model A static susceptibility classes with dynamic rainfall envelopes.
+
+6. MANDATORY LIMITATIONS:
+   - N=186 positive events, background represents unobserved monsoon terrain.
+   - No operational False Alarm Rate (FAR) is established.
+   - Candidate research/prototype envelope requiring field validation.

@@ -1,0 +1,23 @@
+============================================================
+SECTION 31 COMPLETE
+============================================================
+
+Model A modified: NO
+Sections 14–30 modified: NO
+Source datasets modified: NO
+
+Threshold analysis: COMPLETED
+Leak-free threshold selection: PASS
+Calibration analysis: COMPLETED
+Spatial robustness: COMPLETED
+Temporal robustness: COMPLETED
+Cost sensitivity: COMPLETED
+
+Provisional operational/demo threshold:
+T_opt = 0.18 (Multi-Tier Advisory Tiers: 0.10, 0.18, 0.38)
+
+Real-world probability claim: NO
+Real-world operational false-alarm claim: NO
+
+Final QC: PASS
+============================================================

@@ -1,0 +1,9 @@
+Check,Expected,Actual,Status
+Total Observation Count,558,558,PASS
+35-Stratum Quota Match (3x Positives),Exact Match Across All 35 Strata,100% Matched,PASS
+"Duplicate Observations (Lat, Lon, Date)",0 Duplicates,0 Duplicates,PASS
+Minimum Geodesic Distance to Positives,>= 5.0 km,"Min = 5.001 km, Mean = 17.969 km",PASS
+Temporal Separation from Storm Dates,>= 4 days (+/- 3d exclusion),0 Violations,PASS
+NaN / Missing Dynamic Feature Values,0 Missing,0 Missing,PASS
+"Epistemological Semantics (UNOBSERVED, No Label=0)",failure_status=UNOBSERVED,100% Compliant,PASS
+Deterministic Reproducibility Seed,Seed = 42,Seed = 42 for all rows,PASS

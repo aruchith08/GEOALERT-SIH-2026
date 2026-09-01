@@ -1,0 +1,745 @@
+row_id,y_target,spatial_block,year,month,stratified_block_month_fold,spatial_block_out_fold,temporal_year_out_fold
+POS_0001,1,Jaintia Hills Block,2018,5,3,Jaintia Hills Block,2018
+POS_0002,1,Jaintia Hills Block,2007,7,1,Jaintia Hills Block,2007
+POS_0003,1,Jaintia Hills Block,2007,7,0,Jaintia Hills Block,2007
+POS_0004,1,West Khasi Block,2008,8,0,West Khasi Block,2008
+POS_0005,1,West Khasi Block,2008,8,2,West Khasi Block,2008
+POS_0006,1,West Khasi Block,2008,8,2,West Khasi Block,2008
+POS_0007,1,East Khasi Block,2024,5,2,East Khasi Block,2024
+POS_0008,1,East Khasi Block,2022,4,2,East Khasi Block,2022
+POS_0009,1,East Khasi Block,2009,6,2,East Khasi Block,2009
+POS_0010,1,West Khasi Block,2013,8,0,West Khasi Block,2013
+POS_0011,1,West Khasi Block,2007,7,1,West Khasi Block,2007
+POS_0012,1,West Khasi Block,2007,7,3,West Khasi Block,2007
+POS_0013,1,East Khasi Block,2007,7,2,East Khasi Block,2007
+POS_0014,1,West Khasi Block,2007,7,0,West Khasi Block,2007
+POS_0015,1,East Khasi Block,2007,7,2,East Khasi Block,2007
+POS_0016,1,Jaintia Hills Block,2024,5,1,Jaintia Hills Block,2024
+POS_0017,1,West Khasi Block,2007,6,2,West Khasi Block,2007
+POS_0018,1,West Khasi Block,2007,6,4,West Khasi Block,2007
+POS_0019,1,West Khasi Block,2007,8,4,West Khasi Block,2007
+POS_0020,1,Garo Hills Block,2007,8,0,Garo Hills Block,2007
+POS_0021,1,West Khasi Block,2007,8,3,West Khasi Block,2007
+POS_0022,1,East Khasi Block,2007,8,2,East Khasi Block,2007
+POS_0023,1,West Khasi Block,2007,8,1,West Khasi Block,2007
+POS_0024,1,East Khasi Block,2009,7,1,East Khasi Block,2009
+POS_0025,1,West Khasi Block,2007,7,1,West Khasi Block,2007
+POS_0026,1,West Khasi Block,2007,7,1,West Khasi Block,2007
+POS_0027,1,East Khasi Block,2007,7,0,East Khasi Block,2007
+POS_0028,1,West Khasi Block,2007,7,0,West Khasi Block,2007
+POS_0029,1,Garo Hills Block,2007,7,1,Garo Hills Block,2007
+POS_0030,1,West Khasi Block,2007,7,2,West Khasi Block,2007
+POS_0031,1,West Khasi Block,2007,7,2,West Khasi Block,2007
+POS_0032,1,Jaintia Hills Block,2009,7,1,Jaintia Hills Block,2009
+POS_0033,1,Jaintia Hills Block,2009,7,0,Jaintia Hills Block,2009
+POS_0034,1,Jaintia Hills Block,2009,7,4,Jaintia Hills Block,2009
+POS_0035,1,Jaintia Hills Block,2009,7,2,Jaintia Hills Block,2009
+POS_0036,1,Jaintia Hills Block,2009,7,3,Jaintia Hills Block,2009
+POS_0037,1,East Khasi Block,2007,9,0,East Khasi Block,2007
+POS_0038,1,East Khasi Block,2014,9,1,East Khasi Block,2014
+POS_0039,1,East Khasi Block,2024,5,1,East Khasi Block,2024
+POS_0040,1,Ri-Bhoi Block,2017,6,1,Ri-Bhoi Block,2017
+POS_0041,1,Ri-Bhoi Block,2007,9,2,Ri-Bhoi Block,2007
+POS_0042,1,Ri-Bhoi Block,2007,9,4,Ri-Bhoi Block,2007
+POS_0043,1,Ri-Bhoi Block,2007,9,0,Ri-Bhoi Block,2007
+POS_0044,1,Ri-Bhoi Block,2007,9,0,Ri-Bhoi Block,2007
+POS_0045,1,Ri-Bhoi Block,2014,9,3,Ri-Bhoi Block,2014
+POS_0046,1,Ri-Bhoi Block,2014,8,1,Ri-Bhoi Block,2014
+POS_0047,1,Ri-Bhoi Block,2014,9,1,Ri-Bhoi Block,2014
+POS_0048,1,Jaintia Hills Block,2020,5,4,Jaintia Hills Block,2020
+POS_0049,1,Jaintia Hills Block,2020,5,0,Jaintia Hills Block,2020
+POS_0050,1,East Khasi Block,2024,10,0,East Khasi Block,2024
+POS_0051,1,Jaintia Hills Block,2020,6,3,Jaintia Hills Block,2020
+POS_0052,1,Jaintia Hills Block,2020,5,2,Jaintia Hills Block,2020
+POS_0053,1,West Khasi Block,2024,6,2,West Khasi Block,2024
+POS_0054,1,West Khasi Block,2024,6,0,West Khasi Block,2024
+POS_0055,1,West Khasi Block,2024,6,0,West Khasi Block,2024
+POS_0056,1,West Khasi Block,2024,6,1,West Khasi Block,2024
+POS_0057,1,West Khasi Block,2024,6,0,West Khasi Block,2024
+POS_0058,1,Ri-Bhoi Block,2025,7,0,Ri-Bhoi Block,2025
+POS_0059,1,Ri-Bhoi Block,2024,7,2,Ri-Bhoi Block,2024
+POS_0060,1,East Khasi Block,2025,5,4,East Khasi Block,2025
+POS_0061,1,East Khasi Block,2025,5,4,East Khasi Block,2025
+POS_0062,1,East Khasi Block,2025,5,3,East Khasi Block,2025
+POS_0063,1,East Khasi Block,2025,5,1,East Khasi Block,2025
+POS_0064,1,East Khasi Block,2025,5,4,East Khasi Block,2025
+POS_0065,1,East Khasi Block,2025,5,2,East Khasi Block,2025
+POS_0066,1,East Khasi Block,2025,5,0,East Khasi Block,2025
+POS_0067,1,East Khasi Block,2025,5,3,East Khasi Block,2025
+POS_0068,1,East Khasi Block,2010,8,0,East Khasi Block,2010
+POS_0069,1,East Khasi Block,2010,6,0,East Khasi Block,2010
+POS_0070,1,East Khasi Block,2010,6,3,East Khasi Block,2010
+POS_0071,1,East Khasi Block,2010,6,4,East Khasi Block,2010
+POS_0072,1,Jaintia Hills Block,2010,4,2,Jaintia Hills Block,2010
+POS_0073,1,Jaintia Hills Block,2010,4,1,Jaintia Hills Block,2010
+POS_0074,1,Jaintia Hills Block,2010,4,0,Jaintia Hills Block,2010
+POS_0075,1,Jaintia Hills Block,2010,4,3,Jaintia Hills Block,2010
+POS_0076,1,Jaintia Hills Block,2010,4,0,Jaintia Hills Block,2010
+POS_0077,1,Jaintia Hills Block,2010,4,1,Jaintia Hills Block,2010
+POS_0078,1,Jaintia Hills Block,2010,4,4,Jaintia Hills Block,2010
+POS_0079,1,West Khasi Block,2012,5,4,West Khasi Block,2012
+POS_0080,1,Jaintia Hills Block,2012,6,3,Jaintia Hills Block,2012
+POS_0081,1,Jaintia Hills Block,2012,6,4,Jaintia Hills Block,2012
+POS_0082,1,Jaintia Hills Block,2012,6,4,Jaintia Hills Block,2012
+POS_0083,1,Jaintia Hills Block,2012,6,1,Jaintia Hills Block,2012
+POS_0084,1,Jaintia Hills Block,2012,6,1,Jaintia Hills Block,2012
+POS_0085,1,Jaintia Hills Block,2012,6,0,Jaintia Hills Block,2012
+POS_0086,1,Jaintia Hills Block,2012,6,0,Jaintia Hills Block,2012
+POS_0087,1,Jaintia Hills Block,2012,6,2,Jaintia Hills Block,2012
+POS_0088,1,Jaintia Hills Block,2012,6,2,Jaintia Hills Block,2012
+POS_0089,1,Ri-Bhoi Block,2012,7,0,Ri-Bhoi Block,2012
+POS_0090,1,West Khasi Block,2012,8,1,West Khasi Block,2012
+POS_0091,1,Ri-Bhoi Block,2014,9,1,Ri-Bhoi Block,2014
+POS_0092,1,Ri-Bhoi Block,2011,6,3,Ri-Bhoi Block,2011
+POS_0093,1,East Khasi Block,2019,7,1,East Khasi Block,2019
+POS_0094,1,East Khasi Block,2019,7,3,East Khasi Block,2019
+POS_0095,1,West Khasi Block,2019,7,2,West Khasi Block,2019
+POS_0096,1,West Khasi Block,2019,6,4,West Khasi Block,2019
+POS_0097,1,West Khasi Block,2019,6,0,West Khasi Block,2019
+POS_0098,1,West Khasi Block,2019,6,3,West Khasi Block,2019
+POS_0099,1,West Khasi Block,2019,6,1,West Khasi Block,2019
+POS_0100,1,Jaintia Hills Block,2020,5,1,Jaintia Hills Block,2020
+POS_0101,1,Jaintia Hills Block,2020,5,3,Jaintia Hills Block,2020
+POS_0102,1,Jaintia Hills Block,2020,5,2,Jaintia Hills Block,2020
+POS_0103,1,Jaintia Hills Block,2020,5,4,Jaintia Hills Block,2020
+POS_0104,1,Jaintia Hills Block,2020,5,0,Jaintia Hills Block,2020
+POS_0105,1,Jaintia Hills Block,2020,5,1,Jaintia Hills Block,2020
+POS_0106,1,Jaintia Hills Block,2020,5,0,Jaintia Hills Block,2020
+POS_0107,1,East Khasi Block,2022,6,0,East Khasi Block,2022
+POS_0108,1,Garo Hills Block,2022,6,0,Garo Hills Block,2022
+POS_0109,1,Garo Hills Block,2022,6,4,Garo Hills Block,2022
+POS_0110,1,Garo Hills Block,2022,6,2,Garo Hills Block,2022
+POS_0111,1,Garo Hills Block,2022,6,1,Garo Hills Block,2022
+POS_0112,1,Garo Hills Block,2022,6,3,Garo Hills Block,2022
+POS_0113,1,West Khasi Block,2022,6,4,West Khasi Block,2022
+POS_0114,1,West Khasi Block,2022,6,3,West Khasi Block,2022
+POS_0115,1,West Khasi Block,2022,6,2,West Khasi Block,2022
+POS_0116,1,East Khasi Block,2022,4,4,East Khasi Block,2022
+POS_0117,1,East Khasi Block,2022,4,0,East Khasi Block,2022
+POS_0118,1,East Khasi Block,2022,4,3,East Khasi Block,2022
+POS_0119,1,East Khasi Block,2022,4,0,East Khasi Block,2022
+POS_0120,1,East Khasi Block,2023,4,1,East Khasi Block,2023
+POS_0121,1,West Khasi Block,2023,6,1,West Khasi Block,2023
+POS_0122,1,Jaintia Hills Block,2023,8,0,Jaintia Hills Block,2023
+POS_0123,1,East Khasi Block,2024,6,1,East Khasi Block,2024
+POS_0124,1,West Khasi Block,2024,5,0,West Khasi Block,2024
+POS_0125,1,West Khasi Block,2024,6,3,West Khasi Block,2024
+POS_0126,1,West Khasi Block,2024,5,1,West Khasi Block,2024
+POS_0127,1,West Khasi Block,2024,7,4,West Khasi Block,2024
+POS_0128,1,West Khasi Block,2024,7,3,West Khasi Block,2024
+POS_0129,1,East Khasi Block,2024,5,2,East Khasi Block,2024
+POS_0130,1,East Khasi Block,2024,5,1,East Khasi Block,2024
+POS_0131,1,East Khasi Block,2024,5,1,East Khasi Block,2024
+POS_0132,1,East Khasi Block,2024,7,0,East Khasi Block,2024
+POS_0133,1,Ri-Bhoi Block,2024,7,2,Ri-Bhoi Block,2024
+POS_0134,1,East Khasi Block,2024,7,4,East Khasi Block,2024
+POS_0135,1,East Khasi Block,2024,5,0,East Khasi Block,2024
+POS_0136,1,East Khasi Block,2024,5,0,East Khasi Block,2024
+POS_0137,1,East Khasi Block,2024,5,2,East Khasi Block,2024
+POS_0138,1,East Khasi Block,2025,5,3,East Khasi Block,2025
+POS_0139,1,Ri-Bhoi Block,2025,5,3,Ri-Bhoi Block,2025
+POS_0140,1,Ri-Bhoi Block,2025,5,4,Ri-Bhoi Block,2025
+POS_0141,1,Ri-Bhoi Block,2025,5,4,Ri-Bhoi Block,2025
+POS_0142,1,Ri-Bhoi Block,2024,7,4,Ri-Bhoi Block,2024
+POS_0143,1,Ri-Bhoi Block,2024,7,1,Ri-Bhoi Block,2024
+POS_0144,1,Ri-Bhoi Block,2025,5,3,Ri-Bhoi Block,2025
+POS_0145,1,Ri-Bhoi Block,2025,5,1,Ri-Bhoi Block,2025
+POS_0146,1,Ri-Bhoi Block,2024,6,4,Ri-Bhoi Block,2024
+POS_0147,1,East Khasi Block,2025,5,3,East Khasi Block,2025
+POS_0148,1,East Khasi Block,2025,5,0,East Khasi Block,2025
+POS_0149,1,Ri-Bhoi Block,2024,6,1,Ri-Bhoi Block,2024
+POS_0150,1,Ri-Bhoi Block,2025,5,1,Ri-Bhoi Block,2025
+POS_0151,1,West Khasi Block,2025,7,4,West Khasi Block,2025
+POS_0152,1,West Khasi Block,2025,5,3,West Khasi Block,2025
+POS_0153,1,West Khasi Block,2025,5,2,West Khasi Block,2025
+POS_0154,1,Ri-Bhoi Block,2024,6,1,Ri-Bhoi Block,2024
+POS_0155,1,Ri-Bhoi Block,2024,6,0,Ri-Bhoi Block,2024
+POS_0156,1,Ri-Bhoi Block,2025,5,1,Ri-Bhoi Block,2025
+POS_0157,1,Ri-Bhoi Block,2025,5,3,Ri-Bhoi Block,2025
+POS_0158,1,Ri-Bhoi Block,2024,6,3,Ri-Bhoi Block,2024
+POS_0159,1,Ri-Bhoi Block,2024,7,3,Ri-Bhoi Block,2024
+POS_0160,1,West Khasi Block,2024,7,3,West Khasi Block,2024
+POS_0161,1,West Khasi Block,2024,7,0,West Khasi Block,2024
+POS_0162,1,Ri-Bhoi Block,2024,7,1,Ri-Bhoi Block,2024
+POS_0163,1,Ri-Bhoi Block,2025,5,2,Ri-Bhoi Block,2025
+POS_0164,1,Ri-Bhoi Block,2025,5,1,Ri-Bhoi Block,2025
+POS_0165,1,Ri-Bhoi Block,2025,6,0,Ri-Bhoi Block,2025
+POS_0166,1,Ri-Bhoi Block,2024,10,0,Ri-Bhoi Block,2024
+POS_0167,1,Ri-Bhoi Block,2024,8,0,Ri-Bhoi Block,2024
+POS_0168,1,Ri-Bhoi Block,2024,8,2,Ri-Bhoi Block,2024
+POS_0169,1,Ri-Bhoi Block,2025,5,0,Ri-Bhoi Block,2025
+POS_0170,1,Ri-Bhoi Block,2025,5,3,Ri-Bhoi Block,2025
+POS_0171,1,Ri-Bhoi Block,2025,5,2,Ri-Bhoi Block,2025
+POS_0172,1,Ri-Bhoi Block,2025,5,0,Ri-Bhoi Block,2025
+POS_0173,1,Ri-Bhoi Block,2025,6,4,Ri-Bhoi Block,2025
+POS_0174,1,Ri-Bhoi Block,2024,5,4,Ri-Bhoi Block,2024
+POS_0175,1,Ri-Bhoi Block,2024,5,0,Ri-Bhoi Block,2024
+POS_0176,1,Ri-Bhoi Block,2025,6,0,Ri-Bhoi Block,2025
+POS_0177,1,Ri-Bhoi Block,2025,6,2,Ri-Bhoi Block,2025
+POS_0178,1,Ri-Bhoi Block,2025,6,2,Ri-Bhoi Block,2025
+POS_0179,1,Ri-Bhoi Block,2024,5,2,Ri-Bhoi Block,2024
+POS_0180,1,Ri-Bhoi Block,2024,5,0,Ri-Bhoi Block,2024
+POS_0181,1,Ri-Bhoi Block,2024,5,4,Ri-Bhoi Block,2024
+POS_0182,1,Ri-Bhoi Block,2024,8,3,Ri-Bhoi Block,2024
+POS_0183,1,Ri-Bhoi Block,2025,5,0,Ri-Bhoi Block,2025
+POS_0184,1,Ri-Bhoi Block,2025,5,2,Ri-Bhoi Block,2025
+POS_0185,1,Garo Hills Block,2026,7,0,Garo Hills Block,2026
+POS_0186,1,East Khasi Block,2025,8,1,East Khasi Block,2025
+BG_0001,0,Garo Hills Block,2012,6,4,Garo Hills Block,2012
+BG_0002,0,Garo Hills Block,2019,6,1,Garo Hills Block,2019
+BG_0003,0,Garo Hills Block,2026,6,2,Garo Hills Block,2026
+BG_0004,0,Garo Hills Block,2023,6,3,Garo Hills Block,2023
+BG_0005,0,Garo Hills Block,2011,6,2,Garo Hills Block,2011
+BG_0006,0,Garo Hills Block,2018,6,0,Garo Hills Block,2018
+BG_0007,0,Garo Hills Block,2007,6,3,Garo Hills Block,2007
+BG_0008,0,Garo Hills Block,2023,6,4,Garo Hills Block,2023
+BG_0009,0,Garo Hills Block,2009,6,1,Garo Hills Block,2009
+BG_0010,0,Garo Hills Block,2007,6,2,Garo Hills Block,2007
+BG_0011,0,Garo Hills Block,2013,6,3,Garo Hills Block,2013
+BG_0012,0,Garo Hills Block,2019,6,0,Garo Hills Block,2019
+BG_0013,0,Garo Hills Block,2013,6,1,Garo Hills Block,2013
+BG_0014,0,Garo Hills Block,2017,6,4,Garo Hills Block,2017
+BG_0015,0,Garo Hills Block,2023,6,0,Garo Hills Block,2023
+BG_0016,0,Garo Hills Block,2022,7,0,Garo Hills Block,2022
+BG_0017,0,Garo Hills Block,2010,7,1,Garo Hills Block,2010
+BG_0018,0,Garo Hills Block,2024,7,4,Garo Hills Block,2024
+BG_0019,0,Garo Hills Block,2019,7,0,Garo Hills Block,2019
+BG_0020,0,Garo Hills Block,2024,7,2,Garo Hills Block,2024
+BG_0021,0,Garo Hills Block,2012,7,3,Garo Hills Block,2012
+BG_0022,0,Garo Hills Block,2024,8,2,Garo Hills Block,2024
+BG_0023,0,Garo Hills Block,2020,8,0,Garo Hills Block,2020
+BG_0024,0,Garo Hills Block,2014,8,1,Garo Hills Block,2014
+BG_0025,0,West Khasi Block,2014,5,1,West Khasi Block,2014
+BG_0026,0,West Khasi Block,2022,5,1,West Khasi Block,2022
+BG_0027,0,West Khasi Block,2018,5,2,West Khasi Block,2018
+BG_0028,0,West Khasi Block,2022,5,3,West Khasi Block,2022
+BG_0029,0,West Khasi Block,2008,5,3,West Khasi Block,2008
+BG_0030,0,West Khasi Block,2010,5,0,West Khasi Block,2010
+BG_0031,0,West Khasi Block,2024,5,4,West Khasi Block,2024
+BG_0032,0,West Khasi Block,2012,5,4,West Khasi Block,2012
+BG_0033,0,West Khasi Block,2025,5,1,West Khasi Block,2025
+BG_0034,0,West Khasi Block,2014,5,3,West Khasi Block,2014
+BG_0035,0,West Khasi Block,2025,5,0,West Khasi Block,2025
+BG_0036,0,West Khasi Block,2022,5,4,West Khasi Block,2022
+BG_0037,0,West Khasi Block,2025,5,2,West Khasi Block,2025
+BG_0038,0,West Khasi Block,2022,5,2,West Khasi Block,2022
+BG_0039,0,West Khasi Block,2020,5,0,West Khasi Block,2020
+BG_0040,0,West Khasi Block,2023,6,1,West Khasi Block,2023
+BG_0041,0,West Khasi Block,2019,6,2,West Khasi Block,2019
+BG_0042,0,West Khasi Block,2012,6,0,West Khasi Block,2012
+BG_0043,0,West Khasi Block,2008,6,4,West Khasi Block,2008
+BG_0044,0,West Khasi Block,2010,6,3,West Khasi Block,2010
+BG_0045,0,West Khasi Block,2019,6,4,West Khasi Block,2019
+BG_0046,0,West Khasi Block,2013,6,0,West Khasi Block,2013
+BG_0047,0,West Khasi Block,2017,6,1,West Khasi Block,2017
+BG_0048,0,West Khasi Block,2010,6,4,West Khasi Block,2010
+BG_0049,0,West Khasi Block,2018,6,4,West Khasi Block,2018
+BG_0050,0,West Khasi Block,2018,6,4,West Khasi Block,2018
+BG_0051,0,West Khasi Block,2009,6,4,West Khasi Block,2009
+BG_0052,0,West Khasi Block,2010,6,3,West Khasi Block,2010
+BG_0053,0,West Khasi Block,2012,6,1,West Khasi Block,2012
+BG_0054,0,West Khasi Block,2025,6,0,West Khasi Block,2025
+BG_0055,0,West Khasi Block,2008,6,2,West Khasi Block,2008
+BG_0056,0,West Khasi Block,2009,6,0,West Khasi Block,2009
+BG_0057,0,West Khasi Block,2018,6,3,West Khasi Block,2018
+BG_0058,0,West Khasi Block,2023,6,1,West Khasi Block,2023
+BG_0059,0,West Khasi Block,2009,6,2,West Khasi Block,2009
+BG_0060,0,West Khasi Block,2008,6,0,West Khasi Block,2008
+BG_0061,0,West Khasi Block,2018,6,2,West Khasi Block,2018
+BG_0062,0,West Khasi Block,2017,6,0,West Khasi Block,2017
+BG_0063,0,West Khasi Block,2012,6,3,West Khasi Block,2012
+BG_0064,0,West Khasi Block,2017,6,1,West Khasi Block,2017
+BG_0065,0,West Khasi Block,2012,6,1,West Khasi Block,2012
+BG_0066,0,West Khasi Block,2008,6,4,West Khasi Block,2008
+BG_0067,0,West Khasi Block,2018,6,2,West Khasi Block,2018
+BG_0068,0,West Khasi Block,2011,6,4,West Khasi Block,2011
+BG_0069,0,West Khasi Block,2008,6,0,West Khasi Block,2008
+BG_0070,0,West Khasi Block,2023,6,3,West Khasi Block,2023
+BG_0071,0,West Khasi Block,2007,6,0,West Khasi Block,2007
+BG_0072,0,West Khasi Block,2026,6,3,West Khasi Block,2026
+BG_0073,0,West Khasi Block,2023,6,1,West Khasi Block,2023
+BG_0074,0,West Khasi Block,2007,6,1,West Khasi Block,2007
+BG_0075,0,West Khasi Block,2020,6,3,West Khasi Block,2020
+BG_0076,0,West Khasi Block,2023,6,2,West Khasi Block,2023
+BG_0077,0,West Khasi Block,2010,6,2,West Khasi Block,2010
+BG_0078,0,West Khasi Block,2018,6,0,West Khasi Block,2018
+BG_0079,0,West Khasi Block,2014,6,4,West Khasi Block,2014
+BG_0080,0,West Khasi Block,2026,6,3,West Khasi Block,2026
+BG_0081,0,West Khasi Block,2022,6,3,West Khasi Block,2022
+BG_0082,0,West Khasi Block,2018,6,1,West Khasi Block,2018
+BG_0083,0,West Khasi Block,2018,6,1,West Khasi Block,2018
+BG_0084,0,West Khasi Block,2023,6,2,West Khasi Block,2023
+BG_0085,0,West Khasi Block,2023,6,0,West Khasi Block,2023
+BG_0086,0,West Khasi Block,2009,6,2,West Khasi Block,2009
+BG_0087,0,West Khasi Block,2022,6,2,West Khasi Block,2022
+BG_0088,0,West Khasi Block,2022,7,0,West Khasi Block,2022
+BG_0089,0,West Khasi Block,2020,7,4,West Khasi Block,2020
+BG_0090,0,West Khasi Block,2022,7,1,West Khasi Block,2022
+BG_0091,0,West Khasi Block,2014,7,1,West Khasi Block,2014
+BG_0092,0,West Khasi Block,2024,7,4,West Khasi Block,2024
+BG_0093,0,West Khasi Block,2009,7,1,West Khasi Block,2009
+BG_0094,0,West Khasi Block,2014,7,2,West Khasi Block,2014
+BG_0095,0,West Khasi Block,2009,7,0,West Khasi Block,2009
+BG_0096,0,West Khasi Block,2017,7,0,West Khasi Block,2017
+BG_0097,0,West Khasi Block,2017,7,0,West Khasi Block,2017
+BG_0098,0,West Khasi Block,2018,7,0,West Khasi Block,2018
+BG_0099,0,West Khasi Block,2026,7,4,West Khasi Block,2026
+BG_0100,0,West Khasi Block,2020,7,1,West Khasi Block,2020
+BG_0101,0,West Khasi Block,2012,7,4,West Khasi Block,2012
+BG_0102,0,West Khasi Block,2017,7,3,West Khasi Block,2017
+BG_0103,0,West Khasi Block,2013,7,3,West Khasi Block,2013
+BG_0104,0,West Khasi Block,2022,7,3,West Khasi Block,2022
+BG_0105,0,West Khasi Block,2008,7,3,West Khasi Block,2008
+BG_0106,0,West Khasi Block,2020,7,0,West Khasi Block,2020
+BG_0107,0,West Khasi Block,2014,7,3,West Khasi Block,2014
+BG_0108,0,West Khasi Block,2020,7,4,West Khasi Block,2020
+BG_0109,0,West Khasi Block,2023,7,4,West Khasi Block,2023
+BG_0110,0,West Khasi Block,2013,7,4,West Khasi Block,2013
+BG_0111,0,West Khasi Block,2025,7,1,West Khasi Block,2025
+BG_0112,0,West Khasi Block,2010,7,2,West Khasi Block,2010
+BG_0113,0,West Khasi Block,2022,7,3,West Khasi Block,2022
+BG_0114,0,West Khasi Block,2010,7,1,West Khasi Block,2010
+BG_0115,0,West Khasi Block,2018,7,2,West Khasi Block,2018
+BG_0116,0,West Khasi Block,2010,7,3,West Khasi Block,2010
+BG_0117,0,West Khasi Block,2014,7,2,West Khasi Block,2014
+BG_0118,0,West Khasi Block,2019,7,1,West Khasi Block,2019
+BG_0119,0,West Khasi Block,2007,7,2,West Khasi Block,2007
+BG_0120,0,West Khasi Block,2026,7,0,West Khasi Block,2026
+BG_0121,0,West Khasi Block,2010,7,1,West Khasi Block,2010
+BG_0122,0,West Khasi Block,2010,7,0,West Khasi Block,2010
+BG_0123,0,West Khasi Block,2012,7,4,West Khasi Block,2012
+BG_0124,0,West Khasi Block,2020,7,2,West Khasi Block,2020
+BG_0125,0,West Khasi Block,2024,7,3,West Khasi Block,2024
+BG_0126,0,West Khasi Block,2018,7,2,West Khasi Block,2018
+BG_0127,0,West Khasi Block,2009,7,1,West Khasi Block,2009
+BG_0128,0,West Khasi Block,2020,7,2,West Khasi Block,2020
+BG_0129,0,West Khasi Block,2020,7,0,West Khasi Block,2020
+BG_0130,0,West Khasi Block,2010,8,4,West Khasi Block,2010
+BG_0131,0,West Khasi Block,2013,8,0,West Khasi Block,2013
+BG_0132,0,West Khasi Block,2009,8,2,West Khasi Block,2009
+BG_0133,0,West Khasi Block,2013,8,4,West Khasi Block,2013
+BG_0134,0,West Khasi Block,2011,8,0,West Khasi Block,2011
+BG_0135,0,West Khasi Block,2025,8,1,West Khasi Block,2025
+BG_0136,0,West Khasi Block,2025,8,2,West Khasi Block,2025
+BG_0137,0,West Khasi Block,2019,8,3,West Khasi Block,2019
+BG_0138,0,West Khasi Block,2024,8,0,West Khasi Block,2024
+BG_0139,0,West Khasi Block,2007,8,4,West Khasi Block,2007
+BG_0140,0,West Khasi Block,2025,8,1,West Khasi Block,2025
+BG_0141,0,West Khasi Block,2014,8,3,West Khasi Block,2014
+BG_0142,0,West Khasi Block,2018,8,2,West Khasi Block,2018
+BG_0143,0,West Khasi Block,2024,8,0,West Khasi Block,2024
+BG_0144,0,West Khasi Block,2008,8,3,West Khasi Block,2008
+BG_0145,0,West Khasi Block,2008,8,2,West Khasi Block,2008
+BG_0146,0,West Khasi Block,2024,8,1,West Khasi Block,2024
+BG_0147,0,West Khasi Block,2012,8,4,West Khasi Block,2012
+BG_0148,0,West Khasi Block,2012,8,2,West Khasi Block,2012
+BG_0149,0,West Khasi Block,2019,8,1,West Khasi Block,2019
+BG_0150,0,West Khasi Block,2022,8,3,West Khasi Block,2022
+BG_0151,0,West Khasi Block,2023,8,0,West Khasi Block,2023
+BG_0152,0,West Khasi Block,2010,8,3,West Khasi Block,2010
+BG_0153,0,West Khasi Block,2013,8,1,West Khasi Block,2013
+BG_0154,0,East Khasi Block,2017,4,1,East Khasi Block,2017
+BG_0155,0,East Khasi Block,2014,4,0,East Khasi Block,2014
+BG_0156,0,East Khasi Block,2023,4,2,East Khasi Block,2023
+BG_0157,0,East Khasi Block,2011,4,2,East Khasi Block,2011
+BG_0158,0,East Khasi Block,2009,4,2,East Khasi Block,2009
+BG_0159,0,East Khasi Block,2025,4,4,East Khasi Block,2025
+BG_0160,0,East Khasi Block,2012,4,2,East Khasi Block,2012
+BG_0161,0,East Khasi Block,2018,4,0,East Khasi Block,2018
+BG_0162,0,East Khasi Block,2025,4,0,East Khasi Block,2025
+BG_0163,0,East Khasi Block,2018,4,3,East Khasi Block,2018
+BG_0164,0,East Khasi Block,2019,4,3,East Khasi Block,2019
+BG_0165,0,East Khasi Block,2026,4,1,East Khasi Block,2026
+BG_0166,0,East Khasi Block,2007,4,1,East Khasi Block,2007
+BG_0167,0,East Khasi Block,2011,4,0,East Khasi Block,2011
+BG_0168,0,East Khasi Block,2008,4,3,East Khasi Block,2008
+BG_0169,0,East Khasi Block,2013,4,4,East Khasi Block,2013
+BG_0170,0,East Khasi Block,2008,4,1,East Khasi Block,2008
+BG_0171,0,East Khasi Block,2008,4,4,East Khasi Block,2008
+BG_0172,0,East Khasi Block,2013,5,3,East Khasi Block,2013
+BG_0173,0,East Khasi Block,2010,5,0,East Khasi Block,2010
+BG_0174,0,East Khasi Block,2019,5,0,East Khasi Block,2019
+BG_0175,0,East Khasi Block,2019,5,0,East Khasi Block,2019
+BG_0176,0,East Khasi Block,2014,5,3,East Khasi Block,2014
+BG_0177,0,East Khasi Block,2009,5,1,East Khasi Block,2009
+BG_0178,0,East Khasi Block,2013,5,2,East Khasi Block,2013
+BG_0179,0,East Khasi Block,2012,5,3,East Khasi Block,2012
+BG_0180,0,East Khasi Block,2009,5,2,East Khasi Block,2009
+BG_0181,0,East Khasi Block,2025,5,0,East Khasi Block,2025
+BG_0182,0,East Khasi Block,2014,5,0,East Khasi Block,2014
+BG_0183,0,East Khasi Block,2011,5,0,East Khasi Block,2011
+BG_0184,0,East Khasi Block,2011,5,0,East Khasi Block,2011
+BG_0185,0,East Khasi Block,2017,5,4,East Khasi Block,2017
+BG_0186,0,East Khasi Block,2011,5,0,East Khasi Block,2011
+BG_0187,0,East Khasi Block,2013,5,1,East Khasi Block,2013
+BG_0188,0,East Khasi Block,2023,5,1,East Khasi Block,2023
+BG_0189,0,East Khasi Block,2008,5,0,East Khasi Block,2008
+BG_0190,0,East Khasi Block,2013,5,4,East Khasi Block,2013
+BG_0191,0,East Khasi Block,2014,5,1,East Khasi Block,2014
+BG_0192,0,East Khasi Block,2017,5,2,East Khasi Block,2017
+BG_0193,0,East Khasi Block,2024,5,2,East Khasi Block,2024
+BG_0194,0,East Khasi Block,2008,5,3,East Khasi Block,2008
+BG_0195,0,East Khasi Block,2018,5,4,East Khasi Block,2018
+BG_0196,0,East Khasi Block,2023,5,0,East Khasi Block,2023
+BG_0197,0,East Khasi Block,2011,5,3,East Khasi Block,2011
+BG_0198,0,East Khasi Block,2014,5,3,East Khasi Block,2014
+BG_0199,0,East Khasi Block,2018,5,3,East Khasi Block,2018
+BG_0200,0,East Khasi Block,2007,5,1,East Khasi Block,2007
+BG_0201,0,East Khasi Block,2009,5,4,East Khasi Block,2009
+BG_0202,0,East Khasi Block,2025,5,4,East Khasi Block,2025
+BG_0203,0,East Khasi Block,2022,5,0,East Khasi Block,2022
+BG_0204,0,East Khasi Block,2007,5,4,East Khasi Block,2007
+BG_0205,0,East Khasi Block,2024,5,4,East Khasi Block,2024
+BG_0206,0,East Khasi Block,2018,5,3,East Khasi Block,2018
+BG_0207,0,East Khasi Block,2013,5,1,East Khasi Block,2013
+BG_0208,0,East Khasi Block,2011,5,2,East Khasi Block,2011
+BG_0209,0,East Khasi Block,2009,5,1,East Khasi Block,2009
+BG_0210,0,East Khasi Block,2014,5,2,East Khasi Block,2014
+BG_0211,0,East Khasi Block,2017,5,3,East Khasi Block,2017
+BG_0212,0,East Khasi Block,2025,5,2,East Khasi Block,2025
+BG_0213,0,East Khasi Block,2024,5,1,East Khasi Block,2024
+BG_0214,0,East Khasi Block,2010,5,4,East Khasi Block,2010
+BG_0215,0,East Khasi Block,2023,5,2,East Khasi Block,2023
+BG_0216,0,East Khasi Block,2019,5,4,East Khasi Block,2019
+BG_0217,0,East Khasi Block,2024,5,4,East Khasi Block,2024
+BG_0218,0,East Khasi Block,2025,5,0,East Khasi Block,2025
+BG_0219,0,East Khasi Block,2012,5,3,East Khasi Block,2012
+BG_0220,0,East Khasi Block,2017,5,2,East Khasi Block,2017
+BG_0221,0,East Khasi Block,2024,5,2,East Khasi Block,2024
+BG_0222,0,East Khasi Block,2023,5,1,East Khasi Block,2023
+BG_0223,0,East Khasi Block,2020,5,4,East Khasi Block,2020
+BG_0224,0,East Khasi Block,2011,5,1,East Khasi Block,2011
+BG_0225,0,East Khasi Block,2007,5,3,East Khasi Block,2007
+BG_0226,0,East Khasi Block,2024,5,1,East Khasi Block,2024
+BG_0227,0,East Khasi Block,2007,5,1,East Khasi Block,2007
+BG_0228,0,East Khasi Block,2026,5,2,East Khasi Block,2026
+BG_0229,0,East Khasi Block,2018,6,0,East Khasi Block,2018
+BG_0230,0,East Khasi Block,2017,6,1,East Khasi Block,2017
+BG_0231,0,East Khasi Block,2008,6,4,East Khasi Block,2008
+BG_0232,0,East Khasi Block,2020,6,2,East Khasi Block,2020
+BG_0233,0,East Khasi Block,2019,6,3,East Khasi Block,2019
+BG_0234,0,East Khasi Block,2007,6,0,East Khasi Block,2007
+BG_0235,0,East Khasi Block,2020,6,2,East Khasi Block,2020
+BG_0236,0,East Khasi Block,2007,6,3,East Khasi Block,2007
+BG_0237,0,East Khasi Block,2019,6,4,East Khasi Block,2019
+BG_0238,0,East Khasi Block,2008,6,2,East Khasi Block,2008
+BG_0239,0,East Khasi Block,2025,6,1,East Khasi Block,2025
+BG_0240,0,East Khasi Block,2007,6,3,East Khasi Block,2007
+BG_0241,0,East Khasi Block,2026,6,1,East Khasi Block,2026
+BG_0242,0,East Khasi Block,2019,6,0,East Khasi Block,2019
+BG_0243,0,East Khasi Block,2014,6,1,East Khasi Block,2014
+BG_0244,0,East Khasi Block,2013,6,2,East Khasi Block,2013
+BG_0245,0,East Khasi Block,2022,6,4,East Khasi Block,2022
+BG_0246,0,East Khasi Block,2023,6,0,East Khasi Block,2023
+BG_0247,0,East Khasi Block,2007,7,2,East Khasi Block,2007
+BG_0248,0,East Khasi Block,2010,7,0,East Khasi Block,2010
+BG_0249,0,East Khasi Block,2008,7,1,East Khasi Block,2008
+BG_0250,0,East Khasi Block,2022,7,4,East Khasi Block,2022
+BG_0251,0,East Khasi Block,2022,7,3,East Khasi Block,2022
+BG_0252,0,East Khasi Block,2023,7,2,East Khasi Block,2023
+BG_0253,0,East Khasi Block,2008,7,4,East Khasi Block,2008
+BG_0254,0,East Khasi Block,2011,7,1,East Khasi Block,2011
+BG_0255,0,East Khasi Block,2026,7,0,East Khasi Block,2026
+BG_0256,0,East Khasi Block,2022,7,2,East Khasi Block,2022
+BG_0257,0,East Khasi Block,2008,7,3,East Khasi Block,2008
+BG_0258,0,East Khasi Block,2019,7,4,East Khasi Block,2019
+BG_0259,0,East Khasi Block,2025,7,0,East Khasi Block,2025
+BG_0260,0,East Khasi Block,2011,7,1,East Khasi Block,2011
+BG_0261,0,East Khasi Block,2007,7,3,East Khasi Block,2007
+BG_0262,0,East Khasi Block,2014,7,2,East Khasi Block,2014
+BG_0263,0,East Khasi Block,2020,7,3,East Khasi Block,2020
+BG_0264,0,East Khasi Block,2017,7,1,East Khasi Block,2017
+BG_0265,0,East Khasi Block,2013,7,4,East Khasi Block,2013
+BG_0266,0,East Khasi Block,2008,7,2,East Khasi Block,2008
+BG_0267,0,East Khasi Block,2008,7,1,East Khasi Block,2008
+BG_0268,0,East Khasi Block,2019,7,0,East Khasi Block,2019
+BG_0269,0,East Khasi Block,2007,7,3,East Khasi Block,2007
+BG_0270,0,East Khasi Block,2019,7,0,East Khasi Block,2019
+BG_0271,0,East Khasi Block,2024,8,0,East Khasi Block,2024
+BG_0272,0,East Khasi Block,2017,8,3,East Khasi Block,2017
+BG_0273,0,East Khasi Block,2012,8,2,East Khasi Block,2012
+BG_0274,0,East Khasi Block,2019,8,1,East Khasi Block,2019
+BG_0275,0,East Khasi Block,2013,8,1,East Khasi Block,2013
+BG_0276,0,East Khasi Block,2017,8,2,East Khasi Block,2017
+BG_0277,0,East Khasi Block,2013,8,0,East Khasi Block,2013
+BG_0278,0,East Khasi Block,2008,8,4,East Khasi Block,2008
+BG_0279,0,East Khasi Block,2007,8,3,East Khasi Block,2007
+BG_0280,0,East Khasi Block,2012,9,2,East Khasi Block,2012
+BG_0281,0,East Khasi Block,2014,9,0,East Khasi Block,2014
+BG_0282,0,East Khasi Block,2011,9,4,East Khasi Block,2011
+BG_0283,0,East Khasi Block,2023,9,3,East Khasi Block,2023
+BG_0284,0,East Khasi Block,2012,9,0,East Khasi Block,2012
+BG_0285,0,East Khasi Block,2024,9,1,East Khasi Block,2024
+BG_0286,0,East Khasi Block,2018,10,1,East Khasi Block,2018
+BG_0287,0,East Khasi Block,2017,10,2,East Khasi Block,2017
+BG_0288,0,East Khasi Block,2019,10,0,East Khasi Block,2019
+BG_0289,0,Ri-Bhoi Block,2024,5,0,Ri-Bhoi Block,2024
+BG_0290,0,Ri-Bhoi Block,2012,5,2,Ri-Bhoi Block,2012
+BG_0291,0,Ri-Bhoi Block,2024,5,1,Ri-Bhoi Block,2024
+BG_0292,0,Ri-Bhoi Block,2007,5,1,Ri-Bhoi Block,2007
+BG_0293,0,Ri-Bhoi Block,2017,5,3,Ri-Bhoi Block,2017
+BG_0294,0,Ri-Bhoi Block,2019,5,4,Ri-Bhoi Block,2019
+BG_0295,0,Ri-Bhoi Block,2026,5,1,Ri-Bhoi Block,2026
+BG_0296,0,Ri-Bhoi Block,2017,5,3,Ri-Bhoi Block,2017
+BG_0297,0,Ri-Bhoi Block,2017,5,2,Ri-Bhoi Block,2017
+BG_0298,0,Ri-Bhoi Block,2010,5,0,Ri-Bhoi Block,2010
+BG_0299,0,Ri-Bhoi Block,2026,5,3,Ri-Bhoi Block,2026
+BG_0300,0,Ri-Bhoi Block,2018,5,1,Ri-Bhoi Block,2018
+BG_0301,0,Ri-Bhoi Block,2023,5,4,Ri-Bhoi Block,2023
+BG_0302,0,Ri-Bhoi Block,2017,5,2,Ri-Bhoi Block,2017
+BG_0303,0,Ri-Bhoi Block,2023,5,2,Ri-Bhoi Block,2023
+BG_0304,0,Ri-Bhoi Block,2012,5,1,Ri-Bhoi Block,2012
+BG_0305,0,Ri-Bhoi Block,2011,5,4,Ri-Bhoi Block,2011
+BG_0306,0,Ri-Bhoi Block,2007,5,4,Ri-Bhoi Block,2007
+BG_0307,0,Ri-Bhoi Block,2022,5,4,Ri-Bhoi Block,2022
+BG_0308,0,Ri-Bhoi Block,2023,5,4,Ri-Bhoi Block,2023
+BG_0309,0,Ri-Bhoi Block,2013,5,3,Ri-Bhoi Block,2013
+BG_0310,0,Ri-Bhoi Block,2014,5,1,Ri-Bhoi Block,2014
+BG_0311,0,Ri-Bhoi Block,2007,5,0,Ri-Bhoi Block,2007
+BG_0312,0,Ri-Bhoi Block,2010,5,0,Ri-Bhoi Block,2010
+BG_0313,0,Ri-Bhoi Block,2019,5,2,Ri-Bhoi Block,2019
+BG_0314,0,Ri-Bhoi Block,2024,5,0,Ri-Bhoi Block,2024
+BG_0315,0,Ri-Bhoi Block,2023,5,3,Ri-Bhoi Block,2023
+BG_0316,0,Ri-Bhoi Block,2011,5,2,Ri-Bhoi Block,2011
+BG_0317,0,Ri-Bhoi Block,2009,5,2,Ri-Bhoi Block,2009
+BG_0318,0,Ri-Bhoi Block,2013,5,3,Ri-Bhoi Block,2013
+BG_0319,0,Ri-Bhoi Block,2017,5,2,Ri-Bhoi Block,2017
+BG_0320,0,Ri-Bhoi Block,2023,5,4,Ri-Bhoi Block,2023
+BG_0321,0,Ri-Bhoi Block,2023,5,4,Ri-Bhoi Block,2023
+BG_0322,0,Ri-Bhoi Block,2019,5,1,Ri-Bhoi Block,2019
+BG_0323,0,Ri-Bhoi Block,2010,5,1,Ri-Bhoi Block,2010
+BG_0324,0,Ri-Bhoi Block,2011,5,3,Ri-Bhoi Block,2011
+BG_0325,0,Ri-Bhoi Block,2009,5,3,Ri-Bhoi Block,2009
+BG_0326,0,Ri-Bhoi Block,2023,5,0,Ri-Bhoi Block,2023
+BG_0327,0,Ri-Bhoi Block,2020,5,4,Ri-Bhoi Block,2020
+BG_0328,0,Ri-Bhoi Block,2008,5,3,Ri-Bhoi Block,2008
+BG_0329,0,Ri-Bhoi Block,2026,5,1,Ri-Bhoi Block,2026
+BG_0330,0,Ri-Bhoi Block,2014,5,2,Ri-Bhoi Block,2014
+BG_0331,0,Ri-Bhoi Block,2012,5,4,Ri-Bhoi Block,2012
+BG_0332,0,Ri-Bhoi Block,2010,5,1,Ri-Bhoi Block,2010
+BG_0333,0,Ri-Bhoi Block,2008,5,0,Ri-Bhoi Block,2008
+BG_0334,0,Ri-Bhoi Block,2023,5,0,Ri-Bhoi Block,2023
+BG_0335,0,Ri-Bhoi Block,2014,5,3,Ri-Bhoi Block,2014
+BG_0336,0,Ri-Bhoi Block,2025,5,2,Ri-Bhoi Block,2025
+BG_0337,0,Ri-Bhoi Block,2009,5,0,Ri-Bhoi Block,2009
+BG_0338,0,Ri-Bhoi Block,2007,5,2,Ri-Bhoi Block,2007
+BG_0339,0,Ri-Bhoi Block,2010,5,1,Ri-Bhoi Block,2010
+BG_0340,0,Ri-Bhoi Block,2010,5,0,Ri-Bhoi Block,2010
+BG_0341,0,Ri-Bhoi Block,2009,5,0,Ri-Bhoi Block,2009
+BG_0342,0,Ri-Bhoi Block,2025,5,0,Ri-Bhoi Block,2025
+BG_0343,0,Ri-Bhoi Block,2013,5,3,Ri-Bhoi Block,2013
+BG_0344,0,Ri-Bhoi Block,2022,5,3,Ri-Bhoi Block,2022
+BG_0345,0,Ri-Bhoi Block,2012,5,4,Ri-Bhoi Block,2012
+BG_0346,0,Ri-Bhoi Block,2025,5,4,Ri-Bhoi Block,2025
+BG_0347,0,Ri-Bhoi Block,2022,5,1,Ri-Bhoi Block,2022
+BG_0348,0,Ri-Bhoi Block,2020,5,1,Ri-Bhoi Block,2020
+BG_0349,0,Ri-Bhoi Block,2026,5,2,Ri-Bhoi Block,2026
+BG_0350,0,Ri-Bhoi Block,2007,5,2,Ri-Bhoi Block,2007
+BG_0351,0,Ri-Bhoi Block,2024,5,0,Ri-Bhoi Block,2024
+BG_0352,0,Ri-Bhoi Block,2019,6,2,Ri-Bhoi Block,2019
+BG_0353,0,Ri-Bhoi Block,2024,6,1,Ri-Bhoi Block,2024
+BG_0354,0,Ri-Bhoi Block,2009,6,3,Ri-Bhoi Block,2009
+BG_0355,0,Ri-Bhoi Block,2011,6,4,Ri-Bhoi Block,2011
+BG_0356,0,Ri-Bhoi Block,2009,6,0,Ri-Bhoi Block,2009
+BG_0357,0,Ri-Bhoi Block,2025,6,0,Ri-Bhoi Block,2025
+BG_0358,0,Ri-Bhoi Block,2013,6,2,Ri-Bhoi Block,2013
+BG_0359,0,Ri-Bhoi Block,2019,6,2,Ri-Bhoi Block,2019
+BG_0360,0,Ri-Bhoi Block,2025,6,1,Ri-Bhoi Block,2025
+BG_0361,0,Ri-Bhoi Block,2018,6,3,Ri-Bhoi Block,2018
+BG_0362,0,Ri-Bhoi Block,2009,6,4,Ri-Bhoi Block,2009
+BG_0363,0,Ri-Bhoi Block,2022,6,3,Ri-Bhoi Block,2022
+BG_0364,0,Ri-Bhoi Block,2013,6,3,Ri-Bhoi Block,2013
+BG_0365,0,Ri-Bhoi Block,2010,6,1,Ri-Bhoi Block,2010
+BG_0366,0,Ri-Bhoi Block,2024,6,4,Ri-Bhoi Block,2024
+BG_0367,0,Ri-Bhoi Block,2018,6,0,Ri-Bhoi Block,2018
+BG_0368,0,Ri-Bhoi Block,2020,6,2,Ri-Bhoi Block,2020
+BG_0369,0,Ri-Bhoi Block,2013,6,0,Ri-Bhoi Block,2013
+BG_0370,0,Ri-Bhoi Block,2009,6,1,Ri-Bhoi Block,2009
+BG_0371,0,Ri-Bhoi Block,2024,6,4,Ri-Bhoi Block,2024
+BG_0372,0,Ri-Bhoi Block,2009,6,1,Ri-Bhoi Block,2009
+BG_0373,0,Ri-Bhoi Block,2011,6,4,Ri-Bhoi Block,2011
+BG_0374,0,Ri-Bhoi Block,2009,6,0,Ri-Bhoi Block,2009
+BG_0375,0,Ri-Bhoi Block,2019,6,4,Ri-Bhoi Block,2019
+BG_0376,0,Ri-Bhoi Block,2026,6,4,Ri-Bhoi Block,2026
+BG_0377,0,Ri-Bhoi Block,2010,6,2,Ri-Bhoi Block,2010
+BG_0378,0,Ri-Bhoi Block,2013,6,2,Ri-Bhoi Block,2013
+BG_0379,0,Ri-Bhoi Block,2013,6,0,Ri-Bhoi Block,2013
+BG_0380,0,Ri-Bhoi Block,2014,6,0,Ri-Bhoi Block,2014
+BG_0381,0,Ri-Bhoi Block,2009,6,3,Ri-Bhoi Block,2009
+BG_0382,0,Ri-Bhoi Block,2007,6,0,Ri-Bhoi Block,2007
+BG_0383,0,Ri-Bhoi Block,2007,6,2,Ri-Bhoi Block,2007
+BG_0384,0,Ri-Bhoi Block,2014,6,3,Ri-Bhoi Block,2014
+BG_0385,0,Ri-Bhoi Block,2026,6,1,Ri-Bhoi Block,2026
+BG_0386,0,Ri-Bhoi Block,2013,6,3,Ri-Bhoi Block,2013
+BG_0387,0,Ri-Bhoi Block,2013,6,1,Ri-Bhoi Block,2013
+BG_0388,0,Ri-Bhoi Block,2020,7,0,Ri-Bhoi Block,2020
+BG_0389,0,Ri-Bhoi Block,2022,7,3,Ri-Bhoi Block,2022
+BG_0390,0,Ri-Bhoi Block,2017,7,1,Ri-Bhoi Block,2017
+BG_0391,0,Ri-Bhoi Block,2011,7,2,Ri-Bhoi Block,2011
+BG_0392,0,Ri-Bhoi Block,2011,7,1,Ri-Bhoi Block,2011
+BG_0393,0,Ri-Bhoi Block,2025,7,2,Ri-Bhoi Block,2025
+BG_0394,0,Ri-Bhoi Block,2017,7,4,Ri-Bhoi Block,2017
+BG_0395,0,Ri-Bhoi Block,2020,7,0,Ri-Bhoi Block,2020
+BG_0396,0,Ri-Bhoi Block,2024,7,4,Ri-Bhoi Block,2024
+BG_0397,0,Ri-Bhoi Block,2014,7,3,Ri-Bhoi Block,2014
+BG_0398,0,Ri-Bhoi Block,2007,7,3,Ri-Bhoi Block,2007
+BG_0399,0,Ri-Bhoi Block,2020,7,4,Ri-Bhoi Block,2020
+BG_0400,0,Ri-Bhoi Block,2023,7,2,Ri-Bhoi Block,2023
+BG_0401,0,Ri-Bhoi Block,2018,7,0,Ri-Bhoi Block,2018
+BG_0402,0,Ri-Bhoi Block,2010,7,4,Ri-Bhoi Block,2010
+BG_0403,0,Ri-Bhoi Block,2013,7,2,Ri-Bhoi Block,2013
+BG_0404,0,Ri-Bhoi Block,2008,7,1,Ri-Bhoi Block,2008
+BG_0405,0,Ri-Bhoi Block,2018,7,3,Ri-Bhoi Block,2018
+BG_0406,0,Ri-Bhoi Block,2008,7,3,Ri-Bhoi Block,2008
+BG_0407,0,Ri-Bhoi Block,2008,7,1,Ri-Bhoi Block,2008
+BG_0408,0,Ri-Bhoi Block,2019,7,2,Ri-Bhoi Block,2019
+BG_0409,0,Ri-Bhoi Block,2017,7,0,Ri-Bhoi Block,2017
+BG_0410,0,Ri-Bhoi Block,2012,7,0,Ri-Bhoi Block,2012
+BG_0411,0,Ri-Bhoi Block,2025,7,1,Ri-Bhoi Block,2025
+BG_0412,0,Ri-Bhoi Block,2022,8,0,Ri-Bhoi Block,2022
+BG_0413,0,Ri-Bhoi Block,2023,8,1,Ri-Bhoi Block,2023
+BG_0414,0,Ri-Bhoi Block,2013,8,2,Ri-Bhoi Block,2013
+BG_0415,0,Ri-Bhoi Block,2012,8,0,Ri-Bhoi Block,2012
+BG_0416,0,Ri-Bhoi Block,2019,8,4,Ri-Bhoi Block,2019
+BG_0417,0,Ri-Bhoi Block,2019,8,1,Ri-Bhoi Block,2019
+BG_0418,0,Ri-Bhoi Block,2019,8,0,Ri-Bhoi Block,2019
+BG_0419,0,Ri-Bhoi Block,2020,8,2,Ri-Bhoi Block,2020
+BG_0420,0,Ri-Bhoi Block,2017,8,3,Ri-Bhoi Block,2017
+BG_0421,0,Ri-Bhoi Block,2018,8,1,Ri-Bhoi Block,2018
+BG_0422,0,Ri-Bhoi Block,2011,8,3,Ri-Bhoi Block,2011
+BG_0423,0,Ri-Bhoi Block,2025,8,4,Ri-Bhoi Block,2025
+BG_0424,0,Ri-Bhoi Block,2017,9,2,Ri-Bhoi Block,2017
+BG_0425,0,Ri-Bhoi Block,2024,9,2,Ri-Bhoi Block,2024
+BG_0426,0,Ri-Bhoi Block,2010,9,3,Ri-Bhoi Block,2010
+BG_0427,0,Ri-Bhoi Block,2019,9,1,Ri-Bhoi Block,2019
+BG_0428,0,Ri-Bhoi Block,2020,9,0,Ri-Bhoi Block,2020
+BG_0429,0,Ri-Bhoi Block,2011,9,4,Ri-Bhoi Block,2011
+BG_0430,0,Ri-Bhoi Block,2020,9,3,Ri-Bhoi Block,2020
+BG_0431,0,Ri-Bhoi Block,2010,9,4,Ri-Bhoi Block,2010
+BG_0432,0,Ri-Bhoi Block,2023,9,0,Ri-Bhoi Block,2023
+BG_0433,0,Ri-Bhoi Block,2018,9,0,Ri-Bhoi Block,2018
+BG_0434,0,Ri-Bhoi Block,2008,9,1,Ri-Bhoi Block,2008
+BG_0435,0,Ri-Bhoi Block,2017,9,1,Ri-Bhoi Block,2017
+BG_0436,0,Ri-Bhoi Block,2010,9,1,Ri-Bhoi Block,2010
+BG_0437,0,Ri-Bhoi Block,2024,9,2,Ri-Bhoi Block,2024
+BG_0438,0,Ri-Bhoi Block,2013,9,0,Ri-Bhoi Block,2013
+BG_0439,0,Ri-Bhoi Block,2012,9,3,Ri-Bhoi Block,2012
+BG_0440,0,Ri-Bhoi Block,2022,9,2,Ri-Bhoi Block,2022
+BG_0441,0,Ri-Bhoi Block,2008,9,4,Ri-Bhoi Block,2008
+BG_0442,0,Ri-Bhoi Block,2011,9,3,Ri-Bhoi Block,2011
+BG_0443,0,Ri-Bhoi Block,2023,9,0,Ri-Bhoi Block,2023
+BG_0444,0,Ri-Bhoi Block,2017,9,4,Ri-Bhoi Block,2017
+BG_0445,0,Ri-Bhoi Block,2022,10,2,Ri-Bhoi Block,2022
+BG_0446,0,Ri-Bhoi Block,2014,10,0,Ri-Bhoi Block,2014
+BG_0447,0,Ri-Bhoi Block,2020,10,1,Ri-Bhoi Block,2020
+BG_0448,0,Jaintia Hills Block,2011,4,3,Jaintia Hills Block,2011
+BG_0449,0,Jaintia Hills Block,2019,4,3,Jaintia Hills Block,2019
+BG_0450,0,Jaintia Hills Block,2019,4,0,Jaintia Hills Block,2019
+BG_0451,0,Jaintia Hills Block,2022,4,4,Jaintia Hills Block,2022
+BG_0452,0,Jaintia Hills Block,2011,4,0,Jaintia Hills Block,2011
+BG_0453,0,Jaintia Hills Block,2022,4,1,Jaintia Hills Block,2022
+BG_0454,0,Jaintia Hills Block,2007,4,1,Jaintia Hills Block,2007
+BG_0455,0,Jaintia Hills Block,2009,4,1,Jaintia Hills Block,2009
+BG_0456,0,Jaintia Hills Block,2025,4,3,Jaintia Hills Block,2025
+BG_0457,0,Jaintia Hills Block,2007,4,2,Jaintia Hills Block,2007
+BG_0458,0,Jaintia Hills Block,2011,4,4,Jaintia Hills Block,2011
+BG_0459,0,Jaintia Hills Block,2014,4,2,Jaintia Hills Block,2014
+BG_0460,0,Jaintia Hills Block,2018,4,2,Jaintia Hills Block,2018
+BG_0461,0,Jaintia Hills Block,2013,4,3,Jaintia Hills Block,2013
+BG_0462,0,Jaintia Hills Block,2007,4,0,Jaintia Hills Block,2007
+BG_0463,0,Jaintia Hills Block,2023,4,4,Jaintia Hills Block,2023
+BG_0464,0,Jaintia Hills Block,2018,4,0,Jaintia Hills Block,2018
+BG_0465,0,Jaintia Hills Block,2017,4,2,Jaintia Hills Block,2017
+BG_0466,0,Jaintia Hills Block,2010,4,4,Jaintia Hills Block,2010
+BG_0467,0,Jaintia Hills Block,2019,4,1,Jaintia Hills Block,2019
+BG_0468,0,Jaintia Hills Block,2025,4,0,Jaintia Hills Block,2025
+BG_0469,0,Jaintia Hills Block,2012,5,0,Jaintia Hills Block,2012
+BG_0470,0,Jaintia Hills Block,2025,5,0,Jaintia Hills Block,2025
+BG_0471,0,Jaintia Hills Block,2026,5,1,Jaintia Hills Block,2026
+BG_0472,0,Jaintia Hills Block,2022,5,1,Jaintia Hills Block,2022
+BG_0473,0,Jaintia Hills Block,2009,5,3,Jaintia Hills Block,2009
+BG_0474,0,Jaintia Hills Block,2012,5,3,Jaintia Hills Block,2012
+BG_0475,0,Jaintia Hills Block,2019,5,3,Jaintia Hills Block,2019
+BG_0476,0,Jaintia Hills Block,2010,5,1,Jaintia Hills Block,2010
+BG_0477,0,Jaintia Hills Block,2008,5,3,Jaintia Hills Block,2008
+BG_0478,0,Jaintia Hills Block,2023,5,1,Jaintia Hills Block,2023
+BG_0479,0,Jaintia Hills Block,2013,5,3,Jaintia Hills Block,2013
+BG_0480,0,Jaintia Hills Block,2023,5,0,Jaintia Hills Block,2023
+BG_0481,0,Jaintia Hills Block,2007,5,4,Jaintia Hills Block,2007
+BG_0482,0,Jaintia Hills Block,2012,5,4,Jaintia Hills Block,2012
+BG_0483,0,Jaintia Hills Block,2026,5,2,Jaintia Hills Block,2026
+BG_0484,0,Jaintia Hills Block,2014,5,0,Jaintia Hills Block,2014
+BG_0485,0,Jaintia Hills Block,2023,5,2,Jaintia Hills Block,2023
+BG_0486,0,Jaintia Hills Block,2018,5,4,Jaintia Hills Block,2018
+BG_0487,0,Jaintia Hills Block,2008,5,0,Jaintia Hills Block,2008
+BG_0488,0,Jaintia Hills Block,2014,5,2,Jaintia Hills Block,2014
+BG_0489,0,Jaintia Hills Block,2018,5,3,Jaintia Hills Block,2018
+BG_0490,0,Jaintia Hills Block,2024,5,4,Jaintia Hills Block,2024
+BG_0491,0,Jaintia Hills Block,2024,5,1,Jaintia Hills Block,2024
+BG_0492,0,Jaintia Hills Block,2025,5,1,Jaintia Hills Block,2025
+BG_0493,0,Jaintia Hills Block,2014,5,2,Jaintia Hills Block,2014
+BG_0494,0,Jaintia Hills Block,2011,5,0,Jaintia Hills Block,2011
+BG_0495,0,Jaintia Hills Block,2010,5,0,Jaintia Hills Block,2010
+BG_0496,0,Jaintia Hills Block,2017,5,1,Jaintia Hills Block,2017
+BG_0497,0,Jaintia Hills Block,2017,5,2,Jaintia Hills Block,2017
+BG_0498,0,Jaintia Hills Block,2025,5,3,Jaintia Hills Block,2025
+BG_0499,0,Jaintia Hills Block,2018,5,4,Jaintia Hills Block,2018
+BG_0500,0,Jaintia Hills Block,2022,5,4,Jaintia Hills Block,2022
+BG_0501,0,Jaintia Hills Block,2019,5,0,Jaintia Hills Block,2019
+BG_0502,0,Jaintia Hills Block,2012,5,2,Jaintia Hills Block,2012
+BG_0503,0,Jaintia Hills Block,2010,5,4,Jaintia Hills Block,2010
+BG_0504,0,Jaintia Hills Block,2010,5,2,Jaintia Hills Block,2010
+BG_0505,0,Jaintia Hills Block,2014,6,4,Jaintia Hills Block,2014
+BG_0506,0,Jaintia Hills Block,2020,6,0,Jaintia Hills Block,2020
+BG_0507,0,Jaintia Hills Block,2008,6,2,Jaintia Hills Block,2008
+BG_0508,0,Jaintia Hills Block,2022,6,1,Jaintia Hills Block,2022
+BG_0509,0,Jaintia Hills Block,2007,6,4,Jaintia Hills Block,2007
+BG_0510,0,Jaintia Hills Block,2019,6,0,Jaintia Hills Block,2019
+BG_0511,0,Jaintia Hills Block,2026,6,3,Jaintia Hills Block,2026
+BG_0512,0,Jaintia Hills Block,2023,6,2,Jaintia Hills Block,2023
+BG_0513,0,Jaintia Hills Block,2007,6,2,Jaintia Hills Block,2007
+BG_0514,0,Jaintia Hills Block,2020,6,3,Jaintia Hills Block,2020
+BG_0515,0,Jaintia Hills Block,2009,6,0,Jaintia Hills Block,2009
+BG_0516,0,Jaintia Hills Block,2023,6,3,Jaintia Hills Block,2023
+BG_0517,0,Jaintia Hills Block,2012,6,3,Jaintia Hills Block,2012
+BG_0518,0,Jaintia Hills Block,2026,6,2,Jaintia Hills Block,2026
+BG_0519,0,Jaintia Hills Block,2020,6,4,Jaintia Hills Block,2020
+BG_0520,0,Jaintia Hills Block,2018,6,0,Jaintia Hills Block,2018
+BG_0521,0,Jaintia Hills Block,2013,6,0,Jaintia Hills Block,2013
+BG_0522,0,Jaintia Hills Block,2023,6,1,Jaintia Hills Block,2023
+BG_0523,0,Jaintia Hills Block,2010,6,1,Jaintia Hills Block,2010
+BG_0524,0,Jaintia Hills Block,2014,6,1,Jaintia Hills Block,2014
+BG_0525,0,Jaintia Hills Block,2025,6,4,Jaintia Hills Block,2025
+BG_0526,0,Jaintia Hills Block,2011,6,4,Jaintia Hills Block,2011
+BG_0527,0,Jaintia Hills Block,2009,6,4,Jaintia Hills Block,2009
+BG_0528,0,Jaintia Hills Block,2026,6,2,Jaintia Hills Block,2026
+BG_0529,0,Jaintia Hills Block,2013,6,3,Jaintia Hills Block,2013
+BG_0530,0,Jaintia Hills Block,2009,6,1,Jaintia Hills Block,2009
+BG_0531,0,Jaintia Hills Block,2007,6,0,Jaintia Hills Block,2007
+BG_0532,0,Jaintia Hills Block,2017,6,2,Jaintia Hills Block,2017
+BG_0533,0,Jaintia Hills Block,2010,6,3,Jaintia Hills Block,2010
+BG_0534,0,Jaintia Hills Block,2011,6,1,Jaintia Hills Block,2011
+BG_0535,0,Jaintia Hills Block,2017,7,1,Jaintia Hills Block,2017
+BG_0536,0,Jaintia Hills Block,2022,7,3,Jaintia Hills Block,2022
+BG_0537,0,Jaintia Hills Block,2013,7,2,Jaintia Hills Block,2013
+BG_0538,0,Jaintia Hills Block,2008,7,2,Jaintia Hills Block,2008
+BG_0539,0,Jaintia Hills Block,2009,7,3,Jaintia Hills Block,2009
+BG_0540,0,Jaintia Hills Block,2024,7,0,Jaintia Hills Block,2024
+BG_0541,0,Jaintia Hills Block,2012,7,2,Jaintia Hills Block,2012
+BG_0542,0,Jaintia Hills Block,2017,7,2,Jaintia Hills Block,2017
+BG_0543,0,Jaintia Hills Block,2019,7,0,Jaintia Hills Block,2019
+BG_0544,0,Jaintia Hills Block,2008,7,3,Jaintia Hills Block,2008
+BG_0545,0,Jaintia Hills Block,2019,7,0,Jaintia Hills Block,2019
+BG_0546,0,Jaintia Hills Block,2014,7,0,Jaintia Hills Block,2014
+BG_0547,0,Jaintia Hills Block,2013,7,4,Jaintia Hills Block,2013
+BG_0548,0,Jaintia Hills Block,2013,7,1,Jaintia Hills Block,2013
+BG_0549,0,Jaintia Hills Block,2009,7,4,Jaintia Hills Block,2009
+BG_0550,0,Jaintia Hills Block,2019,7,1,Jaintia Hills Block,2019
+BG_0551,0,Jaintia Hills Block,2014,7,3,Jaintia Hills Block,2014
+BG_0552,0,Jaintia Hills Block,2020,7,4,Jaintia Hills Block,2020
+BG_0553,0,Jaintia Hills Block,2019,7,0,Jaintia Hills Block,2019
+BG_0554,0,Jaintia Hills Block,2014,7,4,Jaintia Hills Block,2014
+BG_0555,0,Jaintia Hills Block,2017,7,1,Jaintia Hills Block,2017
+BG_0556,0,Jaintia Hills Block,2023,8,0,Jaintia Hills Block,2023
+BG_0557,0,Jaintia Hills Block,2013,8,1,Jaintia Hills Block,2013
+BG_0558,0,Jaintia Hills Block,2009,8,2,Jaintia Hills Block,2009

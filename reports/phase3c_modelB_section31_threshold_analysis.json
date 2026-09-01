@@ -1,0 +1,151 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 31: Operational Risk Threshold & Decision Analysis",
+  "timestamp": "2026-09-01 08:16:17",
+  "status": "THRESHOLD_ANALYSIS_COMPLETE_100_PERCENT_VERIFIED",
+  "threshold_selection_method": "Leak-free Stratified Block-Month Out-of-Fold (OOF) cross-validation predictions",
+  "recommended_operational_threshold": 0.18,
+  "provisional_threshold_performance": {
+    "threshold": 0.18,
+    "recall_pod": 0.8387,
+    "precision_ppv": 0.5474,
+    "f1_score": 0.6624,
+    "false_alarm_ratio": 0.4526,
+    "miss_rate": 0.1613,
+    "total_warnings": 285,
+    "true_positives": 156,
+    "false_positives": 129,
+    "true_negatives": 429,
+    "false_negatives": 30
+  },
+  "candidate_operating_points": [
+    {
+      "Operating_Profile": "High_Recall_Life_Safety (Target POD >= 95%)",
+      "Selected_Threshold": 0.04,
+      "Recall_POD": 0.9624,
+      "Precision_PPV": 0.292,
+      "F1_Score": 0.4481,
+      "False_Alarm_Ratio_FAR": 0.708,
+      "Miss_Rate_FNR": 0.0376,
+      "Total_Warnings": 613,
+      "Missed_Landslides": 7,
+      "Recommended_Tier": "CRITICAL / IMMEDIATE ACTION (Red Alert)"
+    },
+    {
+      "Operating_Profile": "Early_Warning_Protection (Target POD >= 90%)",
+      "Selected_Threshold": 0.1,
+      "Recall_POD": 0.9086,
+      "Precision_PPV": 0.4173,
+      "F1_Score": 0.5719,
+      "False_Alarm_Ratio_FAR": 0.5827,
+      "Miss_Rate_FNR": 0.0914,
+      "Total_Warnings": 405,
+      "Missed_Landslides": 17,
+      "Recommended_Tier": "HIGH / WARNING (Orange Alert)"
+    },
+    {
+      "Operating_Profile": "Cost_Optimal_Disaster_Priority (c=5)",
+      "Selected_Threshold": 0.18,
+      "Recall_POD": 0.8387,
+      "Precision_PPV": 0.5474,
+      "F1_Score": 0.6624,
+      "False_Alarm_Ratio_FAR": 0.4526,
+      "Miss_Rate_FNR": 0.1613,
+      "Total_Warnings": 285,
+      "Missed_Landslides": 30,
+      "Recommended_Tier": "MODERATE / ADVISORY (Yellow Alert)"
+    },
+    {
+      "Operating_Profile": "Balanced_Harmonic_F1 (Max F1 Score)",
+      "Selected_Threshold": 0.38,
+      "Recall_POD": 0.7204,
+      "Precision_PPV": 0.8121,
+      "F1_Score": 0.7635,
+      "False_Alarm_Ratio_FAR": 0.1879,
+      "Miss_Rate_FNR": 0.2796,
+      "Total_Warnings": 165,
+      "Missed_Landslides": 52,
+      "Recommended_Tier": "STATISTICAL BENCHMARK ONLY"
+    }
+  ],
+  "cost_sensitive_scenarios": [
+    {
+      "Scenario_Name": "Cost_Scenario_A_c1",
+      "Relative_Cost_Ratio (FN:FP)": "1:1",
+      "Optimal_Threshold": 0.6,
+      "Optimal_Total_Cost": 79.0,
+      "Normalized_Cost": 0.1062,
+      "Resulting_Recall_POD": 0.6452,
+      "Resulting_Precision_PPV": 0.9023,
+      "Resulting_False_Alarm_Ratio": 0.0977,
+      "Missed_Landslides": 66,
+      "Generated_Warnings": 133
+    },
+    {
+      "Scenario_Name": "Cost_Scenario_B_c2",
+      "Relative_Cost_Ratio (FN:FP)": "2:1",
+      "Optimal_Threshold": 0.38,
+      "Optimal_Total_Cost": 135.0,
+      "Normalized_Cost": 0.1452,
+      "Resulting_Recall_POD": 0.7204,
+      "Resulting_Precision_PPV": 0.8121,
+      "Resulting_False_Alarm_Ratio": 0.1879,
+      "Missed_Landslides": 52,
+      "Generated_Warnings": 165
+    },
+    {
+      "Scenario_Name": "Cost_Scenario_C_c5",
+      "Relative_Cost_Ratio (FN:FP)": "5:1",
+      "Optimal_Threshold": 0.18,
+      "Optimal_Total_Cost": 279.0,
+      "Normalized_Cost": 0.1875,
+      "Resulting_Recall_POD": 0.8387,
+      "Resulting_Precision_PPV": 0.5474,
+      "Resulting_False_Alarm_Ratio": 0.4526,
+      "Missed_Landslides": 30,
+      "Generated_Warnings": 285
+    },
+    {
+      "Scenario_Name": "Cost_Scenario_D_c10",
+      "Relative_Cost_Ratio (FN:FP)": "10:1",
+      "Optimal_Threshold": 0.12,
+      "Optimal_Total_Cost": 397.0,
+      "Normalized_Cost": 0.1642,
+      "Resulting_Recall_POD": 0.8925,
+      "Resulting_Precision_PPV": 0.4573,
+      "Resulting_False_Alarm_Ratio": 0.5427,
+      "Missed_Landslides": 20,
+      "Generated_Warnings": 363
+    }
+  ],
+  "calibration_metrics": {
+    "brier_score_oof": 0.0932,
+    "training_prevalence": 0.25,
+    "brier_skill_score_pct": 50.29
+  },
+  "risk_tiers": {
+    "Green_Low": {
+      "range": "[0.00, 0.10)",
+      "level": "Low Hazard / Background"
+    },
+    "Yellow_Moderate": {
+      "range": "[0.10, 0.18)",
+      "level": "Advisory / Elevated Watch"
+    },
+    "Orange_High": {
+      "range": "[0.18, 0.38)",
+      "level": "Warning / High Hazard"
+    },
+    "Red_Critical": {
+      "range": "[0.38, 1.00]",
+      "level": "Critical / Severe Danger"
+    }
+  },
+  "governance": {
+    "model_a_modified": false,
+    "sections_14_to_30_modified": false,
+    "leak_free_threshold_selection": true,
+    "real_world_probability_claim": false,
+    "real_world_operational_far_claim": false
+  }
+}

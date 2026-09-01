@@ -1,0 +1,36 @@
+Spatial_Block,Month,Month_Name,Available_Coordinates,Eligible_Dates,Candidate_Pool_Size,Positive_Events,Target_Background_Quota,Sampled_Background_Count,Stratum_Feasibility
+Garo Hills Block,4,April,999,486,485514,0,0,0,Surplus Pool (Quota=0)
+Garo Hills Block,5,May,999,493,492507,0,0,0,Surplus Pool (Quota=0)
+Garo Hills Block,6,June,999,398,397602,5,15,15,100% Saturated
+Garo Hills Block,7,July,999,448,447552,2,6,6,100% Saturated
+Garo Hills Block,8,August,999,416,415584,1,3,3,100% Saturated
+Garo Hills Block,9,September,999,456,455544,0,0,0,Surplus Pool (Quota=0)
+Garo Hills Block,10,October,999,485,484515,0,0,0,Surplus Pool (Quota=0)
+West Khasi Block,4,April,358,486,173988,0,0,0,Surplus Pool (Quota=0)
+West Khasi Block,5,May,358,493,176494,5,15,15,100% Saturated
+West Khasi Block,6,June,358,398,142484,16,48,48,100% Saturated
+West Khasi Block,7,July,358,448,160384,14,42,42,100% Saturated
+West Khasi Block,8,August,358,416,148928,8,24,24,100% Saturated
+West Khasi Block,9,September,358,456,163248,0,0,0,Surplus Pool (Quota=0)
+West Khasi Block,10,October,358,485,173630,0,0,0,Surplus Pool (Quota=0)
+East Khasi Block,4,April,230,486,111780,6,18,18,100% Saturated
+East Khasi Block,5,May,230,493,113390,19,57,57,100% Saturated
+East Khasi Block,6,June,230,398,91540,6,18,18,100% Saturated
+East Khasi Block,7,July,230,448,103040,8,24,24,100% Saturated
+East Khasi Block,8,August,230,416,95680,3,9,9,100% Saturated
+East Khasi Block,9,September,230,456,104880,2,6,6,100% Saturated
+East Khasi Block,10,October,230,485,111550,1,3,3,100% Saturated
+Ri-Bhoi Block,4,April,648,486,314928,0,0,0,Surplus Pool (Quota=0)
+Ri-Bhoi Block,5,May,648,493,319464,21,63,63,100% Saturated
+Ri-Bhoi Block,6,June,648,398,257904,12,36,36,100% Saturated
+Ri-Bhoi Block,7,July,648,448,290304,8,24,24,100% Saturated
+Ri-Bhoi Block,8,August,648,416,269568,4,12,12,100% Saturated
+Ri-Bhoi Block,9,September,648,456,295488,7,21,21,100% Saturated
+Ri-Bhoi Block,10,October,648,485,314280,1,3,3,100% Saturated
+Jaintia Hills Block,4,April,406,486,197316,7,21,21,100% Saturated
+Jaintia Hills Block,5,May,406,493,200158,12,36,36,100% Saturated
+Jaintia Hills Block,6,June,406,398,161588,10,30,30,100% Saturated
+Jaintia Hills Block,7,July,406,448,181888,7,21,21,100% Saturated
+Jaintia Hills Block,8,August,406,416,168896,1,3,3,100% Saturated
+Jaintia Hills Block,9,September,406,456,185136,0,0,0,Surplus Pool (Quota=0)
+Jaintia Hills Block,10,October,406,485,196910,0,0,0,Surplus Pool (Quota=0)

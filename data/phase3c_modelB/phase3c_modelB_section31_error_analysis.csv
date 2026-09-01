@@ -1,0 +1,181 @@
+supervised_id,observation_date,spatial_block,y_true,predicted_probability,error_quadrant,rainfall_event_day,ari_3,ari_7,ari_30,max_3day_30d,rainy_days_30d
+POS_0007,2024-05-30,East Khasi Block,1,0.4416,TP (True Positive - Successful Landslide Trigger Detection),29.27,292.68,400.77,601.19,292.68,14
+POS_0008,2022-04-04,East Khasi Block,1,0.0134,FN (False Negative - Missed Landslide / Low-Precipitation Event),24.75,37.12,46.04,77.3,37.12,7
+POS_0009,2009-06-29,East Khasi Block,1,0.1297,FN (False Negative - Missed Landslide / Low-Precipitation Event),60.85,81.13,167.6,886.21,223.34,16
+POS_0013,2007-07-19,East Khasi Block,1,0.9044,TP (True Positive - Successful Landslide Trigger Detection),67.85,248.77,352.36,694.72,248.77,19
+POS_0015,2007-07-19,East Khasi Block,1,0.8722,TP (True Positive - Successful Landslide Trigger Detection),67.04,245.82,344.39,714.02,245.82,20
+POS_0022,2007-08-18,East Khasi Block,1,0.1586,FN (False Negative - Missed Landslide / Low-Precipitation Event),24.54,98.15,143.23,665.44,229.23,16
+POS_0024,2009-07-17,East Khasi Block,1,0.1899,FN (False Negative - Missed Landslide / Low-Precipitation Event),38.87,38.87,74.87,545.01,234.55,16
+POS_0027,2007-07-19,East Khasi Block,1,0.8943,TP (True Positive - Successful Landslide Trigger Detection),60.62,181.85,277.87,632.5,181.85,20
+POS_0037,2007-09-08,East Khasi Block,1,0.8409,TP (True Positive - Successful Landslide Trigger Detection),42.65,159.93,197.61,547.26,159.93,23
+POS_0038,2014-09-23,East Khasi Block,1,0.8263,TP (True Positive - Successful Landslide Trigger Detection),42.62,255.72,346.44,556.26,255.72,23
+POS_0039,2024-05-27,East Khasi Block,1,0.0187,FN (False Negative - Missed Landslide / Low-Precipitation Event),15.1,45.29,45.29,149.12,59.74,9
+POS_0050,2024-10-04,East Khasi Block,1,0.9202,TP (True Positive - Successful Landslide Trigger Detection),70.0,128.0,202.87,302.81,128.0,18
+POS_0060,2025-05-30,East Khasi Block,1,0.8301,TP (True Positive - Successful Landslide Trigger Detection),56.61,141.52,208.24,490.94,141.52,19
+POS_0061,2025-05-30,East Khasi Block,1,0.8586,TP (True Positive - Successful Landslide Trigger Detection),49.5,173.26,239.56,558.89,173.26,19
+POS_0062,2025-05-30,East Khasi Block,1,0.7237,TP (True Positive - Successful Landslide Trigger Detection),42.59,127.78,194.9,469.61,127.78,19
+POS_0063,2025-05-30,East Khasi Block,1,0.775,TP (True Positive - Successful Landslide Trigger Detection),45.59,136.77,193.05,470.36,136.77,20
+POS_0064,2025-05-30,East Khasi Block,1,0.7237,TP (True Positive - Successful Landslide Trigger Detection),42.59,127.78,194.9,469.61,127.78,19
+POS_0065,2025-05-31,East Khasi Block,1,0.5768,TP (True Positive - Successful Landslide Trigger Detection),159.34,318.67,393.52,826.66,318.67,20
+POS_0066,2025-05-31,East Khasi Block,1,0.5768,TP (True Positive - Successful Landslide Trigger Detection),159.34,318.67,393.52,826.66,318.67,20
+POS_0067,2025-05-31,East Khasi Block,1,0.5768,TP (True Positive - Successful Landslide Trigger Detection),159.34,318.67,393.52,826.66,318.67,20
+POS_0068,2010-08-27,East Khasi Block,1,0.1656,FN (False Negative - Missed Landslide / Low-Precipitation Event),13.84,79.07,114.63,404.37,79.07,24
+POS_0069,2010-06-28,East Khasi Block,1,0.163,FN (False Negative - Missed Landslide / Low-Precipitation Event),50.84,101.67,151.75,538.91,101.67,24
+POS_0070,2010-06-28,East Khasi Block,1,0.1765,FN (False Negative - Missed Landslide / Low-Precipitation Event),55.2,99.36,144.1,532.87,99.36,24
+POS_0071,2010-06-28,East Khasi Block,1,0.1765,FN (False Negative - Missed Landslide / Low-Precipitation Event),55.2,99.36,144.1,532.87,99.36,24
+POS_0093,2019-07-09,East Khasi Block,1,0.5915,TP (True Positive - Successful Landslide Trigger Detection),34.29,80.01,140.46,421.1,167.12,19
+POS_0094,2019-07-10,East Khasi Block,1,0.7406,TP (True Positive - Successful Landslide Trigger Detection),57.15,137.16,197.61,478.25,167.12,20
+POS_0107,2022-06-17,East Khasi Block,1,0.6189,TP (True Positive - Successful Landslide Trigger Detection),131.53,252.58,411.42,895.26,252.58,17
+POS_0116,2022-04-04,East Khasi Block,1,0.0134,FN (False Negative - Missed Landslide / Low-Precipitation Event),24.75,37.12,46.04,77.3,37.12,7
+POS_0117,2022-04-04,East Khasi Block,1,0.017,FN (False Negative - Missed Landslide / Low-Precipitation Event),16.7,27.84,35.48,65.65,27.84,7
+POS_0118,2022-04-04,East Khasi Block,1,0.017,FN (False Negative - Missed Landslide / Low-Precipitation Event),16.7,27.84,35.48,65.65,27.84,7
+POS_0119,2022-04-04,East Khasi Block,1,0.0177,FN (False Negative - Missed Landslide / Low-Precipitation Event),13.53,27.07,34.77,60.34,27.07,6
+POS_0120,2023-04-13,East Khasi Block,1,0.0265,FN (False Negative - Missed Landslide / Low-Precipitation Event),0.0,0.0,0.0,179.51,119.67,5
+POS_0123,2024-06-28,East Khasi Block,1,0.2032,TP (True Positive - Successful Landslide Trigger Detection),0.0,48.4,114.0,706.38,210.47,21
+POS_0129,2024-05-28,East Khasi Block,1,0.2654,TP (True Positive - Successful Landslide Trigger Detection),60.39,105.67,105.67,209.5,105.67,10
+POS_0130,2024-05-28,East Khasi Block,1,0.2654,TP (True Positive - Successful Landslide Trigger Detection),60.39,105.67,105.67,209.5,105.67,10
+POS_0131,2024-05-28,East Khasi Block,1,0.2654,TP (True Positive - Successful Landslide Trigger Detection),60.39,105.67,105.67,209.5,105.67,10
+POS_0132,2024-07-02,East Khasi Block,1,0.5246,TP (True Positive - Successful Landslide Trigger Detection),0.0,103.61,155.24,495.34,150.75,21
+POS_0134,2024-07-02,East Khasi Block,1,0.5246,TP (True Positive - Successful Landslide Trigger Detection),0.0,103.61,155.24,495.34,150.75,21
+POS_0135,2024-05-28,East Khasi Block,1,0.2574,TP (True Positive - Successful Landslide Trigger Detection),62.92,104.86,125.45,253.17,104.86,10
+POS_0136,2024-05-28,East Khasi Block,1,0.2114,TP (True Positive - Successful Landslide Trigger Detection),71.19,118.64,136.4,268.19,118.64,10
+POS_0137,2024-05-28,East Khasi Block,1,0.8606,TP (True Positive - Successful Landslide Trigger Detection),115.37,173.05,191.18,364.35,173.05,11
+POS_0138,2025-05-30,East Khasi Block,1,0.9491,TP (True Positive - Successful Landslide Trigger Detection),87.91,153.85,212.88,466.23,153.85,18
+POS_0147,2025-05-31,East Khasi Block,1,0.7891,TP (True Positive - Successful Landslide Trigger Detection),123.76,247.52,336.8,682.66,247.52,20
+POS_0148,2025-05-30,East Khasi Block,1,0.5562,TP (True Positive - Successful Landslide Trigger Detection),31.51,189.06,255.91,634.91,189.06,18
+POS_0186,2025-08-19,East Khasi Block,1,0.0269,FN (False Negative - Missed Landslide / Low-Precipitation Event),13.62,40.87,99.94,390.76,157.27,13
+BG_0154,2017-04-29,East Khasi Block,0,0.0229,TN (True Negative - Correct Low-Hazard Rejection),0.0,22.18,45.04,282.58,138.52,9
+BG_0155,2014-04-06,East Khasi Block,0,0.0167,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,14.47,86.53,40.6,3
+BG_0156,2023-04-04,East Khasi Block,0,0.0497,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,315.3,165.33,7
+BG_0157,2011-04-10,East Khasi Block,0,0.0196,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,112.97,77.75,3
+BG_0158,2009-04-23,East Khasi Block,0,0.3442,FP (False Positive - High Rain on Stable Terrain),50.18,125.46,125.46,378.98,125.46,9
+BG_0159,2025-04-09,East Khasi Block,0,0.0265,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,153.24,133.56,2
+BG_0160,2012-04-02,East Khasi Block,0,0.0137,TN (True Negative - Correct Low-Hazard Rejection),0.0,44.29,44.29,44.29,44.29,2
+BG_0161,2018-04-24,East Khasi Block,0,0.0189,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,123.68,58.4,7
+BG_0162,2025-04-29,East Khasi Block,0,0.0634,TN (True Negative - Correct Low-Hazard Rejection),0.0,94.27,294.2,433.74,188.54,8
+BG_0163,2018-04-22,East Khasi Block,0,0.0263,TN (True Negative - Correct Low-Hazard Rejection),0.0,75.74,75.74,250.41,123.35,6
+BG_0164,2019-04-13,East Khasi Block,0,0.0388,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,18.51,305.84,147.46,7
+BG_0165,2026-04-12,East Khasi Block,0,0.0311,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,393.88,124.72,9
+BG_0166,2007-04-07,East Khasi Block,0,0.5754,FP (False Positive - High Rain on Stable Terrain),38.32,188.69,215.93,226.4,188.69,7
+BG_0167,2011-04-04,East Khasi Block,0,0.0105,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,34.6,102.4,38.07,8
+BG_0168,2008-04-19,East Khasi Block,0,0.0158,TN (True Negative - Correct Low-Hazard Rejection),0.0,55.78,140.3,299.78,98.04,7
+BG_0169,2013-04-21,East Khasi Block,0,0.0152,TN (True Negative - Correct Low-Hazard Rejection),0.0,18.93,31.54,40.7,25.23,5
+BG_0170,2008-04-04,East Khasi Block,0,0.0152,TN (True Negative - Correct Low-Hazard Rejection),0.0,22.29,220.82,285.47,198.53,5
+BG_0171,2008-04-08,East Khasi Block,0,0.0233,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,123.92,93.4,3
+BG_0172,2013-05-16,East Khasi Block,0,0.1505,TN (True Negative - Correct Low-Hazard Rejection),115.7,115.7,394.95,974.9,375.53,16
+BG_0173,2010-05-15,East Khasi Block,0,0.2139,FP (False Positive - High Rain on Stable Terrain),0.0,54.84,132.4,396.74,77.56,23
+BG_0174,2019-05-11,East Khasi Block,0,0.0534,TN (True Negative - Correct Low-Hazard Rejection),13.78,51.78,70.78,490.11,222.29,11
+BG_0175,2019-05-02,East Khasi Block,0,0.0152,TN (True Negative - Correct Low-Hazard Rejection),0.0,21.6,50.61,153.27,56.93,8
+BG_0176,2014-05-02,East Khasi Block,0,0.1175,TN (True Negative - Correct Low-Hazard Rejection),20.52,123.1,167.7,283.86,123.1,9
+BG_0177,2009-05-05,East Khasi Block,0,0.0272,TN (True Negative - Correct Low-Hazard Rejection),16.4,32.79,213.97,395.63,181.18,10
+BG_0178,2013-05-18,East Khasi Block,0,0.3142,FP (False Positive - High Rain on Stable Terrain),0.0,70.44,70.44,532.89,207.37,16
+BG_0179,2012-05-28,East Khasi Block,0,0.189,TN (True Negative - Correct Low-Hazard Rejection),39.84,79.68,163.72,585.84,165.51,15
+BG_0180,2009-05-24,East Khasi Block,0,0.2403,FP (False Positive - High Rain on Stable Terrain),0.0,11.41,75.84,447.69,158.08,15
+BG_0181,2025-05-07,East Khasi Block,0,0.0521,TN (True Negative - Correct Low-Hazard Rejection),10.38,24.92,24.92,486.83,224.5,8
+BG_0182,2014-05-19,East Khasi Block,0,0.4014,FP (False Positive - High Rain on Stable Terrain),11.42,22.84,131.1,671.79,251.3,16
+BG_0183,2011-05-20,East Khasi Block,0,0.1168,TN (True Negative - Correct Low-Hazard Rejection),16.84,67.37,152.17,345.9,105.31,12
+BG_0184,2011-05-11,East Khasi Block,0,0.0151,TN (True Negative - Correct Low-Hazard Rejection),0.0,17.99,17.99,168.9,66.51,9
+BG_0185,2017-05-02,East Khasi Block,0,0.0215,TN (True Negative - Correct Low-Hazard Rejection),0.0,65.19,65.19,306.24,95.36,8
+BG_0186,2011-05-29,East Khasi Block,0,0.045,TN (True Negative - Correct Low-Hazard Rejection),23.79,23.79,90.9,549.51,145.46,15
+BG_0187,2013-05-06,East Khasi Block,0,0.0612,TN (True Negative - Correct Low-Hazard Rejection),0.0,23.51,248.59,501.33,201.57,14
+BG_0188,2023-05-11,East Khasi Block,0,0.0174,TN (True Negative - Correct Low-Hazard Rejection),11.84,11.84,11.84,73.29,35.88,5
+BG_0189,2008-05-01,East Khasi Block,0,0.2408,FP (False Positive - High Rain on Stable Terrain),45.43,57.34,86.73,138.76,57.34,12
+BG_0190,2013-05-22,East Khasi Block,0,0.062,TN (True Negative - Correct Low-Hazard Rejection),10.82,10.82,67.1,396.75,167.1,14
+BG_0191,2014-05-24,East Khasi Block,0,0.6086,FP (False Positive - High Rain on Stable Terrain),10.9,21.79,56.61,760.54,368.57,19
+BG_0192,2017-05-27,East Khasi Block,0,0.1095,TN (True Negative - Correct Low-Hazard Rejection),0.0,54.63,95.58,250.45,75.1,15
+BG_0193,2024-05-17,East Khasi Block,0,0.0196,TN (True Negative - Correct Low-Hazard Rejection),22.5,30.31,30.31,253.48,142.21,8
+BG_0194,2008-05-08,East Khasi Block,0,0.0256,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,18.94,294.24,115.57,8
+BG_0195,2018-05-18,East Khasi Block,0,0.0178,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,143.06,81.38,5
+BG_0196,2023-05-01,East Khasi Block,0,0.0164,TN (True Negative - Correct Low-Hazard Rejection),0.0,54.07,54.07,102.07,54.07,4
+BG_0197,2011-05-14,East Khasi Block,0,0.0127,TN (True Negative - Correct Low-Hazard Rejection),0.0,21.95,63.85,320.12,132.5,7
+BG_0198,2014-05-22,East Khasi Block,0,0.5981,FP (False Positive - High Rain on Stable Terrain),9.15,32.67,54.21,684.06,247.98,21
+BG_0199,2018-05-31,East Khasi Block,0,0.024,TN (True Negative - Correct Low-Hazard Rejection),20.48,20.48,263.0,500.54,236.2,10
+BG_0200,2007-05-18,East Khasi Block,0,0.0159,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,76.98,222.11,77.86,6
+BG_0201,2009-05-23,East Khasi Block,0,0.025,TN (True Negative - Correct Low-Hazard Rejection),36.22,36.22,112.86,473.36,159.13,13
+BG_0202,2025-05-11,East Khasi Block,0,0.0695,TN (True Negative - Correct Low-Hazard Rejection),96.3,117.87,150.33,575.2,227.09,11
+BG_0203,2022-05-12,East Khasi Block,0,0.0247,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,290.04,70.12,12
+BG_0204,2007-05-12,East Khasi Block,0,0.018,TN (True Negative - Correct Low-Hazard Rejection),0.0,34.44,97.39,272.93,71.91,8
+BG_0205,2024-05-22,East Khasi Block,0,0.0209,TN (True Negative - Correct Low-Hazard Rejection),0.0,29.51,112.55,286.44,142.21,9
+BG_0206,2018-05-25,East Khasi Block,0,0.5085,FP (False Positive - High Rain on Stable Terrain),133.02,149.65,149.65,602.6,236.49,9
+BG_0207,2013-05-21,East Khasi Block,0,0.0864,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,104.75,672.87,269.63,14
+BG_0208,2011-05-09,East Khasi Block,0,0.0166,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,54.15,282.84,108.3,8
+BG_0209,2009-05-27,East Khasi Block,0,0.4672,FP (False Positive - High Rain on Stable Terrain),24.48,183.06,219.27,699.13,183.95,16
+BG_0210,2014-05-08,East Khasi Block,0,0.7768,FP (False Positive - High Rain on Stable Terrain),29.28,146.41,203.52,328.65,146.41,10
+BG_0211,2017-05-27,East Khasi Block,0,0.1558,TN (True Negative - Correct Low-Hazard Rejection),0.0,125.04,249.34,636.25,156.12,16
+BG_0212,2025-05-12,East Khasi Block,0,0.0429,TN (True Negative - Correct Low-Hazard Rejection),0.0,61.64,115.32,513.42,194.48,12
+BG_0213,2024-05-17,East Khasi Block,0,0.0227,TN (True Negative - Correct Low-Hazard Rejection),18.88,24.35,24.35,228.79,128.94,8
+BG_0214,2010-05-02,East Khasi Block,0,0.3136,FP (False Positive - High Rain on Stable Terrain),41.05,51.32,96.0,351.13,76.14,23
+BG_0215,2023-05-05,East Khasi Block,0,0.0152,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,42.12,99.7,42.12,7
+BG_0216,2019-05-23,East Khasi Block,0,0.4221,FP (False Positive - High Rain on Stable Terrain),41.99,104.98,225.63,904.05,347.3,19
+BG_0217,2024-05-13,East Khasi Block,0,0.0543,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,353.15,163.62,10
+BG_0218,2025-05-16,East Khasi Block,0,0.7746,FP (False Positive - High Rain on Stable Terrain),32.72,160.31,364.4,855.42,211.82,17
+BG_0219,2012-05-23,East Khasi Block,0,0.0359,TN (True Negative - Correct Low-Hazard Rejection),0.0,66.25,118.64,550.32,190.91,13
+BG_0220,2017-05-27,East Khasi Block,0,0.14,TN (True Negative - Correct Low-Hazard Rejection),0.0,70.71,124.78,292.6,92.34,16
+BG_0221,2024-05-04,East Khasi Block,0,0.0466,TN (True Negative - Correct Low-Hazard Rejection),47.73,47.73,61.09,200.41,56.87,9
+BG_0222,2023-05-30,East Khasi Block,0,0.0142,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,36.75,287.46,121.72,8
+BG_0223,2020-05-14,East Khasi Block,0,0.0155,TN (True Negative - Correct Low-Hazard Rejection),0.0,53.8,90.96,265.98,79.48,10
+BG_0224,2011-05-13,East Khasi Block,0,0.0624,TN (True Negative - Correct Low-Hazard Rejection),44.22,44.22,103.74,433.08,151.04,10
+BG_0225,2007-05-19,East Khasi Block,0,0.0547,TN (True Negative - Correct Low-Hazard Rejection),43.88,43.88,169.99,344.15,126.11,7
+BG_0226,2024-05-09,East Khasi Block,0,0.0118,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,70.37,126.15,70.37,7
+BG_0227,2007-05-28,East Khasi Block,0,0.0917,TN (True Negative - Correct Low-Hazard Rejection),27.83,111.34,470.02,763.72,303.5,13
+BG_0228,2026-05-11,East Khasi Block,0,0.4256,FP (False Positive - High Rain on Stable Terrain),0.0,0.0,0.88,581.98,191.16,15
+BG_0229,2018-06-02,East Khasi Block,0,0.0244,TN (True Negative - Correct Low-Hazard Rejection),0.0,19.59,39.19,282.17,108.15,13
+BG_0230,2017-06-28,East Khasi Block,0,0.0542,TN (True Negative - Correct Low-Hazard Rejection),31.35,73.16,295.83,1349.17,280.7,25
+BG_0231,2008-06-01,East Khasi Block,0,0.0564,TN (True Negative - Correct Low-Hazard Rejection),18.79,58.18,77.88,147.91,58.18,8
+BG_0232,2020-06-20,East Khasi Block,0,0.0629,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,6.33,195.78,82.72,17
+BG_0233,2019-06-03,East Khasi Block,0,0.1371,TN (True Negative - Correct Low-Hazard Rejection),109.95,109.95,145.54,453.1,109.95,15
+BG_0234,2007-06-11,East Khasi Block,0,0.3991,FP (False Positive - High Rain on Stable Terrain),65.73,207.74,321.34,1183.78,311.19,22
+BG_0235,2020-06-20,East Khasi Block,0,0.1956,TN (True Negative - Correct Low-Hazard Rejection),0.0,42.93,120.76,722.38,213.41,20
+BG_0236,2007-06-30,East Khasi Block,0,0.0597,TN (True Negative - Correct Low-Hazard Rejection),16.77,50.3,113.93,897.89,264.43,24
+BG_0237,2019-06-21,East Khasi Block,0,0.0959,TN (True Negative - Correct Low-Hazard Rejection),26.56,94.73,133.24,432.19,94.73,16
+BG_0238,2008-06-03,East Khasi Block,0,0.0481,TN (True Negative - Correct Low-Hazard Rejection),0.0,63.97,188.78,474.51,105.82,13
+BG_0239,2025-06-20,East Khasi Block,0,0.1319,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,150.38,969.84,465.23,16
+BG_0240,2007-06-09,East Khasi Block,0,0.203,FP (False Positive - High Rain on Stable Terrain),80.03,96.04,107.64,508.25,146.08,17
+BG_0241,2026-06-13,East Khasi Block,0,0.1308,TN (True Negative - Correct Low-Hazard Rejection),70.25,70.25,146.62,801.84,175.14,24
+BG_0242,2019-06-10,East Khasi Block,0,0.0154,TN (True Negative - Correct Low-Hazard Rejection),0.0,46.43,46.43,451.4,104.94,12
+BG_0243,2014-06-20,East Khasi Block,0,0.1106,TN (True Negative - Correct Low-Hazard Rejection),0.0,198.02,247.52,1019.61,301.57,17
+BG_0244,2013-06-06,East Khasi Block,0,0.7792,FP (False Positive - High Rain on Stable Terrain),71.33,153.28,153.28,815.84,379.17,12
+BG_0245,2022-06-28,East Khasi Block,0,0.0986,TN (True Negative - Correct Low-Hazard Rejection),63.4,63.4,72.12,933.14,225.69,24
+BG_0246,2023-06-13,East Khasi Block,0,0.0161,TN (True Negative - Correct Low-Hazard Rejection),28.68,57.36,220.86,342.18,163.49,9
+BG_0247,2007-07-04,East Khasi Block,0,0.2877,FP (False Positive - High Rain on Stable Terrain),32.83,32.83,103.55,501.0,173.54,19
+BG_0248,2010-07-19,East Khasi Block,0,0.0533,TN (True Negative - Correct Low-Hazard Rejection),24.43,48.86,78.74,421.21,106.13,18
+BG_0249,2008-07-12,East Khasi Block,0,0.0805,TN (True Negative - Correct Low-Hazard Rejection),0.0,68.38,82.7,505.56,122.52,17
+BG_0250,2022-07-31,East Khasi Block,0,0.1821,TN (True Negative - Correct Low-Hazard Rejection),140.86,211.29,281.73,916.19,211.29,19
+BG_0251,2022-07-04,East Khasi Block,0,0.0837,TN (True Negative - Correct Low-Hazard Rejection),0.0,47.58,189.72,1212.95,267.07,22
+BG_0252,2023-07-01,East Khasi Block,0,0.0606,TN (True Negative - Correct Low-Hazard Rejection),25.03,112.18,155.75,897.96,363.28,16
+BG_0253,2008-07-12,East Khasi Block,0,0.0968,TN (True Negative - Correct Low-Hazard Rejection),11.73,72.42,97.94,458.6,105.77,18
+BG_0254,2011-07-28,East Khasi Block,0,0.1688,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,891.24,247.66,14
+BG_0255,2026-07-18,East Khasi Block,0,0.0552,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,94.19,891.78,277.8,17
+BG_0256,2022-07-11,East Khasi Block,0,0.2393,FP (False Positive - High Rain on Stable Terrain),0.0,30.79,154.5,1023.59,321.6,21
+BG_0257,2008-07-12,East Khasi Block,0,0.1019,TN (True Negative - Correct Low-Hazard Rejection),16.88,63.93,117.03,904.07,192.6,19
+BG_0258,2019-07-29,East Khasi Block,0,0.1654,TN (True Negative - Correct Low-Hazard Rejection),0.0,45.51,165.76,1059.86,365.51,20
+BG_0259,2025-07-12,East Khasi Block,0,0.176,TN (True Negative - Correct Low-Hazard Rejection),21.92,21.92,75.11,659.97,151.26,17
+BG_0260,2011-07-19,East Khasi Block,0,0.3167,FP (False Positive - High Rain on Stable Terrain),108.58,144.77,329.93,1152.68,258.45,21
+BG_0261,2007-07-06,East Khasi Block,0,0.122,TN (True Negative - Correct Low-Hazard Rejection),0.0,76.78,105.83,893.24,235.61,22
+BG_0262,2014-07-13,East Khasi Block,0,0.073,TN (True Negative - Correct Low-Hazard Rejection),40.38,141.33,362.27,1111.61,276.18,19
+BG_0263,2020-07-13,East Khasi Block,0,0.0632,TN (True Negative - Correct Low-Hazard Rejection),0.0,306.07,516.93,1191.47,403.39,22
+BG_0264,2017-07-11,East Khasi Block,0,0.0437,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,151.39,1478.09,396.14,20
+BG_0265,2013-07-09,East Khasi Block,0,0.045,TN (True Negative - Correct Low-Hazard Rejection),0.0,90.77,136.16,1094.49,240.78,20
+BG_0266,2008-07-26,East Khasi Block,0,0.0522,TN (True Negative - Correct Low-Hazard Rejection),30.98,54.19,259.1,907.05,212.16,19
+BG_0267,2008-07-12,East Khasi Block,0,0.0982,TN (True Negative - Correct Low-Hazard Rejection),0.0,68.35,122.92,840.2,173.21,19
+BG_0268,2019-07-28,East Khasi Block,0,0.1182,TN (True Negative - Correct Low-Hazard Rejection),12.67,50.68,193.11,945.39,305.88,19
+BG_0269,2007-07-05,East Khasi Block,0,0.3662,FP (False Positive - High Rain on Stable Terrain),16.15,72.66,105.87,736.21,195.99,22
+BG_0270,2019-07-27,East Khasi Block,0,0.1841,TN (True Negative - Correct Low-Hazard Rejection),17.54,94.25,197.81,1205.16,326.39,23
+BG_0271,2024-08-23,East Khasi Block,0,0.161,TN (True Negative - Correct Low-Hazard Rejection),10.43,68.67,212.99,769.58,191.0,17
+BG_0272,2017-08-02,East Khasi Block,0,0.4538,FP (False Positive - High Rain on Stable Terrain),6.35,72.31,191.53,674.97,159.46,18
+BG_0273,2012-08-12,East Khasi Block,0,0.2952,FP (False Positive - High Rain on Stable Terrain),0.0,37.01,92.67,724.15,183.56,22
+BG_0274,2019-08-13,East Khasi Block,0,0.3221,FP (False Positive - High Rain on Stable Terrain),0.0,50.99,86.61,685.86,174.57,18
+BG_0275,2013-08-20,East Khasi Block,0,0.0732,TN (True Negative - Correct Low-Hazard Rejection),31.71,95.84,119.21,993.95,170.1,26
+BG_0276,2017-08-03,East Khasi Block,0,0.1311,TN (True Negative - Correct Low-Hazard Rejection),34.7,57.84,213.39,768.32,155.55,18
+BG_0277,2013-08-26,East Khasi Block,0,0.1385,TN (True Negative - Correct Low-Hazard Rejection),97.16,97.16,219.51,874.7,179.68,23
+BG_0278,2008-08-01,East Khasi Block,0,0.0566,TN (True Negative - Correct Low-Hazard Rejection),15.69,86.61,133.9,925.43,200.21,22
+BG_0279,2007-08-09,East Khasi Block,0,0.1703,TN (True Negative - Correct Low-Hazard Rejection),0.0,24.09,73.48,945.04,304.59,18
+BG_0280,2012-09-29,East Khasi Block,0,0.4916,FP (False Positive - High Rain on Stable Terrain),5.99,5.99,104.99,482.88,165.35,20
+BG_0281,2014-09-05,East Khasi Block,0,0.4557,FP (False Positive - High Rain on Stable Terrain),9.72,68.04,147.19,761.34,232.59,21
+BG_0282,2011-09-20,East Khasi Block,0,0.1722,TN (True Negative - Correct Low-Hazard Rejection),44.65,44.65,148.84,649.74,178.6,17
+BG_0283,2023-09-24,East Khasi Block,0,0.5064,FP (False Positive - High Rain on Stable Terrain),0.0,0.0,108.85,682.47,310.66,19
+BG_0284,2012-09-12,East Khasi Block,0,0.267,FP (False Positive - High Rain on Stable Terrain),0.0,30.08,60.12,574.82,174.81,16
+BG_0285,2024-09-29,East Khasi Block,0,0.3529,FP (False Positive - High Rain on Stable Terrain),51.26,51.26,120.0,263.35,55.93,21
+BG_0286,2018-10-04,East Khasi Block,0,0.0313,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,26.33,499.5,229.31,11
+BG_0287,2017-10-01,East Khasi Block,0,0.0885,TN (True Negative - Correct Low-Hazard Rejection),11.82,74.4,136.99,449.05,121.16,16
+BG_0288,2019-10-16,East Khasi Block,0,0.0335,TN (True Negative - Correct Low-Hazard Rejection),0.0,0.0,0.0,277.24,130.87,8

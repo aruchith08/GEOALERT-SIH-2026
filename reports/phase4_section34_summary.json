@@ -1,0 +1,142 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 34: Regional Spatial Risk Surface Generation",
+  "timestamp": "2026-09-01 19:44:51",
+  "status": "REGIONAL_SPATIAL_SURFACE_GENERATED_AND_VERIFIED",
+  "spatial_extent": {
+    "bounding_box_wgs84": {
+      "min_latitude": 25.0201,
+      "max_latitude": 26.0998,
+      "min_longitude": 89.8005,
+      "max_longitude": 92.8456
+    },
+    "crs": "EPSG:4326 (WGS 84)",
+    "total_valid_spatial_cells": 3156,
+    "nodata_cells_in_extent": 0
+  },
+  "model_inference_summary": {
+    "model_a_static_susceptibility": {
+      "model_name": "Experiment C Random Forest (16 static features)",
+      "mean_p_s": 0.0589,
+      "min_p_s": 0.0009,
+      "max_p_s": 0.7152,
+      "sha256": "1691cd678c2a9184cf608a9db0e464daee1e9daf237fd2c387b6d936685d5631"
+    },
+    "model_b_dynamic_hazard": {
+      "model_name": "Section 30 HistGradientBoosting (10 CHIRPS features)",
+      "mean_p_d": 0.6284,
+      "min_p_d": 0.6284,
+      "max_p_d": 0.6284,
+      "sha256": "e30aacc2f83eaca410a9a782089300ef1e920dd21051c042385d6159d97318f2"
+    },
+    "coupled_risk": {
+      "formulation": "Risk(x,y,t) = P(S) * P(D)",
+      "coupling_threshold": 0.0502,
+      "mean_risk": 0.037,
+      "min_risk": 0.0006,
+      "max_risk": 0.4494
+    }
+  },
+  "operational_tier_distribution": {
+    "Level 1: Green (Low/Normal)": {
+      "cell_count": 2899,
+      "percentage": 91.86
+    },
+    "Level 2: Yellow (Advisory Watch)": {
+      "cell_count": 137,
+      "percentage": 4.34
+    },
+    "Level 3: Orange (Warning Alert)": {
+      "cell_count": 110,
+      "percentage": 3.49
+    },
+    "Level 4: Red (Critical Action)": {
+      "cell_count": 10,
+      "percentage": 0.32
+    }
+  },
+  "block_level_summary": [
+    {
+      "spatial_block_name": "East Khasi Block",
+      "total_grid_cells_N": 419,
+      "mean_static_susceptibility_P_S": 0.1206,
+      "max_static_susceptibility_P_S": 0.691,
+      "mean_dynamic_hazard_P_D": 0.6284,
+      "mean_coupled_risk_score": 0.0758,
+      "max_coupled_risk_score": 0.4342,
+      "level_1_green_count": 317,
+      "level_2_yellow_count": 45,
+      "level_3_orange_count": 48,
+      "level_4_red_count": 9,
+      "high_risk_cells_pct": 13.6
+    },
+    {
+      "spatial_block_name": "Garo Hills Block",
+      "total_grid_cells_N": 1037,
+      "mean_static_susceptibility_P_S": 0.0282,
+      "max_static_susceptibility_P_S": 0.2454,
+      "mean_dynamic_hazard_P_D": 0.6284,
+      "mean_coupled_risk_score": 0.0177,
+      "max_coupled_risk_score": 0.1542,
+      "level_1_green_count": 1029,
+      "level_2_yellow_count": 7,
+      "level_3_orange_count": 1,
+      "level_4_red_count": 0,
+      "high_risk_cells_pct": 0.1
+    },
+    {
+      "spatial_block_name": "Jaintia Hills Block",
+      "total_grid_cells_N": 469,
+      "mean_static_susceptibility_P_S": 0.0924,
+      "max_static_susceptibility_P_S": 0.7152,
+      "mean_dynamic_hazard_P_D": 0.6284,
+      "mean_coupled_risk_score": 0.058,
+      "max_coupled_risk_score": 0.4494,
+      "level_1_green_count": 388,
+      "level_2_yellow_count": 43,
+      "level_3_orange_count": 37,
+      "level_4_red_count": 1,
+      "high_risk_cells_pct": 8.1
+    },
+    {
+      "spatial_block_name": "Ri-Bhoi Block",
+      "total_grid_cells_N": 715,
+      "mean_static_susceptibility_P_S": 0.0515,
+      "max_static_susceptibility_P_S": 0.4024,
+      "mean_dynamic_hazard_P_D": 0.6284,
+      "mean_coupled_risk_score": 0.0323,
+      "max_coupled_risk_score": 0.2528,
+      "level_1_green_count": 674,
+      "level_2_yellow_count": 23,
+      "level_3_orange_count": 18,
+      "level_4_red_count": 0,
+      "high_risk_cells_pct": 2.52
+    },
+    {
+      "spatial_block_name": "West Khasi Block",
+      "total_grid_cells_N": 516,
+      "mean_static_susceptibility_P_S": 0.0506,
+      "max_static_susceptibility_P_S": 0.4992,
+      "mean_dynamic_hazard_P_D": 0.6284,
+      "mean_coupled_risk_score": 0.0318,
+      "max_coupled_risk_score": 0.3137,
+      "level_1_green_count": 491,
+      "level_2_yellow_count": 19,
+      "level_3_orange_count": 6,
+      "level_4_red_count": 0,
+      "high_risk_cells_pct": 1.16
+    }
+  ],
+  "quality_control": {
+    "all_qc_checks_passed": true,
+    "model_a_immutable": true,
+    "model_b_immutable": true,
+    "zero_missing_or_nan": true
+  },
+  "governance": {
+    "model_a_retrained": false,
+    "model_b_retrained": false,
+    "sections_14_to_33_modified": false,
+    "operational_public_broadcast_claimed": false
+  }
+}

@@ -1,0 +1,7 @@
+Formulation_Name,Optimal_Val_Threshold,Val_ROC_AUC,Val_PR_AUC,Val_Recall,Val_Precision,Val_Specificity,Val_F1,Val_Brier,Validation_Verdict
+Model A Alone (Static Susceptibility),0.249,0.9876,0.9735,0.9459,0.7955,0.9189,0.8642,0.0393,Evaluated
+Model B Alone (Dynamic Precipitation),0.2,0.8447,0.6225,0.8108,0.566,0.7928,0.6667,0.1349,Evaluated
+Coupled Candidate A: Multiplicative [P(S) * P(D)],0.0502,0.983,0.9583,0.9459,0.875,0.955,0.9091,0.1244,Optimal Formulation
+Coupled Candidate B: Geometric Mean [sqrt(P(S) * P(D))],0.2218,0.983,0.9583,0.9459,0.875,0.955,0.9091,0.0758,Evaluated
+"Coupled Candidate C: Minimum [min(P(S), P(D))]",0.1107,0.9601,0.9075,0.9189,0.7907,0.9189,0.85,0.1086,Evaluated
+Coupled Candidate D: Harmonic Mean,0.167,0.9727,0.9294,0.9189,0.85,0.9459,0.8831,0.0871,Evaluated

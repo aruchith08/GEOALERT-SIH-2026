@@ -1,0 +1,4 @@
+Antecedent_Window,Formulation,Positive_Coverage_Pct,Background_Exceedance_Pct,Physical_Mechanism
+30-Day Antecedent (ARI-30),P0 + 0.05 * ARI_30 >= 26.87,90.32,77.78,Long-term groundwater saturation & deep soil preconditioning
+15-Day Antecedent (ARI-15),P0 + 0.08 * ARI_15 >= 23.67,90.32,70.25,Medium-term regolith wetting & pore-water build-up
+7-Day Antecedent (ARI-7),P0 + 0.15 * ARI_7 >= 19.26,89.78,68.28,Short-term shallow saturation & acute storm sequence

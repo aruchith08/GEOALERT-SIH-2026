@@ -1,0 +1,19 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "section": "Section 25: Candidate Empirical Rainfall Trigger Envelope",
+  "timestamp": "2026-09-01 00:57:10",
+  "model_a_status": "FROZEN_AND_UNTOUCHED",
+  "model_b_status": "NON_PARAMETRIC_CANDIDATE_ENVELOPE_ONLY",
+  "positive_events_analyzed": 186,
+  "background_observations_analyzed": 558,
+  "envelope_formulation": "P0 + 0.05 * ARI_30 >= T",
+  "candidate_90_threshold_mm": 26.87,
+  "candidate_95_threshold_mm": 23.63,
+  "candidate_90_event_coverage_pct": 90.32,
+  "candidate_95_event_coverage_pct": 94.62,
+  "candidate_90_background_exceedance_pct": 77.78,
+  "candidate_95_background_exceedance_pct": 84.77,
+  "multi_event_cluster_dates_count": 29,
+  "single_event_dates_count": 41,
+  "operational_status": "RESEARCH_PROTOTYPE_ONLY"
+}

@@ -1,0 +1,33 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring System",
+  "section": "Section 37: End-to-End System Integration, Production Packaging & SIH Demo Readiness",
+  "timestamp": "2026-09-01T20:29:57.697709",
+  "test_suite_status": "ALL_23_CHECKS_PASSED",
+  "total_checks": 23,
+  "passed_checks": 23,
+  "checks": [
+    "Model A SHA-256 Cryptographic Hash Match",
+    "Model B SHA-256 Cryptographic Hash Match",
+    "ModelService single-instance initialization in read-only state",
+    "GET /api/v1/health returns 200 OK",
+    "Health response confirms backend_running: true",
+    "Health response confirms model_a_loaded: true",
+    "Health response confirms model_b_loaded: true",
+    "GET /api/v1/metadata returns 200 OK",
+    "Metadata confirms T_coup = 0.0502",
+    "Metadata declares is_operational_public_warning: false",
+    "POST /api/v1/risk returns 200 OK",
+    "Static P(S) bounded in [0,1]",
+    "Dynamic P(D) bounded in [0,1]",
+    "Multiplicative Coupling Risk = P(S)*P(D) exact",
+    "GET /api/v1/risk/grid returns 200 OK",
+    "GeoJSON has FeatureCollection type",
+    "GeoJSON contains exactly 3,156 spatial cells across Meghalaya",
+    "Backend FROZEN_COUPLING_THRESHOLD == 0.0502",
+    "Backend STATIC_TERRAIN_SAFETY_FLOOR == 0.1500",
+    "Backend THRESHOLD_YELLOW_ORANGE == 0.1500",
+    "Backend THRESHOLD_ORANGE_RED == 0.3500",
+    "Frontend static offline GeoJSON surface available",
+    "Backend Section 34 GeoJSON surface available"
+  ]
+}

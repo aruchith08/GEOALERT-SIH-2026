@@ -1,0 +1,5 @@
+Operating_Profile,Selected_Threshold,Recall_POD,Precision_PPV,F1_Score,False_Alarm_Ratio_FAR,Miss_Rate_FNR,Total_Warnings,Missed_Landslides,Recommended_Tier
+High_Recall_Life_Safety (Target POD >= 95%),0.04,0.9624,0.292,0.4481,0.708,0.0376,613,7,CRITICAL / IMMEDIATE ACTION (Red Alert)
+Early_Warning_Protection (Target POD >= 90%),0.1,0.9086,0.4173,0.5719,0.5827,0.0914,405,17,HIGH / WARNING (Orange Alert)
+Cost_Optimal_Disaster_Priority (c=5),0.18,0.8387,0.5474,0.6624,0.4526,0.1613,285,30,MODERATE / ADVISORY (Yellow Alert)
+Balanced_Harmonic_F1 (Max F1 Score),0.38,0.7204,0.8121,0.7635,0.1879,0.2796,165,52,STATISTICAL BENCHMARK ONLY

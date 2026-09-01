@@ -1,0 +1,6 @@
+Probability_Bin,Sample_Count,Observed_Events,Mean_Predicted_Probability,Observed_Event_Frequency,Calibration_Residual,Reliability_Status
+[0.00 - 0.10],87,8,0.0392,0.092,-0.0528,Well-Calibrated
+[0.10 - 0.25],39,9,0.1638,0.2308,-0.067,Well-Calibrated
+[0.25 - 0.50],23,5,0.3561,0.2174,0.1388,Over-Confident
+[0.50 - 0.75],16,11,0.5957,0.6875,-0.0918,Well-Calibrated
+[0.75 - 1.00],15,12,0.8434,0.8,0.0434,Well-Calibrated

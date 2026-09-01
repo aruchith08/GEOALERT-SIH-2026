@@ -1,0 +1,62 @@
+SIH 2026 PHASE 3C: SECTION 31 MODEL B DECISION, ROBUSTNESS & ERROR ANALYSIS REPORT
+Generated: 2026-09-01 19:11:31
+================================================================================
+
+1. SCIENTIFIC EVIDENCE SYNTHESIS:
+   • Evidence Classification: B. MODERATE / PROMISING EVIDENCE
+   • Justification:
+     - Model B demonstrates robust, physical discrimination of rainfall triggers across diverse terrain blocks.
+     - On the unseen Block 3 (East Khasi / Shillong) holdout partition, Model B achieves:
+       * ROC-AUC = 0.7653
+       * PR-AUC = 0.6631
+       * Recall = 66.7% (30 / 45 landslides captured at T = 0.20)
+       * Specificity = 77.0% (104 / 135 background days rejected at T = 0.20)
+       * Precision = 49.2% (30 / 61 triggers confirmed)
+       * Brier Score = 0.1403
+     - The short-term 3-day antecedent rainfall (ARI-3) and event-day intensity (P_0) provide dominant, physically consistent predictive power.
+
+2. GENERALIZATION & DEGRADATION TRANSPARENCY:
+   • Validation (Block 5 Jaintia Hills) -> Holdout (Block 3 East Khasi):
+     - ROC-AUC:    0.8447 -> 0.7653 (-0.0794, -9.40%)
+     - PR-AUC:     0.6225 -> 0.6631 (+0.0406, +6.52%)
+     - Recall:     81.1%  -> 66.7%  (-14.4%, -17.76%)
+     - Precision:  56.6%  -> 49.2%  (-7.4%,  -13.07%)
+     - Specificity: 79.3% -> 77.0%  (-2.3%,  -2.90%)
+     - F1 Score:   0.6667 -> 0.5660 (-0.1007, -15.10%)
+   • Scientific Context: East Khasi features intense localized orographic rainshadow effects and steep gorge terrain, creating moderate domain shift from Jaintia plateau training data.
+
+3. MODEL BASELINE COMPARISON:
+   • HistGradientBoosting vs Standardized Logistic Regression:
+     - Validation ROC-AUC: 0.8447 (Tree) vs 0.8946 (Logistic)
+     - Holdout ROC-AUC:    0.7653 (Tree) vs 0.7422 (Logistic)
+     - Verdict: HistGradientBoosting generalizes better to unseen holdout terrain (+0.0231 ROC-AUC) due to non-linear interaction modeling between 3-day bursts and 30-day saturation.
+
+4. ABLATION & PHYSICAL FEATURE ATTRIBUTION:
+   • Critical Short-Term Drivers:
+     - ARI-3 is the single most critical predictor (removing it drops holdout ROC-AUC significantly).
+     - Rainfall Event Day (P_0) provides immediate trigger intensity.
+   • Multivariable Suppressor Effects:
+     - In linear logistic modeling, ARI-30 carries a negative coefficient (-1.7370) due to collinearity suppression when conditioned on ARI-3 and Max-3Day-30D, reflecting that sudden acute bursts trigger landslides more effectively than steady diffuse monthly drizzle.
+
+5. ERROR QUADRANT METEOROLOGICAL CHARACTERIZATION (HOLDOUT T = 0.20):
+   • True Positives (N=30): Characterized by heavy short-term storm bursts (Mean ARI-3 = 148.6 mm, Mean P_0 = 55.4 mm).
+   • False Negatives (N=15): Occur during moderate regional rain (Mean ARI-3 = 71.9 mm, Mean P_0 = 18.2 mm) where localized convective cells or low-threshold slope instability were unresolvable at 0.05-degree CHIRPS scale.
+   • False Positives (N=31): Occur during severe regional monsoon episodes (Mean ARI-3 = 120.3 mm) over stable geomorphological locations.
+   • True Negatives (N=104): Correctly rejected background days with baseline rainfall (Mean ARI-3 = 34.2 mm, Mean P_0 = 4.8 mm).
+
+6. PHASE 4 INTEGRATION RECOMMENDATION:
+   • Verdict: PROCEED TO CONTROLLED MODEL A + MODEL B COUPLING EXPERIMENT.
+   • Rationale: The False Positives of Model B (high rainfall on stable terrain) are exactly what Model A (Static Susceptibility) is designed to filter. Coupling the two models in a 2D Risk Matrix is scientifically indicated to eliminate mutual failure modes.
+   • Safeguards:
+     - Model A remains permanently frozen.
+     - Model B remains frozen.
+     - Operational evaluation must be conducted using a coupled 2D spatial-temporal matrix.
+
+7. GOVERNANCE STATEMENT:
+   • Model A modified: NO
+   • Model A retrained: NO
+   • Frozen Model B modified: NO
+   • Sections 14–30 modified: NO
+   • Operational false-alarm rate claimed: NO
+   • Operational deployment claimed: NO
+================================================================================

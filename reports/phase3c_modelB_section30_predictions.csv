@@ -1,0 +1,745 @@
+supervised_id,source_dataset,y_true,label_name,geographic_partition_role,spatial_block_name,observation_date,predicted_probability_modelB,predicted_class_at_optimal_threshold,decision_threshold_used
+POS_0001,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2018-05-07,0.4604,1,0.2
+POS_0002,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-07-31,0.895,1,0.2
+POS_0003,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-07-31,0.5789,1,0.2
+POS_0004,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-08-12,0.4484,1,0.2
+POS_0005,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-08-10,0.4658,1,0.2
+POS_0006,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-08-17,0.7571,1,0.2
+POS_0007,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-30,0.4416,1,0.2
+POS_0008,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-04-04,0.0134,0,0.2
+POS_0009,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2009-06-29,0.1297,0,0.2
+POS_0010,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2013-08-06,0.3324,1,0.2
+POS_0011,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-19,0.9227,1,0.2
+POS_0012,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-19,0.7874,1,0.2
+POS_0013,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-07-19,0.9044,1,0.2
+POS_0014,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-19,0.9227,1,0.2
+POS_0015,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-07-19,0.8722,1,0.2
+POS_0016,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2024-05-28,0.8354,1,0.2
+POS_0017,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-06-16,0.5097,1,0.2
+POS_0018,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-06-16,0.5334,1,0.2
+POS_0019,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-08-18,0.4601,1,0.2
+POS_0020,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2007-08-18,0.4659,1,0.2
+POS_0021,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-08-18,0.4609,1,0.2
+POS_0022,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-08-18,0.1586,0,0.2
+POS_0023,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-08-18,0.3915,1,0.2
+POS_0024,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2009-07-17,0.1899,0,0.2
+POS_0025,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-17,0.6081,1,0.2
+POS_0026,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-25,0.8063,1,0.2
+POS_0027,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-07-19,0.8943,1,0.2
+POS_0028,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-19,0.8678,1,0.2
+POS_0029,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2007-07-27,0.8034,1,0.2
+POS_0030,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-25,0.8063,1,0.2
+POS_0031,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-25,0.7576,1,0.2
+POS_0032,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-07-01,0.1119,0,0.2
+POS_0033,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-07-01,0.1119,0,0.2
+POS_0034,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-07-01,0.1119,0,0.2
+POS_0035,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-07-01,0.1119,0,0.2
+POS_0036,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-07-01,0.1119,0,0.2
+POS_0037,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-09-08,0.8409,1,0.2
+POS_0038,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-09-23,0.8263,1,0.2
+POS_0039,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-27,0.0187,0,0.2
+POS_0040,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-06-17,0.3454,1,0.2
+POS_0041,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-09-15,0.535,1,0.2
+POS_0042,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-09-15,0.3419,1,0.2
+POS_0043,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-09-15,0.535,1,0.2
+POS_0044,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-09-15,0.4737,1,0.2
+POS_0045,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-09-23,0.882,1,0.2
+POS_0046,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-08-23,0.2471,1,0.2
+POS_0047,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-09-20,0.1566,0,0.2
+POS_0048,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-25,0.0432,0,0.2
+POS_0049,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.7877,1,0.2
+POS_0050,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-10-04,0.9202,1,0.2
+POS_0051,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-06-26,0.7449,1,0.2
+POS_0052,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.698,1,0.2
+POS_0053,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-06-15,0.8793,1,0.2
+POS_0054,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-06-17,0.8624,1,0.2
+POS_0055,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-06-17,0.8624,1,0.2
+POS_0056,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-06-17,0.8624,1,0.2
+POS_0057,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-06-15,0.8793,1,0.2
+POS_0058,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-07-06,0.1878,0,0.2
+POS_0059,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-07-06,0.6586,1,0.2
+POS_0060,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-30,0.8301,1,0.2
+POS_0061,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-30,0.8586,1,0.2
+POS_0062,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-30,0.7237,1,0.2
+POS_0063,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-30,0.775,1,0.2
+POS_0064,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-30,0.7237,1,0.2
+POS_0065,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-31,0.5768,1,0.2
+POS_0066,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-31,0.5768,1,0.2
+POS_0067,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-31,0.5768,1,0.2
+POS_0068,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2010-08-27,0.1656,0,0.2
+POS_0069,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2010-06-28,0.163,0,0.2
+POS_0070,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2010-06-28,0.1765,0,0.2
+POS_0071,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2010-06-28,0.1765,0,0.2
+POS_0072,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-22,0.4061,1,0.2
+POS_0073,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-22,0.4061,1,0.2
+POS_0074,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-22,0.8409,1,0.2
+POS_0075,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-22,0.8192,1,0.2
+POS_0076,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-22,0.8332,1,0.2
+POS_0077,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-22,0.8332,1,0.2
+POS_0078,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-22,0.8391,1,0.2
+POS_0079,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-05-01,0.2005,1,0.2
+POS_0080,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2642,1,0.2
+POS_0081,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2642,1,0.2
+POS_0082,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2058,1,0.2
+POS_0083,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2058,1,0.2
+POS_0084,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2058,1,0.2
+POS_0085,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2058,1,0.2
+POS_0086,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2277,1,0.2
+POS_0087,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2277,1,0.2
+POS_0088,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-26,0.2277,1,0.2
+POS_0089,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-07-26,0.5475,1,0.2
+POS_0090,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-08-21,0.866,1,0.2
+POS_0091,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-09-23,0.9016,1,0.2
+POS_0092,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-06-26,0.4145,1,0.2
+POS_0093,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-07-09,0.5915,1,0.2
+POS_0094,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-07-10,0.7406,1,0.2
+POS_0095,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-07-07,0.6501,1,0.2
+POS_0096,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-06-27,0.7975,1,0.2
+POS_0097,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-06-27,0.8932,1,0.2
+POS_0098,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-06-27,0.8932,1,0.2
+POS_0099,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-06-27,0.8932,1,0.2
+POS_0100,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.4916,1,0.2
+POS_0101,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.4916,1,0.2
+POS_0102,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.4916,1,0.2
+POS_0103,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.4916,1,0.2
+POS_0104,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.4916,1,0.2
+POS_0105,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.4916,1,0.2
+POS_0106,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-05-26,0.4916,1,0.2
+POS_0107,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-06-17,0.6189,1,0.2
+POS_0108,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2022-06-17,0.7944,1,0.2
+POS_0109,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2022-06-17,0.7944,1,0.2
+POS_0110,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2022-06-09,0.7147,1,0.2
+POS_0111,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2022-06-17,0.8735,1,0.2
+POS_0112,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2022-06-17,0.8735,1,0.2
+POS_0113,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-06-15,0.8269,1,0.2
+POS_0114,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-06-15,0.8269,1,0.2
+POS_0115,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-06-15,0.8269,1,0.2
+POS_0116,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-04-04,0.0134,0,0.2
+POS_0117,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-04-04,0.017,0,0.2
+POS_0118,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-04-04,0.017,0,0.2
+POS_0119,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-04-04,0.0177,0,0.2
+POS_0120,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-04-13,0.0265,0,0.2
+POS_0121,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-17,0.8876,1,0.2
+POS_0122,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-08-10,0.0599,0,0.2
+POS_0123,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-06-28,0.2032,1,0.2
+POS_0124,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-05-28,0.8983,1,0.2
+POS_0125,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-06-15,0.7391,1,0.2
+POS_0126,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-05-28,0.9264,1,0.2
+POS_0127,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-07-02,0.8793,1,0.2
+POS_0128,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-07-02,0.8793,1,0.2
+POS_0129,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-28,0.2654,1,0.2
+POS_0130,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-28,0.2654,1,0.2
+POS_0131,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-28,0.2654,1,0.2
+POS_0132,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-07-02,0.5246,1,0.2
+POS_0133,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-07-02,0.5246,1,0.2
+POS_0134,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-07-02,0.5246,1,0.2
+POS_0135,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-28,0.2574,1,0.2
+POS_0136,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-28,0.2114,1,0.2
+POS_0137,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-28,0.8606,1,0.2
+POS_0138,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-30,0.9491,1,0.2
+POS_0139,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.9301,1,0.2
+POS_0140,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.9491,1,0.2
+POS_0141,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.9491,1,0.2
+POS_0142,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-07-01,0.8633,1,0.2
+POS_0143,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-07-01,0.8633,1,0.2
+POS_0144,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.8487,1,0.2
+POS_0145,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.8487,1,0.2
+POS_0146,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-30,0.7763,1,0.2
+POS_0147,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-31,0.7891,1,0.2
+POS_0148,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-30,0.5562,1,0.2
+POS_0149,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-30,0.7763,1,0.2
+POS_0150,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.8676,1,0.2
+POS_0151,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-07-02,0.4113,1,0.2
+POS_0152,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-05-30,0.7082,1,0.2
+POS_0153,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-05-30,0.7082,1,0.2
+POS_0154,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-30,0.7763,1,0.2
+POS_0155,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-30,0.7763,1,0.2
+POS_0156,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.8676,1,0.2
+POS_0157,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.9492,1,0.2
+POS_0158,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-14,0.805,1,0.2
+POS_0159,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-07-14,0.5037,1,0.2
+POS_0160,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-07-02,0.9149,1,0.2
+POS_0161,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-07-02,0.9149,1,0.2
+POS_0162,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-07-02,0.8822,1,0.2
+POS_0163,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-29,0.5565,1,0.2
+POS_0164,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.9464,1,0.2
+POS_0165,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-06-25,0.5419,1,0.2
+POS_0166,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-10-08,0.6161,1,0.2
+POS_0167,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-08-06,0.6001,1,0.2
+POS_0168,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-08-06,0.6001,1,0.2
+POS_0169,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.9464,1,0.2
+POS_0170,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-30,0.9464,1,0.2
+POS_0171,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-28,0.4555,1,0.2
+POS_0172,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-28,0.4555,1,0.2
+POS_0173,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-06-25,0.5419,1,0.2
+POS_0174,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-28,0.3991,1,0.2
+POS_0175,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-28,0.3991,1,0.2
+POS_0176,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-06-11,0.6437,1,0.2
+POS_0177,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-06-11,0.6437,1,0.2
+POS_0178,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-06-11,0.6311,1,0.2
+POS_0179,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-29,0.869,1,0.2
+POS_0180,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-29,0.869,1,0.2
+POS_0181,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-29,0.9065,1,0.2
+POS_0182,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-08-28,0.236,1,0.2
+POS_0183,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-31,0.8139,1,0.2
+POS_0184,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-31,0.7995,1,0.2
+POS_0185,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2026-07-13,0.5622,1,0.2
+POS_0186,data/processed/meghalaya_environmental_features.csv,1,Confirmed_Landslide,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-08-19,0.0269,0,0.2
+BG_0001,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2012-06-03,0.5992,1,0.2
+BG_0002,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2019-06-01,0.205,1,0.2
+BG_0003,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2026-06-09,0.0672,0,0.2
+BG_0004,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2023-06-24,0.107,0,0.2
+BG_0005,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2011-06-17,0.0139,0,0.2
+BG_0006,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2018-06-07,0.0287,0,0.2
+BG_0007,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2007-06-22,0.177,0,0.2
+BG_0008,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2023-06-03,0.0244,0,0.2
+BG_0009,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2009-06-11,0.0134,0,0.2
+BG_0010,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2007-06-07,0.0325,0,0.2
+BG_0011,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2013-06-20,0.0906,0,0.2
+BG_0012,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2019-06-13,0.0188,0,0.2
+BG_0013,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2013-06-18,0.0646,0,0.2
+BG_0014,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2017-06-01,0.0625,0,0.2
+BG_0015,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2023-06-28,0.3179,1,0.2
+BG_0016,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2022-07-20,0.166,0,0.2
+BG_0017,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2010-07-25,0.3199,1,0.2
+BG_0018,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2024-07-20,0.1663,0,0.2
+BG_0019,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2019-07-29,0.0876,0,0.2
+BG_0020,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2024-07-19,0.2627,1,0.2
+BG_0021,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2012-07-01,0.0871,0,0.2
+BG_0022,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2024-08-01,0.0759,0,0.2
+BG_0023,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2020-08-15,0.0595,0,0.2
+BG_0024,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Garo Hills Block,2014-08-13,0.2791,1,0.2
+BG_0025,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-05-01,0.0195,0,0.2
+BG_0026,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-05-07,0.0177,0,0.2
+BG_0027,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-05-11,0.0411,0,0.2
+BG_0028,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-05-24,0.0398,0,0.2
+BG_0029,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-05-05,0.0123,0,0.2
+BG_0030,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-05-14,0.3552,1,0.2
+BG_0031,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-05-09,0.0121,0,0.2
+BG_0032,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-05-13,0.0164,0,0.2
+BG_0033,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-05-18,0.6097,1,0.2
+BG_0034,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-05-12,0.0774,0,0.2
+BG_0035,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-05-04,0.051,0,0.2
+BG_0036,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-05-01,0.0907,0,0.2
+BG_0037,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-05-17,0.0945,0,0.2
+BG_0038,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-05-19,0.0274,0,0.2
+BG_0039,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-05-03,0.0265,0,0.2
+BG_0040,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-04,0.0197,0,0.2
+BG_0041,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-06-18,0.2432,1,0.2
+BG_0042,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-06-03,0.3099,1,0.2
+BG_0043,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-06-12,0.0503,0,0.2
+BG_0044,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-06-18,0.1212,0,0.2
+BG_0045,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-06-19,0.2229,1,0.2
+BG_0046,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2013-06-29,0.1287,0,0.2
+BG_0047,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2017-06-10,0.0629,0,0.2
+BG_0048,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-06-13,0.0588,0,0.2
+BG_0049,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-16,0.2285,1,0.2
+BG_0050,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-09,0.0248,0,0.2
+BG_0051,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-06-22,0.2247,1,0.2
+BG_0052,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-06-09,0.0504,0,0.2
+BG_0053,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-06-04,0.2301,1,0.2
+BG_0054,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-06-05,0.0334,0,0.2
+BG_0055,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-06-18,0.0678,0,0.2
+BG_0056,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-06-24,0.2222,1,0.2
+BG_0057,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-29,0.2101,1,0.2
+BG_0058,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-02,0.0161,0,0.2
+BG_0059,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-06-20,0.1204,0,0.2
+BG_0060,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-06-20,0.0893,0,0.2
+BG_0061,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-11,0.0168,0,0.2
+BG_0062,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2017-06-13,0.0938,0,0.2
+BG_0063,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-06-06,0.1059,0,0.2
+BG_0064,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2017-06-01,0.2398,1,0.2
+BG_0065,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-06-30,0.105,0,0.2
+BG_0066,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-06-13,0.1664,0,0.2
+BG_0067,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-24,0.1691,0,0.2
+BG_0068,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2011-06-17,0.0526,0,0.2
+BG_0069,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-06-30,0.1172,0,0.2
+BG_0070,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-05,0.0105,0,0.2
+BG_0071,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-06-01,0.0767,0,0.2
+BG_0072,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2026-06-28,0.0664,0,0.2
+BG_0073,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-22,0.0785,0,0.2
+BG_0074,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-06-12,0.0387,0,0.2
+BG_0075,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-06-03,0.1558,0,0.2
+BG_0076,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-02,0.0144,0,0.2
+BG_0077,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-06-20,0.1136,0,0.2
+BG_0078,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-18,0.1223,0,0.2
+BG_0079,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-06-09,0.2103,1,0.2
+BG_0080,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2026-06-02,0.2015,1,0.2
+BG_0081,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-06-28,0.1444,0,0.2
+BG_0082,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-28,0.0253,0,0.2
+BG_0083,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-06-04,0.0273,0,0.2
+BG_0084,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-21,0.0586,0,0.2
+BG_0085,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-06-29,0.0895,0,0.2
+BG_0086,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-06-04,0.0732,0,0.2
+BG_0087,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-06-02,0.0428,0,0.2
+BG_0088,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-07-06,0.0749,0,0.2
+BG_0089,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-07-05,0.2788,1,0.2
+BG_0090,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-07-02,0.0673,0,0.2
+BG_0091,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-07-24,0.1167,0,0.2
+BG_0092,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-07-24,0.0738,0,0.2
+BG_0093,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-07-26,0.1613,0,0.2
+BG_0094,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-07-07,0.1217,0,0.2
+BG_0095,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-07-22,0.3405,1,0.2
+BG_0096,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2017-07-14,0.0692,0,0.2
+BG_0097,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2017-07-11,0.0433,0,0.2
+BG_0098,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-07-27,0.2696,1,0.2
+BG_0099,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2026-07-28,0.113,0,0.2
+BG_0100,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-07-22,0.247,1,0.2
+BG_0101,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-07-15,0.1322,0,0.2
+BG_0102,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2017-07-05,0.1285,0,0.2
+BG_0103,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2013-07-21,0.3385,1,0.2
+BG_0104,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-07-08,0.121,0,0.2
+BG_0105,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-07-17,0.0471,0,0.2
+BG_0106,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-07-18,0.1146,0,0.2
+BG_0107,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-07-22,0.0747,0,0.2
+BG_0108,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-07-23,0.0632,0,0.2
+BG_0109,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-07-12,0.0706,0,0.2
+BG_0110,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2013-07-01,0.0496,0,0.2
+BG_0111,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-07-30,0.1275,0,0.2
+BG_0112,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-07-03,0.3024,1,0.2
+BG_0113,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-07-24,0.0908,0,0.2
+BG_0114,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-07-25,0.2049,1,0.2
+BG_0115,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-07-14,0.0684,0,0.2
+BG_0116,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-07-09,0.0786,0,0.2
+BG_0117,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-07-15,0.0303,0,0.2
+BG_0118,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-07-02,0.0989,0,0.2
+BG_0119,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-07-11,0.2898,1,0.2
+BG_0120,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2026-07-25,0.086,0,0.2
+BG_0121,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-07-15,0.0761,0,0.2
+BG_0122,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-07-02,0.038,0,0.2
+BG_0123,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-07-11,0.0528,0,0.2
+BG_0124,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-07-11,0.4766,1,0.2
+BG_0125,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-07-22,0.1082,0,0.2
+BG_0126,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-07-31,0.2629,1,0.2
+BG_0127,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-07-11,0.1313,0,0.2
+BG_0128,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-07-27,0.1293,0,0.2
+BG_0129,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2020-07-28,0.0642,0,0.2
+BG_0130,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-08-09,0.1108,0,0.2
+BG_0131,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2013-08-15,0.0488,0,0.2
+BG_0132,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2009-08-21,0.1515,0,0.2
+BG_0133,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2013-08-10,0.1947,0,0.2
+BG_0134,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2011-08-30,0.138,0,0.2
+BG_0135,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-08-04,0.2867,1,0.2
+BG_0136,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-08-12,0.0702,0,0.2
+BG_0137,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-08-19,0.0205,0,0.2
+BG_0138,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-08-13,0.1174,0,0.2
+BG_0139,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2007-08-29,0.3066,1,0.2
+BG_0140,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2025-08-14,0.0587,0,0.2
+BG_0141,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2014-08-14,0.055,0,0.2
+BG_0142,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2018-08-14,0.0682,0,0.2
+BG_0143,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-08-14,0.0454,0,0.2
+BG_0144,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-08-02,0.0525,0,0.2
+BG_0145,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2008-08-21,0.0488,0,0.2
+BG_0146,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2024-08-02,0.062,0,0.2
+BG_0147,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-08-27,0.0745,0,0.2
+BG_0148,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2012-08-06,0.2185,1,0.2
+BG_0149,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2019-08-02,0.1486,0,0.2
+BG_0150,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2022-08-14,0.0468,0,0.2
+BG_0151,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2023-08-27,0.0904,0,0.2
+BG_0152,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2010-08-17,0.129,0,0.2
+BG_0153,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",West Khasi Block,2013-08-02,0.0436,0,0.2
+BG_0154,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-04-29,0.0229,0,0.2
+BG_0155,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-04-06,0.0167,0,0.2
+BG_0156,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-04-04,0.0497,0,0.2
+BG_0157,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-04-10,0.0196,0,0.2
+BG_0158,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2009-04-23,0.3442,1,0.2
+BG_0159,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-04-09,0.0265,0,0.2
+BG_0160,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2012-04-02,0.0137,0,0.2
+BG_0161,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2018-04-24,0.0189,0,0.2
+BG_0162,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-04-29,0.0634,0,0.2
+BG_0163,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2018-04-22,0.0263,0,0.2
+BG_0164,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-04-13,0.0388,0,0.2
+BG_0165,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2026-04-12,0.0311,0,0.2
+BG_0166,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-04-07,0.5754,1,0.2
+BG_0167,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-04-04,0.0105,0,0.2
+BG_0168,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-04-19,0.0158,0,0.2
+BG_0169,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-04-21,0.0152,0,0.2
+BG_0170,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-04-04,0.0152,0,0.2
+BG_0171,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-04-08,0.0233,0,0.2
+BG_0172,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-05-16,0.1505,0,0.2
+BG_0173,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2010-05-15,0.2139,1,0.2
+BG_0174,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-05-11,0.0534,0,0.2
+BG_0175,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-05-02,0.0152,0,0.2
+BG_0176,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-05-02,0.1175,0,0.2
+BG_0177,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2009-05-05,0.0272,0,0.2
+BG_0178,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-05-18,0.3142,1,0.2
+BG_0179,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2012-05-28,0.189,0,0.2
+BG_0180,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2009-05-24,0.2403,1,0.2
+BG_0181,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-07,0.0521,0,0.2
+BG_0182,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-05-19,0.4014,1,0.2
+BG_0183,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-05-20,0.1168,0,0.2
+BG_0184,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-05-11,0.0151,0,0.2
+BG_0185,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-05-02,0.0215,0,0.2
+BG_0186,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-05-29,0.045,0,0.2
+BG_0187,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-05-06,0.0612,0,0.2
+BG_0188,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-05-11,0.0174,0,0.2
+BG_0189,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-05-01,0.2408,1,0.2
+BG_0190,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-05-22,0.062,0,0.2
+BG_0191,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-05-24,0.6086,1,0.2
+BG_0192,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-05-27,0.1095,0,0.2
+BG_0193,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-17,0.0196,0,0.2
+BG_0194,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-05-08,0.0256,0,0.2
+BG_0195,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2018-05-18,0.0178,0,0.2
+BG_0196,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-05-01,0.0164,0,0.2
+BG_0197,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-05-14,0.0127,0,0.2
+BG_0198,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-05-22,0.5981,1,0.2
+BG_0199,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2018-05-31,0.024,0,0.2
+BG_0200,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-05-18,0.0159,0,0.2
+BG_0201,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2009-05-23,0.025,0,0.2
+BG_0202,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-11,0.0695,0,0.2
+BG_0203,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-05-12,0.0247,0,0.2
+BG_0204,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-05-12,0.018,0,0.2
+BG_0205,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-22,0.0209,0,0.2
+BG_0206,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2018-05-25,0.5085,1,0.2
+BG_0207,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-05-21,0.0864,0,0.2
+BG_0208,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-05-09,0.0166,0,0.2
+BG_0209,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2009-05-27,0.4672,1,0.2
+BG_0210,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-05-08,0.7768,1,0.2
+BG_0211,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-05-27,0.1558,0,0.2
+BG_0212,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-12,0.0429,0,0.2
+BG_0213,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-17,0.0227,0,0.2
+BG_0214,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2010-05-02,0.3136,1,0.2
+BG_0215,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-05-05,0.0152,0,0.2
+BG_0216,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-05-23,0.4221,1,0.2
+BG_0217,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-13,0.0543,0,0.2
+BG_0218,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-05-16,0.7746,1,0.2
+BG_0219,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2012-05-23,0.0359,0,0.2
+BG_0220,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-05-27,0.14,0,0.2
+BG_0221,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-04,0.0466,0,0.2
+BG_0222,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-05-30,0.0142,0,0.2
+BG_0223,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2020-05-14,0.0155,0,0.2
+BG_0224,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-05-13,0.0624,0,0.2
+BG_0225,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-05-19,0.0547,0,0.2
+BG_0226,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-05-09,0.0118,0,0.2
+BG_0227,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-05-28,0.0917,0,0.2
+BG_0228,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2026-05-11,0.4256,1,0.2
+BG_0229,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2018-06-02,0.0244,0,0.2
+BG_0230,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-06-28,0.0542,0,0.2
+BG_0231,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-06-01,0.0564,0,0.2
+BG_0232,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2020-06-20,0.0629,0,0.2
+BG_0233,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-06-03,0.1371,0,0.2
+BG_0234,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-06-11,0.3991,1,0.2
+BG_0235,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2020-06-20,0.1956,0,0.2
+BG_0236,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-06-30,0.0597,0,0.2
+BG_0237,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-06-21,0.0959,0,0.2
+BG_0238,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-06-03,0.0481,0,0.2
+BG_0239,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-06-20,0.1319,0,0.2
+BG_0240,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-06-09,0.203,1,0.2
+BG_0241,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2026-06-13,0.1308,0,0.2
+BG_0242,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-06-10,0.0154,0,0.2
+BG_0243,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-06-20,0.1106,0,0.2
+BG_0244,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-06-06,0.7792,1,0.2
+BG_0245,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-06-28,0.0986,0,0.2
+BG_0246,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-06-13,0.0161,0,0.2
+BG_0247,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-07-04,0.2877,1,0.2
+BG_0248,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2010-07-19,0.0533,0,0.2
+BG_0249,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-07-12,0.0805,0,0.2
+BG_0250,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-07-31,0.1821,0,0.2
+BG_0251,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-07-04,0.0837,0,0.2
+BG_0252,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-07-01,0.0606,0,0.2
+BG_0253,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-07-12,0.0968,0,0.2
+BG_0254,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-07-28,0.1688,0,0.2
+BG_0255,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2026-07-18,0.0552,0,0.2
+BG_0256,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2022-07-11,0.2393,1,0.2
+BG_0257,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-07-12,0.1019,0,0.2
+BG_0258,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-07-29,0.1654,0,0.2
+BG_0259,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2025-07-12,0.176,0,0.2
+BG_0260,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-07-19,0.3167,1,0.2
+BG_0261,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-07-06,0.122,0,0.2
+BG_0262,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-07-13,0.073,0,0.2
+BG_0263,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2020-07-13,0.0632,0,0.2
+BG_0264,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-07-11,0.0437,0,0.2
+BG_0265,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-07-09,0.045,0,0.2
+BG_0266,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-07-26,0.0522,0,0.2
+BG_0267,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-07-12,0.0982,0,0.2
+BG_0268,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-07-28,0.1182,0,0.2
+BG_0269,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-07-05,0.3662,1,0.2
+BG_0270,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-07-27,0.1841,0,0.2
+BG_0271,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-08-23,0.161,0,0.2
+BG_0272,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-08-02,0.4538,1,0.2
+BG_0273,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2012-08-12,0.2952,1,0.2
+BG_0274,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-08-13,0.3221,1,0.2
+BG_0275,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-08-20,0.0732,0,0.2
+BG_0276,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-08-03,0.1311,0,0.2
+BG_0277,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2013-08-26,0.1385,0,0.2
+BG_0278,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2008-08-01,0.0566,0,0.2
+BG_0279,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2007-08-09,0.1703,0,0.2
+BG_0280,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2012-09-29,0.4916,1,0.2
+BG_0281,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2014-09-05,0.4557,1,0.2
+BG_0282,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2011-09-20,0.1722,0,0.2
+BG_0283,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2023-09-24,0.5064,1,0.2
+BG_0284,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2012-09-12,0.267,1,0.2
+BG_0285,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2024-09-29,0.3529,1,0.2
+BG_0286,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2018-10-04,0.0313,0,0.2
+BG_0287,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2017-10-01,0.0885,0,0.2
+BG_0288,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,HOLDOUT_TEST_GEOGRAPHIC (Block 3 East Khasi),East Khasi Block,2019-10-16,0.0335,0,0.2
+BG_0289,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-22,0.0216,0,0.2
+BG_0290,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-05-23,0.0196,0,0.2
+BG_0291,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-06,0.0941,0,0.2
+BG_0292,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-05-20,0.0121,0,0.2
+BG_0293,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-05-31,0.0116,0,0.2
+BG_0294,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-05-08,0.0188,0,0.2
+BG_0295,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2026-05-07,0.0304,0,0.2
+BG_0296,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-05-22,0.0102,0,0.2
+BG_0297,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-05-11,0.0152,0,0.2
+BG_0298,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-05-04,0.1423,0,0.2
+BG_0299,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2026-05-01,0.0225,0,0.2
+BG_0300,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2018-05-31,0.011,0,0.2
+BG_0301,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-24,0.0133,0,0.2
+BG_0302,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-05-07,0.0144,0,0.2
+BG_0303,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-08,0.0163,0,0.2
+BG_0304,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-05-10,0.0189,0,0.2
+BG_0305,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-05-01,0.0389,0,0.2
+BG_0306,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-05-24,0.017,0,0.2
+BG_0307,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-05-24,0.0533,0,0.2
+BG_0308,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-28,0.0206,0,0.2
+BG_0309,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-05-28,0.0311,0,0.2
+BG_0310,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-05-29,0.1809,0,0.2
+BG_0311,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-05-29,0.044,0,0.2
+BG_0312,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-05-04,0.1142,0,0.2
+BG_0313,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-05-06,0.0331,0,0.2
+BG_0314,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-14,0.0189,0,0.2
+BG_0315,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-10,0.011,0,0.2
+BG_0316,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-05-12,0.0189,0,0.2
+BG_0317,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-05-03,0.0143,0,0.2
+BG_0318,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-05-16,0.0159,0,0.2
+BG_0319,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-05-01,0.0196,0,0.2
+BG_0320,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-25,0.0085,0,0.2
+BG_0321,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-31,0.0258,0,0.2
+BG_0322,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-05-27,0.0266,0,0.2
+BG_0323,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-05-31,0.1173,0,0.2
+BG_0324,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-05-07,0.0105,0,0.2
+BG_0325,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-05-30,0.0097,0,0.2
+BG_0326,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-26,0.0102,0,0.2
+BG_0327,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-05-31,0.0214,0,0.2
+BG_0328,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2008-05-18,0.0223,0,0.2
+BG_0329,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2026-05-12,0.0257,0,0.2
+BG_0330,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-05-08,0.0949,0,0.2
+BG_0331,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-05-05,0.0257,0,0.2
+BG_0332,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-05-17,0.079,0,0.2
+BG_0333,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2008-05-30,0.0386,0,0.2
+BG_0334,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-05-28,0.0144,0,0.2
+BG_0335,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-05-20,0.0795,0,0.2
+BG_0336,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-08,0.0192,0,0.2
+BG_0337,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-05-29,0.0262,0,0.2
+BG_0338,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-05-18,0.081,0,0.2
+BG_0339,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-05-27,0.2222,1,0.2
+BG_0340,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-05-27,0.2595,1,0.2
+BG_0341,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-05-11,0.0791,0,0.2
+BG_0342,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-09,0.0184,0,0.2
+BG_0343,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-05-01,0.4114,1,0.2
+BG_0344,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-05-04,0.018,0,0.2
+BG_0345,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-05-10,0.0189,0,0.2
+BG_0346,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-05-11,0.0215,0,0.2
+BG_0347,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-05-20,0.0488,0,0.2
+BG_0348,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-05-07,0.0863,0,0.2
+BG_0349,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2026-05-27,0.1119,0,0.2
+BG_0350,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-05-16,0.0129,0,0.2
+BG_0351,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-05-11,0.0127,0,0.2
+BG_0352,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-06-16,0.0268,0,0.2
+BG_0353,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-06,0.0846,0,0.2
+BG_0354,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-06-21,0.0107,0,0.2
+BG_0355,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-06-22,0.0777,0,0.2
+BG_0356,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-06-01,0.0106,0,0.2
+BG_0357,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-06-04,0.1309,0,0.2
+BG_0358,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-06-08,0.0355,0,0.2
+BG_0359,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-06-21,0.0402,0,0.2
+BG_0360,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-06-05,0.1496,0,0.2
+BG_0361,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2018-06-13,0.0133,0,0.2
+BG_0362,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-06-07,0.0146,0,0.2
+BG_0363,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-06-24,0.1159,0,0.2
+BG_0364,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-06-07,0.0561,0,0.2
+BG_0365,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-06-24,0.0484,0,0.2
+BG_0366,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-09,0.0478,0,0.2
+BG_0367,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2018-06-08,0.0182,0,0.2
+BG_0368,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-06-12,0.0869,0,0.2
+BG_0369,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-06-07,0.1319,0,0.2
+BG_0370,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-06-08,0.0491,0,0.2
+BG_0371,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-06-22,0.0791,0,0.2
+BG_0372,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-06-22,0.1892,0,0.2
+BG_0373,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-06-14,0.0134,0,0.2
+BG_0374,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-06-22,0.0212,0,0.2
+BG_0375,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-06-20,0.0262,0,0.2
+BG_0376,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2026-06-08,0.0865,0,0.2
+BG_0377,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-06-13,0.053,0,0.2
+BG_0378,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-06-23,0.1514,0,0.2
+BG_0379,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-06-04,0.028,0,0.2
+BG_0380,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-06-02,0.0392,0,0.2
+BG_0381,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2009-06-24,0.04,0,0.2
+BG_0382,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-06-11,0.5262,1,0.2
+BG_0383,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-06-05,0.019,0,0.2
+BG_0384,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-06-21,0.5415,1,0.2
+BG_0385,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2026-06-29,0.1117,0,0.2
+BG_0386,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-06-05,0.0451,0,0.2
+BG_0387,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-06-06,0.1125,0,0.2
+BG_0388,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-07-31,0.0918,0,0.2
+BG_0389,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-07-05,0.1018,0,0.2
+BG_0390,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-07-12,0.075,0,0.2
+BG_0391,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-07-27,0.2284,1,0.2
+BG_0392,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-07-26,0.0489,0,0.2
+BG_0393,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-07-27,0.2919,1,0.2
+BG_0394,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-07-01,0.1382,0,0.2
+BG_0395,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-07-30,0.1407,0,0.2
+BG_0396,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-07-25,0.0997,0,0.2
+BG_0397,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-07-22,0.0774,0,0.2
+BG_0398,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2007-07-07,0.1658,0,0.2
+BG_0399,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-07-22,0.0911,0,0.2
+BG_0400,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-07-01,0.0216,0,0.2
+BG_0401,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2018-07-25,0.1212,0,0.2
+BG_0402,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-07-04,0.0588,0,0.2
+BG_0403,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-07-11,0.0461,0,0.2
+BG_0404,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2008-07-31,0.0321,0,0.2
+BG_0405,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2018-07-11,0.1773,0,0.2
+BG_0406,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2008-07-31,0.1236,0,0.2
+BG_0407,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2008-07-21,0.1418,0,0.2
+BG_0408,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-07-17,0.0698,0,0.2
+BG_0409,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-07-21,0.0709,0,0.2
+BG_0410,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-07-17,0.0576,0,0.2
+BG_0411,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-07-22,0.0746,0,0.2
+BG_0412,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-08-26,0.0257,0,0.2
+BG_0413,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-08-05,0.0833,0,0.2
+BG_0414,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-08-29,0.3584,1,0.2
+BG_0415,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-08-12,0.0486,0,0.2
+BG_0416,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-08-10,0.096,0,0.2
+BG_0417,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-08-19,0.0789,0,0.2
+BG_0418,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-08-01,0.0928,0,0.2
+BG_0419,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-08-10,0.0905,0,0.2
+BG_0420,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-08-13,0.1678,0,0.2
+BG_0421,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2018-08-12,0.139,0,0.2
+BG_0422,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-08-24,0.1216,0,0.2
+BG_0423,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2025-08-04,0.0824,0,0.2
+BG_0424,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-09-29,0.0695,0,0.2
+BG_0425,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-09-14,0.12,0,0.2
+BG_0426,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-09-10,0.0502,0,0.2
+BG_0427,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2019-09-18,0.0705,0,0.2
+BG_0428,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-09-27,0.0292,0,0.2
+BG_0429,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-09-01,0.3027,1,0.2
+BG_0430,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-09-13,0.1571,0,0.2
+BG_0431,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-09-11,0.118,0,0.2
+BG_0432,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-09-16,0.0538,0,0.2
+BG_0433,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2018-09-13,0.0378,0,0.2
+BG_0434,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2008-09-02,0.1063,0,0.2
+BG_0435,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-09-12,0.0687,0,0.2
+BG_0436,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2010-09-25,0.0402,0,0.2
+BG_0437,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2024-09-29,0.1719,0,0.2
+BG_0438,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2013-09-03,0.0974,0,0.2
+BG_0439,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2012-09-16,0.0669,0,0.2
+BG_0440,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-09-12,0.0782,0,0.2
+BG_0441,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2008-09-02,0.0235,0,0.2
+BG_0442,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2011-09-24,0.1268,0,0.2
+BG_0443,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2023-09-13,0.1192,0,0.2
+BG_0444,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2017-09-23,0.0862,0,0.2
+BG_0445,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2022-10-26,0.028,0,0.2
+BG_0446,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2014-10-03,0.2548,1,0.2
+BG_0447,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,"TRAIN_GEOGRAPHIC (Blocks 1, 2, 4)",Ri-Bhoi Block,2020-10-18,0.0252,0,0.2
+BG_0448,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2011-04-25,0.0197,0,0.2
+BG_0449,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-04-03,0.0155,0,0.2
+BG_0450,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-04-10,0.0224,0,0.2
+BG_0451,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2022-04-28,0.224,1,0.2
+BG_0452,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2011-04-06,0.0265,0,0.2
+BG_0453,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2022-04-29,0.139,0,0.2
+BG_0454,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-04-08,0.0327,0,0.2
+BG_0455,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-04-24,0.152,0,0.2
+BG_0456,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2025-04-26,0.7073,1,0.2
+BG_0457,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-04-30,0.0536,0,0.2
+BG_0458,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2011-04-22,0.0116,0,0.2
+BG_0459,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-04-17,0.0175,0,0.2
+BG_0460,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2018-04-11,0.015,0,0.2
+BG_0461,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-04-27,0.0142,0,0.2
+BG_0462,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-04-05,0.0404,0,0.2
+BG_0463,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-04-01,0.0265,0,0.2
+BG_0464,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2018-04-24,0.014,0,0.2
+BG_0465,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2017-04-26,0.0154,0,0.2
+BG_0466,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-04-29,0.0794,0,0.2
+BG_0467,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-04-11,0.0183,0,0.2
+BG_0468,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2025-04-06,0.0179,0,0.2
+BG_0469,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-05-13,0.0879,0,0.2
+BG_0470,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2025-05-04,0.0358,0,0.2
+BG_0471,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2026-05-07,0.3692,1,0.2
+BG_0472,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2022-05-02,0.0617,0,0.2
+BG_0473,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-05-16,0.0252,0,0.2
+BG_0474,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-05-18,0.1138,0,0.2
+BG_0475,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-05-18,0.0238,0,0.2
+BG_0476,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-05-14,0.0368,0,0.2
+BG_0477,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2008-05-05,0.0638,0,0.2
+BG_0478,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-05-17,0.012,0,0.2
+BG_0479,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-05-11,0.9046,1,0.2
+BG_0480,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-05-07,0.0229,0,0.2
+BG_0481,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-05-23,0.194,0,0.2
+BG_0482,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-05-18,0.0099,0,0.2
+BG_0483,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2026-05-02,0.0308,0,0.2
+BG_0484,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-05-30,0.3224,1,0.2
+BG_0485,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-05-21,0.0492,0,0.2
+BG_0486,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2018-05-24,0.0223,0,0.2
+BG_0487,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2008-05-05,0.0803,0,0.2
+BG_0488,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-05-06,0.0929,0,0.2
+BG_0489,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2018-05-29,0.0252,0,0.2
+BG_0490,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2024-05-21,0.0198,0,0.2
+BG_0491,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2024-05-12,0.011,0,0.2
+BG_0492,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2025-05-06,0.0374,0,0.2
+BG_0493,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-05-13,0.1676,0,0.2
+BG_0494,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2011-05-30,0.0978,0,0.2
+BG_0495,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-05-18,0.0902,0,0.2
+BG_0496,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2017-05-25,0.0329,0,0.2
+BG_0497,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2017-05-12,0.0144,0,0.2
+BG_0498,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2025-05-10,0.0353,0,0.2
+BG_0499,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2018-05-26,0.042,0,0.2
+BG_0500,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2022-05-27,0.0614,0,0.2
+BG_0501,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-05-31,0.0601,0,0.2
+BG_0502,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-05-15,0.0716,0,0.2
+BG_0503,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-05-10,0.1116,0,0.2
+BG_0504,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-05-04,0.1345,0,0.2
+BG_0505,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-06-16,0.0912,0,0.2
+BG_0506,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-06-20,0.1396,0,0.2
+BG_0507,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2008-06-11,0.0244,0,0.2
+BG_0508,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2022-06-30,0.4824,1,0.2
+BG_0509,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-06-08,0.4921,1,0.2
+BG_0510,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-06-23,0.0274,0,0.2
+BG_0511,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2026-06-26,0.0741,0,0.2
+BG_0512,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-06-13,0.0513,0,0.2
+BG_0513,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-06-24,0.1245,0,0.2
+BG_0514,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-06-09,0.3314,1,0.2
+BG_0515,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-06-13,0.0148,0,0.2
+BG_0516,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-06-12,0.0158,0,0.2
+BG_0517,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-06-17,0.3519,1,0.2
+BG_0518,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2026-06-02,0.2534,1,0.2
+BG_0519,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-06-05,0.1333,0,0.2
+BG_0520,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2018-06-18,0.0463,0,0.2
+BG_0521,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-06-16,0.1343,0,0.2
+BG_0522,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-06-21,0.0413,0,0.2
+BG_0523,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-06-11,0.0966,0,0.2
+BG_0524,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-06-07,0.1198,0,0.2
+BG_0525,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2025-06-05,0.2109,1,0.2
+BG_0526,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2011-06-05,0.1087,0,0.2
+BG_0527,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-06-06,0.0158,0,0.2
+BG_0528,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2026-06-21,0.5138,1,0.2
+BG_0529,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-06-27,0.4042,1,0.2
+BG_0530,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-06-06,0.0291,0,0.2
+BG_0531,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2007-06-04,0.3342,1,0.2
+BG_0532,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2017-06-30,0.064,0,0.2
+BG_0533,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2010-06-22,0.1508,0,0.2
+BG_0534,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2011-06-04,0.0876,0,0.2
+BG_0535,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2017-07-17,0.2285,1,0.2
+BG_0536,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2022-07-01,0.498,1,0.2
+BG_0537,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-07-03,0.112,0,0.2
+BG_0538,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2008-07-08,0.0686,0,0.2
+BG_0539,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-07-10,0.184,0,0.2
+BG_0540,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2024-07-24,0.0708,0,0.2
+BG_0541,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2012-07-07,0.2581,1,0.2
+BG_0542,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2017-07-23,0.1058,0,0.2
+BG_0543,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-07-14,0.1167,0,0.2
+BG_0544,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2008-07-12,0.0796,0,0.2
+BG_0545,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-07-02,0.3158,1,0.2
+BG_0546,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-07-22,0.1795,0,0.2
+BG_0547,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-07-13,0.0846,0,0.2
+BG_0548,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-07-11,0.1552,0,0.2
+BG_0549,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-07-27,0.8371,1,0.2
+BG_0550,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-07-26,0.1628,0,0.2
+BG_0551,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-07-14,0.5216,1,0.2
+BG_0552,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2020-07-12,0.0183,0,0.2
+BG_0553,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2019-07-24,0.1573,0,0.2
+BG_0554,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2014-07-21,0.2176,1,0.2
+BG_0555,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2017-07-22,0.1085,0,0.2
+BG_0556,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2023-08-05,0.0847,0,0.2
+BG_0557,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2013-08-22,0.3669,1,0.2
+BG_0558,data/phase3c_modelB/phase3c_modelB_section28_controlled_background_observations.csv,0,Controlled_Background,VALIDATION_GEOGRAPHIC (Block 5 Jaintia Hills),Jaintia Hills Block,2009-08-13,0.499,1,0.2

@@ -1,0 +1,11 @@
+Feature_Name,Feature_Type,Missing_Count,Infinite_Count,Positive_Mean,Positive_Median,Positive_Std,Positive_Min,Positive_Max,Background_Mean,Background_Median,Background_Std,Background_Min,Background_Max,Separation_Delta_Mean,Audit_Status
+rainfall_event_day,Dynamic_CHIRPS_Precipitation,0,0,51.0,44.95,37.73,0.0,159.34,18.62,8.21,27.28,0.0,187.54,32.38,PASS
+ari_3,Dynamic_CHIRPS_Precipitation,0,0,129.7,127.78,72.63,0.0,330.41,51.69,41.52,51.05,0.0,306.07,78.01,PASS
+ari_7,Dynamic_CHIRPS_Precipitation,0,0,203.08,198.24,94.38,0.0,411.42,120.92,102.83,91.18,0.0,516.93,82.16,PASS
+ari_15,Dynamic_CHIRPS_Precipitation,0,0,348.75,344.36,144.38,0.0,810.63,260.21,233.83,159.19,0.0,893.03,88.53,PASS
+ari_30,Dynamic_CHIRPS_Precipitation,0,0,576.26,538.18,232.57,60.34,1076.03,507.03,453.36,289.78,40.7,1478.09,69.23,PASS
+max_1day_7d,Dynamic_CHIRPS_Precipitation,0,0,72.42,70.75,33.02,0.0,175.61,50.76,43.57,35.87,0.0,205.62,21.66,PASS
+max_3day_30d,Dynamic_CHIRPS_Precipitation,0,0,175.61,171.75,65.48,27.07,332.25,154.22,138.85,80.26,25.23,465.23,21.39,PASS
+rainy_days_7d,Dynamic_CHIRPS_Precipitation,0,0,5.06,5.0,1.61,0.0,7.0,3.62,4.0,1.85,0.0,7.0,1.44,PASS
+rainy_days_15d,Dynamic_CHIRPS_Precipitation,0,0,10.06,10.0,2.37,0.0,15.0,7.67,8.0,3.19,0.0,15.0,2.39,PASS
+rainy_days_30d,Dynamic_CHIRPS_Precipitation,0,0,17.61,19.0,4.57,5.0,28.0,14.82,15.0,5.65,2.0,27.0,2.79,PASS

@@ -1,0 +1,115 @@
+================================================================================
+PHASE 3B FORENSIC AUDIT & ROOT CAUSE INVESTIGATION REPORT
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Target Region: Meghalaya, North Eastern Region, India
+Investigation Date: 2026-08-31
+Scope: Exhaustive, read-only forensic analysis of coordinate integrity,
+       duplicate reports, spatial block assignments, and exclusion buffers.
+Audit Status: COMPLETED
+================================================================================
+
+A. POSITIVE INVENTORY INTEGRITY
+--------------------------------------------------------------------------------
+- File: data/processed/meghalaya_environmental_features.csv
+- Total Rows: Exactly 1,052 confirmed GSI landslide records.
+- Total Columns: Exactly 43 columns.
+- Frozen Status: 100% bitwise preserved; zero modifications.
+- Coordinate Validity: All 1,052 coordinates fall strictly within Meghalaya bounds
+  (Latitude: 25.03351°N to 26.08697°N, Longitude: 89.97971°E to 92.87756°E).
+- Spatial Block Assignment: Evaluated deterministically; 0 unassigned points across all 5 blocks.
+
+B. PSEUDO-ABSENCE INTEGRITY (ORIGINAL vs. CORRECTED v2)
+--------------------------------------------------------------------------------
+- Original File: data/phase3/pseudo_absence_candidates.csv (3,156 rows, 39 cols)
+- Corrected File: data/phase3_corrected/pseudo_absence_candidates_v2.csv (3,156 rows, 39 cols)
+- Coordinate Uniqueness: Exactly 3,156 unique coordinates in both files (0 duplicate coordinates).
+- Schema Compliance: All static environmental and terrain columns 100% populated.
+- Dynamic Rainfall: All 10 dynamic CHIRPS rainfall fields populated strictly with 'NA' (0 fabricated values).
+
+C. COORDINATE DUPLICATE ANALYSIS (ROOT CAUSE OF THE "25 DUPLICATES")
+--------------------------------------------------------------------------------
+- Finding: The "25 duplicate coordinates" reported in Colab originate ENTIRELY from within
+  the authoritative positive GSI landslide inventory (1,052 rows across 1,027 unique locations).
+- Forensic Breakdown:
+  * Positive Unique Coordinates: 1,027
+  * Positive Duplicate Coordinate Count: 25 (1,052 - 1,027 = 25)
+  * Co-located Spots in Positive Inventory: Exactly 20 distinct coordinates host 45 total records
+    (e.g., recurring slope failures at the same highway cut in different years, such as Sl.No 19709
+    [2018] and Sl.No 20584 [2014] at 25.16400556°N, 92.38702778°E).
+  * Pseudo-Absence Duplicate Coordinate Count: ZERO (0 / 3,156).
+  * Conclusion: When a user runs df_combined.duplicated(subset=['latitude', 'longitude']),
+    it detects the 25 historical co-located positives, NOT negative duplicates.
+
+D. POSITIVE / BACKGROUND OVERLAP ANALYSIS
+--------------------------------------------------------------------------------
+- Exact Coordinate Collisions: ZERO (0).
+- Set(Positives) ∩ Set(Negatives) = ∅.
+- Near-Overlaps (< 100m): ZERO (0).
+
+E. 500m EXCLUSION BUFFER VERIFICATION
+--------------------------------------------------------------------------------
+- Calculation Method: Exact 3D Spherical Geodesic & Haversine Distance KD-Tree.
+- Original v1 Dataset:
+  * Minimum Distance: 498.79 m (2 candidates were at 498.8m and 499.7m due to equirectangular planar projection distortion).
+- Corrected v2 Dataset (data/phase3_corrected/pseudo_absence_candidates_v2.csv):
+  * Minimum Distance: 512.43 m (Strictly > 500.0 m on all spherical and ellipsoidal metrics).
+  * Median Distance: 7,431.40 m.
+  * Maximum Distance: 55,559.45 m.
+  * Buffer Violations (< 500.0m): ZERO (0 / 3,156).
+
+F. 100m BACKGROUND POINT SEPARATION VERIFICATION
+--------------------------------------------------------------------------------
+- Calculation Method: Exact k=2 nearest-neighbor 3D spherical geodesic distance.
+- Original v1 Dataset: Minimum separation = 100.93 m (0 violations < 100m).
+- Corrected v2 Dataset: Minimum separation = 105.00 m (0 violations < 100m).
+- Median Separation: 1,438.69 m.
+
+G. SPATIAL BLOCK ASSIGNMENT INTEGRITY (ROOT CAUSE OF "NaN SPATIAL_BLOCK_ID")
+--------------------------------------------------------------------------------
+- CSV Integrity: Both pseudo-absence CSVs contain ZERO NaNs across all 3,156 rows.
+- Distribution: Block 1 (Garo): 1,037 | Block 4 (Ri-Bhoi): 715 | Block 2 (West Khasi): 516 |
+                Block 5 (Jaintia): 469 | Block 3 (East Khasi): 419.
+- Root Cause in Colab: spatial_block_id was not an original column in the Phase 2C positive CSV.
+  In the notebook, spatial_block_id was assigned to df_pos in a later cell. If concatenation
+  was run before that cell, df_pos lacked spatial_block_id, resulting in NaNs for all 1,052 positive rows.
+
+H. SAMPLING TIER SEMANTICS & CUMULATIVE SLICING
+--------------------------------------------------------------------------------
+- Both CSV files contain three mutually exclusive sequential blocks of 1,052 rows:
+  * Tier '1:1': Rows 1 to 1,052 (NEG_0001 to NEG_1052)
+  * Tier '1:2': Rows 1,053 to 2,104 (NEG_1053 to NEG_2104)
+  * Tier '1:3': Rows 2,105 to 3,156 (NEG_2105 to NEG_3156)
+- Correct Cumulative Slicing for Colab Experiments:
+  * Experiment A (1:1 Ratio, N=2,104): df_pos (1,052) + df_neg[sample_ratio_tier == '1:1'] (1,052)
+  * Experiment B (1:2 Ratio, N=3,156): df_pos (1,052) + df_neg[sample_ratio_tier.isin(['1:1', '1:2'])] (2,104)
+  * Experiment C (1:3 Ratio, N=4,208): df_pos (1,052) + df_neg[sample_ratio_tier.isin(['1:1', '1:2', '1:3'])] (3,156)
+
+I. ROOT CAUSES SUMMARY
+--------------------------------------------------------------------------------
+1. "25 duplicates": Caused by 25 co-located recurring landslides in the raw GSI inventory.
+   (Negatives have 0 duplicates; 0 positive/negative collisions).
+2. "NaN spatial_block_id": Caused by notebook cell execution dependency where df_pos received
+   spatial_block_id in a separate downstream cell rather than immediately upon loading.
+3. "Cumulative tier confusion": Caused by notebook defining only the 1:1 slice without explicit
+   cumulative definitions for 1:2 and 1:3 tiers.
+4. "2 marginal buffer fringe points": Caused by planar equirectangular projection conversion in v1
+   which resulted in 2 points at 498.8m in exact 3D sphere metric. Completely resolved in v2 (Min: 512.43m).
+
+J. RECOMMENDED CORRECTIONS
+--------------------------------------------------------------------------------
+1. Use data/phase3_corrected/pseudo_absence_candidates_v2.csv as the authoritative background candidate dataset.
+2. In the Google Colab notebook (SIH_2026_Landslide_ML_Phase3D.ipynb):
+   - Compute spatial_block_id for df_pos immediately upon CSV ingestion in Section 3.
+   - Explicitly define cumulative slices for Experiment A, B, and C.
+   - Include diagnostic cells explaining the positive-only co-located events (25 rows) vs negative uniqueness (100%).
+
+K. FINAL DECISION
+--------------------------------------------------------------------------------
+- Positive Inventory Integrity: PASS
+- Pseudo-Absence v2 Dataset Integrity: PASS
+- 500m Exclusion Buffer (v2): PASS (Min: 512.43m, 0 violations)
+- 100m Separation (v2): PASS (Min: 105.00m, 0 violations)
+- Spatial Block Completeness: PASS (0 NaNs)
+- Final Gate Verdict: PASS (Safe to proceed to Phase 3D Colab notebook preparation)
+================================================================================

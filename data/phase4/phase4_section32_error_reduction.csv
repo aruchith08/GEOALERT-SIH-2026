@@ -1,0 +1,5 @@
+Metric_or_Dimension,Model_B_Standalone,Coupled_Model_AB,Absolute_Change,Percentage_Change,Observed_Distribution_or_Mechanism
+False Positive Count (Holdout N=180),31,9,-22,-71.0%,25 of 31 FP (80.6%) were on low susceptibility terrain (P(S) < 0.25) and suppressed by coupling.
+Precision / PPV (Holdout N=180),49.2%,80.4%,+31.3%,+63.5%,Precision jumps from 49.2% to 80.4% due to suppression of rainfall-only false alarms.
+True Positive Count (Holdout N=180),30,37,7,+23.3%,Confirmed landslides occur almost exclusively on highly susceptible terrain (P(S) >= 0.60).
+PR-AUC (Holdout N=180),0.6631,0.9098,0.2467,+37.2%,Large PR-AUC improvement demonstrates robust dual-axis ranking.

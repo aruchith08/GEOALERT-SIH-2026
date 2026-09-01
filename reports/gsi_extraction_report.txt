@@ -1,0 +1,163 @@
+================================================================================
+GSI FIELD VALIDATED LANDSLIDE INVENTORY - EXTRACTION & QUALITY REPORT
+================================================================================
+Date/Time: 2026-08-31 13:55:23
+Processing Time: 43.55 seconds
+PDF Pages Processed: 904
+Total Records Extracted: 36,071 (Expected: 36,071)
+Total Meghalaya Records: 1,052 (Expected: 1,052)
+Pages Where Extraction Failed: 0 (100% extraction success across all 904 pages)
+================================================================================
+
+1. EXECUTIVE SUMMARY & COUNT RECONCILIATION
+--------------------------------------------------------------------------------
+- Serial Number Range: 1 to 36,071 (Continuous sequence with 0 missing numbers)
+- Total India Landslide Records: 36,071
+- Total Meghalaya Records: 1,052
+  * Raw State 'Meghalaya' (Title Case): 1,051
+  * Raw State 'MEGHALAYA' (UPPERCASE, Page 508, Sl.No 20536): 1
+  * Reconciled Meghalaya Total: 1,052 (1,051 + 1 = 1,052)
+- Unique Meghalaya District Variations: 14
+- Total Coordinate Validation Flags (All India): 12
+- Coordinate Validation Flags in Meghalaya: 0 (100% valid within Meghalaya bounds)
+- Total Duplicate Audit Entries: 555
+
+
+2. MEGHALAYA STATE & DISTRICT VARIANT AUDIT
+--------------------------------------------------------------------------------
+A. State Variants (Filtering Rule: state.strip().lower() == 'meghalaya'):
+Original State Value           Record Count    Percentage
+-------------------------------------------------------
+Meghalaya                      1051             99.90%
+MEGHALAYA                      1                 0.10%
+-------------------------------------------------------
+TOTAL MEGHALAYA                1052            100.00%
+
+B. District Variants (Preserved verbatim in processed CSV):
+Original District Value        Record Count    Percentage
+-------------------------------------------------------
+East Khasi Hills               405              38.50%
+West Khasi Hills               210              19.96%
+East Jaintia Hills             120              11.41%
+West Jaintia Hills             86                8.17%
+Ri-Bhoi                        86                8.17%
+South West Khasi Hills         33                3.14%
+West Garo Hills                31                2.95%
+Eastern-West Khasi Hill        27                2.57%
+Jaintia Hills                  26                2.47%
+South Garo hills               9                 0.86%
+East Garo hills                7                 0.67%
+West Jaintia hills             6                 0.57%
+South Garo Hills               5                 0.48%
+South West Garo Hills          1                 0.10%
+-------------------------------------------------------
+TOTAL                          1052            100.00%
+
+3. ALL-INDIA STATE DISTRIBUTION (NORMALIZED VS RAW COUNTS)
+--------------------------------------------------------------------------------
+State / Union Territory        Normalized Total   Raw Variants & Breakdown
+--------------------------------------------------------------------------------
+Himachal Pradesh               6607               'Himachal Pradesh': 6607
+Uttarakhand                    5523               'Uttarakhand': 5523
+Mizoram                        3487               'Mizoram': 3487
+Kerala                         3380               'Kerala': 2999, 'KERALA': 381
+Jammu & Kashmir (Ut)           2589               'Jammu & Kashmir (UT)': 2589
+West Bengal                    2261               'West Bengal': 2261
+Nagaland                       1902               'Nagaland': 1902
+Manipur                        1631               'Manipur': 1631
+Karnataka                      1550               'Karnataka': 1467, 'KARNATAKA': 83
+Maharashtra                    1502               'Maharashtra': 1502
+Tamil Nadu                     1362               'Tamil Nadu': 1361, 'Tamil nadu': 1
+Arunachal Pradesh              1223               'Arunachal Pradesh': 1223
+Meghalaya                      1052               'Meghalaya': 1051, 'MEGHALAYA': 1
+Assam                          857                'Assam': 857
+Sikkim                         777                'Sikkim': 777
+Ut: Ladakh                     169                'UT: Ladakh': 169
+Tripura                        97                 'Tripura': 97
+Goa                            68                 'Goa': 68
+Andhra Pradesh                 29                 'Andhra Pradesh': 29
+Punjab                         3                  'Punjab': 3
+Madhya Pradesh                 1                  'Madhya Pradesh': 1
+Rajasthan                      1                  'Rajasthan': 1
+
+
+4. MISSING VALUES AUDIT BY COLUMN
+--------------------------------------------------------------------------------
+Column Name          All India Missing    Meghalaya Missing   
+------------------------------------------------------------
+source_page               0 (  0.0%)             0 (  0.0%)
+sl_no                     0 (  0.0%)             0 (  0.0%)
+slide_no                  4 (  0.0%)             0 (  0.0%)
+state                     0 (  0.0%)             0 (  0.0%)
+district                  0 (  0.0%)             0 (  0.0%)
+slide_name            21912 ( 60.7%)           357 ( 33.9%)
+nh_sh_location         6415 ( 17.8%)           122 ( 11.6%)
+latitude                  0 (  0.0%)             0 (  0.0%)
+longitude                 1 (  0.0%)             0 (  0.0%)
+material_involved       150 (  0.4%)            28 (  2.7%)
+movement_type           105 (  0.3%)            27 (  2.6%)
+history               22397 ( 62.1%)           596 ( 56.7%)
+
+
+5. COORDINATE VALIDATION AUDIT
+--------------------------------------------------------------------------------
+Total flagged records: 12
+Note: All flagged records are faithfully preserved in data/intermediate/gsi_landslides_all.csv.
+Page   Sl.No    Slide_No                  Latitude        Longitude       Status       Reason
+---------------------------------------------------------------------------------------------------------
+13     410      ASM/WKA/83C09/2016/34     25.98736        NA              INVALID      Non-numeric coordinates
+158    6684     HP/MAN/53A13/2017/09      31.91044 -      76.89064        INVALID      Non-numeric coordinates
+556    22031    MZ/MAM/84A10/2015/170     23.681778 -     92.602611       INVALID      Non-numeric coordinates
+556    22035    MZ/MAM/84A10/2015/169     23.682611 -     92.602028       INVALID      Non-numeric coordinates
+556    22036    MZ/MAM/84A10/2015/179     23.683417 -     92.601222       INVALID      Non-numeric coordinates
+556    22037    MZ/MAM/84A10/2015/168     23.684222 -     92.599917       INVALID      Non-numeric coordinates
+557    22063    MZ/AIZ/84A10/2015/230     - 23.699472     92.716167       INVALID      Non-numeric coordinates
+557    22066    MZ/AIZ/84A10/2015/229     - 23.700556     92.715972       INVALID      Non-numeric coordinates
+558    22073    MZ/AIZ/84A10/2015/228     - 23.704333     92.7145         INVALID      Non-numeric coordinates
+559    22110    MZ/AIZ/84A10/2015/202     - 23.719389     92.675083       INVALID      Non-numeric coordinates
+559    22111    MZ/AIZ/84A10/2015/200     23.719472 -     92.676444       INVALID      Non-numeric coordinates
+559    22112    MZ/AIZ/84A10/2015/201     - 23.7195       92.675528       INVALID      Non-numeric coordinates
+
+
+6. DUPLICATE AUDIT SUMMARY
+--------------------------------------------------------------------------------
+Total duplicate audit flags: 555
+Note: All duplicate records are faithfully preserved in data/intermediate/gsi_landslides_all.csv.
+Top 10 duplicate audit entries:
+Page   Sl.No    Slide_No                  Latitude     Longitude    Reason
+------------------------------------------------------------------------------------------
+2      43       ASM/CHR/83H01/2020/001    24.92097     93.07306     Slide_No ASM/CHR/83H01/2020/001 appears 2 times in inventory
+10     314      ASM/DIM/83C15/2017/07     25.443082    92.989873    Slide_No ASM/DIM/83C15/2017/07 appears 2 times in inventory
+10     335      ASM/DIM/83C15/2017/07     25.51402     92.765435    Slide_No ASM/DIM/83C15/2017/07 appears 2 times in inventory
+15     488      AS/KAM(M)/78N12/2023/01   26.1505375   91.72798139  Slide_No AS/KAM(M)/78N12/2023/01 appears 2 times in inventory
+18     615      AS/K(M)/76N16/2024/01     26.19044     91.77502     Slide_No AS/K(M)/76N16/2024/01 appears 2 times in inventory
+21     679      ASM/KAM/78N16/2020/001    26.146       91.756       Slide_No ASM/KAM/78N16/2020/001 appears 2 times in inventory
+22     700      AS/K(M)/76N16/2024/01     26.19052     91.77499     Slide_No AS/K(M)/76N16/2024/01 appears 2 times in inventory
+23     719      AS/KAM(M)/78N12/2023/01   26.150124    91.727915    Slide_No AS/KAM(M)/78N12/2023/01 appears 2 times in inventory
+25     770      ASM/CHR/83H01/2020/001    24.92097     93.07306     Exact duplicate of record Sl.No 43 on page 2
+25     773      ASM/KAM/78N16/2020/001    26.19330556  91.77725     Slide_No ASM/KAM/78N16/2020/001 appears 2 times in inventory
+
+
+7. EXTRACTION VERIFICATION & SPOT CHECKS
+--------------------------------------------------------------------------------
+Page   Sl.No    Slide_No                  State              District             Latitude     Longitude    Status
+-------------------------------------------------------------------------------------------------------------------
+1      14       ASM/HLKD/83D10/2016/59    Assam              Hailakandi           24.511306    92.693028    VERIFIED [OK]
+13     410      ASM/WKA/83C09/2016/34     Assam              West Karbi Anglong   25.98736     NA           VERIFIED [OK]
+51     1724     AR/ANJ/91D12/2014/08      Arunachal Pradesh  Anjaw                28.28331     96.58094     VERIFIED [OK]
+101    4020     HP/SOL/53A16/2017/209     Himachal Pradesh   Solan                31.086222    76.832222    VERIFIED [OK]
+301    12883    KRL/KOL/58H01/2015/35     Kerala             Kollam               8.832028     77.190336    VERIFIED [OK]
+484    19606    MEG/WJH/83C4/2016/51      Meghalaya          East Jaintia Hills   25.033514    92.435539    VERIFIED [OK]
+501    20255    MG/WGH/78K06/2020/2       Meghalaya          West Garo Hills      25.6         90.29        VERIFIED [OK]
+508    20536    ML/EKH/2014/03            MEGHALAYA          East Khasi Hills     25.97283333  91.86545     VERIFIED [OK]
+701    27705    TN/NIL/58A15/2015-16/218  Tamil Nadu         Nilgiri              11.407778    76.808889    VERIFIED [OK]
+904    36035    UK/RDP/53N02/2023/22      Uttarakhand        Rudraprayag          30.55875     79.054722    VERIFIED [OK]
+
+
+8. EXTRACTION WARNINGS & METHODOLOGY NOTES
+--------------------------------------------------------------------------------
+1. Page 1 header cutoff at y=84.0 pt cleanly separates the inventory title from table headers; Pages 2-904 cutoff at y=73.0 pt.
+2. Multi-line cells across slide_name, nh_sh_location, and material_involved were merged using geometric line grouping.
+3. Raw typographical artifacts in GSI coordinates (e.g. trailing minus signs in Mizoram and Mandi) are preserved verbatim and flagged in coordinate_validation.csv.
+4. Missing values are represented consistently as 'NA'. Zero records were fabricated or silently deleted.
+================================================================================

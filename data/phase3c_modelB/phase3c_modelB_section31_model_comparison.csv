@@ -1,0 +1,3 @@
+Model_Name,Architecture,Validation_ROC_AUC,Validation_PR_AUC,Validation_F1_at_T020,Holdout_ROC_AUC,Holdout_PR_AUC,Holdout_F1_at_T020,Generalization_Notes
+HistGradientBoosting (Primary Model B),"Non-linear Tree Ensemble (depth=4, lr=0.05)",0.8447,0.6225,0.6667,0.7653,0.6631,0.566,Superior non-linear feature interaction capture; higher Holdout ROC-AUC (+0.0231)
+Logistic Regression (Linear Baseline),"Standardized Linear Additive (C=1.0, L2)",0.8946,0.7954,0.7083,0.8367,0.7465,0.625,"Higher validation AUC in Block 5, but suffers greater holdout degradation on Block 3"

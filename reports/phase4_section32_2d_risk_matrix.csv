@@ -1,0 +1,10 @@
+Static_Susceptibility_Tier,Dynamic_Trigger_Tier,Qualitative_Coupled_Risk,Total_Observations_N,Confirmed_Positives_Count,Background_Observations_Count,Empirical_Positive_Prevalence,Prevalence_Percentage
+Low (<0.25),Low (<0.10),LOW RISK (Green Baseline),336,0,336,0.0,0.0%
+Low (<0.25),Medium (0.10-0.25),LOW / MODERATE RISK (Guarded Baseline),135,1,134,0.0074,0.7%
+Low (<0.25),High (>=0.25),LOW / MODERATE RISK (Guarded Baseline),65,3,62,0.0462,4.6%
+Medium (0.25-0.60),Low (<0.10),LOW / MODERATE RISK (Guarded Baseline),14,2,12,0.1429,14.3%
+Medium (0.25-0.60),Medium (0.10-0.25),MEDIUM RISK (Yellow Advisory),7,2,5,0.2857,28.6%
+Medium (0.25-0.60),High (>=0.25),HIGH RISK (Orange Warning),19,10,9,0.5263,52.6%
+High (>=0.60),Low (<0.10),LOW / MODERATE RISK (Guarded Baseline),8,8,0,1.0,100.0%
+High (>=0.60),Medium (0.10-0.25),HIGH RISK (Orange Warning),23,23,0,1.0,100.0%
+High (>=0.60),High (>=0.25),VERY HIGH RISK (Red Critical),137,137,0,1.0,100.0%

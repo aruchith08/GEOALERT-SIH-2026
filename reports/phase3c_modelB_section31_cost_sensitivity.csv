@@ -1,0 +1,5 @@
+Scenario_Name,Relative_Cost_Ratio (FN:FP),Optimal_Threshold,Optimal_Total_Cost,Normalized_Cost,Resulting_Recall_POD,Resulting_Precision_PPV,Resulting_False_Alarm_Ratio,Missed_Landslides,Generated_Warnings
+Cost_Scenario_A_c1,1:1,0.6,79.0,0.1062,0.6452,0.9023,0.0977,66,133
+Cost_Scenario_B_c2,2:1,0.38,135.0,0.1452,0.7204,0.8121,0.1879,52,165
+Cost_Scenario_C_c5,5:1,0.18,279.0,0.1875,0.8387,0.5474,0.4526,30,285
+Cost_Scenario_D_c10,10:1,0.12,397.0,0.1642,0.8925,0.4573,0.5427,20,363

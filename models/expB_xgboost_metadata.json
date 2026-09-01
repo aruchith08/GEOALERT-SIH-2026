@@ -1,0 +1,28 @@
+{
+  "experiment_name": "expB_xgboost",
+  "timestamp": "2026-09-01 04:35:20",
+  "random_seed": 42,
+  "optimal_threshold": 0.4010993540287018,
+  "test_metrics": {
+    "Model": "XGBoost",
+    "Threshold": 0.401,
+    "ROC_AUC": 0.9864,
+    "PR_AUC": 0.989,
+    "F1_Score": 0.9466,
+    "Precision": 0.9748,
+    "Recall": 0.9199,
+    "Accuracy": 0.948,
+    "Balanced_Accuracy": 0.948,
+    "Brier_Score": 0.0466,
+    "Confusion_Matrix": [
+      [
+        328,
+        8
+      ],
+      [
+        27,
+        310
+      ]
+    ]
+  }
+}

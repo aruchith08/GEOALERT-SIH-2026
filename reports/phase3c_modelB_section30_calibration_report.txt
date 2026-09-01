@@ -1,0 +1,21 @@
+SIH 2026 PHASE 3C: SECTION 30 MODEL B PROBABILITY CALIBRATION REPORT
+Generated: 2026-09-01 08:04:53
+================================================================================
+
+1. OVERALL CALIBRATION METRICS:
+   • Full Training Brier Score: 0.0543
+   • Natural Prior Probability: 25.0% (186/744)
+   • Predicted Mean Probability: 25.04%
+
+2. RELIABILITY DIAGRAM (5 BINS):
+   Bin   | Mean Predicted Probability   | Observed Positive Fraction  
+-----------------------------------------------------------------
+   1     |                      7.46% |                      2.36%
+   2     |                     27.90% |                     31.82%
+   3     |                     48.50% |                     70.59%
+   4     |                     73.49% |                     85.71%
+   5     |                     88.73% |                    100.00%
+
+3. SCIENTIFIC ASSESSMENT:
+   The model outputs well-ordered monotonic risk probabilities without severe overconfidence.
+   Operational thresholds are NOT established in this section.

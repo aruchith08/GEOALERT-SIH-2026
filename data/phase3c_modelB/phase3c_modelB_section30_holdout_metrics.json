@@ -1,0 +1,17 @@
+{
+  "threshold": 0.2,
+  "roc_auc": 0.7653,
+  "pr_auc": 0.6631,
+  "precision": 0.4918,
+  "recall": 0.6667,
+  "sensitivity": 0.6667,
+  "specificity": 0.7704,
+  "f1_score": 0.566,
+  "balanced_accuracy": 0.7185,
+  "brier_score": 0.1403,
+  "true_positives": 30,
+  "false_positives": 31,
+  "true_negatives": 104,
+  "false_negatives": 15,
+  "total_evaluated": 180
+}

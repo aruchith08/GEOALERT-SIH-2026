@@ -1,0 +1,9 @@
+QC_Dimension,Verification_Rule,Observed_Metric,Status
+Spatial Grid Completeness,"All 3,156 valid statewide cells must receive predictions",3156 / 3156 spatial cells evaluated (100.0%),PASS
+Coordinate Uniqueness & Coverage,Zero duplicate coordinate pairs across bounding box,3156 unique coordinates,PASS
+Missing / NaN / Inf Audit,"Zero NaN, Inf, or null values across all output surfaces","0 NaN, 0 Inf across static, dynamic, and coupled surfaces",PASS
+Model A Static Bounds,"Static Susceptibility P(S) must be strictly in [0.0, 1.0]","Min P(S) = 0.0009, Max P(S) = 0.7152",PASS
+Model B Dynamic Bounds,"Dynamic Hazard P(D) must be strictly in [0.0, 1.0]","Min P(D) = 0.6284, Max P(D) = 0.6284",PASS
+Coupled Risk Bounds,"Coupled Risk must be strictly in [0.0, 1.0]","Min Risk = 0.0006, Max Risk = 0.4494",PASS
+Model A Immutability (SHA-256),Model A hash must remain strictly unchanged,1691cd678c2a9184... (Match: True),PASS
+Model B Immutability (SHA-256),Model B hash must remain strictly unchanged,e30aacc2f83eaca4... (Match: True),PASS

@@ -1,0 +1,66 @@
+{
+  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring System",
+  "section": "Section 35: Backend Risk API & Real-Time Inference Layer",
+  "timestamp": "2026-09-01T19:59:37.885193",
+  "test_suite_status": "ALL_TESTS_PASSED",
+  "tests_executed": [
+    "test_root_endpoint",
+    "test_health_endpoint",
+    "test_metadata_endpoint",
+    "test_risk_inference_valid",
+    "test_risk_inference_out_of_bounds_coords",
+    "test_risk_inference_missing_feature",
+    "test_spatial_grid_endpoint",
+    "test_spatial_grid_filtered",
+    "test_spatial_grid_summary",
+    "test_nearest_location_lookup"
+  ],
+  "benchmark_latencies_ms": {
+    "model_cold_load_time_ms": 241.3,
+    "single_risk_inference_ms": 93.94,
+    "spatial_grid_geojson_serving_ms": 134.1,
+    "nearest_cell_haversine_lookup_ms": 9.26
+  },
+  "representative_scenario_evaluations": [
+    {
+      "scenario_name": "Scenario 1: Flat Alluvial Valley (Green Tier Expected)",
+      "status_code": 200,
+      "p_s": 0.0394,
+      "p_d": 0.6284,
+      "coupled_risk": 0.0248,
+      "alert_tier_code": "Level 1: Green",
+      "alert_color": "#22c55e",
+      "action": "Routine baseline monitoring. Safe terrain condition."
+    },
+    {
+      "scenario_name": "Scenario 2: Moderate Undulating Slope (Yellow Tier Expected)",
+      "status_code": 200,
+      "p_s": 0.1646,
+      "p_d": 0.6284,
+      "coupled_risk": 0.1034,
+      "alert_tier_code": "Level 2: Yellow",
+      "alert_color": "#eab308",
+      "action": "Advisory notice. Maintenance standby and slope drainage watch."
+    },
+    {
+      "scenario_name": "Scenario 3: Steep Highway Cut-Slope (Orange Tier Expected)",
+      "status_code": 200,
+      "p_s": 0.3419,
+      "p_d": 0.6284,
+      "coupled_risk": 0.2149,
+      "alert_tier_code": "Level 3: Orange",
+      "alert_color": "#f97316",
+      "action": "Heightened warning. Travel caution and heavy transport limits."
+    },
+    {
+      "scenario_name": "Scenario 4: Critical Saturated Escarpment (Red Tier Expected)",
+      "status_code": 200,
+      "p_s": 0.6235,
+      "p_d": 0.6284,
+      "coupled_risk": 0.3918,
+      "alert_tier_code": "Level 4: Red",
+      "alert_color": "#ef4444",
+      "action": "Critical landslide hazard. Immediate emergency protocols and slope closures."
+    }
+  ]
+}

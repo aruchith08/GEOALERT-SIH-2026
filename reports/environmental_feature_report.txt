@@ -1,0 +1,62 @@
+================================================================================
+PHASE 2C: GEO-ENVIRONMENTAL FEATURE QA & STATISTICAL REPORT
+================================================================================
+Date/Time: 2026-08-31 17:22:55
+Execution Time: 6.59 seconds
+Total Input Records: 1,052
+Total Output Records: 1,052
+Total Output Columns: 43
+================================================================================
+
+1. LAND COVER DISTRIBUTION (ESA WorldCover 10m)
+--------------------------------------------------------------------------------
+Land Cover Class          Count      Percentage  
+--------------------------------------------------------------------------------
+Tree cover                776        73.8       %
+Bare / sparse vegetation  228        21.7       %
+Cropland                  48         4.6        %
+--------------------------------------------------------------------------------
+
+2. REGIONAL LITHOLOGY DISTRIBUTION (GLiM / GSI)
+--------------------------------------------------------------------------------
+Major Lithology Group        Count      Percentage  
+--------------------------------------------------------------------------------
+Metamorphic                  603        57.3       %
+Siliciclastic Sedimentary    254        24.1       %
+Carbonate Sedimentary        100        9.5        %
+Mixed Sedimentary            62         5.9        %
+Plutonic Acidic              33         3.1        %
+--------------------------------------------------------------------------------
+
+3. NUMERICAL FEATURE SUMMARY STATISTICS (N = 1,052)
+--------------------------------------------------------------------------------
+Feature                Min      P5       P25      Median   Mean     P75      P95      Max      Std     
+------------------------------------------------------------------------------------------------
+ndvi_mean              0.2      0.2      0.7      0.7      0.6      0.8      0.8      0.9      0.2     
+soil_clay_fraction     21.5     24.2     27.4     28.9     30.3     34.1     39.1     42.1     4.3     
+soil_sand_fraction     24.4     31.9     38.9     41.9     42.7     46.8     52.9     61.2     6.8     
+soil_bulk_density      1.3      1.3      1.3      1.3      1.4      1.4      1.4      1.4      0.1     
+soil_ph                4.3      4.3      4.6      4.8      4.9      5.1      5.5      6.1      0.4     
+distance_to_roads      0.5      5.2      13.1     24.2     247.1    133.5    1570.0   8316.0   732.8   
+distance_to_streams    10.8     124.3    506.6    1102.0   1740.4   2507.8   5483.4   13923.0  1768.8  
+------------------------------------------------------------------------------------------------
+
+
+4. STAGE 2C-1: 10-POINT SPATIAL VALIDATION SAMPLE RESULTS
+--------------------------------------------------------------------------------
+Sl.No    District           LC Name      NDVI   Lith Clay(%)  Sand(%)  BD(g/cm3)  pH    RoadDist(m)  StreamDist(m)
+-------------------------------------------------------------------------------------------------------------------
+19658    East Jaintia Hills Tree cover   0.826  SC   36.8     32.0     1.31       5.5   26.3         262.4
+19675    Jaintia Hills      Tree cover   0.830  SC   38.0     31.9     1.32       5.5   347.5        204.8
+19737    West Khasi Hills   Cropland     0.649  SS   29.4     52.9     1.44       4.9   16.1         1938.2
+19739    West Khasi Hills   Cropland     0.638  SS   29.4     52.5     1.43       4.9   7.1          2348.1
+19885    East Khasi Hills   Tree cover   0.866  SS   26.7     48.8     1.42       5.4   894.5        87.0
+19895    East Khasi Hills   Tree cover   0.777  SS   26.2     52.7     1.41       5.2   64.7         126.7
+19902    East Khasi Hills   Tree cover   0.775  SS   26.0     48.3     1.41       5.1   318.8        1207.5
+19914    South West Khasi Hills Tree cover   0.870  SS   25.4     47.2     1.41       4.9   33.1         4541.4
+19915    West Khasi Hills   Tree cover   0.766  SS   25.4     47.3     1.41       4.9   189.9        4534.5
+20536    East Khasi Hills   Tree cover   0.823  MT   35.0     38.7     1.35       4.5   624.4        5501.6
+-------------------------------------------------------------------------------------------------------------------
+Validation Status: PASS (All 10 sample points exhibit physically plausible environmental parameters).
+
+================================================================================

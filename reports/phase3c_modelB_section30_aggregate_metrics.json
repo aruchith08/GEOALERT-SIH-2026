@@ -1,0 +1,98 @@
+{
+  "Stratified_Block_Month_5Fold": {
+    "Baseline_LogisticRegression": {
+      "Evaluation_Strategy": "Stratified_Block_Month_5Fold",
+      "Model_Type": "Baseline_LogisticRegression",
+      "Folds_Evaluated": 5,
+      "ROC_AUC_Mean": 0.8505,
+      "ROC_AUC_Std": 0.0375,
+      "ROC_AUC_Min": 0.7856,
+      "ROC_AUC_Max": 0.8908,
+      "PR_AUC_Mean": 0.7294,
+      "PR_AUC_Std": 0.0376,
+      "F1_Mean": 0.6528,
+      "F1_Std": 0.0502,
+      "Brier_Mean": 0.1157,
+      "Brier_Std": 0.0114
+    },
+    "Primary_ModelB_GradientBoosted": {
+      "Evaluation_Strategy": "Stratified_Block_Month_5Fold",
+      "Model_Type": "Primary_ModelB_GradientBoosted",
+      "Folds_Evaluated": 5,
+      "ROC_AUC_Mean": 0.8908,
+      "ROC_AUC_Std": 0.0265,
+      "ROC_AUC_Min": 0.8639,
+      "ROC_AUC_Max": 0.9411,
+      "PR_AUC_Mean": 0.809,
+      "PR_AUC_Std": 0.0378,
+      "F1_Mean": 0.7533,
+      "F1_Std": 0.0277,
+      "Brier_Mean": 0.0925,
+      "Brier_Std": 0.008
+    }
+  },
+  "Spatial_Block_Out": {
+    "Baseline_LogisticRegression": {
+      "Evaluation_Strategy": "Spatial_Block_Out",
+      "Model_Type": "Baseline_LogisticRegression",
+      "Folds_Evaluated": 5,
+      "ROC_AUC_Mean": 0.8459,
+      "ROC_AUC_Std": 0.0509,
+      "ROC_AUC_Min": 0.7885,
+      "ROC_AUC_Max": 0.9194,
+      "PR_AUC_Mean": 0.6937,
+      "PR_AUC_Std": 0.0583,
+      "F1_Mean": 0.6164,
+      "F1_Std": 0.0612,
+      "Brier_Mean": 0.1247,
+      "Brier_Std": 0.0138
+    },
+    "Primary_ModelB_GradientBoosted": {
+      "Evaluation_Strategy": "Spatial_Block_Out",
+      "Model_Type": "Primary_ModelB_GradientBoosted",
+      "Folds_Evaluated": 5,
+      "ROC_AUC_Mean": 0.818,
+      "ROC_AUC_Std": 0.0643,
+      "ROC_AUC_Min": 0.7582,
+      "ROC_AUC_Max": 0.9065,
+      "PR_AUC_Mean": 0.6664,
+      "PR_AUC_Std": 0.0634,
+      "F1_Mean": 0.563,
+      "F1_Std": 0.0269,
+      "Brier_Mean": 0.1347,
+      "Brier_Std": 0.0116
+    }
+  },
+  "Temporal_Year_Out": {
+    "Baseline_LogisticRegression": {
+      "Evaluation_Strategy": "Temporal_Year_Out",
+      "Model_Type": "Baseline_LogisticRegression",
+      "Folds_Evaluated": 17,
+      "ROC_AUC_Mean": 0.8121,
+      "ROC_AUC_Std": 0.1834,
+      "ROC_AUC_Min": 0.2308,
+      "ROC_AUC_Max": 0.9756,
+      "PR_AUC_Mean": 0.5831,
+      "PR_AUC_Std": 0.265,
+      "F1_Mean": 0.3768,
+      "F1_Std": 0.3272,
+      "Brier_Mean": 0.1169,
+      "Brier_Std": 0.0666
+    },
+    "Primary_ModelB_GradientBoosted": {
+      "Evaluation_Strategy": "Temporal_Year_Out",
+      "Model_Type": "Primary_ModelB_GradientBoosted",
+      "Folds_Evaluated": 17,
+      "ROC_AUC_Mean": 0.7156,
+      "ROC_AUC_Std": 0.2267,
+      "ROC_AUC_Min": 0.0256,
+      "ROC_AUC_Max": 1.0,
+      "PR_AUC_Mean": 0.5582,
+      "PR_AUC_Std": 0.3138,
+      "F1_Mean": 0.4047,
+      "F1_Std": 0.3238,
+      "Brier_Mean": 0.129,
+      "Brier_Std": 0.0847
+    }
+  }
+}

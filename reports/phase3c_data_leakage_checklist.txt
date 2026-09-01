@@ -1,0 +1,52 @@
+================================================================================
+PHASE 3C: DATA LEAKAGE PREVENTION & INTEGRITY AUDIT CHECKLIST
+================================================================================
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Target Region: Meghalaya, North Eastern Region, India
+Scope: Pre-training verification protocol to ensure zero spatial, temporal,
+       identifier, or preprocessing data contamination in Google Colab.
+================================================================================
+
+1. TARGET VARIABLE SEPARATION
+--------------------------------------------------------------------------------
+[CHECKED] 'label' (0/1) is strictly isolated as the binary prediction target.
+[CHECKED] 'label' is never included in the predictor feature matrix X.
+[CHECKED] Pseudo-absence generation occurred prior to and independent of model setup.
+
+2. IDENTIFIER & METADATA COLUMN EXCLUSION
+--------------------------------------------------------------------------------
+[CHECKED] 'sl_no', 'slide_no', 'source_page' strictly excluded (prevents index memorization).
+[CHECKED] 'slide_name', 'nh_sh_location' text strings strictly excluded (prevents location overfitting).
+[CHECKED] 'state', 'district' administrative strings strictly excluded from predictors.
+[CHECKED] 'history' narrative text strictly excluded from predictors.
+
+3. TEMPORAL LEAKAGE SAFEGUARDS (MODEL A VS. MODEL B SEPARATION)
+--------------------------------------------------------------------------------
+[CHECKED] 'event_date', 'event_year', 'temporal_quality' strictly excluded from Model A.
+[CHECKED] All 10 dynamic CHIRPS rainfall fields strictly excluded from Model A (Static Susceptibility).
+[CHECKED] Zero rainfall values fabricated for the 866 non-exact positive records.
+[CHECKED] Dynamic rainfall trigger modeling strictly isolated to future Model B for the 186 exact dates.
+
+4. SPATIAL BLOCK CROSS-VALIDATION & ZERO GEOGRAPHIC OVERLAP
+--------------------------------------------------------------------------------
+[CHECKED] Deterministic 5-Block partition (Garo, West Khasi, East Khasi, Ri-Bhoi, Jaintia).
+[CHECKED] Train (Blocks 1, 2, 4), Validation (Block 5), and Test (Block 3) are geographically disjoint.
+[CHECKED] Zero spatial coordinate overlap between Training and Testing sets.
+[CHECKED] GroupKFold(groups=spatial_block_id) ensures all folds test on unseen geographic regions.
+
+5. PREPROCESSING & STATISTICAL LEAKAGE PREVENTION
+--------------------------------------------------------------------------------
+[CHECKED] StandardScaler is fitted STRICTLY on X_train; never on full dataset.
+[CHECKED] OneHotEncoder is fitted STRICTLY on X_train; unknown test categories handled with ignore.
+[CHECKED] No test-set statistics (mean, variance, category frequencies) leak into training.
+[CHECKED] Optimal decision threshold is tuned STRICTLY on the Validation fold (Block 5).
+
+6. REPRODUCIBILITY & DETERMINISM
+--------------------------------------------------------------------------------
+[CHECKED] Global random seed fixed at RANDOM_SEED = 42 across all modules.
+[CHECKED] ColumnTransformer and Scikit-Learn Pipeline encapsulate all data transformations.
+[CHECKED] Serialized artifacts (.joblib) store preprocessors alongside model weights.
+
+================================================================================
+FINAL AUDIT VERDICT: 100% COMPLIANT WITH SCIENTIFIC LEAKAGE SAFEGUARDS
+================================================================================
