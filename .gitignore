@@ -5,7 +5,7 @@
 # Raw Multi-Gigabyte Satellite Rasters (CHIRPS & SRTM GeoTIFFs)
 data/raw/
 
-# Python & Caches
+# Python & Virtualenv Caches
 __pycache__/
 *.py[cod]
 *$py.class
@@ -20,18 +20,12 @@ dist/
 downloads/
 eggs/
 .eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
 .pytest_cache/
 .coverage
 htmlcov/
+*.egg-info/
+.installed.cfg
+*.egg
 
 # Node / Next.js
 node_modules/
@@ -42,6 +36,10 @@ frontend/out/
 frontend/build/
 .npm
 .eslintcache
+
+# NEVER ignore frontend TypeScript libraries
+!frontend/lib/
+!frontend/lib/**
 
 # Environment & Secrets
 .env
