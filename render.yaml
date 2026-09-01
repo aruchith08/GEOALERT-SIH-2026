@@ -1,0 +1,40 @@
+# ==============================================================================
+# GEOALERT — Render Cloud Deployment Blueprint
+# ==============================================================================
+
+services:
+  # 1. FastAPI Production Backend API
+  - type: web
+    name: geoalert-backend
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.8
+      - key: CORS_ORIGINS
+        value: "*"
+    healthCheckPath: /api/v1/health
+    autoDeploy: true
+
+  # 2. Next.js Web GIS Frontend Dashboard (Optional Render Service)
+  - type: web
+    name: geoalert-frontend
+    runtime: node
+    region: oregon
+    plan: free
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    startCommand: npm run start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: NEXT_PUBLIC_API_BASE_URL
+        fromService:
+          type: web
+          name: geoalert-backend
+          property: host
+          transform: "https://${host}/api/v1"
+    autoDeploy: true
