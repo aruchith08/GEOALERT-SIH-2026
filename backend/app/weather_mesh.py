@@ -222,7 +222,7 @@ class WeatherMeshService:
                     "temperature_c": 21.0,
                     "wind_speed_kmh": 12.0,
                     "weather_description": "Seasonal baseline",
-                    "data_mode": "DEMO_SCENARIO",
+                    "data_mode": "FALLBACK",
                     "cache_status": "FALLBACK"
                 }
 
@@ -264,10 +264,17 @@ class WeatherMeshService:
         orange_count = int(np.sum(orange_mask))
         red_count = int(np.sum(red_mask))
 
+        all_live = all(st.get("data_mode") in ("LIVE", "CACHED_LIVE") for st in st_telemetry.values())
+        overall_mode = "LIVE" if all_live else "FALLBACK"
+
         return {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "total_cells": len(grid_df),
+            "total_cells_N": len(grid_df),
             "station_count": len(self.stations),
+            "stations_count": len(self.stations),
+            "data_mode": overall_mode,
+            "is_live": all_live,
             "stations": list(st_telemetry.values()),
             "kpi_metrics": {
                 "green_count": green_count,

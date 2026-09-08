@@ -212,21 +212,23 @@ def get_risk_live_grid():
     try:
         from backend.app.weather_mesh import weather_mesh_service
         summary = weather_mesh_service.compute_spatially_variable_risk()
+        is_live = bool(summary.get("is_live", True))
+        data_mode = str(summary.get("data_mode", "LIVE"))
         prov = {
             "provider": "Open-Meteo",
-            "data_mode": "LIVE",
-            "is_live": True,
+            "data_mode": data_mode,
+            "is_live": is_live,
             "source_timestamp": summary.get("timestamp", ""),
             "retrieved_at": summary.get("timestamp", ""),
-            "data_quality": "HIGH_CONFIDENCE",
+            "data_quality": "HIGH_CONFIDENCE" if is_live else "FALLBACK_CALIBRATED",
             "feature_completeness": "FEATURE_DATA_COMPLETE"
         }
         return LiveGridResponse(
-            mode="LIVE",
+            mode=data_mode,
             provider="Open-Meteo",
             timestamp=summary.get("timestamp", ""),
-            total_cells=summary.get("total_cells_N", 3156),
-            station_count=summary.get("stations_count", 12),
+            total_cells=summary.get("total_cells", 3156),
+            station_count=summary.get("station_count", 12),
             provenance=prov,
             summary=summary
         )

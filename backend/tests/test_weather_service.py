@@ -120,7 +120,7 @@ def test_weather_status_endpoint():
     assert res.status_code == 200
     json_data = res.json()
     assert "mode" in json_data
-    assert json_data["mode"] in ["LIVE", "DEMO_SCENARIO"]
+    assert json_data["mode"] in ["LIVE", "DEMO_SCENARIO", "FALLBACK"]
     assert "provider_name" in json_data
     assert "is_live" in json_data
     assert "timestamp" in json_data
@@ -287,5 +287,63 @@ def test_live_risk_grid_and_location_endpoints():
     assert len(loc_risk["action_intelligence"]["recommended_actions"]) > 0
     assert "data_confidence" in loc_risk
     assert loc_risk["coupled_risk_score"] >= 0.0
+
+
+def test_weather_cache_stats_and_latest_timestamp():
+    """Verifies WeatherCache stats include entries_count and latest_cached_at."""
+    cache = WeatherCache(default_ttl_seconds=5)
+    cache.set(25.57, 91.89, {"rainfall": 12.0})
+    stats = cache.get_stats()
+    assert stats["cached_locations"] == 1
+    assert stats["entries_count"] == 1
+    assert stats["latest_cached_at"] is not None
+    assert "hits" in stats
+    assert "misses" in stats
+
+
+def test_offline_fallback_provenance_honesty():
+    """Verifies that offline fallback generation reports honest FALLBACK status."""
+    fallback = weather_service._generate_calibrated_fallback_data(25.5788, 91.8933)
+    assert fallback["data_mode"] == "FALLBACK"
+    assert fallback["is_live"] is False
+    assert fallback["data_quality"] == "FALLBACK_CALIBRATED"
+    assert len(fallback["daily"]["precipitation_sum"]) == 38
+    assert len(fallback["daily"]["time"]) == 38
+
+
+def test_spatial_mesh_differentiation():
+    """Verifies that distinct geographic coordinates route to distinct meteorological stations."""
+    from backend.app.weather_mesh import weather_mesh_service
+    import pandas as pd
+    test_pts = pd.DataFrame([
+        {"latitude": 25.2744, "longitude": 91.7323, "name": "Sohra"},
+        {"latitude": 25.5100, "longitude": 90.2200, "name": "Tura"}
+    ])
+    indices = weather_mesh_service._ensure_cell_station_mapping(test_pts)
+    station_sohra = weather_mesh_service.stations[indices[0]]["station_id"]
+    station_tura = weather_mesh_service.stations[indices[1]]["station_id"]
+    assert station_sohra == "MET_SOHRA"
+    assert station_tura == "MET_TURA"
+
+
+def test_model_b_feature_order_exactness():
+    """Verifies Model B pipeline accepts the 10 exact CHIRPS features and predicts valid P(D)."""
+    from backend.app.model_service import model_service
+    sample_feats = {
+        "rainfall_event_day": 45.0,
+        "ari_3": 110.0,
+        "ari_7": 180.0,
+        "ari_15": 320.0,
+        "ari_30": 520.0,
+        "max_1day_7d": 65.0,
+        "max_3day_30d": 160.0,
+        "rainy_days_7d": 5,
+        "rainy_days_15d": 11,
+        "rainy_days_30d": 18
+    }
+    p_d = model_service.predict_dynamic_trigger(sample_feats)
+    assert 0.0 <= p_d <= 1.0
+    assert round(p_d, 2) == 0.63 or 0.50 <= p_d <= 0.75
+
 
 

@@ -92,12 +92,17 @@ class WeatherCache:
         with self._lock:
             total_queries = self._hits + self._misses
             hit_rate = (self._hits / total_queries * 100.0) if total_queries > 0 else 0.0
+            latest_cached_at = None
+            if self._store:
+                latest_cached_at = max(entry["cached_at"] for entry in self._store.values())
             return {
                 "cached_locations": len(self._store),
+                "entries_count": len(self._store),
                 "ttl_seconds": self.ttl_seconds,
                 "hits": self._hits,
                 "misses": self._misses,
-                "hit_rate_pct": round(hit_rate, 1)
+                "hit_rate_pct": round(hit_rate, 1),
+                "latest_cached_at": latest_cached_at
             }
 
 

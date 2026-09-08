@@ -131,15 +131,24 @@ class WeatherService:
         status_code = health.get("status", "UNKNOWN")
 
         cache_stats = self.cache.get_stats()
-        # Estimate data age in minutes based on cache status
-        data_age_minutes = 2 if (cache_stats.get("entries_count", 0) > 0 and is_live) else 0
+        cached_locations = cache_stats.get("cached_locations", 0)
+        latest_cached_at = cache_stats.get("latest_cached_at")
+        data_age_minutes = 0.0
+        if latest_cached_at:
+            try:
+                cached_time = datetime.fromisoformat(latest_cached_at)
+                data_age_minutes = round(max(0.0, (datetime.now(timezone.utc) - cached_time).total_seconds() / 60.0), 1)
+            except Exception:
+                data_age_minutes = 0.0
+        elif cached_locations > 0 and is_live:
+            data_age_minutes = 2.0
 
-        mode = "LIVE" if is_live else "DEMO_SCENARIO"
-        reason = None if is_live else f"External telemetry provider reported {status_code}; using calibrated geomorphic scenarios."
+        mode = "LIVE" if is_live else "FALLBACK"
+        reason = None if is_live else f"External telemetry provider reported {status_code}; operating in calibrated fallback mode."
         msg = (
             f"Active live telemetry feed from {self.provider.get_provider_name()}"
             if is_live
-            else f"Live weather provider unreachable ({status_code}). Operating in calibrated DEMO / SCENARIO mode."
+            else f"Live weather provider unreachable ({status_code}). Operating in calibrated FALLBACK mode."
         )
 
         return WeatherStatusResponse(
@@ -177,15 +186,12 @@ class WeatherService:
 
             # Graceful deterministic fallback (calibrated Monsoon Surge baseline)
             fallback = self._generate_calibrated_fallback_data(latitude, longitude)
-            return fallback, "DEMO_FALLBACK"
+            return fallback, "FALLBACK"
 
     def _generate_calibrated_fallback_data(self, latitude: float, longitude: float) -> Dict[str, Any]:
         """Generates realistic calibrated fallback data when external network is unavailable."""
         now = datetime.now(timezone.utc)
-        time_series = [
-            (now - pd.Timedelta(days=31 - i)).strftime("%Y-%m-%d") for i in range(39)
-        ]
-        # Realistic monsoon precipitation series with a peak around event day
+        # Realistic monsoon precipitation series with a peak around event day (31 antecedent days + 7 forecast days = 38 days)
         precip_series = [
             12.0, 15.0, 8.0, 20.0, 35.0, 40.0, 18.0, 22.0, 30.0, 15.0,
             18.0, 25.0, 10.0, 14.0, 28.0, 32.0, 45.0, 22.0, 18.0, 26.0,
@@ -193,13 +199,16 @@ class WeatherService:
             45.0,  # Day 31 (Today)
             52.0, 60.0, 45.0, 30.0, 20.0, 15.0, 10.0  # 7 forecast days
         ]
+        time_series = [
+            (now - pd.Timedelta(days=31 - i)).strftime("%Y-%m-%d") for i in range(len(precip_series))
+        ]
         return {
             "latitude": latitude,
             "longitude": longitude,
             "elevation_m": 1496.0,
             "timezone": "Asia/Kolkata",
-            "provider": "Calibrated Scenario (Offline Fallback)",
-            "data_mode": "DEMO_SCENARIO",
+            "provider": "Calibrated Baseline (Offline Fallback)",
+            "data_mode": "FALLBACK",
             "is_live": False,
             "source_timestamp": now.isoformat(),
             "retrieved_at": now.isoformat(),
@@ -269,10 +278,10 @@ class WeatherService:
         ) if intervals_raw else None
 
         # Honest provenance definition
-        data_mode = str(data.get("data_mode", "LIVE" if data.get("is_live", False) else "DEMO_SCENARIO"))
+        data_mode = str(data.get("data_mode", "LIVE" if data.get("is_live", False) else "FALLBACK"))
         if cache_status == "CACHED_FRESH" and data_mode == "LIVE":
             data_mode = "CACHED_LIVE"
-        elif cache_status == "STALE_CACHE":
+        elif cache_status in ("STALE_CACHE", "FALLBACK") or data_mode == "FALLBACK":
             data_mode = "FALLBACK"
 
         provenance_obj = DataProvenance(
