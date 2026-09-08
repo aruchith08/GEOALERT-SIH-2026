@@ -119,3 +119,82 @@ export interface CorridorScenario {
   cloudburst_tier: string;
   critical_vulnerability: string;
 }
+
+export interface WeatherStatus {
+  mode: string;
+  is_live: boolean;
+  provider_name: string;
+  cache_status: string;
+  status_message: string;
+  timestamp: string;
+  cache_stats?: any;
+}
+
+export interface CurrentWeatherCondition {
+  temperature_c: number;
+  relative_humidity_pct: number;
+  precipitation_mm: number;
+  weather_code: number;
+  weather_description: string;
+  time: string;
+}
+
+export interface DailyWeatherPoint {
+  date: string;
+  precipitation_sum_mm: number;
+  weather_code: number;
+  weather_description: string;
+  temperature_max_c?: number;
+  temperature_min_c?: number;
+}
+
+export interface WeatherCurrentResponse {
+  latitude: number;
+  longitude: number;
+  location_name?: string;
+  elevation_m: number;
+  provider: string;
+  cache_status: string;
+  timestamp: string;
+  current: CurrentWeatherCondition;
+  features: DynamicRainfallFeatures;
+  dynamic_trigger_p_d: number;
+}
+
+export interface RiskForecastPoint {
+  date: string;
+  day_offset: number;
+  day_name: string;
+  forecast_rain_mm: number;
+  dynamic_trigger_p_d: number;
+  coupled_risk_score: number;
+  alert_tier_code: AlertTier;
+  alert_tier_name: string;
+  alert_color_hex: string;
+  warning_summary: string;
+  dynamic_features: DynamicRainfallFeatures;
+}
+
+export interface RiskForecastResponse {
+  query_latitude: number;
+  query_longitude: number;
+  nearest_cell_id?: string;
+  location_name?: string;
+  static_susceptibility_p_s: number;
+  current_dynamic_trigger_p_d: number;
+  current_coupled_risk_score: number;
+  current_alert_tier_code: AlertTier;
+  current_alert_tier_name: string;
+  current_alert_color_hex: string;
+  timeline: RiskForecastPoint[];
+  peak_day: string;
+  peak_day_offset: number;
+  peak_risk_score: number;
+  peak_alert_tier: string;
+  overall_trend: string;
+  explainability: ExplainabilityBreakdown;
+  weather_provider: string;
+  cache_status: string;
+  timestamp: string;
+}
+

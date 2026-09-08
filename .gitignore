@@ -57,6 +57,8 @@ frontend/build/
 .DS_Store
 Thumbs.db
 desktop.ini
+docs/_temp_report_images/
+
 
 # Scratch temporary
 scratch/*.tmp

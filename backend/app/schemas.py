@@ -176,3 +176,110 @@ class NearestCellLookupResponse(BaseModel):
     explainability: Optional[ExplainabilityBreakdown] = None
     is_nearest_grid_lookup: bool = True
     is_real_time_inference: bool = False
+
+
+class WeatherStatusResponse(BaseModel):
+    mode: str
+    is_live: bool
+    provider_name: str
+    cache_status: str
+    status_message: str
+    timestamp: str
+    cache_stats: Optional[Dict[str, Any]] = None
+
+
+class CurrentWeatherCondition(BaseModel):
+    temperature_c: float
+    relative_humidity_pct: float
+    precipitation_mm: float
+    weather_code: int
+    weather_description: str
+    time: str
+
+
+class DailyWeatherPoint(BaseModel):
+    date: str
+    precipitation_sum_mm: float
+    weather_code: int
+    weather_description: str
+    temperature_max_c: Optional[float] = None
+    temperature_min_c: Optional[float] = None
+
+
+class WeatherCurrentResponse(BaseModel):
+    latitude: float
+    longitude: float
+    location_name: Optional[str] = None
+    elevation_m: float
+    provider: str
+    cache_status: str
+    timestamp: str
+    current: CurrentWeatherCondition
+    features: DynamicFeaturesInput
+    dynamic_trigger_p_d: float
+
+
+class WeatherForecastResponse(BaseModel):
+    latitude: float
+    longitude: float
+    elevation_m: float
+    provider: str
+    cache_status: str
+    timestamp: str
+    daily_forecast: List[DailyWeatherPoint]
+
+
+class WeatherHistoryResponse(BaseModel):
+    latitude: float
+    longitude: float
+    elevation_m: float
+    provider: str
+    cache_status: str
+    timestamp: str
+    daily_history: List[DailyWeatherPoint]
+
+
+class RiskForecastPoint(BaseModel):
+    date: str
+    day_offset: int
+    day_name: str
+    forecast_rain_mm: float
+    dynamic_trigger_p_d: float
+    coupled_risk_score: float
+    alert_tier_code: AlertTierEnum
+    alert_tier_name: str
+    alert_color_hex: str
+    warning_summary: str
+    dynamic_features: DynamicFeaturesInput
+
+
+class RiskForecastRequest(BaseModel):
+    latitude: float = Field(..., ge=24.5, le=26.5, description="WGS84 Latitude of location (Meghalaya)")
+    longitude: float = Field(..., ge=89.0, le=93.5, description="WGS84 Longitude of location (Meghalaya)")
+    cell_id: Optional[str] = Field(None, description="Optional Section 34 cell ID")
+    p_s: Optional[float] = Field(None, ge=0.0, le=1.0, description="Pre-computed Model A static susceptibility")
+    location_name: Optional[str] = Field(None, description="Optional landmark or village name")
+
+
+class RiskForecastResponse(BaseModel):
+    query_latitude: float
+    query_longitude: float
+    nearest_cell_id: Optional[str] = None
+    location_name: Optional[str] = None
+    static_susceptibility_p_s: float
+    current_dynamic_trigger_p_d: float
+    current_coupled_risk_score: float
+    current_alert_tier_code: AlertTierEnum
+    current_alert_tier_name: str
+    current_alert_color_hex: str
+    timeline: List[RiskForecastPoint]
+    peak_day: str
+    peak_day_offset: int
+    peak_risk_score: float
+    peak_alert_tier: str
+    overall_trend: str
+    explainability: ExplainabilityBreakdown
+    weather_provider: str
+    cache_status: str
+    timestamp: str
+

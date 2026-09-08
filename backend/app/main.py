@@ -13,7 +13,7 @@ from backend.app.config import (
     CORS_ORIGINS_RAW, CORS_ORIGIN_REGEX
 )
 from backend.app.model_service import model_service
-from backend.app.routes import health, risk, spatial, metadata, rainfall
+from backend.app.routes import health, risk, spatial, metadata, rainfall, weather
 
 
 @asynccontextmanager
@@ -60,6 +60,7 @@ else:
 app.include_router(health.router, prefix=API_PREFIX)
 app.include_router(risk.router, prefix=API_PREFIX)
 app.include_router(rainfall.router, prefix=API_PREFIX)
+app.include_router(weather.router, prefix=API_PREFIX)
 app.include_router(spatial.router, prefix=API_PREFIX)
 app.include_router(metadata.router, prefix=API_PREFIX)
 

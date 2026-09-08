@@ -16,6 +16,22 @@ const NAV_ITEMS = [
 
 export default function Navbar() {
   const pathname = usePathname();
+  const [weatherStatus, setWeatherStatus] = React.useState<{ is_live: boolean; provider: string } | null>(null);
+
+  React.useEffect(() => {
+    async function checkStatus() {
+      try {
+        const { fetchWeatherStatus } = await import('@/lib/api');
+        const s = await fetchWeatherStatus();
+        setWeatherStatus({ is_live: s.is_live, provider: s.provider_name });
+      } catch {
+        setWeatherStatus({ is_live: false, provider: 'Scenario Simulation' });
+      }
+    }
+    checkStatus();
+    const interval = setInterval(checkStatus, 60000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
@@ -68,13 +84,21 @@ export default function Navbar() {
               <span>RESEARCH / ADVISORY</span>
             </span>
 
-            <span className="flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-800 px-3 py-1 rounded-full font-semibold shadow-2xs">
-              <Activity className="w-3.5 h-3.5 text-amber-600" />
-              <span>DEMO / SCENARIO</span>
-            </span>
+            {weatherStatus?.is_live ? (
+              <span className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 px-3 py-1 rounded-full font-semibold shadow-2xs">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                <span>LIVE WEATHER ({weatherStatus.provider})</span>
+              </span>
+            ) : (
+              <span className="flex items-center gap-1.5 bg-amber-50 border border-amber-200 text-amber-800 px-3 py-1 rounded-full font-semibold shadow-2xs">
+                <Activity className="w-3.5 h-3.5 text-amber-600" />
+                <span>DEMO / SCENARIO</span>
+              </span>
+            )}
           </div>
         </div>
       </div>
     </header>
   );
 }
+

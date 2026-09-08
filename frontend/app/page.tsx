@@ -7,6 +7,8 @@ import KPICards from '@/components/dashboard/KPICards';
 import RiskMapWrapper from '@/components/map/RiskMapWrapper';
 import InspectorPanel from '@/components/dashboard/InspectorPanel';
 import RainfallIntelligencePanel from '@/components/dashboard/RainfallIntelligencePanel';
+import ForecastRiskTimeline from '@/components/dashboard/ForecastRiskTimeline';
+
 
 export default function DashboardPage() {
   const [geojsonData, setGeojsonData] = useState<GridGeoJSON | null>(null);
@@ -140,6 +142,15 @@ export default function DashboardPage() {
           />
         </div>
       </div>
+
+      {/* 7-Day Predictive Landslide Risk Timeline (Model B Forward Forecasting) */}
+      <ForecastRiskTimeline
+        latitude={25.5788}
+        longitude={91.8933}
+        cellId={selectedCell?.cell_id}
+        staticPS={selectedCell?.p_static ?? 0.42}
+        locationName={selectedCell ? `${selectedCell.block} (Cell ${selectedCell.cell_id})` : 'Shillong / East Khasi Hills Corridor'}
+      />
     </div>
   );
 }

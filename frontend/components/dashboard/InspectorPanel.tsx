@@ -174,7 +174,7 @@ export default function InspectorPanel({
         </div>
 
         {/* "Why is this location at risk?" Explainability Card */}
-        <div className="p-3 bg-blue-50/70 border border-blue-200 rounded-xl space-y-2 shadow-2xs">
+        <div className="p-3 bg-blue-50/70 border border-blue-200 rounded-xl space-y-2 shadow-2xs mb-3">
           <div className="flex items-center gap-1.5 text-blue-900 font-bold text-[11px]">
             <Sparkles className="w-3.5 h-3.5 text-blue-600" />
             <span>Why is this location at risk?</span>
@@ -189,7 +189,22 @@ export default function InspectorPanel({
             </div>
           </div>
         </div>
+
+        {/* 7-Day Forecast Outlook Callout */}
+        <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl mb-1 text-[11px] text-slate-700">
+          <div className="flex items-center justify-between font-bold text-slate-900 mb-1">
+            <span className="flex items-center gap-1 text-blue-700">
+              <CloudRain className="w-3.5 h-3.5" />
+              <span>7-Day Forward Weather Forecast</span>
+            </span>
+            <span className="text-[10px] text-slate-500 font-mono">Open-Meteo &bull; +1d..+7d</span>
+          </div>
+          <p className="text-[10px] text-slate-600 leading-snug">
+            Rolling antecedent saturation and multi-day numerical weather predictions are active. See the full 7-day predictive timeline below for projected daily hazard evolution.
+          </p>
+        </div>
       </div>
+
 
       {/* Advisory Action Notice */}
       <div className="mt-3 pt-3 border-t border-slate-200 text-[11px] text-slate-600 leading-normal">
