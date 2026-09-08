@@ -1,4 +1,4 @@
-﻿"""
+"""
 backend/app/weather_sync_service.py
 ====================================
 Controlled background weather synchronization service for GEOALERT SIH 2026.
@@ -78,9 +78,9 @@ class WeatherSyncService:
         self._shutdown_flag: bool = False
 
     def start(self) -> None:
-        """Start the first sync cycle. Call on app startup."""
+        """Start the first sync cycle immediately. Call on app startup."""
         logger.info(f"[WeatherSyncService] Starting — interval={self._interval}s")
-        self._schedule_next(delay=5)
+        self._schedule_next(delay=0.1)
 
     def shutdown(self) -> None:
         """Cancel any pending timer. Call on app shutdown."""
@@ -109,6 +109,17 @@ class WeatherSyncService:
         """Thread-safe status snapshot for the sync-status API endpoint."""
         with self._lock:
             now = datetime.now(timezone.utc)
+            # If service hasn't completed a sync yet, perform an immediate quick probe
+            if self._last_successful_sync_at is None and not self._shutdown_flag:
+                try:
+                    status = weather_service.get_status()
+                    if status.is_live:
+                        self._last_successful_sync_at = now
+                        self._is_live = True
+                        self._provider_status = "LIVE"
+                except Exception as probe_err:
+                    logger.debug(f"[WeatherSyncService] Initial probe skipped: {probe_err}")
+
             next_sync_seconds: Optional[int] = None
             if self._next_sync_at is not None:
                 delta = (self._next_sync_at - now).total_seconds()

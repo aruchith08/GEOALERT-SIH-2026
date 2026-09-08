@@ -8,6 +8,7 @@ and Frozen Model B Inference Pipeline.
 
 from datetime import datetime, timezone
 import math
+import time
 import logging
 import threading
 from collections import deque
@@ -53,6 +54,10 @@ try:
         CoordinateRiskIntelligenceResponse,
         RiskHistoryEntry,
         RiskHistoryResponse,
+        RainWindows,
+        RiskOutlookMilestone,
+        RiskOutlook24hResponse,
+        ProviderStatusResponse,
     )
     from backend.app.geocoding_service import resolve_location_identity
 except ImportError:
@@ -93,6 +98,10 @@ except ImportError:
         CoordinateRiskIntelligenceResponse,
         RiskHistoryEntry,
         RiskHistoryResponse,
+        RainWindows,
+        RiskOutlookMilestone,
+        RiskOutlook24hResponse,
+        ProviderStatusResponse,
     )
     from app.geocoding_service import resolve_location_identity
 
@@ -348,20 +357,49 @@ class WeatherService:
         """
         cached_data, cache_state = self.cache.get(latitude, longitude)
         if cache_state == "HIT_FRESH" and cached_data is not None:
+            logger.info(
+                "[WeatherService] Cache HIT_FRESH provider=%s lat=%.5f lon=%.5f",
+                cached_data.get("provider", self.provider.get_provider_name()),
+                latitude,
+                longitude,
+            )
             return cached_data, "CACHED_FRESH"
 
         # Attempt live provider query
+        t0 = time.perf_counter()
         try:
             live_data = self.provider.get_weather_and_forecast(latitude, longitude)
+            latency_ms = (time.perf_counter() - t0) * 1000.0
             self.cache.set(latitude, longitude, live_data)
+            logger.info(
+                "[WeatherService] Live weather fetch SUCCESS provider=%s lat=%.5f lon=%.5f latency_ms=%.1f",
+                self.provider.get_provider_name(),
+                latitude,
+                longitude,
+                latency_ms,
+            )
             return live_data, "LIVE"
         except Exception as exc:
-            logger.warning(f"Live weather fetch failed: {exc}")
+            latency_ms = (time.perf_counter() - t0) * 1000.0
+            logger.warning(
+                "[WeatherService] Live weather fetch FAILED provider=%s lat=%.5f lon=%.5f latency_ms=%.1f error=%s. Activating fallback.",
+                self.provider.get_provider_name(),
+                latitude,
+                longitude,
+                latency_ms,
+                exc,
+            )
             if cached_data is not None:
+                logger.info(
+                    "[WeatherService] Retaining STALE_CACHE for lat=%.5f lon=%.5f (data preserved)",
+                    latitude,
+                    longitude,
+                )
                 return cached_data, "STALE_CACHE"
 
             # Graceful deterministic fallback (calibrated Monsoon Surge baseline)
             fallback = self._generate_calibrated_fallback_data(latitude, longitude)
+            fallback["fallback_reason"] = f"Provider query error: {exc}"
             return fallback, "FALLBACK"
 
     def _generate_calibrated_fallback_data(self, latitude: float, longitude: float) -> Dict[str, Any]:
@@ -1325,6 +1363,50 @@ class WeatherService:
             alert_tier=curr_tier.value,
         )
 
+        # ── Rain Windows (Step 3: Required Weather Data) ───────────────────────
+        rw_dict = data.get("rain_windows") or {}
+        rain_windows_obj = RainWindows(
+            past_1h_mm=float(rw_dict.get("past_1h_mm", 0.0)),
+            past_3h_mm=float(rw_dict.get("past_3h_mm", 0.0)),
+            past_6h_mm=float(rw_dict.get("past_6h_mm", 0.0)),
+            past_12h_mm=float(rw_dict.get("past_12h_mm", 0.0)),
+            past_24h_mm=float(rw_dict.get("past_24h_mm", past_24h_weather.total_rainfall_mm)),
+            next_1h_mm=float(rw_dict.get("next_1h_mm", 0.0)),
+            next_3h_mm=float(rw_dict.get("next_3h_mm", 0.0)),
+            next_6h_mm=float(rw_dict.get("next_6h_mm", 0.0)),
+            next_12h_mm=float(rw_dict.get("next_12h_mm", 0.0)),
+            next_24h_mm=float(rw_dict.get("next_24h_mm", forecast_24h_weather.total_rainfall_mm)),
+        )
+
+        # ── 24-Hour Forecast Risk Outlook Milestones (Step 7) ─────────────────
+        milestone_specs = [
+            (0, "Current"),
+            (1, "+1 Hour"),
+            (3, "+3 Hours"),
+            (6, "+6 Hours"),
+            (12, "+12 Hours"),
+            (24, "+24 Hours"),
+        ]
+        hour_lookup = {pt.hour_offset: pt for pt in hourly_risk_points}
+        outlook_milestones: List[RiskOutlookMilestone] = []
+        for h_off, lbl in milestone_specs:
+            pt = hour_lookup.get(h_off)
+            if pt:
+                outlook_milestones.append(
+                    RiskOutlookMilestone(
+                        label=lbl,
+                        hour_offset=h_off,
+                        time=pt.time,
+                        forecast_rain_mm=pt.forecast_hourly_rain_mm,
+                        cumulative_rain_mm=pt.cumulative_forecast_rain_mm,
+                        dynamic_trigger_p_d=pt.dynamic_trigger_p_d,
+                        coupled_risk=pt.coupled_risk_score,
+                        alert_tier_code=pt.alert_tier_code,
+                        alert_tier_name=pt.alert_tier_name,
+                        alert_color_hex=pt.alert_color_hex,
+                    )
+                )
+
         return CoordinateRiskIntelligenceResponse(
             query_latitude=round(latitude, 5),
             query_longitude=round(longitude, 5),
@@ -1359,6 +1441,56 @@ class WeatherService:
             previous_coupled_risk=trend_data["previous_risk"],
             risk_change=trend_data["risk_change"],
             risk_trend=trend_data["trend"],
+            # ── Step 3 & Step 7 Additions ───────────────────────────────────
+            rain_windows=rain_windows_obj,
+            risk_outlook=outlook_milestones,
+        )
+
+    def get_risk_outlook_24h(
+        self,
+        latitude: float,
+        longitude: float,
+        cell_id: Optional[str] = None,
+        p_s: Optional[float] = None,
+    ) -> RiskOutlook24hResponse:
+        """
+        Dedicated service method for GET /api/v1/risk/coordinate/outlook.
+        Returns the multi-milestone risk projection (Current, +1H, +3H, +6H, +12H, +24H).
+        """
+        intel = self.get_coordinate_risk_intelligence(latitude, longitude, cell_id=cell_id, p_s=p_s)
+        return RiskOutlook24hResponse(
+            latitude=intel.query_latitude,
+            longitude=intel.query_longitude,
+            nearest_cell_id=intel.nearest_cell_id,
+            current_p_s=intel.static_susceptibility_p_s,
+            current_p_d=intel.current_dynamic_trigger_p_d,
+            current_coupled_risk=intel.current_coupled_risk_score,
+            current_alert_tier=intel.current_alert_tier_name,
+            milestones=intel.risk_outlook or [],
+            peak_risk_score=intel.peak_risk_24h.peak_risk_score,
+            peak_hour_offset=intel.peak_risk_24h.peak_hour_offset,
+            peak_time=intel.peak_risk_24h.peak_time,
+            trend_classification=intel.risk_trend or "STABLE",
+            timestamp=intel.timestamp,
+        )
+
+    def get_provider_status(self) -> ProviderStatusResponse:
+        """Detailed health probe and diagnostics for GET /api/v1/weather/provider-status."""
+        status_info = self.provider.get_status()
+        diag = getattr(self.provider, "get_diagnostics", lambda: {})()
+        is_live = status_info.get("is_live", False)
+        return ProviderStatusResponse(
+            provider_name=self.provider.get_provider_name(),
+            status=status_info.get("status", "HEALTHY" if is_live else "UNREACHABLE"),
+            is_live=is_live,
+            api_key_required=False,
+            endpoint_description=status_info.get("endpoint", "Open-Meteo v1/forecast"),
+            http_status=status_info.get("http_status", 200 if is_live else None),
+            latency_ms=status_info.get("latency_ms"),
+            last_successful_fetch_at=status_info.get("last_successful_fetch_at"),
+            fallback_active=not is_live,
+            fallback_reason=status_info.get("fallback_reason") or diag.get("last_error"),
+            timestamp=datetime.now(timezone.utc).isoformat(),
         )
 
 

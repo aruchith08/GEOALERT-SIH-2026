@@ -2,17 +2,60 @@
 backend/app/weather_feature_engine.py
 =====================================
 Meteorological Feature Extraction Engine for Model B Dynamic Trigger Hazard.
-Implements the exact CHIRPS antecedent precipitation formulas verified from
-Section 20-30 training pipeline (src/extract_chirps_rainfall.py).
+
+Implements the exact 10-feature CHIRPS formulas from src/extract_chirps_rainfall.py
+(Section 20-30). Feature names, order, units, and windows are frozen.
+
+SCIENTIFIC HONESTY — live weather vs CHIRPS:
+  Model B was trained on CHIRPS daily precipitation (approx. 0.05°).
+  Operational GEOALERT substitutes Open-Meteo daily precipitation_sum at the
+  selected coordinate into THE SAME formulas. That is a schema-compatible
+  proxy, NOT a claim that Open-Meteo equals CHIRPS.
+
+  Intra-hour forecast outlook further adds Open-Meteo hourly rain onto today's
+  daily totals. That is a weather-driven model risk projection, not a CHIRPS
+  reconstruction and not a guaranteed landslide forecast.
 """
 
 import logging
-from typing import Dict, Any, List, Optional, Tuple
+from typing import Dict, Any, List
 
 logger = logging.getLogger(__name__)
 
 # IMD standard rainfall threshold for a "rainy day"
 RAINY_DAY_THRESHOLD_MM = 2.5
+
+# Exact frozen Model B input schema (order matches DYNAMIC_FEATURES / training).
+MODEL_B_FEATURE_SCHEMA: List[Dict[str, Any]] = [
+    {"name": "rainfall_event_day", "order": 1, "unit": "mm", "window": "event day T", "transform": "identity"},
+    {"name": "ari_3", "order": 2, "unit": "mm", "window": "sum[T-2, T]", "transform": "cumulative_sum"},
+    {"name": "ari_7", "order": 3, "unit": "mm", "window": "sum[T-6, T]", "transform": "cumulative_sum"},
+    {"name": "ari_15", "order": 4, "unit": "mm", "window": "sum[T-14, T]", "transform": "cumulative_sum"},
+    {"name": "ari_30", "order": 5, "unit": "mm", "window": "sum[T-29, T]", "transform": "cumulative_sum"},
+    {"name": "max_1day_7d", "order": 6, "unit": "mm", "window": "max daily in [T-6, T]", "transform": "max"},
+    {"name": "max_3day_30d", "order": 7, "unit": "mm", "window": "max 3-day rolling in 30d", "transform": "rolling_max_sum"},
+    {"name": "rainy_days_7d", "order": 8, "unit": "count", "window": "days >= 2.5 mm in 7d", "transform": "threshold_count"},
+    {"name": "rainy_days_15d", "order": 9, "unit": "count", "window": "days >= 2.5 mm in 15d", "transform": "threshold_count"},
+    {"name": "rainy_days_30d", "order": 10, "unit": "count", "window": "days >= 2.5 mm in 30d", "transform": "threshold_count"},
+]
+
+MODEL_B_FEATURE_MAPPING: Dict[str, Any] = {
+    "training_source": "CHIRPS daily precipitation",
+    "training_units": "mm/day",
+    "missing_data_handling": (
+        "Training used CHIRPS NoData as NaN then non-negative clip; "
+        "live engine treats missing daily values as 0.0 mm and left-pads short series with 0.0."
+    ),
+    "live_source": "Open-Meteo daily precipitation_sum (NWP), not CHIRPS",
+    "scientifically_identical_to_chirps": False,
+    "feature_order": [f["name"] for f in MODEL_B_FEATURE_SCHEMA],
+    "features": MODEL_B_FEATURE_SCHEMA,
+    "hourly_outlook_method": (
+        "Forecast hourly rain is added to rainfall_event_day and ARI windows that include today. "
+        "rainy_days_* increment only if today's projected total crosses 2.5 mm. "
+        "Label: weather-driven model risk projection."
+    ),
+}
 
 
 class WeatherFeatureEngine:
@@ -130,6 +173,34 @@ class WeatherFeatureEngine:
             "today_date": today_date,
             "current_features": current_features,
             "forecast_timeline": forecast_features_list
+        }
+
+    @staticmethod
+    def project_features_with_additional_rain(
+        current_features: Dict[str, Any],
+        additional_rain_mm: float,
+    ) -> Dict[str, Any]:
+        """
+        Schema-preserving intra-day outlook: add forecast rain onto today's daily totals.
+
+        This is NOT a new CHIRPS day and is NOT scientifically identical to retraining
+        Model B on hourly NWP. It keeps the exact 10-name / 10-order feature vector.
+        """
+        extra = max(0.0, float(additional_rain_mm))
+        event = float(current_features["rainfall_event_day"]) + extra
+        ari_3 = float(current_features["ari_3"]) + extra
+        rainy_bump = 1 if float(current_features["rainfall_event_day"]) < RAINY_DAY_THRESHOLD_MM and event >= RAINY_DAY_THRESHOLD_MM else 0
+        return {
+            "rainfall_event_day": round(event, 2),
+            "ari_3": round(ari_3, 2),
+            "ari_7": round(float(current_features["ari_7"]) + extra, 2),
+            "ari_15": round(float(current_features["ari_15"]) + extra, 2),
+            "ari_30": round(float(current_features["ari_30"]) + extra, 2),
+            "max_1day_7d": round(max(float(current_features["max_1day_7d"]), event), 2),
+            "max_3day_30d": round(max(float(current_features["max_3day_30d"]), ari_3), 2),
+            "rainy_days_7d": min(7, int(current_features["rainy_days_7d"]) + rainy_bump),
+            "rainy_days_15d": min(15, int(current_features["rainy_days_15d"]) + rainy_bump),
+            "rainy_days_30d": min(30, int(current_features["rainy_days_30d"]) + rainy_bump),
         }
 
 

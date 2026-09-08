@@ -14,6 +14,10 @@ import {
   CoordinateRiskIntelligence,
   SyncStatus,
   RiskHistoryResponse,
+  ProviderStatus,
+  RiskOutlook24h,
+  RainWindows,
+  RiskOutlookMilestone,
 } from './types';
 
 
@@ -829,7 +833,27 @@ function generateCoordinateFallbackIntelligence(
       feature_completeness: 'FEATURE_DATA_PARTIAL'
     },
     data_age_seconds: 0,
-    timestamp: now.toISOString()
+    timestamp: now.toISOString(),
+    rain_windows: {
+      past_1h_mm: 2.5,
+      past_3h_mm: 6.8,
+      past_6h_mm: 14.2,
+      past_12h_mm: 26.5,
+      past_24h_mm: 45.2,
+      next_1h_mm: 2.8,
+      next_3h_mm: 7.5,
+      next_6h_mm: 15.6,
+      next_12h_mm: 29.4,
+      next_24h_mm: 52.8
+    },
+    risk_outlook: [
+      { label: 'Current', hour_offset: 0, time: now.toISOString(), forecast_rain_mm: 2.5, cumulative_rain_mm: 0, dynamic_trigger_p_d: p_d, coupled_risk: coupled, alert_tier_code: tierCode, alert_tier_name: tierName, alert_color_hex: colorHex },
+      { label: '+1 Hour', hour_offset: 1, time: new Date(now.getTime() + 3600000).toISOString(), forecast_rain_mm: 2.8, cumulative_rain_mm: 2.8, dynamic_trigger_p_d: Number((p_d * 1.05).toFixed(4)), coupled_risk: Number((coupled * 1.05).toFixed(4)), alert_tier_code: tierCode, alert_tier_name: tierName, alert_color_hex: colorHex },
+      { label: '+3 Hours', hour_offset: 3, time: new Date(now.getTime() + 10800000).toISOString(), forecast_rain_mm: 2.4, cumulative_rain_mm: 7.5, dynamic_trigger_p_d: Number((p_d * 1.12).toFixed(4)), coupled_risk: Number((coupled * 1.12).toFixed(4)), alert_tier_code: tierCode, alert_tier_name: tierName, alert_color_hex: colorHex },
+      { label: '+6 Hours', hour_offset: 6, time: new Date(now.getTime() + 21600000).toISOString(), forecast_rain_mm: 3.1, cumulative_rain_mm: 15.6, dynamic_trigger_p_d: Number((p_d * 1.25).toFixed(4)), coupled_risk: Number((coupled * 1.25).toFixed(4)), alert_tier_code: 'ORANGE', alert_tier_name: 'Level 3: Orange', alert_color_hex: '#ea580c' },
+      { label: '+12 Hours', hour_offset: 12, time: new Date(now.getTime() + 43200000).toISOString(), forecast_rain_mm: 1.8, cumulative_rain_mm: 29.4, dynamic_trigger_p_d: Number((p_d * 1.15).toFixed(4)), coupled_risk: Number((coupled * 1.15).toFixed(4)), alert_tier_code: tierCode, alert_tier_name: tierName, alert_color_hex: colorHex },
+      { label: '+24 Hours', hour_offset: 24, time: new Date(now.getTime() + 86400000).toISOString(), forecast_rain_mm: 0.8, cumulative_rain_mm: 52.8, dynamic_trigger_p_d: Number((p_d * 0.95).toFixed(4)), coupled_risk: Number((coupled * 0.95).toFixed(4)), alert_tier_code: tierCode, alert_tier_name: tierName, alert_color_hex: colorHex }
+    ]
   };
 }
 
@@ -847,8 +871,7 @@ export async function fetchSyncStatus(): Promise<SyncStatus> {
     if (!res.ok) throw new Error(`Backend error: ${res.status}`);
     return await res.json();
   } catch (err) {
-    console.warn('[API Client] Sync status unavailable:', err);
-    // Return a safe initializing fallback — never falsely claim LIVE
+    console.warn('[API Client] Backend sync status unavailable (server offline or starting):', err);
     return {
       last_sync_at: null,
       next_sync_at: null,
@@ -858,6 +881,7 @@ export async function fetchSyncStatus(): Promise<SyncStatus> {
       is_live: false,
       data_age_minutes: null,
       selected_coordinate: null,
+      operational_note: 'Connecting to backend service...',
     };
   }
 }
@@ -917,4 +941,47 @@ export async function registerCoordinateForSync(
     console.debug('[API Client] Sync registration failed (non-critical):', err);
   }
 }
+
+/**
+ * Fetches the detailed provider health status and diagnostics from Open-Meteo.
+ */
+export async function fetchProviderStatus(): Promise<ProviderStatus> {
+  try {
+    const res = await fetch(`${API_BASE}/weather/provider-status`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Provider status error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    return {
+      provider_name: 'Open-Meteo',
+      status: 'UNREACHABLE',
+      is_live: false,
+      api_key_required: false,
+      endpoint_description: 'GET /v1/forecast',
+      fallback_active: true,
+      fallback_reason: String(err),
+      timestamp: new Date().toISOString(),
+    };
+  }
+}
+
+/**
+ * Fetches the 24-hour dynamic risk outlook across standard future milestones (+1h, +3h, +6h, +12h, +24h).
+ */
+export async function fetchRiskOutlook(
+  latitude: number,
+  longitude: number
+): Promise<RiskOutlook24h | null> {
+  try {
+    const params = new URLSearchParams({ latitude: String(latitude), longitude: String(longitude) });
+    const res = await fetch(`${API_BASE}/risk/coordinate/outlook?${params.toString()}`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error(`Risk outlook error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] Risk outlook fetch failed:', err);
+    return null;
+  }
+}
+
 

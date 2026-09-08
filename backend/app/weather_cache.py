@@ -39,7 +39,7 @@ class WeatherCache:
     @staticmethod
     def _make_key(latitude: float, longitude: float) -> Tuple[float, float]:
         """Rounds coordinates to 2 decimal places (~1.1 km resolution)."""
-        return (round(float(latitude), 2), round(float(longitude), 2))
+        return (round(float(latitude), 4), round(float(longitude), 4))
 
     def get(self, latitude: float, longitude: float) -> Tuple[Optional[Dict[str, Any]], str]:
         """

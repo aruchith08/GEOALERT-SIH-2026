@@ -23,6 +23,7 @@ try:
         CoordinateRiskIntelligenceResponse,
         SyncStatusResponse,
         CoordinateRegisterRequest,
+        ProviderStatusResponse,
     )
     from backend.app.weather_service import weather_service
     from backend.app.weather_sync_service import weather_sync_service
@@ -42,6 +43,7 @@ except ImportError:
         CoordinateRiskIntelligenceResponse,
         SyncStatusResponse,
         CoordinateRegisterRequest,
+        ProviderStatusResponse,
     )
     from app.weather_service import weather_service
     from app.weather_sync_service import weather_sync_service
@@ -365,5 +367,18 @@ def register_coordinate_for_sync(request: CoordinateRegisterRequest):
         }
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Coordinate registration failed: {str(exc)}")
+
+
+@router.get("/weather/provider-status", response_model=ProviderStatusResponse)
+def get_weather_provider_status():
+    """
+    Returns authentic live telemetry status and diagnostics from Open-Meteo,
+    including HTTP status code, latency, endpoint description, and fallback reasons.
+    """
+    try:
+        return weather_service.get_provider_status()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Provider status probe failed: {str(exc)}")
+
 
 

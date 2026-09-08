@@ -127,7 +127,7 @@ class GeocodingService:
         self._cache: Dict[str, Dict[str, Any]] = {}
         self._lock = threading.Lock()
         self.cache_ttl = timedelta(hours=cache_ttl_hours)
-        self.http_timeout = http_timeout_seconds
+        self.http_timeout = max(http_timeout_seconds, 5.0)
         self.gazetteer = MEGHALAYA_GAZETTEER
 
     def _make_key(self, lat: float, lon: float) -> str:
@@ -173,9 +173,9 @@ class GeocodingService:
                 address.get("city") or
                 data.get("name")
             )
-            district = address.get("county") or address.get("state_district") or "Meghalaya"
-            state = address.get("state", "Meghalaya")
-            country = address.get("country", "India")
+            district = address.get("county") or address.get("state_district") or address.get("district")
+            state = address.get("state") or "Meghalaya"
+            country = address.get("country") or "India"
 
             if locality:
                 return {
@@ -236,7 +236,7 @@ class GeocodingService:
             dist_to_named = dist_km
         elif dist_km <= 25.0:
             # Priority 2: Nearest Recognized Locality
-            locality = f"Near {nearest_gaz['name']} (~{dist_km:.1f} km)"
+            locality = f"Selected terrain cell near {nearest_gaz['name']} (~{dist_km:.1f} km)"
             district = nearest_gaz["district"]
             resolution_method = "NEAREST_LOCALITY"
             display_name = f"{locality}, {district}"
@@ -244,11 +244,11 @@ class GeocodingService:
             dist_to_named = dist_km
         else:
             # Priority 3: Coordinate-Based Identity
-            locality = "Selected Location"
+            locality = "Selected terrain cell"
             district = nearest_gaz["district"] if dist_km <= 60.0 else "Meghalaya Region"
             resolution_method = "COORDINATE_FALLBACK"
-            display_name = f"Selected Location ({latitude:.4f}°, {longitude:.4f}°)"
-            full_hierarchy = f"Selected Location\n{formatted_coords}\nMeghalaya, India"
+            display_name = f"Selected terrain cell ({latitude:.4f}°, {longitude:.4f}°)"
+            full_hierarchy = f"Selected terrain cell\n{formatted_coords}\nMeghalaya, India"
             dist_to_named = dist_km
 
         result = {

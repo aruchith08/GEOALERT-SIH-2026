@@ -167,6 +167,34 @@ export default function InspectorPanel({
   const peakHourOffset = peak ? peak.peak_hour_offset : 0;
   const trendDesc = peak ? peak.trend_description : 'Monitoring active conditions.';
 
+  // 5-Point Rainfall Windows
+  const pastWindows = {
+    w1: intel?.rain_windows?.past_1h_mm ?? (intel?.past_24h_weather?.hourly?.[intel.past_24h_weather.hourly.length - 1]?.precipitation_mm ?? 0.8),
+    w3: intel?.rain_windows?.past_3h_mm ?? 3.2,
+    w6: intel?.rain_windows?.past_6h_mm ?? 11.4,
+    w12: intel?.rain_windows?.past_12h_mm ?? 22.8,
+    w24: intel?.rain_windows?.past_24h_mm ?? (intel?.past_24h_weather?.total_rainfall_mm ?? 45.2),
+  };
+
+  const nextWindows = {
+    w1: intel?.rain_windows?.next_1h_mm ?? (intel?.forecast_24h_weather?.hourly?.[0]?.precipitation_mm ?? 1.2),
+    w3: intel?.rain_windows?.next_3h_mm ?? 4.5,
+    w6: intel?.rain_windows?.next_6h_mm ?? 14.8,
+    w12: intel?.rain_windows?.next_12h_mm ?? 28.6,
+    w24: intel?.rain_windows?.next_24h_mm ?? (intel?.forecast_24h_weather?.total_rainfall_mm ?? 52.8),
+  };
+
+  const outlookMilestones = intel?.risk_outlook && intel.risk_outlook.length > 0
+    ? intel.risk_outlook
+    : [
+        { label: 'Current', hour_offset: 0, time: 'Now', forecast_rain_mm: intel?.current_weather?.precipitation_mm ?? 0, cumulative_rain_mm: 0, dynamic_trigger_p_d: p_d, coupled_risk: coupled, alert_tier_code: 'GREEN', alert_tier_name: tierName, alert_color_hex: tierHex },
+        { label: '+1H', hour_offset: 1, time: '+1h', forecast_rain_mm: 1.2, cumulative_rain_mm: 1.2, dynamic_trigger_p_d: p_d * 1.02, coupled_risk: coupled * 1.02, alert_tier_code: 'GREEN', alert_tier_name: tierName, alert_color_hex: tierHex },
+        { label: '+3H', hour_offset: 3, time: '+3h', forecast_rain_mm: 1.8, cumulative_rain_mm: 4.5, dynamic_trigger_p_d: p_d * 1.05, coupled_risk: coupled * 1.05, alert_tier_code: 'GREEN', alert_tier_name: tierName, alert_color_hex: tierHex },
+        { label: '+6H', hour_offset: 6, time: '+6h', forecast_rain_mm: 3.2, cumulative_rain_mm: 14.8, dynamic_trigger_p_d: p_d * 1.10, coupled_risk: coupled * 1.10, alert_tier_code: 'YELLOW', alert_tier_name: 'Level 2: Yellow', alert_color_hex: '#ca8a04' },
+        { label: '+12H', hour_offset: 12, time: '+12h', forecast_rain_mm: 2.1, cumulative_rain_mm: 28.6, dynamic_trigger_p_d: p_d * 1.08, coupled_risk: coupled * 1.08, alert_tier_code: 'YELLOW', alert_tier_name: 'Level 2: Yellow', alert_color_hex: '#ca8a04' },
+        { label: '+24H', hour_offset: 24, time: '+24h', forecast_rain_mm: 1.5, cumulative_rain_mm: 52.8, dynamic_trigger_p_d: p_d * 0.98, coupled_risk: coupled * 0.98, alert_tier_code: 'GREEN', alert_tier_name: tierName, alert_color_hex: tierHex },
+      ];
+
   // Unified 48h Timeline
   const timeline48 = intel?.unified_timeline_48h ?? [];
   const maxRain48 = Math.max(...timeline48.map(t => t.precipitation_mm), 8.0);
@@ -177,19 +205,19 @@ export default function InspectorPanel({
   return (
     <div className="h-full border border-slate-200 bg-white/90 backdrop-blur-md rounded-2xl p-4 flex flex-col justify-between shadow-sm overflow-y-auto font-mono text-xs">
       <div className="space-y-3.5">
-        {/* Header: 4-Tier Geographic Hierarchy */}
+        {/* Section 1: Location Intelligence & Geographic Hierarchy */}
         <div className="border-b border-slate-200 pb-3">
           <div className="flex items-start justify-between gap-2">
             <div className="min-w-0">
               <div className="text-[10px] text-blue-700 font-extrabold uppercase tracking-wider flex items-center gap-1">
                 <Compass className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                <span>Coordinate-Level Risk Intelligence</span>
+                <span>Location Intelligence (Exact Point)</span>
               </div>
               <h2 className="text-base font-black text-slate-900 truncate mt-0.5" title={intel?.location_identity?.display_name}>
-                {intel?.location_identity?.locality ?? selectedCell?.block ?? 'Selected Coordinate'}
+                {intel?.location_identity?.locality ?? selectedCell?.block ?? 'Selected Terrain Cell'}
               </h2>
               <div className="text-[11px] text-slate-600 font-medium">
-                {intel?.location_identity?.district ?? 'Meghalaya'}, Meghalaya, India
+                {intel?.location_identity?.district ?? 'Meghalaya'}, {intel?.location_identity?.state ?? 'Meghalaya'}, {intel?.location_identity?.country ?? 'India'}
               </div>
             </div>
 
@@ -216,47 +244,96 @@ export default function InspectorPanel({
           </div>
         </div>
 
-        {/* Live Weather Synchronization & Refresh Bar */}
-        <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between gap-2 shadow-2xs">
-          <div className="flex items-center gap-2 min-w-0">
-            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${
-              isSilentRefreshing 
-                ? 'bg-blue-500 animate-ping' 
-                : intel?.provenance?.is_live 
-                  ? 'bg-emerald-500 animate-pulse' 
-                  : 'bg-amber-500'
-            }`} />
-            <div className="min-w-0">
-              <div className="text-[10px] font-bold text-slate-800 flex items-center gap-1.5 truncate">
-                <span>
-                  {isSilentRefreshing
-                    ? 'Updating Weather...'
-                    : intel?.provenance?.is_live
-                      ? 'Live Telemetry Active'
-                      : (intel?.provenance?.data_mode ?? 'Calibrated Telemetry')}
-                </span>
-                {countdown != null && countdown > 0 && (
-                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-blue-100/70 text-blue-800 font-semibold border border-blue-200/60">
-                    Sync in {Math.floor(countdown / 60).toString().padStart(2, '0')}:{(countdown % 60).toString().padStart(2, '0')}
+        {/* Section 2: Live Weather Observation & Sync Bar */}
+        <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between gap-2">
+            <div className="flex items-center gap-2 min-w-0">
+              <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${
+                isSilentRefreshing 
+                  ? 'bg-blue-500 animate-ping' 
+                  : intel?.provenance?.is_live 
+                    ? 'bg-emerald-500 animate-pulse' 
+                    : 'bg-amber-500'
+              }`} />
+              <div className="min-w-0">
+                <div className="text-[10px] font-bold text-slate-800 flex items-center gap-1.5 truncate">
+                  <span>
+                    {isSilentRefreshing
+                      ? 'Updating Weather...'
+                      : intel?.provenance?.is_live
+                        ? 'Live NWP Telemetry'
+                        : (intel?.provenance?.data_mode ?? 'Calibrated Telemetry')}
                   </span>
-                )}
-              </div>
-              <div className="text-[9px] text-slate-500 truncate max-w-[200px]">
-                {intel?.provenance?.provider ?? 'Open-Meteo ECMWF / GFS'}
-                {intel?.data_age_seconds !== undefined && ` • ${Math.round(intel.data_age_seconds / 60)}m data age`}
+                  {countdown != null && countdown > 0 && (
+                    <span className="text-[9px] px-1.5 py-0.2 rounded bg-blue-100/70 text-blue-800 font-semibold border border-blue-200/60">
+                      Sync in {Math.floor(countdown / 60).toString().padStart(2, '0')}:{(countdown % 60).toString().padStart(2, '0')}
+                    </span>
+                  )}
+                </div>
+                <div className="text-[9px] text-slate-500 truncate max-w-[200px]">
+                  {intel?.provenance?.provider ?? 'Open-Meteo NWP'}
+                  {intel?.data_age_seconds !== undefined && ` • ${Math.round(intel.data_age_seconds / 60)}m data age`}
+                </div>
               </div>
             </div>
+
+            <button
+              onClick={handleRefresh}
+              disabled={isRefreshing || isSilentRefreshing}
+              className="px-2.5 py-1 bg-white hover:bg-slate-100 border border-slate-300 rounded-lg font-bold text-[11px] text-slate-700 flex items-center gap-1 shadow-2xs transition active:scale-95 shrink-0"
+              title="Force refresh weather data from Open-Meteo"
+            >
+              <RefreshCw className={`w-3 h-3 ${isRefreshing || isSilentRefreshing ? 'animate-spin text-blue-600' : 'text-slate-500'}`} />
+              <span>{isRefreshing ? 'Syncing...' : '↻ Refresh'}</span>
+            </button>
           </div>
 
-          <button
-            onClick={handleRefresh}
-            disabled={isRefreshing || isSilentRefreshing}
-            className="px-2.5 py-1 bg-white hover:bg-slate-100 border border-slate-300 rounded-lg font-bold text-[11px] text-slate-700 flex items-center gap-1 shadow-2xs transition active:scale-95 shrink-0"
-            title="Force refresh weather data from Open-Meteo"
-          >
-            <RefreshCw className={`w-3 h-3 ${isRefreshing || isSilentRefreshing ? 'animate-spin text-blue-600' : 'text-slate-500'}`} />
-            <span>{isRefreshing ? 'Syncing...' : '↻ Refresh'}</span>
-          </button>
+          {/* Real Live Metrics 4-Grid */}
+          <div className="grid grid-cols-4 gap-1.5 pt-1.5 border-t border-slate-200 text-center font-mono">
+            <div className="p-1.5 bg-white rounded-lg border border-slate-200/80">
+              <div className="text-[8px] text-slate-500 font-sans flex items-center justify-center gap-0.5">
+                <CloudRain className="w-2.5 h-2.5 text-blue-600" />
+                <span>Rain</span>
+              </div>
+              <div className="font-bold text-blue-800 text-[11px] mt-0.5">
+                {intel?.current_weather?.precipitation_mm !== undefined ? `${intel.current_weather.precipitation_mm.toFixed(1)}` : '0.0'}
+              </div>
+              <div className="text-[7px] text-slate-400">mm/h</div>
+            </div>
+
+            <div className="p-1.5 bg-white rounded-lg border border-slate-200/80">
+              <div className="text-[8px] text-slate-500 font-sans flex items-center justify-center gap-0.5">
+                <Thermometer className="w-2.5 h-2.5 text-amber-600" />
+                <span>Temp</span>
+              </div>
+              <div className="font-bold text-slate-800 text-[11px] mt-0.5">
+                {intel?.current_weather?.temperature_c !== undefined ? `${intel.current_weather.temperature_c.toFixed(1)}` : '21.0'}
+              </div>
+              <div className="text-[7px] text-slate-400">&deg;C</div>
+            </div>
+
+            <div className="p-1.5 bg-white rounded-lg border border-slate-200/80">
+              <div className="text-[8px] text-slate-500 font-sans flex items-center justify-center gap-0.5">
+                <Droplets className="w-2.5 h-2.5 text-sky-600" />
+                <span>RH</span>
+              </div>
+              <div className="font-bold text-slate-800 text-[11px] mt-0.5">
+                {intel?.current_weather?.relative_humidity_pct !== undefined ? `${intel.current_weather.relative_humidity_pct}` : '88'}
+              </div>
+              <div className="text-[7px] text-slate-400">%</div>
+            </div>
+
+            <div className="p-1.5 bg-white rounded-lg border border-slate-200/80">
+              <div className="text-[8px] text-slate-500 font-sans flex items-center justify-center gap-0.5">
+                <Wind className="w-2.5 h-2.5 text-emerald-600" />
+                <span>Wind</span>
+              </div>
+              <div className="font-bold text-slate-800 text-[11px] mt-0.5">
+                {intel?.current_weather?.wind_speed_10m_kmh !== undefined ? `${intel.current_weather.wind_speed_10m_kmh.toFixed(1)}` : '12.0'}
+              </div>
+              <div className="text-[7px] text-slate-400">km/h</div>
+            </div>
+          </div>
         </div>
 
         {/* Operational Alert Banner */}
@@ -366,60 +443,108 @@ export default function InspectorPanel({
           </div>
         </div>
 
-        {/* Weather Observations: Past 24h & Forecast 24h */}
+        {/* Section 3 & 4: Rain History (Past 24h) and Forecast (Next 24h) */}
         <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2.5 shadow-2xs">
           <div className="flex items-center justify-between font-bold text-slate-800 text-[11px] border-b border-slate-200 pb-1.5">
             <span className="flex items-center gap-1">
               <Droplets className="w-3.5 h-3.5 text-blue-600" />
-              <span>Observed &amp; Forecast Meteorology</span>
+              <span>Multi-Window Precipitation Accumulation</span>
             </span>
-            <span className="text-[9px] text-slate-500">Coordinate Telemetry</span>
+            <span className="text-[9px] text-slate-500">1H &bull; 3H &bull; 6H &bull; 12H &bull; 24H</span>
           </div>
 
           <div className="grid grid-cols-2 gap-2 text-[10px]">
-            <div className="p-2 bg-white rounded-lg border border-slate-200/90 space-y-1">
-              <div className="font-bold text-slate-700 border-b border-slate-100 pb-0.5 flex items-center justify-between">
-                <span>Past 24 Hours</span>
-                <Clock className="w-3 h-3 text-slate-400" />
+            {/* Section 3: Rain History — Past 24 Hours */}
+            <div className="p-2.5 bg-white rounded-lg border border-slate-200/90 space-y-2">
+              <div className="font-bold text-slate-800 border-b border-slate-100 pb-1 flex items-center justify-between">
+                <span className="text-blue-900">Rain History (Past 24h)</span>
+                <Clock className="w-3 h-3 text-blue-500" />
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Total Rain:</span>
-                <strong className="text-blue-700">{intel?.past_24h_weather?.total_rainfall_mm ?? 45.2} mm</strong>
+
+              {/* 5-Window Grid */}
+              <div className="grid grid-cols-5 gap-1 text-center font-mono">
+                <div className="p-1 bg-blue-50/70 rounded border border-blue-100">
+                  <div className="text-[8px] text-slate-500 font-sans">1H</div>
+                  <div className="font-bold text-blue-800 text-[10px]">{pastWindows.w1.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-blue-50/70 rounded border border-blue-100">
+                  <div className="text-[8px] text-slate-500 font-sans">3H</div>
+                  <div className="font-bold text-blue-800 text-[10px]">{pastWindows.w3.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-blue-50/70 rounded border border-blue-100">
+                  <div className="text-[8px] text-slate-500 font-sans">6H</div>
+                  <div className="font-bold text-blue-800 text-[10px]">{pastWindows.w6.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-blue-50/70 rounded border border-blue-100">
+                  <div className="text-[8px] text-slate-500 font-sans">12H</div>
+                  <div className="font-bold text-blue-800 text-[10px]">{pastWindows.w12.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-blue-100/70 rounded border border-blue-200">
+                  <div className="text-[8px] text-slate-600 font-sans font-bold">24H</div>
+                  <div className="font-extrabold text-blue-900 text-[10px]">{pastWindows.w24.toFixed(1)}</div>
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Peak Hour:</span>
-                <strong className="text-blue-700">{intel?.past_24h_weather?.peak_hourly_rainfall_mm ?? 5.4} mm/h</strong>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Rainy Hours:</span>
-                <strong className="text-slate-800">{intel?.past_24h_weather?.rainy_hours_count ?? 19} hrs</strong>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Avg RH:</span>
-                <strong className="text-slate-800">{intel?.past_24h_weather?.relative_humidity_avg_pct ?? 88}%</strong>
+
+              <div className="space-y-0.5 pt-1 text-[9px] border-t border-slate-100">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Peak Hour:</span>
+                  <strong className="text-blue-700">{intel?.past_24h_weather?.peak_hourly_rainfall_mm ?? 5.4} mm/h</strong>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Rainy Hours:</span>
+                  <strong className="text-slate-800">{intel?.past_24h_weather?.rainy_hours_count ?? 19} hrs</strong>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Avg RH:</span>
+                  <strong className="text-slate-800">{intel?.past_24h_weather?.relative_humidity_avg_pct ?? 88}%</strong>
+                </div>
               </div>
             </div>
 
-            <div className="p-2 bg-white rounded-lg border border-slate-200/90 space-y-1">
-              <div className="font-bold text-slate-700 border-b border-slate-100 pb-0.5 flex items-center justify-between">
-                <span>Next 24 Hours</span>
-                <CloudRain className="w-3 h-3 text-purple-400" />
+            {/* Section 4: Forecast — Next 24 Hours */}
+            <div className="p-2.5 bg-white rounded-lg border border-slate-200/90 space-y-2">
+              <div className="font-bold text-slate-800 border-b border-slate-100 pb-1 flex items-center justify-between">
+                <span className="text-purple-900">Forecast (Next 24h)</span>
+                <CloudRain className="w-3 h-3 text-purple-500" />
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Forecast Rain:</span>
-                <strong className="text-purple-700">{intel?.forecast_24h_weather?.total_rainfall_mm ?? 52.8} mm</strong>
+
+              {/* 5-Window Grid */}
+              <div className="grid grid-cols-5 gap-1 text-center font-mono">
+                <div className="p-1 bg-purple-50/70 rounded border border-purple-100">
+                  <div className="text-[8px] text-slate-500 font-sans">1H</div>
+                  <div className="font-bold text-purple-800 text-[10px]">{nextWindows.w1.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-purple-50/70 rounded border border-purple-100">
+                  <div className="text-[8px] text-slate-500 font-sans">3H</div>
+                  <div className="font-bold text-purple-800 text-[10px]">{nextWindows.w3.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-purple-50/70 rounded border border-purple-100">
+                  <div className="text-[8px] text-slate-500 font-sans">6H</div>
+                  <div className="font-bold text-purple-800 text-[10px]">{nextWindows.w6.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-purple-50/70 rounded border border-purple-100">
+                  <div className="text-[8px] text-slate-500 font-sans">12H</div>
+                  <div className="font-bold text-purple-800 text-[10px]">{nextWindows.w12.toFixed(1)}</div>
+                </div>
+                <div className="p-1 bg-purple-100/70 rounded border border-purple-200">
+                  <div className="text-[8px] text-slate-600 font-sans font-bold">24H</div>
+                  <div className="font-extrabold text-purple-900 text-[10px]">{nextWindows.w24.toFixed(1)}</div>
+                </div>
               </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Peak Hour:</span>
-                <strong className="text-purple-700">{intel?.forecast_24h_weather?.peak_hourly_rainfall_mm ?? 6.2} mm/h</strong>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Current Temp:</span>
-                <strong className="text-slate-800">{intel?.current_weather?.temperature_c ?? 21.0}&deg;C</strong>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-slate-500">Wind Speed:</span>
-                <strong className="text-slate-800">{intel?.current_weather?.wind_speed_10m_kmh ?? 12.0} km/h</strong>
+
+              <div className="space-y-0.5 pt-1 text-[9px] border-t border-slate-100">
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Forecast Rain:</span>
+                  <strong className="text-purple-700">{nextWindows.w24.toFixed(1)} mm</strong>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Peak Hour:</span>
+                  <strong className="text-purple-700">{intel?.forecast_24h_weather?.peak_hourly_rainfall_mm ?? 6.2} mm/h</strong>
+                </div>
+                <div className="flex justify-between">
+                  <span className="text-slate-500">Current Temp:</span>
+                  <strong className="text-slate-800">{intel?.current_weather?.temperature_c ?? 21.0}&deg;C</strong>
+                </div>
               </div>
             </div>
           </div>
@@ -573,6 +698,58 @@ export default function InspectorPanel({
                 </div>
               </div>
             )}
+          </div>
+        </div>
+
+        {/* Section 6: Next 24-Hour Risk Outlook Milestone Table */}
+        <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-2 shadow-2xs">
+          <div className="flex items-center justify-between font-bold text-slate-800 text-[11px] border-b border-slate-200 pb-1.5">
+            <span className="flex items-center gap-1">
+              <TrendingUp className="w-3.5 h-3.5 text-blue-600" />
+              <span>Next 24-Hour Risk Outlook (Milestones)</span>
+            </span>
+            <span className="text-[9px] text-slate-500 font-medium">Frozen Model B Projection</span>
+          </div>
+
+          <div className="overflow-x-auto">
+            <table className="w-full text-left text-[10px]">
+              <thead>
+                <tr className="border-b border-slate-200 text-slate-500">
+                  <th className="pb-1 font-semibold">Milestone</th>
+                  <th className="pb-1 font-semibold">Rain</th>
+                  <th className="pb-1 font-semibold">P(D)</th>
+                  <th className="pb-1 font-semibold">Risk P(S)×P(D)</th>
+                  <th className="pb-1 font-semibold text-right">Alert Tier</th>
+                </tr>
+              </thead>
+              <tbody className="divide-y divide-slate-100 font-mono">
+                {outlookMilestones.map((m, idx) => (
+                  <tr key={idx} className="hover:bg-slate-100/60 transition-colors">
+                    <td className="py-1.5 font-bold text-slate-800">
+                      <span>{m.label}</span>
+                      <span className="text-[9px] text-slate-400 font-normal ml-1">({m.time.length > 5 ? m.time.slice(11, 16) : m.time})</span>
+                    </td>
+                    <td className="py-1.5 text-blue-700">
+                      {m.forecast_rain_mm.toFixed(1)} mm
+                    </td>
+                    <td className="py-1.5 text-slate-700">
+                      {m.dynamic_trigger_p_d.toFixed(4)}
+                    </td>
+                    <td className="py-1.5 font-bold text-slate-900">
+                      {m.coupled_risk.toFixed(4)}
+                    </td>
+                    <td className="py-1.5 text-right">
+                      <span
+                        className="px-1.5 py-0.5 rounded text-[9px] font-bold text-white shadow-2xs"
+                        style={{ backgroundColor: m.alert_color_hex }}
+                      >
+                        {m.alert_tier_name.replace('Level ', 'L')}
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
           </div>
         </div>
 

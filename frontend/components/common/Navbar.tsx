@@ -43,8 +43,19 @@ export default function Navbar() {
       );
     }
 
+    // INITIALIZING
+    if (prov === 'INITIALIZING') {
+      return (
+        <span className="flex items-center gap-1.5 bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded-full font-semibold shadow-2xs">
+          <RefreshCw className="w-3 h-3 animate-spin text-blue-500" />
+          <span className="hidden sm:inline">CONNECTING TO WEATHER PROVIDER...</span>
+          <span className="sm:hidden">CONNECTING...</span>
+        </span>
+      );
+    }
+
     // ERROR / UNAVAILABLE
-    if (prov === 'ERROR' || prov === 'INITIALIZING' && !syncStatus?.last_sync_at) {
+    if (prov === 'ERROR') {
       return (
         <span
           className="flex items-center gap-1.5 bg-rose-50 border border-rose-300 text-rose-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
@@ -52,7 +63,7 @@ export default function Navbar() {
         >
           <CloudOff className="w-3.5 h-3.5 text-rose-600" />
           <span className="hidden lg:inline">
-            {ageStr ? `Provider Unavailable — Last valid: ${ageStr}` : 'Provider Unavailable'}
+            {ageStr ? `⚠ Weather Provider Unavailable — Last valid: ${ageStr}` : '⚠ Weather Provider Unavailable'}
           </span>
           <span className="lg:hidden">UNAVAILABLE</span>
         </span>

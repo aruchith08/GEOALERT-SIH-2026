@@ -61,7 +61,7 @@ def test_geocoding_offline_gazetteer_fallback():
         # Coordinate near Nohkalikai Falls (~6.1 km away)
         res = geocoding_service.resolve_location_identity(25.32, 91.65, cell_id="CELL_TEST")
         assert res["resolution_method"] == "NEAREST_LOCALITY"
-        assert "Near" in res["locality"]
+        assert "near" in res["locality"].lower()
         assert res["distance_to_named_km"] > 0.0
         assert "Nohkalikai" in res["locality"] or "Mawsynram" in res["locality"] or "Sohra" in res["locality"]
         assert res["state"] == "Meghalaya"
@@ -78,7 +78,7 @@ def test_geocoding_coordinate_fallback_far_point():
         # Point at boundary far from any indexed settlement
         res = geocoding_service.resolve_location_identity(26.40, 90.00, cell_id="CELL_BORDER")
         assert res["resolution_method"] in ("COORDINATE_FALLBACK", "NEAREST_LOCALITY")
-        assert "Selected Location" in res["locality"] or "Near" in res["locality"]
+        assert "Selected" in res["locality"] or "near" in res["locality"].lower()
         assert "° N" in res["formatted_coordinates"]
     finally:
         geocoding_service._query_online_reverse_geocode = orig_query

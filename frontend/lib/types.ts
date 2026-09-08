@@ -440,6 +440,66 @@ export interface CoordinateRiskIntelligence {
   risk_change?: number | null;
   risk_trend?: 'RISING' | 'STABLE' | 'FALLING' | null;
   next_sync_seconds?: number | null;
+  // Step 3 & Step 7 Additions: Real Weather Windows & Risk Outlook
+  rain_windows?: RainWindows;
+  risk_outlook?: RiskOutlookMilestone[];
+}
+
+export interface RainWindows {
+  past_1h_mm: number;
+  past_3h_mm: number;
+  past_6h_mm: number;
+  past_12h_mm: number;
+  past_24h_mm: number;
+  next_1h_mm: number;
+  next_3h_mm: number;
+  next_6h_mm: number;
+  next_12h_mm: number;
+  next_24h_mm: number;
+}
+
+export interface RiskOutlookMilestone {
+  label: string;
+  hour_offset: number;
+  time: string;
+  forecast_rain_mm: number;
+  cumulative_rain_mm: number;
+  dynamic_trigger_p_d: number;
+  coupled_risk: number;
+  alert_tier_code: string;
+  alert_tier_name: string;
+  alert_color_hex: string;
+}
+
+export interface RiskOutlook24h {
+  latitude: number;
+  longitude: number;
+  nearest_cell_id: string;
+  current_p_s: number;
+  current_p_d: number;
+  current_coupled_risk: number;
+  current_alert_tier: string;
+  milestones: RiskOutlookMilestone[];
+  peak_risk_score: number;
+  peak_hour_offset: number;
+  peak_time: string;
+  trend_classification: string;
+  scientific_disclaimer: string;
+  timestamp: string;
+}
+
+export interface ProviderStatus {
+  provider_name: string;
+  status: string;
+  is_live: boolean;
+  api_key_required: boolean;
+  endpoint_description: string;
+  http_status?: number | null;
+  latency_ms?: number | null;
+  last_successful_fetch_at?: string | null;
+  fallback_active: boolean;
+  fallback_reason?: string | null;
+  timestamp: string;
 }
 
 // ─── Phase 2: Continuous Synchronization Types ────────────────────────────────

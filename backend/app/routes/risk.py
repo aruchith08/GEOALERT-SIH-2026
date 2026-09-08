@@ -17,7 +17,7 @@ try:
         RiskPredictionRequest, RiskPredictionResponse,
         PointRiskEvaluationRequest, PointRiskEvaluationResponse,
         NearestCellLookupResponse, CoordinateRiskIntelligenceResponse,
-        RiskHistoryResponse,
+        RiskHistoryResponse, RiskOutlook24hResponse,
     )
     from backend.app.model_service import model_service
     from backend.app.risk_engine import risk_engine
@@ -28,7 +28,7 @@ except ImportError:
         RiskPredictionRequest, RiskPredictionResponse,
         PointRiskEvaluationRequest, PointRiskEvaluationResponse,
         NearestCellLookupResponse, CoordinateRiskIntelligenceResponse,
-        RiskHistoryResponse,
+        RiskHistoryResponse, RiskOutlook24hResponse,
     )
     from app.model_service import model_service
     from app.risk_engine import risk_engine
@@ -255,3 +255,38 @@ def get_coordinate_risk_history(
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Risk history retrieval failed: {str(exc)}")
+
+
+@router.get("/risk/coordinate/outlook", response_model=RiskOutlook24hResponse)
+def get_coordinate_risk_outlook(
+    latitude: Optional[float] = Query(None, ge=24.0, le=27.0, description="WGS84 Latitude"),
+    longitude: Optional[float] = Query(None, ge=89.0, le=94.0, description="WGS84 Longitude"),
+    lat: Optional[float] = Query(None, ge=24.0, le=27.0, description="Latitude alias"),
+    lon: Optional[float] = Query(None, ge=89.0, le=94.0, description="Longitude alias"),
+    cell_id: Optional[str] = Query(None, description="Optional cell identifier"),
+    p_s: Optional[float] = Query(None, ge=0.0, le=1.0, description="Optional static susceptibility override")
+):
+    """
+    Returns the 24-hour dynamic landslide risk outlook across key future milestones:
+    Current, +1 Hour, +3 Hours, +6 Hours, +12 Hours, +24 Hours.
+
+    Calculated by rolling forward Open-Meteo hourly rainfall predictions through
+    frozen Model B feature engineering and coupling with frozen Model A terrain P(S).
+    """
+    eff_lat = latitude if latitude is not None else lat
+    eff_lon = longitude if longitude is not None else lon
+    if eff_lat is None:
+        eff_lat = 25.2744
+    if eff_lon is None:
+        eff_lon = 91.7323
+
+    try:
+        return weather_service.get_risk_outlook_24h(
+            latitude=eff_lat,
+            longitude=eff_lon,
+            cell_id=cell_id,
+            p_s=p_s,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Risk outlook generation failed: {str(exc)}")
+

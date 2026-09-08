@@ -490,6 +490,34 @@ class Timeline48hPoint(BaseModel):
     alert_color_hex: Optional[str] = None
 
 
+class RainWindows(BaseModel):
+    """Accumulated precipitation windows for past and forecast periods."""
+    past_1h_mm: float = 0.0
+    past_3h_mm: float = 0.0
+    past_6h_mm: float = 0.0
+    past_12h_mm: float = 0.0
+    past_24h_mm: float = 0.0
+    next_1h_mm: float = 0.0
+    next_3h_mm: float = 0.0
+    next_6h_mm: float = 0.0
+    next_12h_mm: float = 0.0
+    next_24h_mm: float = 0.0
+
+
+class RiskOutlookMilestone(BaseModel):
+    """Specific projected risk milestone point (Current, +1H, +3H, +6H, +12H, +24H)."""
+    label: str  # "Current", "+1 Hour", "+3 Hours", "+6 Hours", "+12 Hours", "+24 Hours"
+    hour_offset: int
+    time: str
+    forecast_rain_mm: float
+    cumulative_rain_mm: float
+    dynamic_trigger_p_d: float
+    coupled_risk: float
+    alert_tier_code: AlertTierEnum
+    alert_tier_name: str
+    alert_color_hex: str
+
+
 class CoordinateRiskIntelligenceResponse(BaseModel):
     query_latitude: float
     query_longitude: float
@@ -526,6 +554,46 @@ class CoordinateRiskIntelligenceResponse(BaseModel):
     risk_change: Optional[float] = None
     risk_trend: Optional[str] = None   # "RISING" | "STABLE" | "FALLING"
     next_sync_seconds: Optional[int] = None
+    # ── Real Weather Step 3 & Step 7 Additions ──────────────────────────────
+    rain_windows: Optional[RainWindows] = None
+    risk_outlook: Optional[List[RiskOutlookMilestone]] = None
+
+
+class RiskOutlook24hResponse(BaseModel):
+    """Response for GET /api/v1/risk/coordinate/outlook."""
+    latitude: float
+    longitude: float
+    nearest_cell_id: str
+    current_p_s: float
+    current_p_d: float
+    current_coupled_risk: float
+    current_alert_tier: str
+    milestones: List[RiskOutlookMilestone]
+    peak_risk_score: float
+    peak_hour_offset: int
+    peak_time: str
+    trend_classification: str
+    scientific_disclaimer: str = (
+        "Weather-driven dynamic model risk projection based on frozen Model A (terrain) "
+        "and frozen Model B (rainfall trigger). This is an advisory decision-support projection, "
+        "not an official statutory warning."
+    )
+    timestamp: str
+
+
+class ProviderStatusResponse(BaseModel):
+    """Response for GET /api/v1/weather/provider-status."""
+    provider_name: str
+    status: str  # "HEALTHY" | "UNREACHABLE" | "DEGRADED"
+    is_live: bool
+    api_key_required: bool = False
+    endpoint_description: str
+    http_status: Optional[int] = None
+    latency_ms: Optional[float] = None
+    last_successful_fetch_at: Optional[str] = None
+    fallback_active: bool = False
+    fallback_reason: Optional[str] = None
+    timestamp: str
 
 
 # ─────────────────────────────────────────────────────────────────────────────
