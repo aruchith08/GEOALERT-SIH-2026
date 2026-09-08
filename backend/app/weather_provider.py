@@ -120,8 +120,8 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
 
     def __init__(
         self,
-        timeout_seconds: float = 20.0,
-        max_retries: int = 3,
+        timeout_seconds: float = 10.0,
+        max_retries: int = 2,
         base_url: str = OPEN_METEO_FORECAST_URL,
     ):
         self.provider_name = "Open-Meteo"
@@ -324,9 +324,25 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
         )
         url = self._build_forecast_url(latitude, longitude, lightweight=False)
         self._last_endpoint_desc = endpoint_desc
+
+        logger.info(f"[WEATHER] Fetching Open-Meteo")
+        logger.info(f"[WEATHER] Latitude: {latitude:.4f}")
+        logger.info(f"[WEATHER] Longitude: {longitude:.4f}")
+        logger.info(f"[WEATHER] HTTP request started")
+
         try:
             data, status, latency_ms = self._http_get_json(url, endpoint_desc)
+            logger.info(f"[WEATHER] Response received")
+            logger.info(f"[WEATHER] Status: {status}")
+
             parsed = self._parse_forecast_payload(data, latitude, longitude)
+            curr_p = parsed.get("current", {}).get("precipitation_mm", 0.0)
+            past_p = parsed.get("past_24h", {}).get("total_rainfall_mm", 0.0)
+            fore_p = parsed.get("forecast_24h", {}).get("total_rainfall_mm", 0.0)
+            logger.info(f"[WEATHER] Current precipitation: {curr_p} mm")
+            logger.info(f"[WEATHER] Past 24h rainfall: {past_p} mm")
+            logger.info(f"[WEATHER] Forecast 24h rainfall: {fore_p} mm")
+
             now = datetime.now(timezone.utc).isoformat()
             self._last_success_at = now
             self._last_error = None
@@ -342,6 +358,9 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
         except WeatherProviderError as err:
             self._last_error = str(err)
             self._last_http_status = err.http_status
+            logger.warning(f"[WEATHER] Provider request failed")
+            logger.warning(f"[WEATHER] Error: {err}")
+            logger.warning(f"[WEATHER] Transitioning to ERROR")
             logger.error(
                 "[OpenMeteo] fetch failed lat=%.6f lon=%.6f reason=%s http_status=%s err=%s",
                 latitude,

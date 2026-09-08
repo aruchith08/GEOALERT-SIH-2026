@@ -70,6 +70,7 @@ class WeatherSyncService:
         self._consecutive_failures: int = 0
         self._is_live: bool = False
         self._provider_status: str = "INITIALIZING"
+        self._connecting_started_at: Optional[datetime] = None
         self._selected_lat: Optional[float] = None
         self._selected_lon: Optional[float] = None
         self._selected_cell_id: Optional[str] = None
@@ -78,9 +79,46 @@ class WeatherSyncService:
         self._shutdown_flag: bool = False
 
     def start(self) -> None:
-        """Start the first sync cycle immediately. Call on app startup."""
-        logger.info(f"[WeatherSyncService] Starting — interval={self._interval}s")
-        self._schedule_next(delay=0.1)
+        """Start background weather synchronization service with immediate non-blocking initial probe."""
+        with self._lock:
+            if self._timer is not None or self._is_live:
+                return
+            self._provider_status = "CONNECTING"
+            self._connecting_started_at = datetime.now(timezone.utc)
+        logger.info(f"[WeatherSyncService] Starting initial sync — interval={self._interval}s")
+        init_thread = threading.Thread(target=self._run_initial_sync, daemon=True)
+        init_thread.start()
+
+    def _run_initial_sync(self) -> None:
+        """Probe provider and perform initial mesh sync on background thread."""
+        logger.info("[WeatherSyncService] Initial sync probe started.")
+        try:
+            status = weather_service.get_status()
+            now = datetime.now(timezone.utc)
+            with self._lock:
+                if status.is_live:
+                    self._last_successful_sync_at = now
+                    self._is_live = True
+                    self._provider_status = "LIVE"
+                    self._consecutive_failures = 0
+                    self._sync_count += 1
+                    logger.info("[WeatherSyncService] Initial probe succeeded: LIVE")
+                else:
+                    self._is_live = False
+                    self._provider_status = "FALLBACK"
+                    self._failure_count += 1
+                    logger.warning("[WeatherSyncService] Initial probe indicated fallback mode.")
+        except Exception as exc:
+            with self._lock:
+                self._is_live = False
+                self._provider_status = "ERROR"
+                self._failure_count += 1
+                self._consecutive_failures += 1
+            logger.error(f"[WeatherSyncService] Initial probe failed: {exc}")
+        finally:
+            if not self._shutdown_flag:
+                delay = self._interval if self._is_live else 60
+                self._schedule_next(delay=delay)
 
     def shutdown(self) -> None:
         """Cancel any pending timer. Call on app shutdown."""
@@ -106,19 +144,10 @@ class WeatherSyncService:
             self._selected_p_s = p_s
 
     def get_sync_status(self) -> Dict[str, Any]:
-        """Thread-safe status snapshot for the sync-status API endpoint."""
+        """Thread-safe, instant in-memory status snapshot for the sync-status API endpoint."""
         with self._lock:
             now = datetime.now(timezone.utc)
-            # If service hasn't completed a sync yet, perform an immediate quick probe
-            if self._last_successful_sync_at is None and not self._shutdown_flag:
-                try:
-                    status = weather_service.get_status()
-                    if status.is_live:
-                        self._last_successful_sync_at = now
-                        self._is_live = True
-                        self._provider_status = "LIVE"
-                except Exception as probe_err:
-                    logger.debug(f"[WeatherSyncService] Initial probe skipped: {probe_err}")
+            freshness = self._compute_freshness_status_locked(now)
 
             next_sync_seconds: Optional[int] = None
             if self._next_sync_at is not None:
@@ -130,11 +159,11 @@ class WeatherSyncService:
                 age = (now - self._last_successful_sync_at).total_seconds() / 60.0
                 data_age_minutes = round(max(0.0, age), 1)
 
-            freshness = self._compute_freshness_status_locked(now)
-
             selected_coord = None
             if self._selected_lat is not None and self._selected_lon is not None:
                 selected_coord = [self._selected_lat, self._selected_lon]
+
+            is_live_flag = self._is_live if freshness in ("LIVE", "CACHED_LIVE") else False
 
             return {
                 "last_sync_at": (
@@ -150,7 +179,7 @@ class WeatherSyncService:
                 "next_sync_seconds": next_sync_seconds,
                 "interval_seconds": self._interval,
                 "provider_status": freshness,
-                "is_live": self._is_live,
+                "is_live": is_live_flag,
                 "sync_count": self._sync_count,
                 "failure_count": self._failure_count,
                 "consecutive_failures": self._consecutive_failures,
@@ -177,17 +206,19 @@ class WeatherSyncService:
                     logger.debug(f"[WeatherSyncService] Station ({lat},{lon}) skipped: {e}")
 
             success = True
+            status_is_live = False
+            try:
+                status = weather_service.get_status()
+                status_is_live = status.is_live
+            except Exception:
+                status_is_live = False
+
             with self._lock:
                 self._last_successful_sync_at = datetime.now(timezone.utc)
                 self._sync_count += 1
                 self._consecutive_failures = 0
-                try:
-                    status = weather_service.get_status()
-                    self._is_live = status.is_live
-                    self._provider_status = "LIVE" if status.is_live else "FALLBACK"
-                except Exception:
-                    self._is_live = False
-                    self._provider_status = "FALLBACK"
+                self._is_live = status_is_live
+                self._provider_status = "LIVE" if status_is_live else "FALLBACK"
 
             logger.info(
                 f"[WeatherSyncService] Sync #{self._sync_count} done. "
@@ -249,7 +280,15 @@ class WeatherSyncService:
     def _compute_freshness_status_locked(self, now: datetime) -> str:
         """Derive honest freshness status label (call with lock held)."""
         if self._last_successful_sync_at is None:
-            return "INITIALIZING"
+            if self._provider_status == "ERROR":
+                return "ERROR"
+            if self._connecting_started_at is not None:
+                elapsed = (now - self._connecting_started_at).total_seconds()
+                if elapsed > 15.0:
+                    return "ERROR"
+                return "CONNECTING"
+            return self._provider_status or "INITIALIZING"
+
         age_minutes = (now - self._last_successful_sync_at).total_seconds() / 60.0
         if self._is_live and age_minutes <= FRESHNESS_STALE_THRESHOLD_MINUTES:
             return "LIVE"

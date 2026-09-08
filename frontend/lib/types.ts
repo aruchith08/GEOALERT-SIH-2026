@@ -511,7 +511,8 @@ export type DataFreshnessStatus =
   | 'FALLBACK'
   | 'DEMO_SCENARIO'
   | 'ERROR'
-  | 'INITIALIZING';
+  | 'INITIALIZING'
+  | 'CONNECTING';
 
 export interface SyncStatus {
   last_sync_at: string | null;

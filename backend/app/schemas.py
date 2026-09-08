@@ -613,6 +613,7 @@ class DataFreshnessStatus(str, Enum):
     DEMO_SCENARIO = "DEMO_SCENARIO"
     ERROR = "ERROR"
     INITIALIZING = "INITIALIZING"
+    CONNECTING = "CONNECTING"
 
 
 class SyncStatusResponse(BaseModel):

@@ -867,7 +867,13 @@ function generateCoordinateFallbackIntelligence(
  */
 export async function fetchSyncStatus(): Promise<SyncStatus> {
   try {
-    const res = await fetch(`${API_BASE}/weather/sync-status`, { cache: 'no-store' });
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 6000);
+    const res = await fetch(`${API_BASE}/weather/sync-status`, {
+      cache: 'no-store',
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
     if (!res.ok) throw new Error(`Backend error: ${res.status}`);
     return await res.json();
   } catch (err) {
@@ -877,11 +883,11 @@ export async function fetchSyncStatus(): Promise<SyncStatus> {
       next_sync_at: null,
       next_sync_seconds: null,
       interval_seconds: 600,
-      provider_status: 'INITIALIZING',
+      provider_status: 'ERROR',
       is_live: false,
       data_age_minutes: null,
       selected_coordinate: null,
-      operational_note: 'Connecting to backend service...',
+      operational_note: 'Backend service offline or unreachable',
     };
   }
 }

@@ -259,10 +259,14 @@ export default function InspectorPanel({
                 <div className="text-[10px] font-bold text-slate-800 flex items-center gap-1.5 truncate">
                   <span>
                     {isSilentRefreshing
-                      ? 'Updating Weather...'
+                      ? '↻ Updating Weather...'
                       : intel?.provenance?.is_live
-                        ? 'Live NWP Telemetry'
-                        : (intel?.provenance?.data_mode ?? 'Calibrated Telemetry')}
+                        ? '● LIVE WEATHER (Open-Meteo)'
+                        : intel?.provenance?.data_mode === 'CACHED_LIVE'
+                          ? '● CACHED LIVE'
+                          : intel?.provenance?.data_mode === 'ERROR'
+                            ? '⚠ PROVIDER UNAVAILABLE'
+                            : (intel?.provenance?.data_mode ?? 'Calibrated Telemetry')}
                   </span>
                   {countdown != null && countdown > 0 && (
                     <span className="text-[9px] px-1.5 py-0.2 rounded bg-blue-100/70 text-blue-800 font-semibold border border-blue-200/60">

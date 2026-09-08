@@ -1,4 +1,4 @@
-﻿/**
+/**
  * frontend/lib/useWeatherSync.ts
  * ================================
  * Custom React hook for controlled WeatherSyncService status polling.
@@ -20,6 +20,7 @@ import { SyncStatus, DataFreshnessStatus } from "./types";
 import { fetchSyncStatus } from "./api";
 
 const POLL_INTERVAL_MS = 30_000; // Poll status every 30s (lightweight)
+const MAX_CONNECTING_MS = 15_000; // Force transition to ERROR if connecting exceeds 15s
 
 export interface WeatherSyncState {
   syncStatus: SyncStatus | null;
@@ -32,16 +33,13 @@ export interface WeatherSyncState {
   lastPolledAt: Date | null;
 }
 
-function getFreshnessLabel(status: SyncStatus | null, countdown: number | null): string {
-  if (!status) return "Connecting…";
-
-  const prov = status.provider_status;
-  const age = status.data_age_minutes;
+function getFreshnessLabel(prov: string, status: SyncStatus | null, countdown: number | null): string {
+  const age = status?.data_age_minutes;
   const ageStr = age != null && age > 0 ? `${age.toFixed(0)} min ago` : "Just now";
 
-  if (prov === "INITIALIZING" || prov === "CONNECTING") return "Connecting…";
+  if (prov === "INITIALIZING" || prov === "CONNECTING") return "Fetching live weather…";
   if (prov === "ERROR") {
-    return age != null ? `✕ Provider Unavailable — Last valid: ${ageStr}` : "✕ Provider Unavailable";
+    return age != null ? `⚠ Weather Provider Unavailable — Last valid: ${ageStr}` : "⚠ Weather Provider Unavailable";
   }
   if (prov === "FALLBACK") {
     return age != null ? `⚠ Fallback Data — Last valid: ${ageStr}` : "⚠ Fallback Data";
@@ -74,9 +72,11 @@ export function useWeatherSync(): WeatherSyncState {
   const [countdown, setCountdown] = useState<number | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [lastPolledAt, setLastPolledAt] = useState<Date | null>(null);
+  const [isTimedOut, setIsTimedOut] = useState<boolean>(false);
 
   const pollRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const tickRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   const countdownRef = useRef<number | null>(null);
 
   const poll = useCallback(async () => {
@@ -84,6 +84,11 @@ export function useWeatherSync(): WeatherSyncState {
       const s = await fetchSyncStatus();
       setSyncStatus(s);
       setLastPolledAt(new Date());
+
+      if (s.provider_status !== "INITIALIZING" && s.provider_status !== "CONNECTING") {
+        setIsTimedOut(false);
+      }
+
       // Reset countdown from server-provided next_sync_seconds
       const secs = s.next_sync_seconds ?? null;
       setCountdown(secs);
@@ -98,6 +103,11 @@ export function useWeatherSync(): WeatherSyncState {
   useEffect(() => {
     // Initial fetch
     poll();
+
+    // 15s connecting timeout safety net
+    timeoutRef.current = setTimeout(() => {
+      setIsTimedOut(true);
+    }, MAX_CONNECTING_MS);
 
     // Periodic status poll every 30s
     pollRef.current = setInterval(poll, POLL_INTERVAL_MS);
@@ -115,18 +125,23 @@ export function useWeatherSync(): WeatherSyncState {
     return () => {
       if (pollRef.current != null) clearInterval(pollRef.current);
       if (tickRef.current != null) clearInterval(tickRef.current);
+      if (timeoutRef.current != null) clearTimeout(timeoutRef.current);
     };
   }, [poll]);
 
-  const prov = (syncStatus?.provider_status ?? "INITIALIZING") as DataFreshnessStatus | string;
-  const dataFreshnessLabel = getFreshnessLabel(syncStatus, countdown);
+  let prov = (syncStatus?.provider_status ?? "CONNECTING") as DataFreshnessStatus | string;
+  if ((prov === "INITIALIZING" || prov === "CONNECTING") && isTimedOut) {
+    prov = "ERROR";
+  }
+
+  const dataFreshnessLabel = getFreshnessLabel(prov, syncStatus, countdown);
 
   return {
     syncStatus,
     countdown,
     dataFreshnessLabel,
     dataFreshnessStatus: prov,
-    isLive: syncStatus?.is_live ?? false,
+    isLive: (prov === "LIVE" || prov === "CACHED_LIVE") && (syncStatus?.is_live ?? false),
     dataAgeMinutes: syncStatus?.data_age_minutes ?? null,
     isLoading,
     lastPolledAt,

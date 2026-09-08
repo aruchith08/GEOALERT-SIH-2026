@@ -43,13 +43,13 @@ export default function Navbar() {
       );
     }
 
-    // INITIALIZING
-    if (prov === 'INITIALIZING') {
+    // INITIALIZING / CONNECTING
+    if (prov === 'INITIALIZING' || prov === 'CONNECTING') {
       return (
-        <span className="flex items-center gap-1.5 bg-slate-100 border border-slate-200 text-slate-700 px-3 py-1 rounded-full font-semibold shadow-2xs">
-          <RefreshCw className="w-3 h-3 animate-spin text-blue-500" />
-          <span className="hidden sm:inline">CONNECTING TO WEATHER PROVIDER...</span>
-          <span className="sm:hidden">CONNECTING...</span>
+        <span className="flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-700 px-3 py-1 rounded-full font-semibold shadow-2xs">
+          <RefreshCw className="w-3 h-3 animate-spin text-blue-600" />
+          <span className="hidden sm:inline">↻ Fetching live weather...</span>
+          <span className="sm:hidden">Connecting...</span>
         </span>
       );
     }
@@ -59,11 +59,11 @@ export default function Navbar() {
       return (
         <span
           className="flex items-center gap-1.5 bg-rose-50 border border-rose-300 text-rose-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
-          title="External weather provider unreachable. Previous valid data is retained."
+          title="External weather provider unreachable. Retained data active."
         >
           <CloudOff className="w-3.5 h-3.5 text-rose-600" />
           <span className="hidden lg:inline">
-            {ageStr ? `⚠ Weather Provider Unavailable — Last valid: ${ageStr}` : '⚠ Weather Provider Unavailable'}
+            {ageStr ? `⚠ WEATHER PROVIDER UNAVAILABLE — Last valid: ${ageStr}` : '⚠ WEATHER PROVIDER UNAVAILABLE'}
           </span>
           <span className="lg:hidden">UNAVAILABLE</span>
         </span>
@@ -75,11 +75,11 @@ export default function Navbar() {
       return (
         <span
           className="flex items-center gap-1.5 bg-orange-50 border border-orange-300 text-orange-900 px-3 py-1 rounded-full font-semibold shadow-2xs"
-          title="Serving retained fallback data. Provider connectivity degraded."
+          title="Serving calibrated terrain fallback data. Provider connectivity degraded."
         >
           <WifiOff className="w-3.5 h-3.5 text-orange-600" />
           <span className="hidden lg:inline">
-            {ageStr ? `FALLBACK DATA — Last valid: ${ageStr}` : 'FALLBACK DATA'}
+            {ageStr ? `⚠ FALLBACK DATA — Last valid: ${ageStr}` : '⚠ FALLBACK DATA'}
           </span>
           <span className="lg:hidden">FALLBACK</span>
         </span>
@@ -91,11 +91,11 @@ export default function Navbar() {
       return (
         <span
           className="flex items-center gap-1.5 bg-amber-50 border border-amber-300 text-amber-900 px-3 py-1 rounded-full font-semibold shadow-2xs"
-          title={`Weather data is stale (>${syncStatus?.interval_seconds ? Math.round(syncStatus.interval_seconds / 60) : 20} min old). Retrying.`}
+          title={`Weather data is stale (>${syncStatus?.interval_seconds ? Math.round(syncStatus.interval_seconds / 60) : 20} min old).`}
         >
           <AlertTriangle className="w-3 h-3 text-amber-600" />
           <span className="hidden lg:inline">
-            DATA STALE{ageStr ? ` — Updated ${ageStr}` : ''}
+            ⚠ STALE WEATHER DATA{ageStr ? ` — Updated ${ageStr}` : ''}
           </span>
           <span className="lg:hidden">STALE</span>
         </span>
@@ -120,12 +120,12 @@ export default function Navbar() {
       return (
         <span
           className="flex items-center gap-1.5 bg-teal-50 border border-teal-300 text-teal-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
-          title="Serving recent cached weather. Next sync in progress."
+          title="Source: Open-Meteo (Cached). Next sync in progress."
         >
           <span className="w-2 h-2 rounded-full bg-teal-400" />
           <span className="hidden lg:inline">
-            CACHED LIVE{ageStr ? ` — Updated ${ageStr}` : ''}
-            {countdown != null && countdown > 0 ? ` · Next: ${formatCountdown(countdown)}` : ''}
+            ● CACHED LIVE{ageStr ? ` — Last successful update: ${ageStr}` : ''}
+            {countdown != null && countdown > 0 ? ` · Next in ${formatCountdown(countdown)}` : ''}
           </span>
           <span className="lg:hidden">CACHED LIVE</span>
         </span>
@@ -136,16 +136,15 @@ export default function Navbar() {
     return (
       <span
         className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
-        title={`Connected to ${syncStatus?.operational_note ? 'Open-Meteo NWP' : 'Open-Meteo NWP'}`}
+        title="Source: Open-Meteo"
       >
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
         <span className="hidden xl:inline">
-          LIVE WEATHER
-          {ageStr ? ` — Updated ${ageStr}` : ''}
+          ● LIVE WEATHER — {ageStr ? `Updated ${ageStr}` : 'Updated just now'}
           {countdown != null && countdown > 0 ? ` · Next in ${formatCountdown(countdown)}` : ''}
         </span>
         <span className="hidden lg:inline xl:hidden">
-          LIVE{ageStr ? ` — ${ageStr}` : ''}
+          LIVE{ageStr ? ` — ${ageStr}` : ' — Just now'}
         </span>
         <span className="lg:hidden">LIVE</span>
       </span>

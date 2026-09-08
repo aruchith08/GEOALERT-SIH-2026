@@ -1110,6 +1110,17 @@ class WeatherService:
             hourly=forecast_hourly_objs
         )
 
+        logger.info(
+            f"[WEATHER] Current precipitation: {current_weather.precipitation_mm:.2f}mm | "
+            f"Past 24h: {past_24h_weather.total_rainfall_mm:.2f}mm | "
+            f"Forecast 24h: {forecast_24h_weather.total_rainfall_mm:.2f}mm"
+        )
+        logger.info(
+            f"[WEATHER] Model B dynamic trigger P(D): {curr_p_d:.4f} | "
+            f"P(S): {resolved_p_s:.4f} | "
+            f"Coupled Risk: P(S) * P(D) = {curr_coupled_risk:.4f} ({curr_tier_name})"
+        )
+
         # 7. 24-Hour Forward Hourly Risk Projection & Peak Risk Detection
         hourly_risk_points: List[HourlyRiskPoint] = []
         now_iso = current_weather.time
