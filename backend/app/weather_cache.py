@@ -87,6 +87,15 @@ class WeatherCache:
             self._hits = 0
             self._misses = 0
 
+    def invalidate(self, latitude: float, longitude: float) -> bool:
+        """Removes a specific coordinate from the cache."""
+        key = self._make_key(latitude, longitude)
+        with self._lock:
+            if key in self._store:
+                del self._store[key]
+                return True
+            return False
+
     def get_stats(self) -> Dict[str, Any]:
         """Returns diagnostic metrics for caching layer."""
         with self._lock:

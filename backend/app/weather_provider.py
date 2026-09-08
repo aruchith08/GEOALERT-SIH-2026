@@ -135,7 +135,7 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
         url = (
             f"{self.base_url}?latitude={latitude:.4f}&longitude={longitude:.4f}"
             f"&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m"
-            f"&hourly=precipitation,weather_code,temperature_2m,wind_speed_10m"
+            f"&hourly=precipitation,rain,weather_code,temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,surface_pressure"
             f"&daily=precipitation_sum,weather_code,temperature_2m_max,temperature_2m_min"
             f"&past_days=31&forecast_days=8&timezone=auto"
         )
@@ -159,9 +159,16 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
             temp_max_series = daily_raw.get("temperature_2m_max", [])
             temp_min_series = daily_raw.get("temperature_2m_min", [])
 
-            # Hourly series for short-term intervals (next 6h, 12h, 24h)
+            # Hourly series for short-term intervals (next 6h, 12h, 24h) and 24h past/future
             h_times = hourly_raw.get("time", [])
             h_precip = hourly_raw.get("precipitation", [])
+            h_rain = hourly_raw.get("rain", h_precip)
+            h_codes = hourly_raw.get("weather_code", [])
+            h_temps = hourly_raw.get("temperature_2m", [])
+            h_rhs = hourly_raw.get("relative_humidity_2m", [])
+            h_winds = hourly_raw.get("wind_speed_10m", [])
+            h_wdirs = hourly_raw.get("wind_direction_10m", [])
+            h_press = hourly_raw.get("surface_pressure", [])
             curr_time_str = current_raw.get("time", "")
 
             # Find starting index in hourly series matching current hour
@@ -182,6 +189,60 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
             f_slice = precip_series[-7:] if len(precip_series) >= 7 else precip_series
             next_3d_precip = float(sum(f_slice[:3])) if f_slice else 0.0
             next_7d_precip = float(sum(f_slice[:7])) if f_slice else 0.0
+
+            # Past 24h analysis [h_start - 24 : h_start]
+            p_start = max(0, h_start - 24)
+            p_slice_precip = h_precip[p_start:h_start] if h_precip else []
+            p_slice_temp = h_temps[p_start:h_start] if h_temps else []
+            p_slice_rh = h_rhs[p_start:h_start] if h_rhs else []
+            p_slice_wind = h_winds[p_start:h_start] if h_winds else []
+
+            past_24h_rain_total = float(sum(p_slice_precip)) if p_slice_precip else 0.0
+            past_24h_peak_hourly = float(max(p_slice_precip)) if p_slice_precip else 0.0
+            past_24h_rainy_hours = sum(1 for p in p_slice_precip if p >= 0.1)
+            past_24h_temp_min = float(min(p_slice_temp)) if p_slice_temp else 18.0
+            past_24h_temp_max = float(max(p_slice_temp)) if p_slice_temp else 24.0
+            past_24h_rh_avg = float(sum(p_slice_rh) / len(p_slice_rh)) if p_slice_rh else 80.0
+            past_24h_rh_max = float(max(p_slice_rh)) if p_slice_rh else 85.0
+            past_24h_wind_max = float(max(p_slice_wind)) if p_slice_wind else 10.0
+
+            past_24h_hourly = []
+            for idx in range(p_start, h_start):
+                w_code = int(h_codes[idx]) if idx < len(h_codes) else 0
+                past_24h_hourly.append({
+                    "time": h_times[idx] if idx < len(h_times) else "",
+                    "precipitation_mm": round(float(h_precip[idx]), 2) if idx < len(h_precip) else 0.0,
+                    "rain_mm": round(float(h_rain[idx]), 2) if idx < len(h_rain) else 0.0,
+                    "temperature_c": round(float(h_temps[idx]), 1) if idx < len(h_temps) else 20.0,
+                    "relative_humidity_pct": round(float(h_rhs[idx]), 1) if idx < len(h_rhs) else 80.0,
+                    "wind_speed_kmh": round(float(h_winds[idx]), 1) if idx < len(h_winds) else 10.0,
+                    "wind_direction_deg": round(float(h_wdirs[idx]), 1) if idx < len(h_wdirs) and h_wdirs[idx] is not None else 0.0,
+                    "surface_pressure_hpa": round(float(h_press[idx]), 1) if idx < len(h_press) and h_press[idx] is not None else 1013.0,
+                    "weather_code": w_code,
+                    "weather_description": WMO_CODE_MAP.get(w_code, "Variable")
+                })
+
+            # Next 24h forecast analysis [h_start : h_start + 24]
+            f_end = min(len(h_times), h_start + 24)
+            f_slice_precip = h_precip[h_start:f_end] if h_precip else []
+            forecast_24h_rain_total = float(sum(f_slice_precip)) if f_slice_precip else 0.0
+            forecast_24h_peak_hourly = float(max(f_slice_precip)) if f_slice_precip else 0.0
+
+            forecast_24h_hourly = []
+            for idx in range(h_start, f_end):
+                w_code = int(h_codes[idx]) if idx < len(h_codes) else 0
+                forecast_24h_hourly.append({
+                    "time": h_times[idx] if idx < len(h_times) else "",
+                    "precipitation_mm": round(float(h_precip[idx]), 2) if idx < len(h_precip) else 0.0,
+                    "rain_mm": round(float(h_rain[idx]), 2) if idx < len(h_rain) else 0.0,
+                    "temperature_c": round(float(h_temps[idx]), 1) if idx < len(h_temps) else 20.0,
+                    "relative_humidity_pct": round(float(h_rhs[idx]), 1) if idx < len(h_rhs) else 80.0,
+                    "wind_speed_kmh": round(float(h_winds[idx]), 1) if idx < len(h_winds) else 10.0,
+                    "wind_direction_deg": round(float(h_wdirs[idx]), 1) if idx < len(h_wdirs) and h_wdirs[idx] is not None else 0.0,
+                    "surface_pressure_hpa": round(float(h_press[idx]), 1) if idx < len(h_press) and h_press[idx] is not None else 1013.0,
+                    "weather_code": w_code,
+                    "weather_description": WMO_CODE_MAP.get(w_code, "Variable")
+                })
 
             # Current condition description
             wcode = current_raw.get("weather_code", 0)
@@ -222,6 +283,22 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
                     "next_24h_mm": round(next_24h_precip, 2),
                     "next_3d_mm": round(next_3d_precip, 2),
                     "next_7d_mm": round(next_7d_precip, 2)
+                },
+                "past_24h": {
+                    "total_rainfall_mm": round(past_24h_rain_total, 2),
+                    "peak_hourly_rainfall_mm": round(past_24h_peak_hourly, 2),
+                    "rainy_hours_count": past_24h_rainy_hours,
+                    "temp_min_c": round(past_24h_temp_min, 1),
+                    "temp_max_c": round(past_24h_temp_max, 1),
+                    "relative_humidity_avg_pct": round(past_24h_rh_avg, 1),
+                    "relative_humidity_max_pct": round(past_24h_rh_max, 1),
+                    "wind_speed_max_kmh": round(past_24h_wind_max, 1),
+                    "hourly": past_24h_hourly
+                },
+                "forecast_24h": {
+                    "total_rainfall_mm": round(forecast_24h_rain_total, 2),
+                    "peak_hourly_rainfall_mm": round(forecast_24h_peak_hourly, 2),
+                    "hourly": forecast_24h_hourly
                 },
                 "daily": {
                     "time": time_series,

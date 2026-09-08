@@ -322,3 +322,118 @@ export interface LiveGridResponse {
   cells?: Array<Record<string, any>>;
 }
 
+export interface HourlyWeatherPoint {
+  time: string;
+  precipitation_mm: number;
+  rain_mm: number;
+  temperature_c: number;
+  relative_humidity_pct: number;
+  wind_speed_kmh: number;
+  wind_direction_deg: number;
+  surface_pressure_hpa: number;
+  weather_code: number;
+  weather_description: string;
+}
+
+export interface WeatherHistory24h {
+  total_rainfall_mm: number;
+  peak_hourly_rainfall_mm: number;
+  rainy_hours_count: number;
+  temp_min_c: number;
+  temp_max_c: number;
+  relative_humidity_avg_pct: number;
+  relative_humidity_max_pct: number;
+  wind_speed_max_kmh: number;
+  hourly: HourlyWeatherPoint[];
+}
+
+export interface WeatherForecast24h {
+  total_rainfall_mm: number;
+  peak_hourly_rainfall_mm: number;
+  hourly: HourlyWeatherPoint[];
+}
+
+export interface HourlyRiskPoint {
+  time: string;
+  hour_offset: number;
+  forecast_hourly_rain_mm: number;
+  cumulative_forecast_rain_mm: number;
+  dynamic_trigger_p_d: number;
+  coupled_risk_score: number;
+  alert_tier_code: AlertTier;
+  alert_tier_name: string;
+  alert_color_hex: string;
+  weather_description: string;
+  temperature_c: number;
+}
+
+export interface PeakRisk24h {
+  peak_risk_score: number;
+  peak_hour_offset: number;
+  peak_time: string;
+  peak_alert_tier_code: AlertTier;
+  peak_alert_tier_name: string;
+  peak_alert_color_hex: string;
+  peak_p_d: number;
+  trend_description: string;
+}
+
+export interface LocationIdentity {
+  locality: string;
+  district: string;
+  state: string;
+  country: string;
+  display_name: string;
+  full_hierarchy: string;
+  formatted_coordinates: string;
+  latitude: number;
+  longitude: number;
+  spatial_cell_id: string;
+  resolution_method: 'REVERSE_GEOCODED' | 'EXACT_LOCALITY' | 'NEAREST_LOCALITY' | 'COORDINATE_FALLBACK';
+  distance_to_named_km: number;
+}
+
+export interface Timeline48hPoint {
+  time: string;
+  period: 'PAST_24H' | 'CURRENT' | 'FORECAST_24H';
+  hour_relative: number;
+  precipitation_mm: number;
+  temperature_c: number;
+  relative_humidity_pct: number;
+  wind_speed_kmh: number;
+  weather_description: string;
+  weather_code: number;
+  dynamic_trigger_p_d?: number;
+  coupled_risk_score?: number;
+  alert_tier_code?: AlertTier;
+  alert_color_hex?: string;
+}
+
+export interface CoordinateRiskIntelligence {
+  query_latitude: number;
+  query_longitude: number;
+  location_identity: LocationIdentity;
+  nearest_cell_id: string;
+  distance_to_cell_center_m: number;
+  elevation_m: number;
+  slope_deg: number;
+  static_susceptibility_p_s: number;
+  current_dynamic_trigger_p_d: number;
+  current_coupled_risk_score: number;
+  current_alert_tier_code: AlertTier;
+  current_alert_tier_name: string;
+  current_alert_color_hex: string;
+  current_weather: CurrentWeatherCondition;
+  past_24h_weather: WeatherHistory24h;
+  forecast_24h_weather: WeatherForecast24h;
+  hourly_risk_projection_24h: HourlyRiskPoint[];
+  peak_risk_24h: PeakRisk24h;
+  unified_timeline_48h: Timeline48hPoint[];
+  explainability: ExplainabilityBreakdown;
+  action_recommendation: ActionRecommendation;
+  data_confidence: DataConfidenceIndicator;
+  provenance: DataProvenance;
+  data_age_seconds: number;
+  timestamp: string;
+}
+

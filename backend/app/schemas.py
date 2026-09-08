@@ -186,7 +186,7 @@ class WeatherStatusResponse(BaseModel):
     cache_status: str
     status_message: str
     timestamp: str
-    data_age_minutes: int = 0
+    data_age_minutes: float = 0.0
     reason: Optional[str] = None
     cache_stats: Optional[Dict[str, Any]] = None
 
@@ -401,5 +401,125 @@ class LiveGridResponse(BaseModel):
     provenance: DataProvenance
     summary: Dict[str, Any]
     cells: Optional[List[Dict[str, Any]]] = None
+
+
+class HourlyWeatherPoint(BaseModel):
+    time: str
+    precipitation_mm: float
+    rain_mm: float
+    temperature_c: float
+    relative_humidity_pct: float
+    wind_speed_kmh: float
+    wind_direction_deg: float = 0.0
+    surface_pressure_hpa: float = 1013.0
+    weather_code: int = 0
+    weather_description: str = "Variable"
+
+
+class WeatherHistory24h(BaseModel):
+    total_rainfall_mm: float
+    peak_hourly_rainfall_mm: float
+    rainy_hours_count: int
+    temp_min_c: float
+    temp_max_c: float
+    relative_humidity_avg_pct: float
+    relative_humidity_max_pct: float
+    wind_speed_max_kmh: float
+    hourly: List[HourlyWeatherPoint] = []
+
+
+class WeatherForecast24h(BaseModel):
+    total_rainfall_mm: float
+    peak_hourly_rainfall_mm: float
+    hourly: List[HourlyWeatherPoint] = []
+
+
+class HourlyRiskPoint(BaseModel):
+    time: str
+    hour_offset: int
+    forecast_hourly_rain_mm: float
+    cumulative_forecast_rain_mm: float
+    dynamic_trigger_p_d: float
+    coupled_risk_score: float
+    alert_tier_code: AlertTierEnum
+    alert_tier_name: str
+    alert_color_hex: str
+    weather_description: str
+    temperature_c: float
+
+
+class PeakRisk24h(BaseModel):
+    peak_risk_score: float
+    peak_hour_offset: int
+    peak_time: str
+    peak_alert_tier_code: AlertTierEnum
+    peak_alert_tier_name: str
+    peak_alert_color_hex: str
+    peak_p_d: float
+    trend_description: str
+
+
+class LocationIdentity(BaseModel):
+    locality: str
+    district: str
+    state: str = "Meghalaya"
+    country: str = "India"
+    display_name: str
+    full_hierarchy: str
+    formatted_coordinates: str
+    latitude: float
+    longitude: float
+    spatial_cell_id: str
+    resolution_method: str
+    distance_to_named_km: float
+
+
+class Timeline48hPoint(BaseModel):
+    time: str
+    period: str  # "PAST_24H" | "CURRENT" | "FORECAST_24H"
+    hour_relative: int  # -24 to +24
+    precipitation_mm: float
+    temperature_c: float
+    relative_humidity_pct: float
+    wind_speed_kmh: float
+    weather_description: str
+    weather_code: int
+    dynamic_trigger_p_d: Optional[float] = None
+    coupled_risk_score: Optional[float] = None
+    alert_tier_code: Optional[AlertTierEnum] = None
+    alert_color_hex: Optional[str] = None
+
+
+class CoordinateRiskIntelligenceResponse(BaseModel):
+    query_latitude: float
+    query_longitude: float
+    location_identity: LocationIdentity
+    nearest_cell_id: str
+    distance_to_cell_center_m: float
+    elevation_m: float
+    slope_deg: float
+    static_susceptibility_p_s: float
+    current_dynamic_trigger_p_d: float
+    current_coupled_risk_score: float
+    current_alert_tier_code: AlertTierEnum
+    current_alert_tier_name: str
+    current_alert_color_hex: str
+    current_weather: CurrentWeatherCondition
+    past_24h_weather: WeatherHistory24h
+    forecast_24h_weather: WeatherForecast24h
+    hourly_risk_projection_24h: List[HourlyRiskPoint]
+    peak_risk_24h: PeakRisk24h
+    unified_timeline_48h: List[Timeline48hPoint]
+    explainability: ExplainabilityBreakdown
+    action_recommendation: ActionRecommendation
+    data_confidence: DataConfidenceIndicator
+    provenance: DataProvenance
+    data_age_seconds: int = 0
+    timestamp: str
+    # Backward-compatibility fields for legacy /api/v1/risk/location consumers
+    coupled_risk_score: Optional[float] = None
+    geodesic_distance_km: Optional[float] = None
+    is_nearest_grid_lookup: Optional[bool] = True
+    is_real_time_inference: Optional[bool] = False
 
 

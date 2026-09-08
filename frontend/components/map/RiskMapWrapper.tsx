@@ -23,8 +23,9 @@ const LeafletMap = dynamic(() => import('./LeafletMap'), {
 
 interface RiskMapWrapperProps {
   geojsonData: GridGeoJSON | null;
-  onSelectCell: (cell: GridProperties) => void;
+  onSelectCell: (cell: GridProperties, coords?: [number, number]) => void;
   selectedCell: GridProperties | null;
+  selectedCoords?: [number, number] | null;
   customDynamicPD?: number;
 }
 
@@ -32,6 +33,7 @@ export default function RiskMapWrapper({
   geojsonData,
   onSelectCell,
   selectedCell,
+  selectedCoords,
   customDynamicPD
 }: RiskMapWrapperProps) {
   const [selectedBlock, setSelectedBlock] = useState<string>('All Blocks');
@@ -194,6 +196,7 @@ export default function RiskMapWrapper({
           features={filteredFeatures}
           onSelectCell={onSelectCell}
           selectedCellId={selectedCell?.cell_id}
+          selectedCoords={selectedCoords ?? undefined}
           activeLayer={activeLayer}
           customDynamicPD={customDynamicPD}
         />

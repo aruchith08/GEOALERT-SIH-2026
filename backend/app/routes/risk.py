@@ -12,14 +12,26 @@ from fastapi import APIRouter, HTTPException, Query
 import numpy as np
 import pandas as pd
 
-from backend.app.schemas import (
-    RiskPredictionRequest, RiskPredictionResponse,
-    PointRiskEvaluationRequest, PointRiskEvaluationResponse,
-    NearestCellLookupResponse
-)
-from backend.app.model_service import model_service
-from backend.app.risk_engine import risk_engine
-from backend.app.config import CSV_SURFACE_PATH
+try:
+    from backend.app.schemas import (
+        RiskPredictionRequest, RiskPredictionResponse,
+        PointRiskEvaluationRequest, PointRiskEvaluationResponse,
+        NearestCellLookupResponse, CoordinateRiskIntelligenceResponse
+    )
+    from backend.app.model_service import model_service
+    from backend.app.risk_engine import risk_engine
+    from backend.app.weather_service import weather_service
+    from backend.app.config import CSV_SURFACE_PATH
+except ImportError:
+    from app.schemas import (
+        RiskPredictionRequest, RiskPredictionResponse,
+        PointRiskEvaluationRequest, PointRiskEvaluationResponse,
+        NearestCellLookupResponse, CoordinateRiskIntelligenceResponse
+    )
+    from app.model_service import model_service
+    from app.risk_engine import risk_engine
+    from app.weather_service import weather_service
+    from app.config import CSV_SURFACE_PATH
 
 router = APIRouter(tags=["Risk Inference"])
 
@@ -116,7 +128,7 @@ def evaluate_point_risk(request: PointRiskEvaluationRequest):
         raise HTTPException(status_code=400, detail=f"Evaluation error: {str(e)}")
 
 
-@router.get("/risk/location", response_model=NearestCellLookupResponse)
+@router.get("/risk/nearest-cell", response_model=NearestCellLookupResponse)
 def get_nearest_cell_risk(
     latitude: float = Query(..., ge=24.0, le=27.0, description="Latitude"),
     longitude: float = Query(..., ge=89.0, le=94.0, description="Longitude")
@@ -166,3 +178,44 @@ def get_nearest_cell_risk(
         is_nearest_grid_lookup=True,
         is_real_time_inference=False
     )
+
+
+@router.get("/risk/location", response_model=CoordinateRiskIntelligenceResponse)
+@router.get("/risk/coordinate", response_model=CoordinateRiskIntelligenceResponse)
+def get_coordinate_risk_location(
+    latitude: Optional[float] = Query(None, ge=24.0, le=27.0, description="Latitude (WGS84)"),
+    longitude: Optional[float] = Query(None, ge=89.0, le=94.0, description="Longitude (WGS84)"),
+    lat: Optional[float] = Query(None, ge=24.0, le=27.0, description="Latitude alias"),
+    lon: Optional[float] = Query(None, ge=89.0, le=94.0, description="Longitude alias"),
+    cell_id: Optional[str] = Query(None, description="Section 34 grid cell ID"),
+    cellId: Optional[str] = Query(None, description="Cell ID alias"),
+    p_s: Optional[float] = Query(None, ge=0.0, le=1.0, description="Precomputed Model A P(S)"),
+    pS: Optional[float] = Query(None, ge=0.0, le=1.0, description="P(S) alias"),
+    refresh: bool = Query(False, description="Force fresh Open-Meteo telemetry bypass cache"),
+    force_refresh: bool = Query(False, description="Force refresh alias")
+):
+    """
+    On-demand coordinate-level weather and landslide risk intelligence.
+    Returns 4-tier geographic identity, exact Model A & B coupling, past 24h metrics,
+    24-hour hourly risk curve, peak risk, and unified 48h timeline.
+    """
+    eff_lat = latitude if latitude is not None else lat
+    eff_lon = longitude if longitude is not None else lon
+    if eff_lat is None:
+        eff_lat = 25.5788
+    if eff_lon is None:
+        eff_lon = 91.8933
+    eff_cell_id = cell_id or cellId
+    eff_ps = p_s if p_s is not None else pS
+    eff_refresh = refresh or force_refresh
+
+    try:
+        return weather_service.get_coordinate_risk_intelligence(
+            latitude=eff_lat,
+            longitude=eff_lon,
+            cell_id=eff_cell_id,
+            p_s=eff_ps,
+            force_refresh=eff_refresh
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Coordinate risk evaluation failed: {str(exc)}")

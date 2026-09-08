@@ -1,14 +1,15 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import { MapContainer, TileLayer, CircleMarker, Popup, useMap } from 'react-leaflet';
+import { MapContainer, TileLayer, CircleMarker, Popup, useMap, useMapEvents } from 'react-leaflet';
 import { GridFeature, GridProperties, MapLayerType } from '@/lib/types';
 import { MEGHALAYA_CENTER } from '@/lib/constants';
 
 interface LeafletMapProps {
   features: GridFeature[];
-  onSelectCell: (cell: GridProperties) => void;
+  onSelectCell: (cell: GridProperties, coords?: [number, number]) => void;
   selectedCellId?: string;
+  selectedCoords?: [number, number];
   activeLayer?: MapLayerType;
   customDynamicPD?: number;
 }
@@ -44,6 +45,34 @@ function MapPanToSelected({
       map.flyTo([lat, lon], Math.max(map.getZoom(), 10), { duration: 0.8 });
     }
   }, [map, selectedCellId, features]);
+  return null;
+}
+
+function MapClickHandler({
+  features,
+  onSelectCell
+}: {
+  features: GridFeature[];
+  onSelectCell: (cell: GridProperties, coords?: [number, number]) => void;
+}) {
+  useMapEvents({
+    click: (e) => {
+      const { lat, lng } = e.latlng;
+      let minD = Infinity;
+      let nearestProp: GridProperties | null = null;
+      for (const feat of features) {
+        const [cLon, cLat] = feat.geometry.coordinates;
+        const d = (cLat - lat) ** 2 + (cLon - lng) ** 2;
+        if (d < minD) {
+          minD = d;
+          nearestProp = feat.properties;
+        }
+      }
+      if (nearestProp) {
+        onSelectCell(nearestProp, [lat, lng]);
+      }
+    }
+  });
   return null;
 }
 
@@ -168,6 +197,7 @@ export default function LeafletMap({
   features,
   onSelectCell,
   selectedCellId,
+  selectedCoords,
   activeLayer = 'coupled_risk',
   customDynamicPD
 }: LeafletMapProps) {
@@ -190,6 +220,33 @@ export default function LeafletMap({
 
       <MapAutoBounds features={features} />
       <MapPanToSelected features={features} selectedCellId={selectedCellId} />
+      <MapClickHandler features={features} onSelectCell={onSelectCell} />
+
+      {/* Selected Coordinate Precision Crosshair Marker */}
+      {selectedCoords && (
+        <CircleMarker
+          center={selectedCoords}
+          radius={8}
+          pathOptions={{
+            color: '#1e40af',
+            fillColor: '#38bdf8',
+            fillOpacity: 0.95,
+            weight: 3
+          }}
+        >
+          <Popup>
+            <div className="p-1.5 text-xs font-mono">
+              <div className="font-extrabold text-blue-900 border-b border-blue-100 pb-1">
+                Selected Coordinate
+              </div>
+              <div className="mt-1 text-slate-700 text-[11px]">
+                <div>Lat: <strong className="text-slate-900">{selectedCoords[0].toFixed(5)}° N</strong></div>
+                <div>Lon: <strong className="text-slate-900">{selectedCoords[1].toFixed(5)}° E</strong></div>
+              </div>
+            </div>
+          </Popup>
+        </CircleMarker>
+      )}
 
       {features.map((feat) => {
         const [lon, lat] = feat.geometry.coordinates;
@@ -217,7 +274,7 @@ export default function LeafletMap({
               weight: isSelected ? 3.5 : 1
             }}
             eventHandlers={{
-              click: () => onSelectCell(p)
+              click: () => onSelectCell(p, [lat, lon])
             }}
           >
             <Popup>
@@ -225,6 +282,9 @@ export default function LeafletMap({
                 <div className="font-extrabold text-slate-900 mb-1 border-b border-slate-200 pb-1 flex items-center justify-between">
                   <span>{p.block}</span>
                   <span className="text-[10px] text-slate-500 font-normal">{p.cell_id}</span>
+                </div>
+                <div className="text-[10px] text-blue-700 font-semibold mb-1">
+                  {lat.toFixed(5)}° N, {lon.toFixed(5)}° E
                 </div>
                 <div className="space-y-1 text-slate-700">
                   <div className="flex justify-between">
@@ -254,6 +314,12 @@ export default function LeafletMap({
                   <div className="mt-1 pt-1 border-t border-slate-200 font-bold text-[10px]" style={{ color }}>
                     Layer Mode: {activeLayer.replace('_', ' ').toUpperCase()}
                   </div>
+                  <button
+                    onClick={() => onSelectCell(p, [lat, lon])}
+                    className="w-full mt-2 py-1 px-2 bg-blue-600 hover:bg-blue-700 text-white rounded font-bold text-[10px] transition text-center shadow-2xs block"
+                  >
+                    Open Full Coordinate Intelligence &rarr;
+                  </button>
                 </div>
               </div>
             </Popup>

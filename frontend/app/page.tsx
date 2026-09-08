@@ -13,6 +13,7 @@ import DemoLocationsPills, { PinnedDemoLocation } from '@/components/dashboard/D
 export default function DashboardPage() {
   const [geojsonData, setGeojsonData] = useState<GridGeoJSON | null>(null);
   const [selectedCell, setSelectedCell] = useState<GridProperties | null>(null);
+  const [selectedCoords, setSelectedCoords] = useState<[number, number] | null>([25.2744, 91.7323]);
   const [customDynamicPD, setCustomDynamicPD] = useState<number>(0.6284);
   const [activePinnedLocId, setActivePinnedLocId] = useState<string | null>('DEMO_SOHRA');
   const [loading, setLoading] = useState<boolean>(true);
@@ -28,9 +29,11 @@ export default function DashboardPage() {
           const sohraCell = data.features.find(f => f.properties.cell_id === 'CELL_MEG_0878');
           if (sohraCell) {
             setSelectedCell(sohraCell.properties);
+            setSelectedCoords([sohraCell.geometry.coordinates[1], sohraCell.geometry.coordinates[0]]);
           } else {
             const sorted = [...data.features].sort((a, b) => b.properties.coupled_risk - a.properties.coupled_risk);
             setSelectedCell(sorted[0].properties);
+            setSelectedCoords([sorted[0].geometry.coordinates[1], sorted[0].geometry.coordinates[0]]);
           }
         }
       } catch (err) {
@@ -46,8 +49,21 @@ export default function DashboardPage() {
     setCustomDynamicPD(p_d);
   };
 
+  const handleSelectCell = (cell: GridProperties, coords?: [number, number]) => {
+    setSelectedCell(cell);
+    if (coords) {
+      setSelectedCoords(coords);
+    } else if (geojsonData && geojsonData.features) {
+      const matched = geojsonData.features.find(f => f.properties.cell_id === cell.cell_id);
+      if (matched) {
+        setSelectedCoords([matched.geometry.coordinates[1], matched.geometry.coordinates[0]]);
+      }
+    }
+  };
+
   const handleSelectPinnedLocation = (loc: PinnedDemoLocation) => {
     setActivePinnedLocId(loc.id);
+    setSelectedCoords([loc.latitude, loc.longitude]);
     if (geojsonData && geojsonData.features) {
       const matched = geojsonData.features.find(f => f.properties.cell_id === loc.cell_id);
       if (matched) {
@@ -184,8 +200,9 @@ export default function DashboardPage() {
         <div className="lg:col-span-2">
           <RiskMapWrapper
             geojsonData={geojsonData}
-            onSelectCell={setSelectedCell}
+            onSelectCell={handleSelectCell}
             selectedCell={selectedCell}
+            selectedCoords={selectedCoords}
             customDynamicPD={customDynamicPD}
           />
         </div>
@@ -193,7 +210,11 @@ export default function DashboardPage() {
         <div className="lg:col-span-1 h-[640px]">
           <InspectorPanel
             selectedCell={selectedCell}
-            onClose={() => setSelectedCell(null)}
+            selectedCoords={selectedCoords}
+            onClose={() => {
+              setSelectedCell(null);
+              setSelectedCoords(null);
+            }}
             customDynamicPD={customDynamicPD}
           />
         </div>
@@ -201,11 +222,11 @@ export default function DashboardPage() {
 
       {/* 7-Day Predictive Landslide Risk Timeline (Model B Forward Forecasting) */}
       <ForecastRiskTimeline
-        latitude={25.5788}
-        longitude={91.8933}
+        latitude={selectedCoords ? selectedCoords[0] : 25.2744}
+        longitude={selectedCoords ? selectedCoords[1] : 91.7323}
         cellId={selectedCell?.cell_id}
         staticPS={selectedCell?.p_static ?? 0.42}
-        locationName={selectedCell ? `${selectedCell.block} (Cell ${selectedCell.cell_id})` : 'Shillong / East Khasi Hills Corridor'}
+        locationName={selectedCell ? `${selectedCell.block} (Cell ${selectedCell.cell_id})` : 'Sohra / East Khasi Hills Corridor'}
       />
     </div>
   );
