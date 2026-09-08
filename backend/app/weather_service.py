@@ -9,12 +9,14 @@ and Frozen Model B Inference Pipeline.
 from datetime import datetime, timezone
 import math
 import logging
-from typing import Dict, Any, List, Optional, Tuple
+import threading
+from collections import deque
+from typing import Dict, Any, List, Optional, Tuple, Deque
 import numpy as np
 import pandas as pd
 
 try:
-    from backend.app.config import CSV_SURFACE_PATH
+    from backend.app.config import CSV_SURFACE_PATH, RISK_HISTORY_MAX_ENTRIES, RISK_TREND_EPSILON
     from backend.app.model_service import model_service
     from backend.app.risk_engine import risk_engine
     from backend.app.weather_provider import OpenMeteoWeatherProvider, WeatherProviderInterface
@@ -48,11 +50,13 @@ try:
         PeakRisk24h,
         LocationIdentity,
         Timeline48hPoint,
-        CoordinateRiskIntelligenceResponse
+        CoordinateRiskIntelligenceResponse,
+        RiskHistoryEntry,
+        RiskHistoryResponse,
     )
     from backend.app.geocoding_service import resolve_location_identity
 except ImportError:
-    from app.config import CSV_SURFACE_PATH
+    from app.config import CSV_SURFACE_PATH, RISK_HISTORY_MAX_ENTRIES, RISK_TREND_EPSILON
     from app.model_service import model_service
     from app.risk_engine import risk_engine
     from app.weather_provider import OpenMeteoWeatherProvider, WeatherProviderInterface
@@ -86,7 +90,9 @@ except ImportError:
         PeakRisk24h,
         LocationIdentity,
         Timeline48hPoint,
-        CoordinateRiskIntelligenceResponse
+        CoordinateRiskIntelligenceResponse,
+        RiskHistoryEntry,
+        RiskHistoryResponse,
     )
     from app.geocoding_service import resolve_location_identity
 
@@ -110,6 +116,128 @@ class WeatherService:
         self.cache = cache or weather_cache
         self.feature_engine = feature_engine or weather_feature_engine
         self._cached_grid_df: Optional[pd.DataFrame] = None
+        # ── Risk History Ring Buffer (Phase 2) ────────────────────────────────
+        # Keyed by (lat_rounded, lon_rounded) → deque of RiskHistoryEntry-like dicts
+        self._risk_history: Dict[Tuple[float, float], Deque[Dict[str, Any]]] = {}
+        self._history_lock = threading.Lock()
+
+    @staticmethod
+    def _history_key(latitude: float, longitude: float) -> Tuple[float, float]:
+        """Rounds to 2 decimal places (~1.1 km) for consistent history keying."""
+        return (round(float(latitude), 2), round(float(longitude), 2))
+
+    def record_risk_observation(
+        self,
+        latitude: float,
+        longitude: float,
+        rainfall_mm: float,
+        p_d: float,
+        p_s: float,
+        coupled_risk: float,
+        alert_tier: str,
+    ) -> None:
+        """Append a risk observation to the in-memory ring buffer for this coordinate."""
+        key = self._history_key(latitude, longitude)
+        entry: Dict[str, Any] = {
+            "timestamp": datetime.now(timezone.utc).isoformat(),
+            "rainfall_mm": round(rainfall_mm, 2),
+            "p_d": round(p_d, 4),
+            "p_s": round(p_s, 4),
+            "coupled_risk": round(coupled_risk, 4),
+            "alert_tier": alert_tier,
+        }
+        with self._history_lock:
+            if key not in self._risk_history:
+                self._risk_history[key] = deque(maxlen=RISK_HISTORY_MAX_ENTRIES)
+            self._risk_history[key].append(entry)
+
+    def get_risk_history(
+        self,
+        latitude: float,
+        longitude: float,
+        limit: int = 24,
+    ) -> List[Dict[str, Any]]:
+        """Return the most recent risk history entries for a coordinate."""
+        key = self._history_key(latitude, longitude)
+        with self._history_lock:
+            if key not in self._risk_history:
+                return []
+            entries = list(self._risk_history[key])
+        return entries[-limit:]
+
+    def compute_risk_trend(
+        self,
+        latitude: float,
+        longitude: float,
+    ) -> Dict[str, Any]:
+        """
+        Compare the two most recent risk observations for trend classification.
+
+        Returns:
+            {previous_risk, current_risk, risk_change, trend: RISING|STABLE|FALLING}
+        """
+        entries = self.get_risk_history(latitude, longitude, limit=2)
+        if len(entries) < 2:
+            return {
+                "previous_risk": None,
+                "current_risk": None,
+                "risk_change": None,
+                "trend": "STABLE",
+            }
+        prev = entries[-2]["coupled_risk"]
+        curr = entries[-1]["coupled_risk"]
+        change = round(curr - prev, 4)
+        if abs(change) < RISK_TREND_EPSILON:
+            trend = "STABLE"
+        elif change > 0:
+            trend = "RISING"
+        else:
+            trend = "FALLING"
+        return {
+            "previous_risk": round(prev, 4),
+            "current_risk": round(curr, 4),
+            "risk_change": change,
+            "trend": trend,
+        }
+
+    def build_risk_history_response(
+        self,
+        latitude: float,
+        longitude: float,
+        limit: int = 24,
+    ) -> "RiskHistoryResponse":
+        """Build a RiskHistoryResponse for the /risk/coordinate/history endpoint."""
+        raw_entries = self.get_risk_history(latitude, longitude, limit=limit)
+        trend_data = self.compute_risk_trend(latitude, longitude)
+        entries = []
+        for e in raw_entries:
+            try:
+                tier = AlertTierEnum(e["alert_tier"])
+            except ValueError:
+                tier = AlertTierEnum.GREEN
+            entries.append(
+                RiskHistoryEntry(
+                    timestamp=e["timestamp"],
+                    rainfall_mm=e["rainfall_mm"],
+                    p_d=e["p_d"],
+                    p_s=e["p_s"],
+                    coupled_risk=e["coupled_risk"],
+                    alert_tier=tier,
+                )
+            )
+        oldest = entries[0].timestamp if entries else None
+        newest = entries[-1].timestamp if entries else None
+        return RiskHistoryResponse(
+            latitude=round(latitude, 5),
+            longitude=round(longitude, 5),
+            entries=entries,
+            entry_count=len(entries),
+            oldest_entry_at=oldest,
+            newest_entry_at=newest,
+            trend=trend_data["trend"],
+            risk_change=trend_data["risk_change"],
+            timestamp=datetime.now(timezone.utc).isoformat(),
+        )
 
     def get_grid_df(self) -> pd.DataFrame:
         """Loads and caches the Section 34 regional CSV surface for spatial lookups."""
@@ -1178,6 +1306,25 @@ class WeatherService:
             confidence_rationale=f"4-tier geographic identity resolved via {location_identity.resolution_method}; 48-hour hourly sequence synchronized."
         )
 
+        # ── Phase 2: Record observation and compute trend ──────────────────────
+        # Compute trend BEFORE recording this observation (so we compare with previous)
+        trend_data = self.compute_risk_trend(latitude, longitude)
+
+        current_rain_mm = (
+            current_weather.precipitation_mm
+            if current_weather and current_weather.precipitation_mm is not None
+            else 0.0
+        )
+        self.record_risk_observation(
+            latitude=latitude,
+            longitude=longitude,
+            rainfall_mm=current_rain_mm,
+            p_d=curr_p_d,
+            p_s=resolved_p_s,
+            coupled_risk=curr_coupled_risk,
+            alert_tier=curr_tier.value,
+        )
+
         return CoordinateRiskIntelligenceResponse(
             query_latitude=round(latitude, 5),
             query_longitude=round(longitude, 5),
@@ -1207,7 +1354,11 @@ class WeatherService:
             coupled_risk_score=round(curr_coupled_risk, 4),
             geodesic_distance_km=round(dist_to_cell_center_m / 1000.0, 3),
             is_nearest_grid_lookup=True,
-            is_real_time_inference=False
+            is_real_time_inference=False,
+            # ── Phase 2: Risk Trend ─────────────────────────────────────────
+            previous_coupled_risk=trend_data["previous_risk"],
+            risk_change=trend_data["risk_change"],
+            risk_trend=trend_data["trend"],
         )
 
 

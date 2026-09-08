@@ -435,5 +435,57 @@ export interface CoordinateRiskIntelligence {
   provenance: DataProvenance;
   data_age_seconds: number;
   timestamp: string;
+  // Phase 2: Risk Trend fields
+  previous_coupled_risk?: number | null;
+  risk_change?: number | null;
+  risk_trend?: 'RISING' | 'STABLE' | 'FALLING' | null;
+  next_sync_seconds?: number | null;
 }
 
+// ─── Phase 2: Continuous Synchronization Types ────────────────────────────────
+
+export type DataFreshnessStatus =
+  | 'LIVE'
+  | 'CACHED_LIVE'
+  | 'STALE'
+  | 'FALLBACK'
+  | 'DEMO_SCENARIO'
+  | 'ERROR'
+  | 'INITIALIZING';
+
+export interface SyncStatus {
+  last_sync_at: string | null;
+  next_sync_at: string | null;
+  next_sync_seconds: number | null;
+  interval_seconds: number;
+  provider_status: DataFreshnessStatus | string;
+  is_live: boolean;
+  sync_count?: number;
+  failure_count?: number;
+  consecutive_failures?: number;
+  data_age_minutes?: number | null;
+  selected_coordinate?: [number, number] | null;
+  selected_cell_id?: string | null;
+  operational_note?: string;
+}
+
+export interface RiskHistoryEntry {
+  timestamp: string;
+  rainfall_mm: number;
+  p_d: number;
+  p_s: number;
+  coupled_risk: number;
+  alert_tier: AlertTier;
+}
+
+export interface RiskHistoryResponse {
+  latitude: number;
+  longitude: number;
+  entries: RiskHistoryEntry[];
+  entry_count: number;
+  oldest_entry_at?: string | null;
+  newest_entry_at?: string | null;
+  trend?: string | null;
+  risk_change?: number | null;
+  timestamp: string;
+}

@@ -75,3 +75,39 @@ CORS_ORIGIN_REGEX = os.getenv(
     "CORS_ORIGIN_REGEX",
     r"https?://.*"  # Default accepts all HTTPS origins (Vercel previews, Render, custom domains)
 )
+
+# ─── Real-Time Synchronization Configuration ──────────────────────────────────
+
+# Interval (seconds) at which the WeatherSyncService refreshes regional mesh data.
+# Default: 600s (10 minutes). Override via WEATHER_REFRESH_INTERVAL env var.
+_refresh_raw = os.getenv("WEATHER_REFRESH_INTERVAL", "600").strip()
+try:
+    WEATHER_REFRESH_INTERVAL_SECONDS: int = int(_refresh_raw)
+except ValueError:
+    WEATHER_REFRESH_INTERVAL_SECONDS = 600
+
+# Interval (seconds) at which the selected coordinate auto-refreshes.
+# Default matches the regional refresh interval.
+_coord_refresh_raw = os.getenv("COORDINATE_AUTO_REFRESH_INTERVAL", "600").strip()
+try:
+    COORDINATE_AUTO_REFRESH_INTERVAL_SECONDS: int = int(_coord_refresh_raw)
+except ValueError:
+    COORDINATE_AUTO_REFRESH_INTERVAL_SECONDS = 600
+
+# Minutes after retrieval before CACHED_LIVE transitions to STALE.
+_stale_raw = os.getenv("FRESHNESS_STALE_THRESHOLD_MINUTES", "20").strip()
+try:
+    FRESHNESS_STALE_THRESHOLD_MINUTES: int = int(_stale_raw)
+except ValueError:
+    FRESHNESS_STALE_THRESHOLD_MINUTES = 20
+
+# Minimum absolute risk change to classify as RISING or FALLING (not STABLE).
+_epsilon_raw = os.getenv("RISK_TREND_EPSILON", "0.005").strip()
+try:
+    RISK_TREND_EPSILON: float = float(_epsilon_raw)
+except ValueError:
+    RISK_TREND_EPSILON = 0.005
+
+# Maximum risk history entries stored per coordinate (ring buffer depth).
+RISK_HISTORY_MAX_ENTRIES: int = 24
+

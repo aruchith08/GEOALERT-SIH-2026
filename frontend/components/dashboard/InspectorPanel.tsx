@@ -1,8 +1,9 @@
 'use client';
 
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect, useMemo, useRef } from 'react';
 import { GridProperties, CoordinateRiskIntelligence, Timeline48hPoint, HourlyRiskPoint } from '@/lib/types';
-import { fetchCoordinateRiskIntelligence } from '@/lib/api';
+import { fetchCoordinateRiskIntelligence, registerCoordinateForSync } from '@/lib/api';
+import { useWeatherSync } from '@/lib/useWeatherSync';
 import {
   MapPin,
   Mountain,
@@ -16,6 +17,8 @@ import {
   Compass,
   RefreshCw,
   TrendingUp,
+  TrendingDown,
+  Minus,
   Clock,
   Wind,
   Thermometer,
@@ -40,6 +43,7 @@ export default function InspectorPanel({
   const [intel, setIntel] = useState<CoordinateRiskIntelligence | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isRefreshing, setIsRefreshing] = useState<boolean>(false);
+  const [isSilentRefreshing, setIsSilentRefreshing] = useState<boolean>(false);
   const [activeTab, setActiveTab] = useState<'timeline' | 'risk_curve'>('timeline');
   const [hoveredIdx, setHoveredIdx] = useState<number | null>(null);
 
@@ -49,6 +53,10 @@ export default function InspectorPanel({
   const cellId = selectedCell?.cell_id;
   const staticPS = selectedCell?.p_static;
 
+  // Phase 2: Sync status for auto-refresh and countdown
+  const { countdown, dataFreshnessStatus, dataFreshnessLabel } = useWeatherSync();
+  const prevCountdownRef = useRef<number | null>(null);
+
   useEffect(() => {
     if (!selectedCell && !selectedCoords) {
       setIntel(null);
@@ -57,6 +65,9 @@ export default function InspectorPanel({
 
     let isMounted = true;
     setIsLoading(true);
+
+    // Register with WeatherSyncService for auto-refresh
+    registerCoordinateForSync(lat, lon, cellId ?? null, staticPS ?? null).catch(() => {});
 
     fetchCoordinateRiskIntelligence(lat, lon, cellId, staticPS, false)
       .then((data) => {
@@ -75,6 +86,23 @@ export default function InspectorPanel({
       isMounted = false;
     };
   }, [lat, lon, cellId, staticPS]);
+
+  // Phase 2: Auto-refresh silently when countdown reaches 0 (backend synced fresh data)
+  useEffect(() => {
+    const prev = prevCountdownRef.current;
+    prevCountdownRef.current = countdown;
+
+    // Trigger silent refresh when countdown transitions from >0 to 0
+    if (prev != null && prev > 0 && countdown === 0 && intel && !isRefreshing) {
+      setIsSilentRefreshing(true);
+      fetchCoordinateRiskIntelligence(lat, lon, cellId, staticPS, false)
+        .then((data) => {
+          if (data) setIntel(data);
+        })
+        .catch(() => {})
+        .finally(() => setIsSilentRefreshing(false));
+    }
+  }, [countdown]);
 
   const handleRefresh = async () => {
     if (isRefreshing) return;
@@ -190,28 +218,43 @@ export default function InspectorPanel({
 
         {/* Live Weather Synchronization & Refresh Bar */}
         <div className="p-2.5 bg-slate-50 border border-slate-200 rounded-xl flex items-center justify-between gap-2 shadow-2xs">
-          <div className="flex items-center gap-2">
-            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${intel?.provenance?.is_live ? 'bg-emerald-500 animate-pulse' : 'bg-amber-500'}`} />
-            <div>
-              <div className="text-[10px] font-bold text-slate-800 flex items-center gap-1">
-                <span>{intel?.provenance?.is_live ? 'Live NWP Synchronized' : 'Calibrated Telemetry'}</span>
-                <span className="text-[9px] text-slate-400 font-normal">
-                  ({intel?.data_age_seconds !== undefined ? `${intel.data_age_seconds}s age` : 'latest'})
+          <div className="flex items-center gap-2 min-w-0">
+            <span className={`w-2.5 h-2.5 rounded-full shrink-0 ${
+              isSilentRefreshing 
+                ? 'bg-blue-500 animate-ping' 
+                : intel?.provenance?.is_live 
+                  ? 'bg-emerald-500 animate-pulse' 
+                  : 'bg-amber-500'
+            }`} />
+            <div className="min-w-0">
+              <div className="text-[10px] font-bold text-slate-800 flex items-center gap-1.5 truncate">
+                <span>
+                  {isSilentRefreshing
+                    ? 'Updating Weather...'
+                    : intel?.provenance?.is_live
+                      ? 'Live Telemetry Active'
+                      : (intel?.provenance?.data_mode ?? 'Calibrated Telemetry')}
                 </span>
+                {countdown != null && countdown > 0 && (
+                  <span className="text-[9px] px-1.5 py-0.2 rounded bg-blue-100/70 text-blue-800 font-semibold border border-blue-200/60">
+                    Sync in {Math.floor(countdown / 60).toString().padStart(2, '0')}:{(countdown % 60).toString().padStart(2, '0')}
+                  </span>
+                )}
               </div>
-              <div className="text-[9px] text-slate-500 truncate max-w-[180px]">
+              <div className="text-[9px] text-slate-500 truncate max-w-[200px]">
                 {intel?.provenance?.provider ?? 'Open-Meteo ECMWF / GFS'}
+                {intel?.data_age_seconds !== undefined && ` • ${Math.round(intel.data_age_seconds / 60)}m data age`}
               </div>
             </div>
           </div>
 
           <button
             onClick={handleRefresh}
-            disabled={isRefreshing}
+            disabled={isRefreshing || isSilentRefreshing}
             className="px-2.5 py-1 bg-white hover:bg-slate-100 border border-slate-300 rounded-lg font-bold text-[11px] text-slate-700 flex items-center gap-1 shadow-2xs transition active:scale-95 shrink-0"
             title="Force refresh weather data from Open-Meteo"
           >
-            <RefreshCw className={`w-3 h-3 ${isRefreshing ? 'animate-spin text-blue-600' : 'text-slate-500'}`} />
+            <RefreshCw className={`w-3 h-3 ${isRefreshing || isSilentRefreshing ? 'animate-spin text-blue-600' : 'text-slate-500'}`} />
             <span>{isRefreshing ? 'Syncing...' : '↻ Refresh'}</span>
           </button>
         </div>
@@ -269,12 +312,34 @@ export default function InspectorPanel({
           </div>
         </div>
 
-        {/* Coupled Risk Score & Gauge */}
+        {/* Coupled Risk Score & Gauge with Temporal Change Detection */}
         <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl shadow-2xs">
-          <div className="flex justify-between text-slate-700 mb-1 font-semibold text-[11px]">
+          <div className="flex justify-between items-center text-slate-700 mb-1 font-semibold text-[11px]">
             <span>Coupled Risk [P(S) &times; P(D)]</span>
-            <strong className="text-slate-900 font-mono">{coupled.toFixed(4)}</strong>
+            <div className="flex items-center gap-1.5">
+              {intel?.risk_trend && (
+                <span className={`inline-flex items-center gap-0.5 px-1.5 py-0.5 rounded text-[9px] font-extrabold border ${
+                  intel.risk_trend === 'RISING'
+                    ? 'bg-rose-100 text-rose-800 border-rose-200'
+                    : intel.risk_trend === 'FALLING'
+                      ? 'bg-emerald-100 text-emerald-800 border-emerald-200'
+                      : 'bg-slate-100 text-slate-700 border-slate-200'
+                }`}>
+                  {intel.risk_trend === 'RISING' && <TrendingUp className="w-2.5 h-2.5" />}
+                  {intel.risk_trend === 'FALLING' && <TrendingDown className="w-2.5 h-2.5" />}
+                  {intel.risk_trend === 'STABLE' && <Minus className="w-2.5 h-2.5" />}
+                  <span>{intel.risk_trend}</span>
+                  {intel.risk_change !== null && intel.risk_change !== undefined && (
+                    <span className="font-mono ml-0.5">
+                      {intel.risk_change > 0 ? `+${intel.risk_change.toFixed(4)}` : intel.risk_change.toFixed(4)}
+                    </span>
+                  )}
+                </span>
+              )}
+              <strong className="text-slate-900 font-mono text-xs">{coupled.toFixed(4)}</strong>
+            </div>
           </div>
+
           <div className="w-full h-2.5 bg-slate-200 rounded-full overflow-hidden mb-1.5 relative">
             <div
               className="h-full rounded-full transition-all duration-300"
@@ -292,7 +357,11 @@ export default function InspectorPanel({
           </div>
           <div className="flex justify-between text-[9px] text-slate-500 font-medium">
             <span>0.0 (Safe)</span>
-            <span>Threshold T_coup: 0.0502</span>
+            <span>
+              {intel?.previous_coupled_risk !== null && intel?.previous_coupled_risk !== undefined
+                ? `Prev Risk: ${intel.previous_coupled_risk.toFixed(4)} • T_coup: 0.0502`
+                : 'Threshold T_coup: 0.0502'}
+            </span>
             <span>1.0 (Critical)</span>
           </div>
         </div>

@@ -11,7 +11,9 @@ import {
   RiskForecastResponse,
   WeatherRegionsResponse,
   LiveLocationRiskResponse,
-  CoordinateRiskIntelligence
+  CoordinateRiskIntelligence,
+  SyncStatus,
+  RiskHistoryResponse,
 } from './types';
 
 
@@ -830,3 +832,89 @@ function generateCoordinateFallbackIntelligence(
     timestamp: now.toISOString()
   };
 }
+
+
+// ─── Phase 2: Continuous Sync API Functions ───────────────────────────────────
+
+/**
+ * Fetches the current WeatherSyncService status: last sync time, next sync ETA,
+ * provider freshness label, registered coordinate.
+ * Lightweight — no weather data returned.
+ */
+export async function fetchSyncStatus(): Promise<SyncStatus> {
+  try {
+    const res = await fetch(`${API_BASE}/weather/sync-status`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Backend error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] Sync status unavailable:', err);
+    // Return a safe initializing fallback — never falsely claim LIVE
+    return {
+      last_sync_at: null,
+      next_sync_at: null,
+      next_sync_seconds: null,
+      interval_seconds: 600,
+      provider_status: 'INITIALIZING',
+      is_live: false,
+      data_age_minutes: null,
+      selected_coordinate: null,
+    };
+  }
+}
+
+/**
+ * Fetches the risk observation history for a coordinate.
+ * Returns accumulated entries from the in-memory ring buffer.
+ */
+export async function fetchRiskHistory(
+  latitude: number,
+  longitude: number,
+  limit: number = 24
+): Promise<RiskHistoryResponse> {
+  const params = new URLSearchParams({
+    latitude: String(latitude),
+    longitude: String(longitude),
+    limit: String(limit),
+  });
+  try {
+    const res = await fetch(`${API_BASE}/risk/coordinate/history?${params.toString()}`, {
+      cache: 'no-store',
+    });
+    if (!res.ok) throw new Error(`Backend error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] Risk history unavailable:', err);
+    return {
+      latitude,
+      longitude,
+      entries: [],
+      entry_count: 0,
+      trend: null,
+      risk_change: null,
+      timestamp: new Date().toISOString(),
+    };
+  }
+}
+
+/**
+ * Registers a coordinate with the WeatherSyncService for auto-refresh.
+ * Should be called whenever the user selects a new location.
+ * Fire-and-forget — errors are suppressed (sync registration is non-critical).
+ */
+export async function registerCoordinateForSync(
+  latitude: number,
+  longitude: number,
+  cell_id?: string | null,
+  p_s?: number | null
+): Promise<void> {
+  try {
+    await fetch(`${API_BASE}/weather/sync/register`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ latitude, longitude, cell_id: cell_id ?? null, p_s: p_s ?? null }),
+    });
+  } catch (err) {
+    console.debug('[API Client] Sync registration failed (non-critical):', err);
+  }
+}
+

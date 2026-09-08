@@ -16,7 +16,8 @@ try:
     from backend.app.schemas import (
         RiskPredictionRequest, RiskPredictionResponse,
         PointRiskEvaluationRequest, PointRiskEvaluationResponse,
-        NearestCellLookupResponse, CoordinateRiskIntelligenceResponse
+        NearestCellLookupResponse, CoordinateRiskIntelligenceResponse,
+        RiskHistoryResponse,
     )
     from backend.app.model_service import model_service
     from backend.app.risk_engine import risk_engine
@@ -26,7 +27,8 @@ except ImportError:
     from app.schemas import (
         RiskPredictionRequest, RiskPredictionResponse,
         PointRiskEvaluationRequest, PointRiskEvaluationResponse,
-        NearestCellLookupResponse, CoordinateRiskIntelligenceResponse
+        NearestCellLookupResponse, CoordinateRiskIntelligenceResponse,
+        RiskHistoryResponse,
     )
     from app.model_service import model_service
     from app.risk_engine import risk_engine
@@ -219,3 +221,37 @@ def get_coordinate_risk_location(
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Coordinate risk evaluation failed: {str(exc)}")
+
+
+@router.get("/risk/coordinate/history", response_model=RiskHistoryResponse)
+def get_coordinate_risk_history(
+    latitude: Optional[float] = Query(None, ge=24.0, le=27.0, description="WGS84 Latitude"),
+    longitude: Optional[float] = Query(None, ge=89.0, le=94.0, description="WGS84 Longitude"),
+    lat: Optional[float] = Query(None, ge=24.0, le=27.0, description="Latitude alias"),
+    lon: Optional[float] = Query(None, ge=89.0, le=94.0, description="Longitude alias"),
+    limit: int = Query(24, ge=1, le=48, description="Maximum number of history entries to return")
+):
+    """
+    Returns the in-memory risk observation history for a coordinate.
+
+    History accumulates as the coordinate is queried via /risk/coordinate or
+    auto-refreshed by the WeatherSyncService. Entries include: timestamp,
+    rainfall_mm, P(D), P(S), coupled_risk, alert_tier.
+
+    Note: History is held in-memory and resets on backend restart.
+    """
+    eff_lat = latitude if latitude is not None else lat
+    eff_lon = longitude if longitude is not None else lon
+    if eff_lat is None:
+        eff_lat = 25.5788
+    if eff_lon is None:
+        eff_lon = 91.8933
+
+    try:
+        return weather_service.build_risk_history_response(
+            latitude=eff_lat,
+            longitude=eff_lon,
+            limit=limit,
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Risk history retrieval failed: {str(exc)}")

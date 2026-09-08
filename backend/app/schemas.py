@@ -521,5 +521,82 @@ class CoordinateRiskIntelligenceResponse(BaseModel):
     geodesic_distance_km: Optional[float] = None
     is_nearest_grid_lookup: Optional[bool] = True
     is_real_time_inference: Optional[bool] = False
+    # ── Risk Trend Fields (Phase 2: Continuous Synchronization) ──────────────
+    previous_coupled_risk: Optional[float] = None
+    risk_change: Optional[float] = None
+    risk_trend: Optional[str] = None   # "RISING" | "STABLE" | "FALLING"
+    next_sync_seconds: Optional[int] = None
+
+
+# ─────────────────────────────────────────────────────────────────────────────
+# Phase 2: Continuous Synchronization & Temporal Intelligence Schemas
+# ─────────────────────────────────────────────────────────────────────────────
+
+class DataFreshnessStatus(str, Enum):
+    """
+    Strict data provenance status labels for SIH 2026.
+
+    NEVER label cached, fallback, or demo data as LIVE.
+    """
+    LIVE = "LIVE"
+    CACHED_LIVE = "CACHED_LIVE"
+    STALE = "STALE"
+    FALLBACK = "FALLBACK"
+    DEMO_SCENARIO = "DEMO_SCENARIO"
+    ERROR = "ERROR"
+    INITIALIZING = "INITIALIZING"
+
+
+class SyncStatusResponse(BaseModel):
+    """Response for GET /api/v1/weather/sync-status."""
+    last_sync_at: Optional[str] = None
+    next_sync_at: Optional[str] = None
+    next_sync_seconds: Optional[int] = None
+    interval_seconds: int
+    provider_status: str
+    is_live: bool
+    sync_count: int = 0
+    failure_count: int = 0
+    consecutive_failures: int = 0
+    data_age_minutes: Optional[float] = None
+    selected_coordinate: Optional[List[float]] = None
+    selected_cell_id: Optional[str] = None
+    operational_note: str = (
+        "GEOALERT operates in RESEARCH / ADVISORY MODE. "
+        "Data is refreshed from Open-Meteo at the configured interval. "
+        "LIVE status requires genuine external provider connectivity."
+    )
+
+
+class RiskHistoryEntry(BaseModel):
+    """Single time-series entry for a coordinate's risk history."""
+    timestamp: str
+    rainfall_mm: float
+    p_d: float
+    p_s: float
+    coupled_risk: float
+    alert_tier: AlertTierEnum
+
+
+class RiskHistoryResponse(BaseModel):
+    """Response for GET /api/v1/risk/coordinate/history."""
+    latitude: float
+    longitude: float
+    entries: List[RiskHistoryEntry]
+    entry_count: int
+    oldest_entry_at: Optional[str] = None
+    newest_entry_at: Optional[str] = None
+    trend: Optional[str] = None   # "RISING" | "STABLE" | "FALLING"
+    risk_change: Optional[float] = None
+    timestamp: str
+
+
+class CoordinateRegisterRequest(BaseModel):
+    """Request body for POST /api/v1/weather/sync/register."""
+    latitude: float = Field(..., ge=24.0, le=27.0, description="WGS84 Latitude")
+    longitude: float = Field(..., ge=89.0, le=94.0, description="WGS84 Longitude")
+    cell_id: Optional[str] = Field(None, description="Section 34 grid cell ID")
+    p_s: Optional[float] = Field(None, ge=0.0, le=1.0, description="Model A P(S)")
+
 
 

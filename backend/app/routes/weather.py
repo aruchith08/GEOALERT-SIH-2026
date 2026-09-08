@@ -20,9 +20,12 @@ try:
         WeatherRegionsResponse,
         LiveLocationRiskResponse,
         LiveGridResponse,
-        CoordinateRiskIntelligenceResponse
+        CoordinateRiskIntelligenceResponse,
+        SyncStatusResponse,
+        CoordinateRegisterRequest,
     )
     from backend.app.weather_service import weather_service
+    from backend.app.weather_sync_service import weather_sync_service
 except ImportError:
     from app.schemas import (
         WeatherStatusResponse,
@@ -36,9 +39,12 @@ except ImportError:
         WeatherRegionsResponse,
         LiveLocationRiskResponse,
         LiveGridResponse,
-        CoordinateRiskIntelligenceResponse
+        CoordinateRiskIntelligenceResponse,
+        SyncStatusResponse,
+        CoordinateRegisterRequest,
     )
     from app.weather_service import weather_service
+    from app.weather_sync_service import weather_sync_service
 
 router = APIRouter(tags=["Weather & Forecast Intelligence"])
 
@@ -314,5 +320,50 @@ def get_weather_coordinate_risk(
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Coordinate risk evaluation failed: {str(exc)}")
+
+
+@router.get("/weather/sync-status", response_model=SyncStatusResponse)
+def get_weather_sync_status():
+    """
+    Returns the current state of the WeatherSyncService: last sync time,
+    next sync ETA (seconds), provider health, and registered coordinate.
+
+    Data freshness labels are strictly honest:
+    LIVE → provider returned data in this sync cycle.
+    CACHED_LIVE → data from recent cycle within stale threshold.
+    STALE → data older than stale threshold but still retained.
+    FALLBACK → data very old or provider unavailable.
+    INITIALIZING → service started but no sync completed yet.
+    """
+    try:
+        status = weather_sync_service.get_sync_status()
+        return SyncStatusResponse(**status)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Sync status unavailable: {str(exc)}")
+
+
+@router.post("/weather/sync/register", status_code=200)
+def register_coordinate_for_sync(request: CoordinateRegisterRequest):
+    """
+    Registers a coordinate as the 'selected location' for the WeatherSyncService.
+    On the next sync cycle, weather + risk will be refreshed for this coordinate.
+    Called by the frontend whenever the user clicks a location on the map.
+    """
+    try:
+        weather_sync_service.set_selected_coordinate(
+            latitude=request.latitude,
+            longitude=request.longitude,
+            cell_id=request.cell_id,
+            p_s=request.p_s,
+        )
+        return {
+            "registered": True,
+            "latitude": request.latitude,
+            "longitude": request.longitude,
+            "cell_id": request.cell_id,
+            "message": "Coordinate registered for auto-sync."
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Coordinate registration failed: {str(exc)}")
 
 

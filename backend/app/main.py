@@ -13,6 +13,7 @@ from backend.app.config import (
     CORS_ORIGINS_RAW, CORS_ORIGIN_REGEX
 )
 from backend.app.model_service import model_service
+from backend.app.weather_sync_service import weather_sync_service
 from backend.app.routes import health, risk, spatial, metadata, rainfall, weather
 
 
@@ -20,7 +21,11 @@ from backend.app.routes import health, risk, spatial, metadata, rainfall, weathe
 async def lifespan(app: FastAPI):
     # Eagerly load & cryptographically verify Model A & Model B at startup
     model_service.load_models()
+    # Start the background WeatherSyncService (threading.Timer — NOT asyncio)
+    weather_sync_service.start()
     yield
+    # Clean shutdown: cancel pending timer thread
+    weather_sync_service.shutdown()
 
 
 app = FastAPI(

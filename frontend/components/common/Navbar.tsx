@@ -3,10 +3,12 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Map, BarChart3, Truck, BookOpen, Info, ShieldAlert, Activity, AlertTriangle, CloudOff } from 'lucide-react';
+import {
+  Map, BarChart3, Truck, BookOpen, Info, ShieldAlert,
+  Activity, AlertTriangle, CloudOff, RefreshCw, Wifi, WifiOff
+} from 'lucide-react';
 import Logo from './Logo';
-import { WeatherStatus } from '@/lib/types';
-import { fetchWeatherStatus } from '@/lib/api';
+import { useWeatherSync } from '@/lib/useWeatherSync';
 
 const NAV_ITEMS = [
   { name: 'Risk Map', href: '/', icon: Map },
@@ -16,25 +18,128 @@ const NAV_ITEMS = [
   { name: 'About', href: '/about', icon: Info },
 ];
 
+function formatCountdown(secs: number | null): string {
+  if (secs == null) return '';
+  const m = Math.floor(secs / 60).toString().padStart(2, '0');
+  const s = (secs % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
+
 export default function Navbar() {
   const pathname = usePathname();
-  const [weatherStatus, setWeatherStatus] = React.useState<WeatherStatus | null>(null);
-  const [isError, setIsError] = React.useState<boolean>(false);
+  const { syncStatus, countdown, dataFreshnessStatus, isLive, dataAgeMinutes, isLoading } = useWeatherSync();
 
-  React.useEffect(() => {
-    async function checkStatus() {
-      try {
-        const s = await fetchWeatherStatus();
-        setWeatherStatus(s);
-        setIsError(false);
-      } catch {
-        setIsError(true);
-      }
+  const prov = dataFreshnessStatus;
+  const age = dataAgeMinutes;
+  const ageStr = age != null && age > 0 ? `${Math.round(age)} min ago` : null;
+
+  const renderWeatherIndicator = () => {
+    if (isLoading) {
+      return (
+        <span className="flex items-center gap-1.5 bg-slate-100 border border-slate-200 text-slate-600 px-3 py-1 rounded-full font-semibold shadow-2xs">
+          <RefreshCw className="w-3 h-3 animate-spin text-slate-400" />
+          <span>Connecting…</span>
+        </span>
+      );
     }
-    checkStatus();
-    const interval = setInterval(checkStatus, 30000);
-    return () => clearInterval(interval);
-  }, []);
+
+    // ERROR / UNAVAILABLE
+    if (prov === 'ERROR' || prov === 'INITIALIZING' && !syncStatus?.last_sync_at) {
+      return (
+        <span
+          className="flex items-center gap-1.5 bg-rose-50 border border-rose-300 text-rose-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
+          title="External weather provider unreachable. Previous valid data is retained."
+        >
+          <CloudOff className="w-3.5 h-3.5 text-rose-600" />
+          <span className="hidden lg:inline">
+            {ageStr ? `Provider Unavailable — Last valid: ${ageStr}` : 'Provider Unavailable'}
+          </span>
+          <span className="lg:hidden">UNAVAILABLE</span>
+        </span>
+      );
+    }
+
+    // FALLBACK
+    if (prov === 'FALLBACK') {
+      return (
+        <span
+          className="flex items-center gap-1.5 bg-orange-50 border border-orange-300 text-orange-900 px-3 py-1 rounded-full font-semibold shadow-2xs"
+          title="Serving retained fallback data. Provider connectivity degraded."
+        >
+          <WifiOff className="w-3.5 h-3.5 text-orange-600" />
+          <span className="hidden lg:inline">
+            {ageStr ? `FALLBACK DATA — Last valid: ${ageStr}` : 'FALLBACK DATA'}
+          </span>
+          <span className="lg:hidden">FALLBACK</span>
+        </span>
+      );
+    }
+
+    // STALE
+    if (prov === 'STALE') {
+      return (
+        <span
+          className="flex items-center gap-1.5 bg-amber-50 border border-amber-300 text-amber-900 px-3 py-1 rounded-full font-semibold shadow-2xs"
+          title={`Weather data is stale (>${syncStatus?.interval_seconds ? Math.round(syncStatus.interval_seconds / 60) : 20} min old). Retrying.`}
+        >
+          <AlertTriangle className="w-3 h-3 text-amber-600" />
+          <span className="hidden lg:inline">
+            DATA STALE{ageStr ? ` — Updated ${ageStr}` : ''}
+          </span>
+          <span className="lg:hidden">STALE</span>
+        </span>
+      );
+    }
+
+    // DEMO_SCENARIO
+    if (prov === 'DEMO_SCENARIO') {
+      return (
+        <span
+          className="flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
+          title="Operating with scenario presets. Connect to a live provider for telemetry."
+        >
+          <Activity className="w-3.5 h-3.5 text-blue-600" />
+          <span>DEMO / SCENARIO MODE</span>
+        </span>
+      );
+    }
+
+    // CACHED_LIVE
+    if (prov === 'CACHED_LIVE') {
+      return (
+        <span
+          className="flex items-center gap-1.5 bg-teal-50 border border-teal-300 text-teal-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
+          title="Serving recent cached weather. Next sync in progress."
+        >
+          <span className="w-2 h-2 rounded-full bg-teal-400" />
+          <span className="hidden lg:inline">
+            CACHED LIVE{ageStr ? ` — Updated ${ageStr}` : ''}
+            {countdown != null && countdown > 0 ? ` · Next: ${formatCountdown(countdown)}` : ''}
+          </span>
+          <span className="lg:hidden">CACHED LIVE</span>
+        </span>
+      );
+    }
+
+    // LIVE — authentic external telemetry
+    return (
+      <span
+        className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
+        title={`Connected to ${syncStatus?.operational_note ? 'Open-Meteo NWP' : 'Open-Meteo NWP'}`}
+      >
+        <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+        <span className="hidden xl:inline">
+          LIVE WEATHER
+          {ageStr ? ` — Updated ${ageStr}` : ''}
+          {countdown != null && countdown > 0 ? ` · Next in ${formatCountdown(countdown)}` : ''}
+        </span>
+        <span className="hidden lg:inline xl:hidden">
+          LIVE{ageStr ? ` — ${ageStr}` : ''}
+        </span>
+        <span className="lg:hidden">LIVE</span>
+      </span>
+    );
+  };
 
   return (
     <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200/80 shadow-xs">
@@ -87,50 +192,13 @@ export default function Navbar() {
               <span>RESEARCH / ADVISORY</span>
             </span>
 
-            {/* Section 11: 4-State Weather Status Indicator */}
-            {(() => {
-              if (isError || weatherStatus?.mode === 'ERROR' || weatherStatus?.mode === 'UNAVAILABLE') {
-                return (
-                  <span className="flex items-center gap-1.5 bg-rose-50 border border-rose-300 text-rose-800 px-3 py-1 rounded-full font-semibold shadow-2xs" title="External weather provider unreachable. Check API configuration.">
-                    <CloudOff className="w-3.5 h-3.5 text-rose-600" />
-                    <span>WEATHER PROVIDER UNAVAILABLE</span>
-                  </span>
-                );
-              }
-
-              if (weatherStatus?.mode === 'DEMO_SCENARIO' || weatherStatus?.mode === 'DEMO' || !weatherStatus?.is_live) {
-                return (
-                  <span className="flex items-center gap-1.5 bg-blue-50 border border-blue-200 text-blue-800 px-3 py-1 rounded-full font-semibold shadow-2xs" title="Operating with geomorphic scenarios and scenario presets.">
-                    <Activity className="w-3.5 h-3.5 text-blue-600" />
-                    <span>DEMO / SCENARIO MODE</span>
-                  </span>
-                );
-              }
-
-              const age = weatherStatus?.data_age_minutes ?? 0;
-              const isStale = age > 30 || weatherStatus?.mode === 'CACHED_LIVE';
-
-              if (isStale) {
-                return (
-                  <span className="flex items-center gap-1.5 bg-amber-50 border border-amber-300 text-amber-900 px-3 py-1 rounded-full font-semibold shadow-2xs" title="Telemetry cached beyond 30 min window. Fallback active.">
-                    <AlertTriangle className="w-3 h-3 text-amber-600" />
-                    <span>WEATHER DATA STALE — Last Updated: {age > 0 ? `${age}m ago` : '35m ago'}</span>
-                  </span>
-                );
-              }
-
-              // State 1: Authentic Live Weather
-              return (
-                <span className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 px-3 py-1 rounded-full font-semibold shadow-2xs" title={`Connected to ${weatherStatus?.provider_name || 'Open-Meteo NWP'}`}>
-                  <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                  <span>LIVE WEATHER — Last Updated: {age > 0 ? `${age}m ago` : 'Just now'}</span>
-                </span>
-              );
-            })()}
+            {/* Live Freshness Indicator with Countdown */}
+            {renderWeatherIndicator()}
           </div>
         </div>
       </div>
     </header>
   );
 }
+
 
