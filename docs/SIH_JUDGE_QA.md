@@ -85,8 +85,8 @@ On the independent Block 3 East Khasi holdout:
 ---
 
 ### **12. What is the static terrain safety floor $P(S) < 0.1500$?**
-**Answer:**
-Our empirical analysis in Section 33 proved that cells with $P(S) < 0.1500$ correspond to gentle river valleys and plateaus ($< 8^\circ$ slope) where geotechnical slope failure is physically impossible. Even if extreme rainfall drives $P(D) \to 1.0$, the safety floor overrides the alert to **Level 1 Green**, preventing false civil alarms in urban valley settlements.
+Our empirical analysis in Section 33 demonstrated that cells with $P(S) < 0.1500$ correspond to gentle river valleys and plateaus ($< 8^\circ$ slope) where the terrain susceptibility is below the operational geomorphic predisposition floor. Even if extreme rainfall drives $P(D) \to 1.0$, the safety floor overrides the alert to **Level 1 Green**, preventing false civil alarms in urban valley settlements. While localized failures can still occur due to artificial road cuts, human earthwork, or drainage blockages, the regional terrain itself lacks the geomorphic predisposition for natural slope failure. The platform provides decision-support risk intelligence rather than absolute causal certainty.
+
 
 ---
 

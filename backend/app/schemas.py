@@ -188,10 +188,30 @@ class WeatherStatusResponse(BaseModel):
     cache_stats: Optional[Dict[str, Any]] = None
 
 
+class DataProvenance(BaseModel):
+    provider: str
+    data_mode: str = Field(..., description="LIVE | CACHED_LIVE | DEMO_SCENARIO | FALLBACK | ERROR")
+    is_live: bool
+    source_timestamp: str
+    retrieved_at: str
+    data_quality: str = "HIGH_CONFIDENCE"
+    feature_completeness: str = "FEATURE_DATA_COMPLETE"
+
+
+class ForecastIntervals(BaseModel):
+    now_mm: float
+    next_6h_mm: float
+    next_12h_mm: float
+    next_24h_mm: float
+    next_3d_mm: float
+    next_7d_mm: float
+
+
 class CurrentWeatherCondition(BaseModel):
     temperature_c: float
     relative_humidity_pct: float
     precipitation_mm: float
+    wind_speed_10m_kmh: float = 12.0
     weather_code: int
     weather_description: str
     time: str
@@ -217,6 +237,9 @@ class WeatherCurrentResponse(BaseModel):
     current: CurrentWeatherCondition
     features: DynamicFeaturesInput
     dynamic_trigger_p_d: float
+    provenance: Optional[DataProvenance] = None
+    intervals: Optional[ForecastIntervals] = None
+
 
 
 class WeatherForecastResponse(BaseModel):

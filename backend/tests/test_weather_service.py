@@ -197,3 +197,52 @@ def test_risk_forecast_endpoint_get_cell():
     assert data["nearest_cell_id"] is not None
     assert "timeline" in data
     assert len(data["timeline"]) == 7
+
+
+def test_weather_data_provenance_and_intervals():
+    """Verifies that current weather includes strict data provenance and short-term forecast intervals."""
+    res = client.get("/api/v1/weather/current?latitude=25.5788&longitude=91.8933")
+    assert res.status_code == 200
+    data = res.json()
+    assert "provenance" in data
+    assert data["provenance"] is not None
+    assert data["provenance"]["data_mode"] in ["LIVE", "CACHED_LIVE", "DEMO_SCENARIO", "FALLBACK"]
+    assert "data_quality" in data["provenance"]
+    assert "feature_completeness" in data["provenance"]
+
+    assert "intervals" in data
+    assert data["intervals"] is not None
+    assert "now_mm" in data["intervals"]
+    assert "next_6h_mm" in data["intervals"]
+    assert "next_24h_mm" in data["intervals"]
+    assert "next_3d_mm" in data["intervals"]
+
+
+def test_weather_mesh_stations_endpoint():
+    """Verifies GET /api/v1/weather/mesh/stations returns all 12 regional stations across Meghalaya."""
+    res = client.get("/api/v1/weather/mesh/stations")
+    assert res.status_code == 200
+    data = res.json()
+    assert "stations" in data
+    assert len(data["stations"]) == 12
+    for sid, st in data["stations"].items():
+        assert "dynamic_trigger_p_d" in st
+        assert 0.0 <= st["dynamic_trigger_p_d"] <= 1.0
+        assert "rainfall_today_mm" in st
+
+
+def test_spatially_variable_mesh_risk_summary():
+    """
+    Verifies that compute_spatially_variable_risk assigns cells to stations,
+    preserves total cell count (3,156), and computes valid coupled KPI distribution.
+    """
+    res = client.get("/api/v1/weather/mesh/risk-summary")
+    assert res.status_code == 200
+    data = res.json()
+    assert data["total_cells"] == 3156
+    assert data["station_count"] == 12
+    kpis = data["kpi_metrics"]
+    total = kpis["green_count"] + kpis["yellow_count"] + kpis["orange_count"] + kpis["red_count"]
+    assert total == 3156, f"Expected 3156 cells, got {total}"
+    assert data["spatially_variable_active"] is True
+

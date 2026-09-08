@@ -130,10 +130,30 @@ export interface WeatherStatus {
   cache_stats?: any;
 }
 
+export interface DataProvenance {
+  provider: string;
+  data_mode: string;
+  is_live: boolean;
+  source_timestamp: string;
+  retrieved_at: string;
+  data_quality: string;
+  feature_completeness: string;
+}
+
+export interface ForecastIntervals {
+  now_mm: number;
+  next_6h_mm: number;
+  next_12h_mm: number;
+  next_24h_mm: number;
+  next_3d_mm: number;
+  next_7d_mm: number;
+}
+
 export interface CurrentWeatherCondition {
   temperature_c: number;
   relative_humidity_pct: number;
   precipitation_mm: number;
+  wind_speed_10m_kmh?: number;
   weather_code: number;
   weather_description: string;
   time: string;
@@ -159,7 +179,10 @@ export interface WeatherCurrentResponse {
   current: CurrentWeatherCondition;
   features: DynamicRainfallFeatures;
   dynamic_trigger_p_d: number;
+  provenance?: DataProvenance;
+  intervals?: ForecastIntervals;
 }
+
 
 export interface RiskForecastPoint {
   date: string;

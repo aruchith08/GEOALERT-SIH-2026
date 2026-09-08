@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { GridGeoJSON, GridProperties, MapLayerType } from '@/lib/types';
 import { SPATIAL_BLOCKS, ALERT_TIERS } from '@/lib/constants';
-import { Filter, RefreshCw, Layers, Eye } from 'lucide-react';
+import { Filter, RefreshCw, Layers, Eye, AlertTriangle, ShieldCheck, Mountain, CloudRain } from 'lucide-react';
 
 const LeafletMap = dynamic(() => import('./LeafletMap'), {
   ssr: false,
@@ -66,33 +66,36 @@ export default function RiskMapWrapper({
           <div className="inline-flex rounded-full bg-slate-100 p-1 border border-slate-200">
             <button
               onClick={() => setActiveLayer('coupled_risk')}
-              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 ${
+              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
                 activeLayer === 'coupled_risk'
                   ? 'bg-blue-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Coupled Risk P(S)&times;P(D)
+              <ShieldCheck className="w-3 h-3" />
+              <span>Coupled Risk P(S)&times;P(D)</span>
             </button>
             <button
               onClick={() => setActiveLayer('static_susceptibility')}
-              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 ${
+              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
                 activeLayer === 'static_susceptibility'
                   ? 'bg-blue-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Terrain P(S)
+              <Mountain className="w-3 h-3" />
+              <span>Terrain P(S)</span>
             </button>
             <button
               onClick={() => setActiveLayer('dynamic_trigger')}
-              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 ${
+              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
                 activeLayer === 'dynamic_trigger'
-                  ? 'bg-blue-600 text-white shadow-xs'
+                  ? 'bg-amber-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
-              Rainfall P(D)
+              <CloudRain className="w-3 h-3" />
+              <span>Rainfall Only P(D)</span>
             </button>
           </div>
         </div>
@@ -130,6 +133,24 @@ export default function RiskMapWrapper({
           </div>
         </div>
       </div>
+
+      {/* Educational False Alarm Suppression Comparison Banner */}
+      {activeLayer === 'dynamic_trigger' && (
+        <div className="p-3 bg-amber-50/95 border border-amber-300/90 rounded-2xl text-xs font-mono text-amber-900 shadow-xs flex items-start gap-2.5">
+          <AlertTriangle className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
+          <div className="space-y-1">
+            <div className="font-bold flex items-center justify-between">
+              <span>UNCOUPLED METEOROLOGICAL BASELINE (Rainfall Trigger Alone)</span>
+              <span className="text-[10px] bg-amber-200/80 px-2 py-0.5 rounded text-amber-950">
+                Evaluation Comparison Mode
+              </span>
+            </div>
+            <p className="text-[11px] leading-relaxed text-amber-800">
+              Notice that under heavy antecedent rainfall, raw meteorological models flag all 3,156 grid cells indiscriminately—including flat alluvial basins (e.g. Umsning Valley) with zero physical slope failure hazard. In contrast, <strong>Coupled GEOALERT Risk (P(S) &times; P(D))</strong> incorporates the geotechnical susceptibility floor (P(S) &ge; 0.1500), filtering out non-susceptible valley floodplains and preventing unnecessary civil evacuation alerts.
+            </p>
+          </div>
+        </div>
+      )}
 
       {/* Map Surface */}
       <div

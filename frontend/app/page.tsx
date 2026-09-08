@@ -8,12 +8,13 @@ import RiskMapWrapper from '@/components/map/RiskMapWrapper';
 import InspectorPanel from '@/components/dashboard/InspectorPanel';
 import RainfallIntelligencePanel from '@/components/dashboard/RainfallIntelligencePanel';
 import ForecastRiskTimeline from '@/components/dashboard/ForecastRiskTimeline';
-
+import DemoLocationsPills, { PinnedDemoLocation } from '@/components/dashboard/DemoLocationsPills';
 
 export default function DashboardPage() {
   const [geojsonData, setGeojsonData] = useState<GridGeoJSON | null>(null);
   const [selectedCell, setSelectedCell] = useState<GridProperties | null>(null);
   const [customDynamicPD, setCustomDynamicPD] = useState<number>(0.6284);
+  const [activePinnedLocId, setActivePinnedLocId] = useState<string | null>('DEMO_SOHRA');
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
@@ -23,8 +24,14 @@ export default function DashboardPage() {
         const data = await fetchSpatialGrid();
         setGeojsonData(data);
         if (data.features && data.features.length > 0) {
-          const sorted = [...data.features].sort((a, b) => b.properties.coupled_risk - a.properties.coupled_risk);
-          setSelectedCell(sorted[0].properties);
+          // Initialize with Sohra Escarpment cell (CELL_MEG_0878) or highest risk cell
+          const sohraCell = data.features.find(f => f.properties.cell_id === 'CELL_MEG_0878');
+          if (sohraCell) {
+            setSelectedCell(sohraCell.properties);
+          } else {
+            const sorted = [...data.features].sort((a, b) => b.properties.coupled_risk - a.properties.coupled_risk);
+            setSelectedCell(sorted[0].properties);
+          }
         }
       } catch (err) {
         console.error('Failed to load spatial surface', err);
@@ -37,6 +44,49 @@ export default function DashboardPage() {
 
   const handleRainfallChange = (features: DynamicRainfallFeatures, p_d: number) => {
     setCustomDynamicPD(p_d);
+  };
+
+  const handleSelectPinnedLocation = (loc: PinnedDemoLocation) => {
+    setActivePinnedLocId(loc.id);
+    if (geojsonData && geojsonData.features) {
+      const matched = geojsonData.features.find(f => f.properties.cell_id === loc.cell_id);
+      if (matched) {
+        setSelectedCell(matched.properties);
+        return;
+      }
+    }
+
+    // Synthesize GridProperties fallback if feature list not loaded yet
+    const coupled = Number((loc.p_static * customDynamicPD).toFixed(4));
+    let alert_level: any = 'Level 1: Green';
+    let color = '#16a34a';
+    let action = 'Continuous environmental telemetry monitoring.';
+    if (loc.p_static >= 0.1500 && coupled >= 0.3500) {
+      alert_level = 'Level 4: Red';
+      color = '#dc2626';
+      action = 'Critical emergency evacuation alert & traffic halt.';
+    } else if (loc.p_static >= 0.1500 && coupled >= 0.1500) {
+      alert_level = 'Level 3: Orange';
+      color = '#ea580c';
+      action = 'Heightened alert: restricted passage & slope watch.';
+    } else if (loc.p_static >= 0.1500 && coupled >= 0.0502) {
+      alert_level = 'Level 2: Yellow';
+      color = '#ca8a04';
+      action = 'Caution advisory: check drainage ditches & catch-fences.';
+    }
+
+    setSelectedCell({
+      cell_id: loc.cell_id,
+      block: loc.block,
+      elevation_m: loc.elevation_m,
+      slope_deg: loc.slope_deg,
+      p_static: loc.p_static,
+      p_dynamic: customDynamicPD,
+      coupled_risk: coupled,
+      alert_level,
+      color,
+      action
+    });
   };
 
   // Dynamically compute KPI card counts across all 3,156 cells using Model A P(S) * Model B P(D)
@@ -116,6 +166,12 @@ export default function DashboardPage() {
         <span className="text-slate-400 font-bold">&rarr;</span>
         <span className="font-bold text-red-700">4. 4-TIER WARNING</span>
       </div>
+
+      {/* Evaluator Pinned Demonstration Locations */}
+      <DemoLocationsPills
+        onSelectLocation={handleSelectPinnedLocation}
+        activeLocationId={activePinnedLocId}
+      />
 
       {/* Dedicated Rainfall Intelligence Panel */}
       <RainfallIntelligencePanel

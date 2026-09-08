@@ -134,7 +134,8 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
         """
         url = (
             f"{self.base_url}?latitude={latitude:.4f}&longitude={longitude:.4f}"
-            f"&current=temperature_2m,relative_humidity_2m,precipitation,weather_code"
+            f"&current=temperature_2m,relative_humidity_2m,precipitation,weather_code,wind_speed_10m"
+            f"&hourly=precipitation,weather_code,temperature_2m,wind_speed_10m"
             f"&daily=precipitation_sum,weather_code,temperature_2m_max,temperature_2m_min"
             f"&past_days=31&forecast_days=8&timezone=auto"
         )
@@ -148,6 +149,7 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
                 data = json.loads(resp.read().decode("utf-8"))
 
             current_raw = data.get("current", {})
+            hourly_raw = data.get("hourly", {})
             daily_raw = data.get("daily", {})
 
             # Daily series parsing
@@ -157,9 +159,34 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
             temp_max_series = daily_raw.get("temperature_2m_max", [])
             temp_min_series = daily_raw.get("temperature_2m_min", [])
 
+            # Hourly series for short-term intervals (next 6h, 12h, 24h)
+            h_times = hourly_raw.get("time", [])
+            h_precip = hourly_raw.get("precipitation", [])
+            curr_time_str = current_raw.get("time", "")
+
+            # Find starting index in hourly series matching current hour
+            h_start = 0
+            if curr_time_str and curr_time_str in h_times:
+                h_start = h_times.index(curr_time_str)
+            elif h_times:
+                # Approximate start index based on past 31 days (31 * 24 hours = 744 hours)
+                h_start = min(len(h_times) - 24, max(0, 31 * 24))
+
+            # Compute interval precipitation accumulation
+            next_6h_precip = float(sum(h_precip[h_start : h_start + 6])) if h_precip else 0.0
+            next_12h_precip = float(sum(h_precip[h_start : h_start + 12])) if h_precip else 0.0
+            next_24h_precip = float(sum(h_precip[h_start : h_start + 24])) if h_precip else 0.0
+
+            # Daily multi-day forecast intervals
+            # Forecast days are the last 7 items in daily precipitation
+            f_slice = precip_series[-7:] if len(precip_series) >= 7 else precip_series
+            next_3d_precip = float(sum(f_slice[:3])) if f_slice else 0.0
+            next_7d_precip = float(sum(f_slice[:7])) if f_slice else 0.0
+
             # Current condition description
             wcode = current_raw.get("weather_code", 0)
             current_desc = WMO_CODE_MAP.get(wcode, "Variable precipitation")
+            fetch_iso = datetime.now(timezone.utc).isoformat()
 
             return {
                 "latitude": latitude,
@@ -167,14 +194,34 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
                 "elevation_m": data.get("elevation", 0.0),
                 "timezone": data.get("timezone", "UTC"),
                 "provider": self.provider_name,
-                "fetched_at": datetime.now(timezone.utc).isoformat(),
+                "data_mode": "LIVE",
+                "is_live": True,
+                "source_timestamp": current_raw.get("time", fetch_iso),
+                "retrieved_at": fetch_iso,
+                "data_quality": "HIGH_CONFIDENCE",
+                "feature_completeness": "FEATURE_DATA_COMPLETE",
+                "location": {
+                    "latitude": latitude,
+                    "longitude": longitude,
+                    "elevation_m": data.get("elevation", 0.0),
+                    "timezone": data.get("timezone", "UTC")
+                },
                 "current": {
                     "temperature_2m_c": current_raw.get("temperature_2m", 20.0),
                     "relative_humidity_2m_pct": current_raw.get("relative_humidity_2m", 80.0),
                     "precipitation_mm": current_raw.get("precipitation", 0.0),
+                    "wind_speed_10m_kmh": current_raw.get("wind_speed_10m", 12.0),
                     "weather_code": wcode,
                     "weather_description": current_desc,
-                    "time": current_raw.get("time", datetime.now(timezone.utc).isoformat())
+                    "time": current_raw.get("time", fetch_iso)
+                },
+                "intervals": {
+                    "now_mm": round(float(current_raw.get("precipitation", 0.0)), 2),
+                    "next_6h_mm": round(next_6h_precip, 2),
+                    "next_12h_mm": round(next_12h_precip, 2),
+                    "next_24h_mm": round(next_24h_precip, 2),
+                    "next_3d_mm": round(next_3d_precip, 2),
+                    "next_7d_mm": round(next_7d_precip, 2)
                 },
                 "daily": {
                     "time": time_series,
@@ -188,3 +235,4 @@ class OpenMeteoWeatherProvider(WeatherProviderInterface):
         except Exception as exc:
             logger.error(f"Open-Meteo data fetch error for ({latitude}, {longitude}): {exc}")
             raise RuntimeError(f"Open-Meteo query failed: {str(exc)}") from exc
+

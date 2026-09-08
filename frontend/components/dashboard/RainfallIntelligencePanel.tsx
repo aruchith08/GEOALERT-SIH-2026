@@ -17,7 +17,9 @@ import {
   RefreshCw,
   Sun,
   Droplets,
-  Thermometer
+  Thermometer,
+  Wind,
+  Clock
 } from 'lucide-react';
 import {
   DynamicRainfallFeatures,
@@ -290,19 +292,34 @@ export default function RainfallIntelligencePanel({
               </span>
             </div>
 
-            <button
-              onClick={loadWeatherData}
-              disabled={loadingLive}
-              className="flex items-center gap-1 text-[10px] text-blue-700 hover:text-blue-900 font-semibold"
-            >
-              <RefreshCw className={`w-3 h-3 ${loadingLive ? 'animate-spin' : ''}`} />
-              <span>Refresh Telemetry</span>
-            </button>
+            <div className="flex items-center gap-2">
+              {liveWeather?.provenance && (
+                <span
+                  className={`text-[10px] font-bold px-2 py-0.5 rounded-full uppercase ${
+                    liveWeather.provenance.data_mode === 'LIVE'
+                      ? 'bg-emerald-100 text-emerald-800'
+                      : liveWeather.provenance.data_mode === 'CACHED_LIVE'
+                      ? 'bg-blue-100 text-blue-800'
+                      : 'bg-amber-100 text-amber-800'
+                  }`}
+                >
+                  {liveWeather.provenance.data_mode} &bull; {liveWeather.provenance.data_quality}
+                </span>
+              )}
+              <button
+                onClick={loadWeatherData}
+                disabled={loadingLive}
+                className="flex items-center gap-1 text-[10px] text-blue-700 hover:text-blue-900 font-semibold"
+              >
+                <RefreshCw className={`w-3 h-3 ${loadingLive ? 'animate-spin' : ''}`} />
+                <span>Refresh Telemetry</span>
+              </button>
+            </div>
           </div>
 
-          {/* Current Real-World Weather Cards */}
+          {/* Current Real-World Weather Cards (5 Cards) */}
           {liveWeather && (
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 text-center">
+            <div className="grid grid-cols-2 sm:grid-cols-5 gap-2 text-center">
               <div className="p-2.5 bg-white border border-slate-200 rounded-xl shadow-2xs">
                 <div className="flex items-center justify-center gap-1 text-slate-500 text-[10px] font-semibold">
                   <Thermometer className="w-3.5 h-3.5 text-orange-500" />
@@ -311,7 +328,7 @@ export default function RainfallIntelligencePanel({
                 <div className="text-lg font-black text-slate-900 mt-0.5">
                   {liveWeather.current.temperature_c.toFixed(1)}&deg;C
                 </div>
-                <div className="text-[10px] text-slate-400 mt-0.5">
+                <div className="text-[10px] text-slate-400 mt-0.5 truncate">
                   {liveWeather.current.weather_description}
                 </div>
               </div>
@@ -319,35 +336,85 @@ export default function RainfallIntelligencePanel({
               <div className="p-2.5 bg-white border border-slate-200 rounded-xl shadow-2xs">
                 <div className="flex items-center justify-center gap-1 text-slate-500 text-[10px] font-semibold">
                   <Droplets className="w-3.5 h-3.5 text-blue-500" />
-                  <span>Relative Humidity</span>
+                  <span>Humidity</span>
                 </div>
                 <div className="text-lg font-black text-slate-900 mt-0.5">
                   {liveWeather.current.relative_humidity_pct.toFixed(0)}%
                 </div>
-                <div className="text-[10px] text-slate-400 mt-0.5">Soil evaporation index</div>
+                <div className="text-[10px] text-slate-400 mt-0.5">Soil evaporation</div>
+              </div>
+
+              <div className="p-2.5 bg-white border border-slate-200 rounded-xl shadow-2xs">
+                <div className="flex items-center justify-center gap-1 text-slate-500 text-[10px] font-semibold">
+                  <Wind className="w-3.5 h-3.5 text-teal-500" />
+                  <span>Wind Speed</span>
+                </div>
+                <div className="text-lg font-black text-slate-900 mt-0.5">
+                  {(liveWeather.current.wind_speed_10m_kmh ?? 12.0).toFixed(1)} <span className="text-xs font-normal">km/h</span>
+                </div>
+                <div className="text-[10px] text-slate-400 mt-0.5">Surface gradient</div>
               </div>
 
               <div className="p-2.5 bg-white border border-sky-200 rounded-xl shadow-2xs">
                 <div className="flex items-center justify-center gap-1 text-sky-700 text-[10px] font-bold">
                   <CloudRain className="w-3.5 h-3.5 text-sky-600" />
-                  <span>Today's Rain (P0)</span>
+                  <span>Event Rain (P0)</span>
                 </div>
                 <div className="text-lg font-black text-sky-900 mt-0.5">
                   {liveWeather.features.rainfall_event_day.toFixed(1)} mm
                 </div>
-                <div className="text-[10px] text-sky-600 mt-0.5">24h Event Accumulation</div>
+                <div className="text-[10px] text-sky-600 mt-0.5">24h Observed</div>
               </div>
 
               <div className="p-2.5 bg-white border border-indigo-200 rounded-xl shadow-2xs">
                 <div className="flex items-center justify-center gap-1 text-indigo-700 text-[10px] font-bold">
                   <Calendar className="w-3.5 h-3.5 text-indigo-600" />
-                  <span>Antecedent Moisture</span>
+                  <span>ARI-7 Moisture</span>
                 </div>
                 <div className="text-lg font-black text-indigo-900 mt-0.5">
                   {liveWeather.features.ari_7.toFixed(0)} mm
                 </div>
                 <div className="text-[10px] text-indigo-600 mt-0.5">
-                  7-Day ARI-7 ({liveWeather.features.rainy_days_7d} rainy days)
+                  {liveWeather.features.rainy_days_7d} rainy days
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* Short-Term Forecast Accumulation Intervals */}
+          {liveWeather?.intervals && (
+            <div className="p-2.5 bg-blue-50/50 border border-blue-200 rounded-xl">
+              <div className="flex items-center justify-between text-[10px] font-bold text-slate-700 mb-1.5">
+                <span className="flex items-center gap-1 text-blue-900">
+                  <Clock className="w-3 h-3 text-blue-600" />
+                  <span>Numerical Precipitation Forecast Intervals:</span>
+                </span>
+                <span className="text-slate-500">ECMWF / Open-Meteo NWP</span>
+              </div>
+              <div className="grid grid-cols-3 sm:grid-cols-6 gap-1.5 text-center">
+                <div className="p-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+                  <span className="text-[9px] text-slate-500 block">NOW</span>
+                  <strong className="text-xs text-sky-900">{liveWeather.intervals.now_mm.toFixed(1)} mm</strong>
+                </div>
+                <div className="p-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+                  <span className="text-[9px] text-slate-500 block">NEXT 6H</span>
+                  <strong className="text-xs text-sky-900">{liveWeather.intervals.next_6h_mm.toFixed(1)} mm</strong>
+                </div>
+                <div className="p-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+                  <span className="text-[9px] text-slate-500 block">NEXT 12H</span>
+                  <strong className="text-xs text-sky-900">{liveWeather.intervals.next_12h_mm.toFixed(1)} mm</strong>
+                </div>
+                <div className="p-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+                  <span className="text-[9px] text-slate-500 block">NEXT 24H</span>
+                  <strong className="text-xs text-sky-900">{liveWeather.intervals.next_24h_mm.toFixed(1)} mm</strong>
+                </div>
+                <div className="p-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+                  <span className="text-[9px] text-slate-500 block">NEXT 3 DAYS</span>
+                  <strong className="text-xs text-indigo-900">{liveWeather.intervals.next_3d_mm.toFixed(0)} mm</strong>
+                </div>
+                <div className="p-1.5 bg-white rounded-lg border border-slate-200 shadow-2xs">
+                  <span className="text-[9px] text-slate-500 block">NEXT 7 DAYS</span>
+                  <strong className="text-xs text-indigo-900">{liveWeather.intervals.next_7d_mm.toFixed(0)} mm</strong>
                 </div>
               </div>
             </div>
@@ -382,6 +449,7 @@ export default function RainfallIntelligencePanel({
           </div>
         </div>
       )}
+
 
       {/* TAB 2: DEMO / SCENARIO SIMULATION */}
       {activeTab === 'DEMO' && (

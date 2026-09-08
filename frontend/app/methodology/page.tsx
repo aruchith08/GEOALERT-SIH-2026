@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { BookOpen, Mountain, CloudRain, ShieldCheck, CheckCircle2, Layers, Cpu, Compass } from 'lucide-react';
+import { BookOpen, Mountain, CloudRain, ShieldCheck, CheckCircle2, Layers, Cpu, Compass, Network, Radio, Globe, Activity } from 'lucide-react';
 
 export default function MethodologyPage() {
   return (
@@ -106,6 +106,92 @@ export default function MethodologyPage() {
             <div className="font-bold text-red-800">Level 4: Red</div>
             <div className="text-[11px] mt-1 text-slate-600">{'Risk \u2265 0.3500'}</div>
             <p className="text-[10px] text-slate-500 mt-1 font-sans">Critical landslide hazard. Immediate emergency protocols.</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Spatial Cross-Validation Architecture (5 Regional Blocks) */}
+      <div className="bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl p-5 shadow-xs space-y-3">
+        <h3 className="font-extrabold text-slate-900 text-base flex items-center gap-2">
+          <Network className="w-5 h-5 text-indigo-600" />
+          Spatial Block Cross-Validation (Eliminating Spatial Autocorrelation Leakage)
+        </h3>
+        <p className="text-xs text-slate-600 leading-relaxed">
+          Standard random k-fold cross-validation in geospatial machine learning results in catastrophic data leakage because adjacent grid cells share virtually identical lithology, elevation, and climate regimes. GEOALERT enforces rigorous <strong>Spatial Block Cross-Validation</strong> across 5 geomorphic districts:
+        </p>
+
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-2.5 text-xs font-mono">
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+            <div className="font-bold text-slate-900">East Khasi Block</div>
+            <div className="text-[10px] text-slate-500 mt-1">Orographic Escarpment &bull; High Slopes &bull; 922 Cells</div>
+          </div>
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+            <div className="font-bold text-slate-900">West Khasi Block</div>
+            <div className="text-[10px] text-slate-500 mt-1">Dissected Granite Uplands &bull; Saprolite &bull; 443 Cells</div>
+          </div>
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+            <div className="font-bold text-slate-900">Jaintia Hills Block</div>
+            <div className="text-[10px] text-slate-500 mt-1">Karstic Limestone &bull; Coal Mining &bull; 486 Cells</div>
+          </div>
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+            <div className="font-bold text-slate-900">Ri-Bhoi Block</div>
+            <div className="text-[10px] text-slate-500 mt-1">Lowland Foothill Corridor &bull; Valleys &bull; 715 Cells</div>
+          </div>
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl">
+            <div className="font-bold text-slate-900">Garo Hills Block</div>
+            <div className="text-[10px] text-slate-500 mt-1">Sedimentary Basin &bull; Western Divide &bull; 590 Cells</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Spatially Variable Meteorological Mesh (12 Regional Stations) */}
+      <div className="bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl p-5 shadow-xs space-y-3">
+        <h3 className="font-extrabold text-slate-900 text-base flex items-center gap-2">
+          <Radio className="w-5 h-5 text-sky-600" />
+          12-Station Meteorological Sampling Mesh &bull; Spatially Variable P(D)(x, y, t)
+        </h3>
+        <p className="text-xs text-slate-600 leading-relaxed">
+          Meghalaya exhibits extreme microclimates—annual precipitation ranges from &gt;11,000 mm on the southern Sohra rim to &lt;2,000 mm in northern valleys. GEOALERT implements a <strong>12-Station Meteorological Mesh</strong> queried via Open-Meteo with in-memory TTL caching. Vectorized geodesic Haversine distance assigns each of the 3,156 Section 34 grid cells to its nearest meteorological station:
+        </p>
+
+        <div className="p-3 bg-sky-50/70 border border-sky-200 rounded-xl font-mono text-xs text-sky-950 space-y-1">
+          <div className="font-bold flex items-center justify-between">
+            <span>Mesh Distribution (12 Stations):</span>
+            <span className="text-[10px] bg-sky-200 px-2 py-0.5 rounded text-sky-900 font-sans font-bold">15-Min Cache TTL</span>
+          </div>
+          <div className="text-[11px] text-slate-700">
+            Sohra (Escarpment) &bull; Shillong (Plateau) &bull; Jowai &bull; Khliehriat &bull; Nongstoin &bull; Mairang &bull; Nongpoh &bull; Byrnihat &bull; Tura &bull; Williamnagar &bull; Baghmara &bull; Resubelpara
+          </div>
+          <p className="text-[10px] text-slate-500 pt-1 font-sans">
+            Ensures that a cloudburst localized over Cherrapunjee does not artificially elevate alert levels in the Garo Hills or northern Ri-Bhoi.
+          </p>
+        </div>
+      </div>
+
+      {/* Scalability Architecture for Northeast Region (NER) */}
+      <div className="bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl p-5 shadow-xs space-y-3">
+        <h3 className="font-extrabold text-slate-900 text-base flex items-center gap-2">
+          <Globe className="w-5 h-5 text-emerald-600" />
+          Scalability Architecture: Regional Expansion across Northeast India (NER)
+        </h3>
+        <p className="text-xs text-slate-600 leading-relaxed">
+          While developed with high-resolution calibration for Meghalaya as the operational SIH prototype, GEOALERT is architected with strict modular separation for rapid deployment across the entire Northeast Region:
+        </p>
+
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="font-bold text-slate-900">1. Modular Ingestion Layer</div>
+            <p className="text-[10px] text-slate-500 font-sans">Standardized GeoTIFF raster pipelines ingest ISRO CartoDEM (30m/10m), GSI 1:50k Lithology, and ESA WorldCover for any target state (Assam, Sikkim, Arunachal Pradesh, Mizoram, Manipur, Nagaland, Tripura).</p>
+          </div>
+
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="font-bold text-slate-900">2. Decoupled Model Transfer</div>
+            <p className="text-[10px] text-slate-500 font-sans">Model B (Dynamic Rainfall Trigger) is transferable across the Indo-Burma / Himalayan ranges as antecedent moisture physics (ARI indices) govern pore pressure across all wet monsoonal regoliths.</p>
+          </div>
+
+          <div className="p-3 bg-slate-50 border border-slate-200 rounded-xl space-y-1">
+            <div className="font-bold text-slate-900">3. Scalable Multi-Source Telemetry</div>
+            <p className="text-[10px] text-slate-500 font-sans">The weather provider adapter pattern seamlessly switches between Open-Meteo, IMD Doppler Weather Radar feeds, and NASA GPM IMERG satellite precipitation without modifying core risk pipelines.</p>
           </div>
         </div>
       </div>

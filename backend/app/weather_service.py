@@ -30,8 +30,11 @@ from backend.app.schemas import (
     WeatherHistoryResponse,
     RiskForecastPoint,
     RiskForecastResponse,
-    ExplainabilityBreakdown
+    ExplainabilityBreakdown,
+    DataProvenance,
+    ForecastIntervals
 )
+
 
 logger = logging.getLogger(__name__)
 
@@ -181,14 +184,29 @@ class WeatherService:
             "elevation_m": 1496.0,
             "timezone": "Asia/Kolkata",
             "provider": "Calibrated Scenario (Offline Fallback)",
+            "data_mode": "DEMO_SCENARIO",
+            "is_live": False,
+            "source_timestamp": now.isoformat(),
+            "retrieved_at": now.isoformat(),
+            "data_quality": "FALLBACK_CALIBRATED",
+            "feature_completeness": "FEATURE_DATA_PARTIAL",
             "fetched_at": now.isoformat(),
             "current": {
                 "temperature_2m_c": 21.5,
                 "relative_humidity_2m_pct": 88.0,
                 "precipitation_mm": 45.0,
+                "wind_speed_10m_kmh": 14.0,
                 "weather_code": 63,
                 "weather_description": "Heavy rain (Calibrated)",
                 "time": now.isoformat()
+            },
+            "intervals": {
+                "now_mm": 45.0,
+                "next_6h_mm": 18.0,
+                "next_12h_mm": 35.0,
+                "next_24h_mm": 52.0,
+                "next_3d_mm": 157.0,
+                "next_7d_mm": 232.0
             },
             "daily": {
                 "time": time_series,
@@ -203,7 +221,7 @@ class WeatherService:
     def get_current_weather(self, latitude: float, longitude: float) -> WeatherCurrentResponse:
         """
         Retrieves current conditions, derives 10 Model B features,
-        and computes the real-time dynamic trigger hazard P(D).
+        and computes the real-time dynamic trigger hazard P(D) with strict data provenance.
         """
         data, cache_status = self.fetch_weather_data(latitude, longitude)
         daily = data.get("daily", {})
@@ -219,9 +237,37 @@ class WeatherService:
             temperature_c=float(current_raw.get("temperature_2m_c", 20.0)),
             relative_humidity_pct=float(current_raw.get("relative_humidity_2m_pct", 80.0)),
             precipitation_mm=float(current_raw.get("precipitation_mm", 0.0)),
+            wind_speed_10m_kmh=float(current_raw.get("wind_speed_10m_kmh", 12.0)),
             weather_code=int(current_raw.get("weather_code", 0)),
             weather_description=str(current_raw.get("weather_description", "Fair")),
             time=str(current_raw.get("time", datetime.now(timezone.utc).isoformat()))
+        )
+
+        intervals_raw = data.get("intervals", {})
+        intervals_obj = ForecastIntervals(
+            now_mm=float(intervals_raw.get("now_mm", curr_cond.precipitation_mm)),
+            next_6h_mm=float(intervals_raw.get("next_6h_mm", 0.0)),
+            next_12h_mm=float(intervals_raw.get("next_12h_mm", 0.0)),
+            next_24h_mm=float(intervals_raw.get("next_24h_mm", 0.0)),
+            next_3d_mm=float(intervals_raw.get("next_3d_mm", 0.0)),
+            next_7d_mm=float(intervals_raw.get("next_7d_mm", 0.0))
+        ) if intervals_raw else None
+
+        # Honest provenance definition
+        data_mode = str(data.get("data_mode", "LIVE" if data.get("is_live", False) else "DEMO_SCENARIO"))
+        if cache_status == "CACHED_FRESH" and data_mode == "LIVE":
+            data_mode = "CACHED_LIVE"
+        elif cache_status == "STALE_CACHE":
+            data_mode = "FALLBACK"
+
+        provenance_obj = DataProvenance(
+            provider=str(data.get("provider", self.provider.get_provider_name())),
+            data_mode=data_mode,
+            is_live=bool(data.get("is_live", False)),
+            source_timestamp=str(data.get("source_timestamp", curr_cond.time)),
+            retrieved_at=str(data.get("retrieved_at", datetime.now(timezone.utc).isoformat())),
+            data_quality=str(data.get("data_quality", "HIGH_CONFIDENCE")),
+            feature_completeness=str(data.get("feature_completeness", "FEATURE_DATA_COMPLETE"))
         )
 
         return WeatherCurrentResponse(
@@ -233,8 +279,11 @@ class WeatherService:
             timestamp=datetime.now(timezone.utc).isoformat(),
             current=curr_cond,
             features=DynamicFeaturesInput(**current_feats),
-            dynamic_trigger_p_d=round(p_d, 4)
+            dynamic_trigger_p_d=round(p_d, 4),
+            provenance=provenance_obj,
+            intervals=intervals_obj
         )
+
 
     def get_weather_forecast(self, latitude: float, longitude: float, days: int = 7) -> WeatherForecastResponse:
         """Retrieves multi-day numerical weather predictions for the next 7 days."""

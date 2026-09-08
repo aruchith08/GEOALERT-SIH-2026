@@ -3,6 +3,19 @@
 import React, { useState } from 'react';
 import { Truck, ShieldAlert, AlertTriangle, CloudRain, Mountain, ShieldCheck, Flame, Sliders } from 'lucide-react';
 
+interface CorridorSegment {
+  segment_id: string;
+  chainage_km: string;
+  km_start: number;
+  km_end: number;
+  name: string;
+  slope_deg: number;
+  p_static: number;
+  vulnerability: string;
+  is_hotspot?: boolean;
+  hotspot_coords?: [number, number];
+}
+
 interface CorridorData {
   corridor_id: string;
   corridor_name: string;
@@ -10,6 +23,7 @@ interface CorridorData {
   distance_km: number;
   static_susceptibility: number;
   critical_vulnerability: string;
+  segments: CorridorSegment[];
 }
 
 const CORRIDORS: CorridorData[] = [
@@ -19,7 +33,14 @@ const CORRIDORS: CorridorData[] = [
     route_code: 'NH-40',
     distance_km: 103,
     static_susceptibility: 0.6120,
-    critical_vulnerability: 'Steep cut slopes along Umiam lake escarpment with high truck traffic density.'
+    critical_vulnerability: 'Steep cut slopes along Umiam lake escarpment with high truck traffic density.',
+    segments: [
+      { segment_id: 'NH40_S1', chainage_km: 'KM 0–18', km_start: 0, km_end: 18, name: 'Byrnihat Plain & Gateway', slope_deg: 6.2, p_static: 0.0820, vulnerability: 'Lowland sediment plain; zero slope failure predisposition.' },
+      { segment_id: 'NH40_S2', chainage_km: 'KM 18–42', km_start: 18, km_end: 42, name: 'Nongpoh Foothill Ramps', slope_deg: 19.5, p_static: 0.3120, vulnerability: 'Moderate weathered schist cuts with localized roadside gullying.' },
+      { segment_id: 'NH40_S3', chainage_km: 'KM 42–68', km_start: 42, km_end: 68, name: 'Umsning Basin Flatland', slope_deg: 4.8, p_static: 0.0450, vulnerability: 'Gentle agricultural basin safely protected by P(S) < 0.1500 floor.' },
+      { segment_id: 'NH40_S4', chainage_km: 'KM 68–88', km_start: 68, km_end: 88, name: 'Umiam Escarpment Cut-Slopes', slope_deg: 34.8, p_static: 0.6850, vulnerability: 'Steep road cuts in fractured quartzite; high risk of translational slides.', is_hotspot: true, hotspot_coords: [25.6600, 91.9200] },
+      { segment_id: 'NH40_S5', chainage_km: 'KM 88–103', km_start: 88, km_end: 103, name: 'Mawlai Shillong Ridge Approach', slope_deg: 26.1, p_static: 0.4900, vulnerability: 'Urban edge engineered slopes with intense vehicular vibration loads.' }
+    ]
   },
   {
     corridor_id: 'CORR_02',
@@ -27,7 +48,13 @@ const CORRIDORS: CorridorData[] = [
     route_code: 'NH-44 / NH-6',
     distance_km: 142,
     static_susceptibility: 0.6845,
-    critical_vulnerability: 'Heavy overburden coal transport vibrations and active drainage gully erosion.'
+    critical_vulnerability: 'Heavy overburden coal transport vibrations and active drainage gully erosion.',
+    segments: [
+      { segment_id: 'NH6_S1', chainage_km: 'KM 0–30', km_start: 0, km_end: 30, name: 'Jowai Sub-Plateau', slope_deg: 14.2, p_static: 0.2200, vulnerability: 'Undulating tableland; stable road bench with roadside ditches.' },
+      { segment_id: 'NH6_S2', chainage_km: 'KM 30–75', km_start: 30, km_end: 75, name: 'Khliehriat Overburden Mine Corridor', slope_deg: 28.4, p_static: 0.5800, vulnerability: 'Unconsolidated mining overburden piles vulnerable to debris flows.' },
+      { segment_id: 'NH6_S3', chainage_km: 'KM 75–115', km_start: 75, km_end: 115, name: 'Lumshnong Karstic Limestone Gorge', slope_deg: 36.5, p_static: 0.7250, vulnerability: 'Deep canyon cuts with solution cavity collapses and rockfalls.', is_hotspot: true, hotspot_coords: [25.1850, 92.3800] },
+      { segment_id: 'NH6_S4', chainage_km: 'KM 115–142', km_start: 115, km_end: 142, name: 'Sonapur Tunnel & Border Descent', slope_deg: 32.0, p_static: 0.6400, vulnerability: 'Active perennial slide zone requiring recurring heavy earth-moving standby.' }
+    ]
   },
   {
     corridor_id: 'CORR_03',
@@ -35,7 +62,12 @@ const CORRIDORS: CorridorData[] = [
     route_code: 'SH-5',
     distance_km: 54,
     static_susceptibility: 0.6910,
-    critical_vulnerability: 'Extreme orographic precipitation zone and deep canyon road traverses.'
+    critical_vulnerability: 'Extreme orographic precipitation zone and deep canyon road traverses.',
+    segments: [
+      { segment_id: 'SH5_S1', chainage_km: 'KM 0–15', km_start: 0, km_end: 15, name: 'Upper Shillong Pine Tableland', slope_deg: 12.0, p_static: 0.1800, vulnerability: 'Forested gentle gradient; safe tourist traffic corridor.' },
+      { segment_id: 'SH5_S2', chainage_km: 'KM 15–35', km_start: 15, km_end: 35, name: 'Mylliem — Mawkdok Canyon Traverse', slope_deg: 37.2, p_static: 0.7400, vulnerability: 'Sheer vertical canyon cliff edges with severe mudflow risk during cloudbursts.', is_hotspot: true, hotspot_coords: [25.3500, 91.7550] },
+      { segment_id: 'SH5_S3', chainage_km: 'KM 35–54', km_start: 35, km_end: 54, name: 'Sohra Escarpment Rim', slope_deg: 31.4, p_static: 0.6900, vulnerability: 'World record rainfall exposure; intense pore pressure dissipation needed.' }
+    ]
   },
   {
     corridor_id: 'CORR_04',
@@ -43,7 +75,12 @@ const CORRIDORS: CorridorData[] = [
     route_code: 'SH-12',
     distance_km: 88,
     static_susceptibility: 0.2454,
-    critical_vulnerability: 'Gentle western hills with localized flash-flood saturated road shoulders.'
+    critical_vulnerability: 'Gentle western hills with localized flash-flood saturated road shoulders.',
+    segments: [
+      { segment_id: 'SH12_S1', chainage_km: 'KM 0–22', km_start: 0, km_end: 22, name: 'Tura Ridge Western Flank', slope_deg: 24.1, p_static: 0.3800, vulnerability: 'Forested ridge cut slopes with minor shallow slides in monsoons.' },
+      { segment_id: 'SH12_S2', chainage_km: 'KM 22–55', km_start: 22, km_end: 55, name: 'Rongram River Valley', slope_deg: 9.2, p_static: 0.1100, vulnerability: 'River valley terrace protected by P(S) < 0.1500 floor.' },
+      { segment_id: 'SH12_S3', chainage_km: 'KM 55–88', km_start: 55, km_end: 88, name: 'Phulbari Lowland Flood Boundary', slope_deg: 4.1, p_static: 0.0500, vulnerability: 'Alluvial plain with road embankment erosion rather than mass movement.' }
+    ]
   },
   {
     corridor_id: 'CORR_05',
@@ -51,7 +88,12 @@ const CORRIDORS: CorridorData[] = [
     route_code: 'MDR-22',
     distance_km: 72,
     static_susceptibility: 0.4992,
-    critical_vulnerability: 'High ridge exposures with shallow regolith soil subject to heavy saturation creep.'
+    critical_vulnerability: 'High ridge exposures with shallow regolith soil subject to heavy saturation creep.',
+    segments: [
+      { segment_id: 'MDR22_S1', chainage_km: 'KM 0–25', km_start: 0, km_end: 25, name: 'Mairang High Plateau Divide', slope_deg: 18.0, p_static: 0.2900, vulnerability: 'Wind-exposed ridge bench with moderate water saturation.' },
+      { segment_id: 'MDR22_S2', chainage_km: 'KM 25–50', km_start: 25, km_end: 50, name: 'Kynshi River Canyon Cut-Slopes', slope_deg: 33.5, p_static: 0.6100, vulnerability: 'Unreinforced earth cut slopes vulnerable to saturation slumping.', is_hotspot: true, hotspot_coords: [25.5350, 91.4500] },
+      { segment_id: 'MDR22_S3', chainage_km: 'KM 50–72', km_start: 50, km_end: 72, name: 'Nongstoin Regolith Uplands', slope_deg: 22.3, p_static: 0.3950, vulnerability: 'Granitic saprolite weathering crust with rotational slide susceptibility.' }
+    ]
   }
 ];
 
@@ -178,7 +220,7 @@ export default function InfrastructurePage() {
                 {/* Active Dynamic Coupled Risk */}
                 <div className={`mt-3 p-3 rounded-xl border flex items-center justify-between font-mono text-xs shadow-2xs ${current.bg}`}>
                   <div>
-                    <div className="text-[10px] font-bold uppercase">Active Coupled Risk</div>
+                    <div className="text-[10px] font-bold uppercase">Corridor Mean Risk</div>
                     <div className="text-base font-black mt-0.5">{current.risk.toFixed(4)}</div>
                   </div>
                   <div className="text-right">
@@ -187,6 +229,48 @@ export default function InfrastructurePage() {
                     </span>
                   </div>
                 </div>
+
+                {/* Segmented Highway Chainage Mileage Risk Bar */}
+                <div className="mt-3 space-y-1">
+                  <div className="flex items-center justify-between text-[10px] font-mono text-slate-500">
+                    <span className="font-bold text-slate-700">KM 0</span>
+                    <span className="font-bold uppercase tracking-wider text-slate-500">Chainage Risk Profile ({c.segments.length} Segments)</span>
+                    <span className="font-bold text-slate-700">KM {c.distance_km}</span>
+                  </div>
+                  <div className="h-3 w-full bg-slate-100 rounded-full overflow-hidden flex border border-slate-200">
+                    {c.segments.map((seg) => {
+                      const segTier = computeTier(seg.p_static, currentScenario.p_d);
+                      const widthPct = ((seg.km_end - seg.km_start) / c.distance_km) * 100;
+                      return (
+                        <div
+                          key={seg.segment_id}
+                          style={{ width: `${widthPct}%`, backgroundColor: segTier.color }}
+                          title={`${seg.name} (${seg.chainage_km}): Risk=${(seg.p_static * currentScenario.p_d).toFixed(4)} [${segTier.tier}]`}
+                          className="h-full border-r border-white/40 last:border-0 hover:opacity-80 transition-opacity cursor-help"
+                        />
+                      );
+                    })}
+                  </div>
+                  <div className="flex items-center justify-between text-[9px] font-mono text-slate-400">
+                    <span>{c.segments[0].name.split(' ')[0]}</span>
+                    <span>{c.segments[c.segments.length - 1].name.split(' ')[0]}</span>
+                  </div>
+                </div>
+
+                {/* Critical Cut-Slope Hotspot Callout */}
+                {c.segments.find((s) => s.is_hotspot) && (
+                  <div className="mt-2.5 p-2 bg-red-50/80 border border-red-200 rounded-xl text-[11px] font-mono text-red-900 flex items-start gap-1.5">
+                    <AlertTriangle className="w-3.5 h-3.5 text-red-600 shrink-0 mt-0.5" />
+                    <div>
+                      <div className="font-bold text-[10px] uppercase text-red-800">
+                        Critical Cut-Slope Hotspot &bull; {c.segments.find((s) => s.is_hotspot)?.chainage_km}
+                      </div>
+                      <div className="text-[10px] text-red-700">
+                        {c.segments.find((s) => s.is_hotspot)?.name} ({c.segments.find((s) => s.is_hotspot)?.slope_deg}&deg; slope, P(S) = {c.segments.find((s) => s.is_hotspot)?.p_static.toFixed(3)})
+                      </div>
+                    </div>
+                  </div>
+                )}
 
                 {/* 3-Scenario Stress Test Matrix */}
                 <div className="mt-3 space-y-1.5 text-xs font-mono">

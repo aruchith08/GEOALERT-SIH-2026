@@ -113,3 +113,33 @@ def get_forecast_risk(
         )
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Forecast risk evaluation failed: {str(exc)}")
+
+
+@router.get("/weather/mesh/stations")
+def get_mesh_stations():
+    """
+    Returns telemetry and derived Model B dynamic trigger P(D)
+    for all 12 regional meteorological stations across Meghalaya.
+    """
+    try:
+        from backend.app.weather_mesh import weather_mesh_service
+        return {
+            "timestamp": weather_mesh_service._last_mesh_update or "",
+            "stations": weather_mesh_service.update_station_telemetry()
+        }
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to fetch mesh stations: {str(exc)}")
+
+
+@router.get("/weather/mesh/risk-summary")
+def get_mesh_risk_summary():
+    """
+    Computes spatially variable P(D)(x,y,t) and coupled Risk(x,y,t) across all 3,156 cells,
+    assigning each cell to its nearest meteorological station.
+    """
+    try:
+        from backend.app.weather_mesh import weather_mesh_service
+        return weather_mesh_service.compute_spatially_variable_risk()
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to compute spatial mesh risk: {str(exc)}")
+

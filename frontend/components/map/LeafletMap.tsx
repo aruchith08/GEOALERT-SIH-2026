@@ -28,6 +28,25 @@ function MapAutoBounds({ features }: { features: GridFeature[] }) {
   return null;
 }
 
+function MapPanToSelected({
+  features,
+  selectedCellId
+}: {
+  features: GridFeature[];
+  selectedCellId?: string;
+}) {
+  const map = useMap();
+  useEffect(() => {
+    if (!map || !selectedCellId) return;
+    const feat = features.find((f) => f.properties.cell_id === selectedCellId);
+    if (feat) {
+      const [lon, lat] = feat.geometry.coordinates;
+      map.flyTo([lat, lon], Math.max(map.getZoom(), 10), { duration: 0.8 });
+    }
+  }, [map, selectedCellId, features]);
+  return null;
+}
+
 function getLayerStyle(p: GridProperties, activeLayer: MapLayerType, isSelected: boolean, customDynamicPD?: number) {
   const pd = customDynamicPD ?? p.p_dynamic;
   const ps = p.p_static;
@@ -110,6 +129,7 @@ export default function LeafletMap({
       />
 
       <MapAutoBounds features={features} />
+      <MapPanToSelected features={features} selectedCellId={selectedCellId} />
 
       {features.map((feat) => {
         const [lon, lat] = feat.geometry.coordinates;
