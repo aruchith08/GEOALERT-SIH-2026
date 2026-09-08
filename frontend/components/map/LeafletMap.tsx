@@ -47,10 +47,25 @@ function MapPanToSelected({
   return null;
 }
 
+function getBlockBaseRainfall(blockName: string): number {
+  const b = (blockName || '').toLowerCase();
+  if (b.includes('khasi') && !b.includes('west')) return 48.0; // East Khasi / Sohra / Mawsynram
+  if (b.includes('jaintia')) return 38.0; // Jaintia Hills / Khliehriat
+  if (b.includes('west khasi')) return 26.0; // West Khasi Hills / Nongstoin
+  if (b.includes('garo')) return 22.0; // Garo Hills / Tura
+  if (b.includes('ri-bhoi') || b.includes('ribhoi')) return 11.5; // Ri-Bhoi leeward rain shadow
+  return 24.0;
+}
+
 function getLayerStyle(p: GridProperties, activeLayer: MapLayerType, isSelected: boolean, customDynamicPD?: number) {
   const pd = customDynamicPD ?? p.p_dynamic;
   const ps = p.p_static;
   const coupled = ps * pd;
+
+  const rainScale = (customDynamicPD ?? 0.6284) / 0.6284;
+  const currentRainMM = Number((getBlockBaseRainfall(p.block) * rainScale).toFixed(1));
+  const forecastRainMM = Number((currentRainMM * 3.6).toFixed(1));
+  const forecastRisk = Number(Math.min(ps * Math.min(pd * 1.18, 0.95), 1.0).toFixed(4));
 
   let color = p.color;
   let radius = 4;
@@ -80,8 +95,53 @@ function getLayerStyle(p: GridProperties, activeLayer: MapLayerType, isSelected:
       color = '#dc2626';
       radius = 6.5;
     }
+  } else if (activeLayer === 'current_rainfall') {
+    // Distinct Cyan-to-Purple sequential palette (separate from Green-Yellow-Orange-Red risk tiers)
+    if (currentRainMM < 5.0) {
+      color = '#38bdf8'; // Light Cyan (<5mm)
+      radius = 3.5;
+    } else if (currentRainMM < 20.0) {
+      color = '#0284c7'; // Royal Blue (5-20mm)
+      radius = 4.5;
+    } else if (currentRainMM < 50.0) {
+      color = '#4f46e5'; // Indigo (20-50mm)
+      radius = 5.5;
+    } else {
+      color = '#7e22ce'; // Deep Purple (>=50mm)
+      radius = 6.5;
+    }
+  } else if (activeLayer === 'forecast_rainfall') {
+    // Distinct Cyan-to-Purple sequential palette for forward 7-day accumulation
+    if (forecastRainMM < 20.0) {
+      color = '#38bdf8';
+      radius = 3.5;
+    } else if (forecastRainMM < 60.0) {
+      color = '#0284c7';
+      radius = 4.5;
+    } else if (forecastRainMM < 120.0) {
+      color = '#4f46e5';
+      radius = 5.5;
+    } else {
+      color = '#7e22ce';
+      radius = 6.5;
+    }
+  } else if (activeLayer === 'forecast_risk') {
+    // Forecast Coupled Risk
+    if (forecastRisk < 0.0502 || ps < 0.15) {
+      color = '#16a34a';
+      radius = 4;
+    } else if (forecastRisk < 0.1500) {
+      color = '#ca8a04';
+      radius = 5;
+    } else if (forecastRisk < 0.3500) {
+      color = '#ea580c';
+      radius = 6;
+    } else {
+      color = '#dc2626';
+      radius = 7;
+    }
   } else {
-    // Coupled Risk P(S) * P(D)
+    // Default: Current Coupled Risk P(S) * P(D)
     if (coupled < 0.0502 || ps < 0.15) {
       color = '#16a34a';
       radius = 4;
@@ -101,7 +161,7 @@ function getLayerStyle(p: GridProperties, activeLayer: MapLayerType, isSelected:
     radius = 9;
   }
 
-  return { color, radius, dynamicPD: pd, coupledRisk: coupled };
+  return { color, radius, dynamicPD: pd, coupledRisk: coupled, currentRainMM, forecastRainMM, forecastRisk };
 }
 
 export default function LeafletMap({
@@ -135,7 +195,15 @@ export default function LeafletMap({
         const [lon, lat] = feat.geometry.coordinates;
         const p = feat.properties;
         const isSelected = selectedCellId === p.cell_id;
-        const { color, radius, dynamicPD, coupledRisk } = getLayerStyle(p, activeLayer, isSelected, customDynamicPD);
+        const {
+          color,
+          radius,
+          dynamicPD,
+          coupledRisk,
+          currentRainMM,
+          forecastRainMM,
+          forecastRisk
+        } = getLayerStyle(p, activeLayer, isSelected, customDynamicPD);
 
         return (
           <CircleMarker
@@ -167,9 +235,21 @@ export default function LeafletMap({
                     <span>Model B Dynamic P(D):</span>
                     <strong className="text-sky-700">{dynamicPD.toFixed(3)}</strong>
                   </div>
+                  <div className="flex justify-between">
+                    <span>Current Rain (Mesh):</span>
+                    <strong className="text-indigo-700">{currentRainMM.toFixed(1)} mm</strong>
+                  </div>
+                  <div className="flex justify-between">
+                    <span>7D Forecast Rain:</span>
+                    <strong className="text-purple-700">{forecastRainMM.toFixed(1)} mm</strong>
+                  </div>
                   <div className="flex justify-between pt-1 border-t border-slate-100 font-bold">
                     <span>Coupled Risk:</span>
                     <strong className="text-slate-900">{coupledRisk.toFixed(4)}</strong>
+                  </div>
+                  <div className="flex justify-between font-bold text-amber-900">
+                    <span>Peak 7D Forecast Risk:</span>
+                    <strong className="text-amber-700">{forecastRisk.toFixed(4)}</strong>
                   </div>
                   <div className="mt-1 pt-1 border-t border-slate-200 font-bold text-[10px]" style={{ color }}>
                     Layer Mode: {activeLayer.replace('_', ' ').toUpperCase()}

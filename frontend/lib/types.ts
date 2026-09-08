@@ -1,7 +1,13 @@
 // Strict TypeScript Type Definitions for SIH 2026 Landslide Risk & Rainfall Intelligence Platform
 
 export type AlertTier = 'Level 1: Green' | 'Level 2: Yellow' | 'Level 3: Orange' | 'Level 4: Red';
-export type MapLayerType = 'coupled_risk' | 'static_susceptibility' | 'dynamic_trigger';
+export type MapLayerType =
+  | 'coupled_risk'
+  | 'static_susceptibility'
+  | 'dynamic_trigger'
+  | 'current_rainfall'
+  | 'forecast_rainfall'
+  | 'forecast_risk';
 
 export interface GridProperties {
   cell_id: string;
@@ -127,6 +133,8 @@ export interface WeatherStatus {
   cache_status: string;
   status_message: string;
   timestamp: string;
+  data_age_minutes?: number;
+  reason?: string;
   cache_stats?: any;
 }
 
@@ -219,5 +227,98 @@ export interface RiskForecastResponse {
   weather_provider: string;
   cache_status: string;
   timestamp: string;
+}
+
+export interface DataConfidenceIndicator {
+  overall_confidence: 'HIGH' | 'MEDIUM' | 'LOW';
+  data_source: string;
+  last_updated_minutes_ago: number;
+  coverage_type: string;
+  forecast_horizon_hours: number;
+  confidence_rationale: string;
+}
+
+export interface ActionRecommendation {
+  risk_level: string;
+  terrain_susceptibility_tier: string;
+  rainfall_trigger_status: string;
+  operational_protocol: string;
+  recommended_actions: string[];
+  mandatory_evacuation: boolean;
+  advisory_notice: string;
+}
+
+export interface LocationWeatherResponse {
+  latitude: number;
+  longitude: number;
+  location_name?: string;
+  nearest_cell_id?: string;
+  elevation_m: number;
+  current: CurrentWeatherCondition;
+  recent_accumulation: Record<string, number>;
+  intervals: ForecastIntervals;
+  features: DynamicRainfallFeatures;
+  dynamic_trigger_p_d: number;
+  provenance: DataProvenance;
+  confidence: DataConfidenceIndicator;
+  timestamp: string;
+}
+
+export interface WeatherRegionItem {
+  station_id: string;
+  station_name: string;
+  spatial_block: string;
+  geomorphic_zone: string;
+  latitude: number;
+  longitude: number;
+  elevation_m: number;
+  current_temp_c: number;
+  current_rain_mm: number;
+  wind_speed_kmh: number;
+  dynamic_trigger_p_d: number;
+  weather_description: string;
+  is_live: boolean;
+}
+
+export interface WeatherRegionsResponse {
+  mode: string;
+  provider: string;
+  station_count: number;
+  timestamp: string;
+  regions: WeatherRegionItem[];
+}
+
+export interface LiveLocationRiskResponse {
+  latitude: number;
+  longitude: number;
+  cell_id?: string;
+  location_name: string;
+  slope_deg: number;
+  elevation_m: number;
+  static_susceptibility_p_s: number;
+  dynamic_trigger_p_d: number;
+  coupled_risk_score: number;
+  alert_tier_code: AlertTier;
+  alert_tier_name: string;
+  alert_color_hex: string;
+  current_rain_mm: number;
+  recent_rain_7d_mm: number;
+  forecast_rain_24h_mm: number;
+  explainability: ExplainabilityBreakdown;
+  action_intelligence: ActionRecommendation;
+  data_confidence: DataConfidenceIndicator;
+  provenance: DataProvenance;
+  timestamp: string;
+}
+
+export interface LiveGridResponse {
+  mode: string;
+  provider: string;
+  timestamp: string;
+  total_cells: number;
+  station_count: number;
+  provenance: DataProvenance;
+  summary: Record<string, any>;
+  cells?: Array<Record<string, any>>;
 }
 

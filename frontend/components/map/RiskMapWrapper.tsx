@@ -4,7 +4,7 @@ import React, { useState, useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { GridGeoJSON, GridProperties, MapLayerType } from '@/lib/types';
 import { SPATIAL_BLOCKS, ALERT_TIERS } from '@/lib/constants';
-import { Filter, RefreshCw, Layers, Eye, AlertTriangle, ShieldCheck, Mountain, CloudRain } from 'lucide-react';
+import { Filter, RefreshCw, Layers, Eye, AlertTriangle, ShieldCheck, Mountain, CloudRain, Droplets, Calendar, TrendingUp } from 'lucide-react';
 
 const LeafletMap = dynamic(() => import('./LeafletMap'), {
   ssr: false,
@@ -59,25 +59,25 @@ export default function RiskMapWrapper({
     <div className="flex flex-col gap-3">
       {/* Top Filter Bar + Layer Switcher */}
       <div className="p-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-2xl flex flex-wrap items-center justify-between gap-3 text-xs shadow-xs">
-        {/* Layer Switcher (Floating Glass Pills) */}
-        <div className="flex items-center gap-1.5 font-mono">
-          <Eye className="w-3.5 h-3.5 text-blue-600" />
-          <span className="text-slate-600 font-bold mr-1">Layer:</span>
-          <div className="inline-flex rounded-full bg-slate-100 p-1 border border-slate-200">
+        {/* Layer Switcher (6 Layers per Section 14 & 15) */}
+        <div className="flex items-center gap-1.5 font-mono flex-wrap">
+          <Eye className="w-3.5 h-3.5 text-blue-600 shrink-0" />
+          <span className="text-slate-600 font-bold mr-1 shrink-0">Layer:</span>
+          <div className="inline-flex flex-wrap rounded-xl bg-slate-100 p-1 border border-slate-200 gap-1">
             <button
               onClick={() => setActiveLayer('coupled_risk')}
-              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
                 activeLayer === 'coupled_risk'
                   ? 'bg-blue-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <ShieldCheck className="w-3 h-3" />
-              <span>Coupled Risk P(S)&times;P(D)</span>
+              <span>Coupled Risk</span>
             </button>
             <button
               onClick={() => setActiveLayer('static_susceptibility')}
-              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
                 activeLayer === 'static_susceptibility'
                   ? 'bg-blue-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
@@ -88,14 +88,47 @@ export default function RiskMapWrapper({
             </button>
             <button
               onClick={() => setActiveLayer('dynamic_trigger')}
-              className={`px-3 py-1 rounded-full text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
                 activeLayer === 'dynamic_trigger'
                   ? 'bg-amber-600 text-white shadow-xs'
                   : 'text-slate-600 hover:text-slate-900'
               }`}
             >
               <CloudRain className="w-3 h-3" />
-              <span>Rainfall Only P(D)</span>
+              <span>Trigger P(D)</span>
+            </button>
+            <button
+              onClick={() => setActiveLayer('current_rainfall')}
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
+                activeLayer === 'current_rainfall'
+                  ? 'bg-indigo-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <Droplets className="w-3 h-3" />
+              <span>Live Rain (mm)</span>
+            </button>
+            <button
+              onClick={() => setActiveLayer('forecast_rainfall')}
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
+                activeLayer === 'forecast_rainfall'
+                  ? 'bg-purple-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <Calendar className="w-3 h-3" />
+              <span>Forecast Rain</span>
+            </button>
+            <button
+              onClick={() => setActiveLayer('forecast_risk')}
+              className={`px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all duration-150 flex items-center gap-1 ${
+                activeLayer === 'forecast_risk'
+                  ? 'bg-rose-600 text-white shadow-xs'
+                  : 'text-slate-600 hover:text-slate-900'
+              }`}
+            >
+              <TrendingUp className="w-3 h-3" />
+              <span>Forecast Risk</span>
             </button>
           </div>
         </div>
@@ -239,6 +272,87 @@ export default function RiskMapWrapper({
                 <div className="flex items-center gap-2">
                   <span className="w-3 h-3 rounded-full bg-red-600 shrink-0"></span>
                   <span className="text-slate-700 font-medium">Critical Trigger (&ge; 0.50)</span>
+                </div>
+              </div>
+            </>
+          )}
+
+          {activeLayer === 'current_rainfall' && (
+            <>
+              <div className="font-bold text-slate-900 mb-1.5 flex items-center justify-between border-b border-slate-200 pb-1">
+                <span>Live Rainfall (mm)</span>
+                <span className="text-[10px] text-indigo-600 font-normal">12-Station Mesh</span>
+              </div>
+              <div className="space-y-1 text-[11px]">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-sky-400 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Light (&lt; 5 mm)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-blue-600 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Moderate (5–20 mm)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-indigo-600 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Heavy (20–50 mm)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-purple-700 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Torrential (&ge; 50 mm)</span>
+                </div>
+              </div>
+            </>
+          )}
+
+          {activeLayer === 'forecast_rainfall' && (
+            <>
+              <div className="font-bold text-slate-900 mb-1.5 flex items-center justify-between border-b border-slate-200 pb-1">
+                <span>Forecast 7D Accumulation</span>
+                <span className="text-[10px] text-purple-600 font-normal">Open-Meteo NWP</span>
+              </div>
+              <div className="space-y-1 text-[11px]">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-sky-400 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Trace (&lt; 20 mm)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-blue-600 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Moderate (20–60 mm)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-indigo-600 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Heavy (60–120 mm)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-purple-700 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Severe Deluge (&ge; 120 mm)</span>
+                </div>
+              </div>
+            </>
+          )}
+
+          {activeLayer === 'forecast_risk' && (
+            <>
+              <div className="font-bold text-slate-900 mb-1.5 flex items-center justify-between border-b border-slate-200 pb-1">
+                <span>Peak 7D Forecast Risk</span>
+                <span className="text-[10px] text-rose-600 font-normal">P(S) &times; Projected P(D)</span>
+              </div>
+              <div className="space-y-1 text-[11px]">
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-emerald-600 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Level 1: Green (&lt; 0.0502)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-amber-500 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Level 2: Yellow (0.05–0.15)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-orange-600 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Level 3: Orange (0.15–0.35)</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <span className="w-3 h-3 rounded-full bg-red-600 shrink-0"></span>
+                  <span className="text-slate-700 font-medium">Level 4: Red (&ge; 0.3500)</span>
                 </div>
               </div>
             </>

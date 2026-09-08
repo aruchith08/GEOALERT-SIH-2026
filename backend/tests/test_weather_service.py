@@ -246,3 +246,46 @@ def test_spatially_variable_mesh_risk_summary():
     assert total == 3156, f"Expected 3156 cells, got {total}"
     assert data["spatially_variable_active"] is True
 
+
+def test_weather_location_and_regions_endpoints():
+    """Verifies GET /api/v1/weather/location and /api/v1/weather/regions endpoints."""
+    # Test location endpoint
+    res_loc = client.get("/api/v1/weather/location?latitude=25.2744&longitude=91.7323")
+    assert res_loc.status_code == 200
+    loc_data = res_loc.json()
+    assert "recent_accumulation" in loc_data
+    assert "rainfall_24h_mm" in loc_data["recent_accumulation"]
+    assert "rainfall_7d_ari_mm" in loc_data["recent_accumulation"]
+    assert "confidence" in loc_data
+    assert loc_data["confidence"]["overall_confidence"] in ["HIGH", "MEDIUM", "LOW"]
+
+    # Test regions endpoint
+    res_reg = client.get("/api/v1/weather/regions")
+    assert res_reg.status_code == 200
+    reg_data = res_reg.json()
+    assert reg_data["station_count"] == 12
+    assert len(reg_data["regions"]) == 12
+    assert reg_data["regions"][0]["station_id"] is not None
+
+
+def test_live_risk_grid_and_location_endpoints():
+    """Verifies GET /api/v1/risk/live/grid and /api/v1/risk/live/location endpoints."""
+    # Test live grid
+    res_grid = client.get("/api/v1/risk/live/grid")
+    assert res_grid.status_code == 200
+    grid_data = res_grid.json()
+    assert grid_data["total_cells"] == 3156
+    assert grid_data["station_count"] == 12
+    assert "provenance" in grid_data
+
+    # Test live location
+    res_loc = client.get("/api/v1/risk/live/location?latitude=25.2744&longitude=91.7323")
+    assert res_loc.status_code == 200
+    loc_risk = res_loc.json()
+    assert "action_intelligence" in loc_risk
+    assert loc_risk["action_intelligence"]["operational_protocol"] == "RESEARCH_AND_ADVISORY"
+    assert len(loc_risk["action_intelligence"]["recommended_actions"]) > 0
+    assert "data_confidence" in loc_risk
+    assert loc_risk["coupled_risk_score"] >= 0.0
+
+

@@ -1,70 +1,71 @@
-# SIH 2026 — 3–5 Minute Judge Demonstration Walkthrough
-## Meghalaya Landslide Risk Intelligence Platform
+# GEOALERT — Comprehensive SIH 2026 Demo Walkthrough Guide
 
-### **Objective**
-Deliver a crisp, authoritative, 3–5 minute presentation demonstrating why dual-model spatio-temporal coupling is mathematically and practically superior to single-variable rainfall alerting.
+This walkthrough guides evaluators, judges, and operators through the complete real-time weather monitoring and forecast-driven landslide risk intelligence platform.
 
 ---
 
-### **Step 1: Introduction & Problem Statement (30 seconds)**
-- **Action**: Open `http://localhost:3000` (Main Dashboard).
-- **Speaking Point**:
-  > *"Traditional landslide early warning systems rely strictly on rainfall depth thresholds. When heavy monsoon rain hits Meghalaya, traditional models issue widespread alarms across entire districts—causing severe false alarms on flat alluvial valleys and road passes that are structurally safe.*
-  > *Our SIH 2026 platform solves this by coupling **Model A (Static Terrain Susceptibility)** with **Model B (Dynamic Precipitation Trigger Hazard)** into a joint multiplicative risk formulation."*
+### Step 1: Open Dashboard & Inspect 4-State Navbar Indicator
+1. Navigate to `http://localhost:3000`.
+2. Observe the top navigation bar status indicator:
+   - **State 1 (Live Weather)**: `● LIVE WEATHER — Last Updated: 2 min ago` (Pulsing green dot, connected to Open-Meteo NWP).
+   - **State 2 (Stale Cache)**: `● WEATHER DATA STALE — Last Updated: 35 min ago` (Amber indicator if cache exceeds TTL).
+   - **State 3 (Demo / Scenario)**: `● DEMO / SCENARIO MODE` (Blue indicator when evaluating calibrated historical scenarios).
+   - **State 4 (Offline Fallback)**: `● WEATHER PROVIDER UNAVAILABLE` (Rose indicator if provider is disconnected).
+3. Confirm the operational mode badge: `RESEARCH / ADVISORY`.
 
 ---
 
-### **Step 2: Interactive Regional Risk Map (45 seconds)**
-- **Action**: Showcase the 3,156-cell Leaflet canvas spanning Meghalaya. Toggle the Spatial Block filter to *East Khasi Block* and *Garo Hills Block*.
-- **Speaking Point**:
-  > *"Here we see all 3,156 regional cells spanning the state of Meghalaya in EPSG:4326 WGS 84.*
-  > *Notice that despite a uniform active-monsoon rainfall forcing across the state, **91.9% of the state remains safely classified as Level 1 Green** because flat valleys lack geomorphic failure susceptibility.*
-  > *Critical Level 4 Red emergency triggers (0.3% of cells) are tightly constrained to steep escarpments and active highway road cuts in East Khasi and Jaintia Hills."*
+### Step 2: Explore the 6-Layer Multi-Spectral Web GIS Switcher
+In the floating glass layer pill bar above the map, switch between all 6 layers:
+1. **Coupled Risk (Default)**: Visualizes the final operational risk tiers (Green, Yellow, Orange, Red).
+2. **Terrain P(S)**: Visualizes Model A static ground vulnerability. Notice high values along the southern Meghalaya escarpment.
+3. **Trigger P(D)**: Visualizes Model B rainfall trigger probability.
+4. **Live Rain (mm)**: Notice the **distinct Cyan-to-Purple sequential palette** (`<5mm`: Cyan, `5-20mm`: Royal Blue, `20-50mm`: Indigo, `≥50mm`: Deep Purple). Explain that this separation ensures physical rainfall depth is never confused with landslide hazard alert tiers.
+5. **Forecast Rain**: Visualizes 7-day forward precipitation accumulation.
+6. **Forecast Risk**: Displays the peak forward-projected coupled hazard across the next 168 hours.
 
 ---
 
-### **Step 3: Location Inspector & Explainable AI (60 seconds)**
-- **Action**: Click a **Red Cell** (e.g. `CELL_MEG_0512` near Sohra Gorge) to open the side Inspector. Then click a **Green Cell** in an alluvial plain.
-- **Speaking Point**:
-  > *"When we click a critical cell on the Sohra escarpment, the Location Inspector decomposes the threat:*
-  > *• Static Susceptibility P(S) = 0.62 (Steep 42° slope, fractured sandstone, near highway cut)*
-  > *• Dynamic Precipitation P(D) = 0.63 (Sustained antecedent saturation)*
-  > *• Coupled Risk = P(S) × P(D) = 0.3918 -> **Level 4: Red Critical Alert**.*
-  > *Now, if we click a flat valley cell under the exact same storm:*
-  > *• Static P(S) = 0.04 (4° slope) -> Coupled Risk = 0.0248 -> **Level 1: Green Safe**.*
-  > *Our terrain safety constraint **automatically suppresses false alarms on flat terrain**, saving emergency response resources."*
+### Step 3: Test Pinned Location 1 — Sohra / Cherrapunjee (`CELL_MEG_0878`)
+Click the **Sohra (Cherrapunjee)** pill:
+- The map smoothly flies and centers on `CELL_MEG_0878`.
+- Model A Terrain Susceptibility: $P(S) = 0.7152$ (Steep 28.4° escarpment slope).
+- Model B Dynamic Trigger: $P(D) = 0.6284$ (Heavy orographic precipitation).
+- Coupled Risk: $P(S) \times P(D) = 0.4494$ &bull; **Level 4: Red (Critical Hazard)**.
+- **Key Insight**: Demonstrates that high rainfall coinciding with steep topography triggers immediate emergency response.
 
 ---
 
-### **Step 4: Regional Analytics & Block Benchmarks (45 seconds)**
-- **Action**: Navigate to `/analytics`.
-- **Speaking Point**:
-  > *"In our Regional Analytics view, we observe district-level aggregations:*
-  > *• East Khasi accounts for 90% of Level 4 Red emergency alerts due to extreme relief.*
-  > *• Garo Hills demonstrates 98.6% Green stability.*
-  > *This demonstrates robust geographic discrimination across the 5 spatial partitions of Meghalaya."*
+### Step 4: Test Pinned Location 2 — Umsning Valley (`CELL_MEG_2427`) [FALSE ALARM SUPPRESSION]
+Click the **Umsning Valley** pill:
+- The map centers on `CELL_MEG_2427`.
+- Model A Terrain Susceptibility: $P(S) = 0.0515$ (Flat 3.2° valley basin, 610m elevation).
+- Model B Dynamic Trigger: $P(D) = 0.6284$ (Identical regional rainfall).
+- Coupled Risk: $P(S) \times P(D) = 0.0323$ &bull; **Level 1: Green (Safe Baseline)**.
+- **Key Scientific Insight**: Demonstrates **71.0% False Alarm Suppression**. A traditional rainfall-only threshold would sound a red alert here; GEOALERT's geotechnical floor ($P(S)_{\text{floor}} = 0.1500$) prevents needless civil disruption.
 
 ---
 
-### **Step 5: Transport Infrastructure Stress Simulations (45 seconds)**
-- **Action**: Navigate to `/infrastructure`. Toggle through **Dry Season**, **Active Monsoon**, and **Severe Cloudburst** scenarios for the *NH-40 Guwahati–Shillong Highway*.
-- **Speaking Point**:
-  > *"For infrastructure stakeholders like NHAI and BRO, we provide multi-scenario corridor simulations across 5 critical arteries:*
-  > *On NH-40, risk scales monotonically from 0.02 (Green) in the dry season to 0.36 (Red) under active monsoon and 0.52 (Red) during extreme cloudbursts—identifying exactly where slope drainage and stabilization works are urgent."*
+### Step 5: Test Pinned Location 3 — NH-40 Corridor (`CELL_MEG_0765`)
+Click the **NH-40 Highway** pill:
+- The map centers on `CELL_MEG_0765`.
+- Model A: $P(S) = 0.3542$ (Road cut slope, 22.1°).
+- Coupled Risk: **Level 3: Orange (Heightened Warning)**.
+- **Key Insight**: Protects critical freight lifelines between Guwahati and Shillong.
 
 ---
 
-### **Step 6: Methodology & Retrospective Validation Evidence (30 seconds)**
-- **Action**: Navigate to `/methodology`. Highlight the validation metrics box.
-- **Speaking Point**:
-  > *"Our dual-model coupling was strictly validated against an independent geographic holdout partition (Block 3 East Khasi):*
-  > *• **0.9526 ROC-AUC** and **0.9098 PR-AUC**.*
-  > *• **80.4% Precision** and **82.2% Recall**.*
-  > *• **71.0% False Alarm Reduction** over rainfall-only baselines."*
+### Step 6: Explore 7-Day Forecast Risk Timeline
+Scroll down to the **7-Day Dynamic Risk Forecast Timeline**:
+1. Review the 7 daily forecast cards displaying date, day offset, forecast precipitation, dynamic trigger $P(D)$, and coupled risk score.
+2. Note the **Peak Risk Alert Banner** highlighting the exact date of maximum projected hazard.
+3. Click any individual day card to expand daily geotechnical features ($ARI_3$, $ARI_7$, $ARI_{15}$, $ARI_{30}$).
 
 ---
 
-### **Step 7: Conclusion & Production Packaging (15 seconds)**
-- **Action**: Navigate to `/about` showing frozen SHA-256 hashes.
-- **Speaking Point**:
-  > *"The complete stack is fully containerized with Docker, REST API endpoints via FastAPI, and an offline-resilient Next.js GIS frontend ready for operational integration."*
+### Step 7: Inspect Location Intelligence Panel & Decision-Support XAI
+On the right-side inspector panel:
+1. Review coordinates, elevation, and terrain slope.
+2. Read the **Explainable AI (XAI)** rationale separating Terrain factors from Coupling Synergy.
+3. Review the **Decision-Support Recommended Action** card (drainage inspection, catch-fence maintenance).
+4. Inspect the **Data Confidence Indicator** (`HIGH CONFIDENCE`, Open-Meteo NWP Global Model, 30-day antecedent window).

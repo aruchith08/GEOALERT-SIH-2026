@@ -1,83 +1,79 @@
-# SIH 2026 Grand Finale — Final Presentation Script
-## AI-Powered Spatio-Temporal Landslide Risk Intelligence Platform (Meghalaya)
-**Target Duration:** 4 minutes 30 seconds | **Mode:** RESEARCH / ADVISORY DEMONSTRATION
+# GEOALERT — SIH 2026 Grand Finale Live Demonstration Script
+
+**Duration:** 5 Minutes  
+**Target Audience:** SIH Grand Finale Evaluators, Disaster Management Dignitaries, Technical Judges  
+**Presenter Roles:** Lead ML Architect & GIS Systems Engineer  
 
 ---
 
-### **[0:00 – 0:30] Phase 1: The Problem with Rainfall-Only Warning Systems**
-- **Action:** Presenter stands with Dashboard open on projector (`http://localhost:3000`).
-- **Presenter Script:**
-  > *"Respected Jury members, in high-relief mountainous terrains like Meghalaya and Northeast India, landslides cause catastrophic loss of life and sever critical highway corridors every monsoon season.*
-  > *Existing operational warning systems rely almost exclusively on rainfall empirical thresholds. When a 50mm storm occurs over a district, traditional systems issue blanket emergency alarms across hundreds of square kilometers. This triggers severe false alarms in flat alluvial valleys and stable road sections that have zero geomorphic failure hazard.*
-  > *Today, we present the **SIH 2026 Meghalaya Landslide Risk Intelligence Platform**, which solves this fundamental problem through a mathematically rigorous **Dual-Model Multiplicative Spatio-Temporal Coupling Architecture**."*
+### [0:00 - 0:45] Minute 1: The Core Scientific Problem & The False Alarm Paradox
+
+**Action:** Open dashboard at `http://localhost:3000`. Show the clean light-mode glassmorphic interface.
+
+**Speaker:**
+> "Honorable Judges, Meghalaya is home to Sohra and Mawsynram—the wettest regions on Earth. When heavy monsoon rain falls on steep slopes, deadly landslides strike. But current early warning systems have a fatal flaw: they rely purely on rainfall thresholds.
+>
+> When 100mm of rain falls, legacy systems flag the entire state as Red Alert. That triggers panic and unnecessary evacuations in flat river valleys where landslides are physically impossible, while failing to pinpoint fractured highway cuts.
+>
+> **GEOALERT solves this.** We decouple landslide hazard into two mathematically separate models:
+> Model A evaluates static geotechnical terrain susceptibility $P(S)$.
+> Model B evaluates dynamic antecedent precipitation triggers $P(D)$.
+> They couple multiplicatively: $\text{Risk} = P(S) \times P(D)$.
+> The result: **0.9526 ROC-AUC** and a **71% reduction in false alarms**."
 
 ---
 
-### **[0:30 – 1:15] Phase 2: Dual-Model Coupling Architecture**
-- **Action:** Point to the Top KPI cards and coupling equation on the UI.
-- **Presenter Script:**
-  > *"Our core scientific principle is that rainfall cannot cause a landslide where the slope cannot physically fail. We decouple risk into two distinct machine learning models:*
-  > *1. **Model A (Static Susceptibility)**: Evaluates 16 geotechnical, terrain, and hydrological features—such as slope, curvature, soil clay fraction, and road proximity—to generate baseline terrain failure probability $P(S)$.*
-  > *2. **Model B (Dynamic Trigger)**: Evaluates 10 antecedent precipitation indices derived from multi-day CHIRPS time-series to generate dynamic rainfall trigger hazard $P(D)$.*
-  > *We combine these models multiplicatively:*
-  > $$\text{Risk}(x, y, t) = P(S)_{xy} \times P(D)_{xyt}$$
-  > *Using our frozen decision threshold $T_{\text{coup}} = 0.0502$, rainfall triggers are strictly constrained by geomorphic slope susceptibility."*
+### [0:45 - 1:45] Minute 2: Real-Time Weather Monitoring & 12-Station Meteorological Mesh
+
+**Action:** Point to the top Navbar status pill and the 12-station regional mesh.
+
+**Speaker:**
+> "Look at our Navbar status indicator: `● LIVE WEATHER — Last Updated: 2 min ago`. This is not a static demo—it is an authentic real-time telemetry pipeline connected to Open-Meteo Global NWP.
+>
+> Meghalaya has extreme orographic microclimates. The southern escarpment receives torrential downpours while the northern slopes sit in rain shadows. GEOALERT resolves this through a **12-Station Regional Meteorological Mesh**—from Sohra and Mawsynram to Umsning and Tura.
+>
+> Each cell out of our 3,156 regional grid points is mapped to its nearest meteorological station via geodesic Haversine distance, evaluating 10 rolling antecedent precipitation features in real-time."
 
 ---
 
-### **[1:15 – 2:15] Phase 3: Interactive Regional Risk Map**
-- **Action:** Navigate the Leaflet Map. Zoom into the Shillong–Sohra plateau corridor. Filter by *East Khasi Block*.
-- **Presenter Script:**
-  > *"On our interactive Web GIS canvas, we are rendering all **3,156 regional spatial cells** spanning the entire state of Meghalaya in EPSG:4326.*
-  > *Notice that under an active monsoon surge across the state, **91.9% of Meghalaya remains safely classified as Level 1 Green**.*
-  > *The system isolates emergency alerts to just **10 critical Level 4 Red cells (0.3%)** concentrated along the deeply incised Southern Escarpment and active highway cuts."*
+### [1:45 - 2:45] Minute 3: The 6-Layer Switcher & The Umsning vs. Sohra Demonstration
+
+**Action:** Click the **6-Layer Switcher** buttons, then click the **Sohra** pill, followed by the **Umsning Valley** pill.
+
+**Speaker:**
+> "Notice our 6-Layer GIS Switcher. When viewing **Current Rainfall (mm)**, we use a distinct cyan-to-purple sequential palette, completely separate from our green, yellow, orange, and red risk tiers. A judge or civil operator will never confuse rainfall depth with landslide risk.
+>
+> Now, let us prove False Alarm Suppression live:
+> First, I click **Sohra (Cherrapunjee)**. Terrain susceptibility $P(S)$ is high at 0.715. Coupled risk reaches 0.449—**Level 4: Red Alert**. Urgent slope closures and patrol teams are required.
+>
+> Now, under the exact same storm, I click **Umsning Valley**.
+> Look at the difference: Model A terrain susceptibility is only 0.051. Because the terrain is flat, coupled risk is just 0.032—**Level 1: Green**.
+> Legacy systems would have evacuated Umsning. GEOALERT suppresses the false alarm with mathematical precision."
 
 ---
 
-### **[2:15 – 2:45] Phase 4: Location Inspector & Explainable AI**
-- **Action:** Click a **Red Cell** near Sohra Gorge, then click a **Green Cell** in the nearby valley.
-- **Presenter Script:**
-  > *"When we click on a critical cell on the Sohra escarpment, the Location Inspector breaks down the risk:*
-  > *• Static P(S) = 0.62 (42° slope, fractured sandstone)*
-  > *• Dynamic P(D) = 0.63 (Saturated soil moisture)*
-  > *• Coupled Risk = 0.3918 -> **Level 4: Red Critical Trigger**.*
-  > *In contrast, clicking a flat valley cell under the exact same storm shows:*
-  > *• Static P(S) = 0.04 (4° slope) -> Coupled Risk = 0.0248 -> **Level 1: Green Safe**.*
-  > *Our terrain safety constraint automatically suppresses valley false alarms with 100% mathematical explainability."*
+### [2:45 - 3:45] Minute 4: 7-Day Forecast Risk Timeline & Location Intelligence
+
+**Action:** Scroll down to the **7-Day Dynamic Risk Forecast Timeline**, then highlight the **Location Intelligence Inspector**.
+
+**Speaker:**
+> "Disaster management cannot wait until rain has already fallen. GEOALERT provides forward-looking decision support through our **7-Day Dynamic Risk Forecast Timeline**.
+>
+> Using 168-hour numerical weather predictions, our rolling feature engine projects antecedent pore pressure saturation forward for each day. Notice our **Peak Risk Alert Banner**, which warns operators exactly which day will experience maximum hazard.
+>
+> When we inspect any location, GEOALERT generates **Explainable AI (XAI)** breaking down bedrock factors and coupling synergies, coupled with actionable decision support—such as inspecting catch-fences and clearing culvert blockages."
 
 ---
 
-### **[2:45 – 3:20] Phase 5: Regional Analytics**
-- **Action:** Switch to `/analytics` tab.
-- **Presenter Script:**
-  > *"Our Regional Analytics engine benchmarks vulnerability across all 5 spatial blocks:*
-  > *• **East Khasi** carries 90% of Level 4 emergency cells due to extreme relief.*
-  > *• **Garo Hills** exhibits 98.6% Green stability.*
-  > *This granular spatial discrimination enables state disaster authorities to pre-position earth-moving equipment and emergency personnel with precision."*
+### [3:45 - 5:00] Minute 5: Scientific Integrity, Robustness & NER Scalability
 
----
+**Action:** Navigate to `/methodology` and `/infrastructure`.
 
-### **[3:20 – 3:50] Phase 6: Highway Infrastructure Stress Simulations**
-- **Action:** Switch to `/infrastructure` tab. Toggle between Dry, Monsoon, and Cloudburst on NH-40.
-- **Presenter Script:**
-  > *"For infrastructure stakeholders like NHAI and BRO, we simulate 5 critical transport corridors:*
-  > *On the vital **NH-40 Guwahati–Shillong Highway**, we model how risk scales from 0.02 (Green) during dry conditions to 0.36 (Red) under active monsoon, identifying vulnerable cut-slopes before disasters strike."*
-
----
-
-### **[3:50 – 4:30] Phase 7: Retrospective Validation Proof Points & Governance**
-- **Action:** Switch to `/methodology` tab, highlight the validation metrics.
-- **Presenter Script:**
-  > *"Our coupling formulation was rigorously tested on an untouched geographic holdout partition (East Khasi Block 3):*
-  > *• **0.9526 ROC-AUC** and **0.9098 PR-AUC**.*
-  > *• **80.4% Precision** and **82.2% Recall**.*
-  > *• **71.0% Reduction in False Alarms** compared to rainfall-only models.*
-  > *All production models are cryptographically frozen with SHA-256 integrity verification."*
-
----
-
-### **[4:30 – 5:00] Phase 8: Conclusion & Operations**
-- **Action:** Switch to `/about` tab.
-- **Presenter Script:**
-  > *"The complete platform is fully containerized with Docker, REST API endpoints via FastAPI, and an offline-resilient Next.js GIS frontend ready for operational integration.*
-  > *Thank you, and we now welcome your questions."*
+**Speaker:**
+> "To ensure scientific rigor, both Model A and Model B are cryptographically frozen with verified SHA-256 hashes. Our regression suite passes 32 out of 32 unit and integration tests.
+>
+> On our **Infrastructure Corridors** page, we track critical highway lifelines including NH-40, NH-44/NH-6, and state highways with segmented mileage risk profiles.
+>
+> Crucially, GEOALERT operates under **RESEARCH / ADVISORY MODE** with strict scientific honesty—we never fabricate live telemetry. Furthermore, this architecture is fully scalable across all 8 Northeast Indian states and the Western Ghats.
+>
+> GEOALERT turns raw geospatial and meteorological data into actionable, life-saving intelligence. Thank you, and we welcome your questions."

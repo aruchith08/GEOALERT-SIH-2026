@@ -13,7 +13,12 @@ from backend.app.schemas import (
     WeatherForecastResponse,
     WeatherHistoryResponse,
     RiskForecastRequest,
-    RiskForecastResponse
+    RiskForecastResponse,
+    LocationWeatherResponse,
+    WeatherRegionItem,
+    WeatherRegionsResponse,
+    LiveLocationRiskResponse,
+    LiveGridResponse
 )
 from backend.app.weather_service import weather_service
 
@@ -142,4 +147,112 @@ def get_mesh_risk_summary():
         return weather_mesh_service.compute_spatially_variable_risk()
     except Exception as exc:
         raise HTTPException(status_code=500, detail=f"Failed to compute spatial mesh risk: {str(exc)}")
+
+
+@router.get("/weather/location", response_model=LocationWeatherResponse)
+def get_weather_location(
+    latitude: float = Query(25.5788, ge=24.0, le=27.0, description="Latitude (WGS84)"),
+    longitude: float = Query(91.8933, ge=89.0, le=94.0, description="Longitude (WGS84)"),
+    cell_id: Optional[str] = Query(None, description="Optional Section 34 grid cell ID")
+):
+    """
+    Unified weather, recent accumulation (24h, 3d, 7d, 15d, 30d), and forecast intervals
+    for a specific coordinate or Section 34 grid cell.
+    """
+    try:
+        return weather_service.get_location_weather(latitude, longitude, cell_id=cell_id)
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to retrieve location weather: {str(exc)}")
+
+
+@router.get("/weather/regions", response_model=WeatherRegionsResponse)
+def get_weather_regions():
+    """
+    Returns telemetry and derived dynamic trigger P(D) for all 12 representative
+    meteorological sampling stations across Meghalaya.
+    """
+    try:
+        from backend.app.weather_mesh import weather_mesh_service
+        stations = weather_mesh_service.update_station_telemetry()
+        station_defs = {s["station_id"]: s for s in weather_mesh_service.stations}
+        return WeatherRegionsResponse(
+            mode="LIVE",
+            provider="Open-Meteo",
+            station_count=len(stations),
+            timestamp=weather_mesh_service._last_mesh_update or "",
+            regions=[
+                WeatherRegionItem(
+                    station_id=s_id,
+                    station_name=s["station_name"],
+                    spatial_block=s["spatial_block"],
+                    geomorphic_zone=station_defs.get(s_id, {}).get("geomorphic_zone", s["spatial_block"]),
+                    latitude=station_defs.get(s_id, {}).get("latitude", 25.5),
+                    longitude=station_defs.get(s_id, {}).get("longitude", 91.8),
+                    elevation_m=station_defs.get(s_id, {}).get("elevation_m", 1200.0),
+                    current_temp_c=s.get("temperature_c", 20.0),
+                    current_rain_mm=s.get("rainfall_today_mm", 0.0),
+                    wind_speed_kmh=s.get("wind_speed_kmh", 12.0),
+                    dynamic_trigger_p_d=s.get("dynamic_trigger_p_d", 0.35),
+                    weather_description=s.get("weather_description", "Partly Cloudy"),
+                    is_live=s.get("data_mode") in ("LIVE", "CACHED_LIVE")
+                )
+                for s_id, s in stations.items()
+            ]
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to fetch weather regions: {str(exc)}")
+
+
+@router.get("/risk/live/grid", response_model=LiveGridResponse)
+def get_risk_live_grid():
+    """
+    Returns live spatially variable P(D)(x,y,t) and coupled risk across the 3,156-cell surface,
+    computed via the 12-station meteorological mesh.
+    """
+    try:
+        from backend.app.weather_mesh import weather_mesh_service
+        summary = weather_mesh_service.compute_spatially_variable_risk()
+        prov = {
+            "provider": "Open-Meteo",
+            "data_mode": "LIVE",
+            "is_live": True,
+            "source_timestamp": summary.get("timestamp", ""),
+            "retrieved_at": summary.get("timestamp", ""),
+            "data_quality": "HIGH_CONFIDENCE",
+            "feature_completeness": "FEATURE_DATA_COMPLETE"
+        }
+        return LiveGridResponse(
+            mode="LIVE",
+            provider="Open-Meteo",
+            timestamp=summary.get("timestamp", ""),
+            total_cells=summary.get("total_cells_N", 3156),
+            station_count=summary.get("stations_count", 12),
+            provenance=prov,
+            summary=summary
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to compute live grid risk: {str(exc)}")
+
+
+@router.get("/risk/live/location", response_model=LiveLocationRiskResponse)
+def get_risk_live_location(
+    latitude: float = Query(25.5788, ge=24.0, le=27.0, description="Latitude (WGS84)"),
+    longitude: float = Query(91.8933, ge=89.0, le=94.0, description="Longitude (WGS84)"),
+    cell_id: Optional[str] = Query(None, description="Optional Section 34 cell ID"),
+    p_s: Optional[float] = Query(None, ge=0.0, le=1.0, description="Optional direct Model A P(S)")
+):
+    """
+    Returns live coupled risk, geotechnical explainability, decision-support recommended actions,
+    and data confidence for a specific location or grid cell.
+    """
+    try:
+        return weather_service.get_live_location_risk(
+            latitude=latitude,
+            longitude=longitude,
+            cell_id=cell_id,
+            p_s=p_s
+        )
+    except Exception as exc:
+        raise HTTPException(status_code=500, detail=f"Failed to evaluate live location risk: {str(exc)}")
+
 

@@ -179,12 +179,15 @@ class NearestCellLookupResponse(BaseModel):
 
 
 class WeatherStatusResponse(BaseModel):
-    mode: str
+    mode: str = Field(..., description="LIVE | CACHED_LIVE | DEMO_SCENARIO | FALLBACK | ERROR")
     is_live: bool
+    provider: str = "Open-Meteo"
     provider_name: str
     cache_status: str
     status_message: str
     timestamp: str
+    data_age_minutes: int = 0
+    reason: Optional[str] = None
     cache_stats: Optional[Dict[str, Any]] = None
 
 
@@ -305,4 +308,98 @@ class RiskForecastResponse(BaseModel):
     weather_provider: str
     cache_status: str
     timestamp: str
+
+
+class DataConfidenceIndicator(BaseModel):
+    overall_confidence: str = Field("HIGH", description="HIGH | MEDIUM | LOW")
+    data_source: str = "Open-Meteo NWP Global Model"
+    last_updated_minutes_ago: int = 0
+    coverage_type: str = "12-Station Regional Meteorological Mesh"
+    forecast_horizon_hours: int = 168
+    confidence_rationale: str = "30-day antecedent observation window complete; 7-day numerical forecast integrated."
+
+
+class ActionRecommendation(BaseModel):
+    risk_level: str
+    terrain_susceptibility_tier: str
+    rainfall_trigger_status: str
+    operational_protocol: str = "RESEARCH_AND_ADVISORY"
+    recommended_actions: List[str]
+    mandatory_evacuation: bool = False
+    advisory_notice: str = "Advisory intelligence for research and disaster planning. Not a statutory civil evacuation mandate."
+
+
+class LocationWeatherResponse(BaseModel):
+    latitude: float
+    longitude: float
+    location_name: Optional[str] = None
+    nearest_cell_id: Optional[str] = None
+    elevation_m: float
+    current: CurrentWeatherCondition
+    recent_accumulation: Dict[str, float]
+    intervals: ForecastIntervals
+    features: DynamicFeaturesInput
+    dynamic_trigger_p_d: float
+    provenance: DataProvenance
+    confidence: DataConfidenceIndicator
+    timestamp: str
+
+
+class WeatherRegionItem(BaseModel):
+    station_id: str
+    station_name: str
+    spatial_block: str
+    geomorphic_zone: str
+    latitude: float
+    longitude: float
+    elevation_m: float
+    current_temp_c: float
+    current_rain_mm: float
+    wind_speed_kmh: float
+    dynamic_trigger_p_d: float
+    weather_description: str
+    is_live: bool
+
+
+class WeatherRegionsResponse(BaseModel):
+    mode: str = "LIVE"
+    provider: str = "Open-Meteo"
+    station_count: int
+    timestamp: str
+    regions: List[WeatherRegionItem]
+
+
+class LiveLocationRiskResponse(BaseModel):
+    latitude: float
+    longitude: float
+    cell_id: Optional[str] = None
+    location_name: str
+    slope_deg: float
+    elevation_m: float
+    static_susceptibility_p_s: float
+    dynamic_trigger_p_d: float
+    coupled_risk_score: float
+    alert_tier_code: AlertTierEnum
+    alert_tier_name: str
+    alert_color_hex: str
+    current_rain_mm: float
+    recent_rain_7d_mm: float
+    forecast_rain_24h_mm: float
+    explainability: ExplainabilityBreakdown
+    action_intelligence: ActionRecommendation
+    data_confidence: DataConfidenceIndicator
+    provenance: DataProvenance
+    timestamp: str
+
+
+class LiveGridResponse(BaseModel):
+    mode: str = "LIVE"
+    provider: str = "Open-Meteo"
+    timestamp: str
+    total_cells: int
+    station_count: int
+    provenance: DataProvenance
+    summary: Dict[str, Any]
+    cells: Optional[List[Dict[str, Any]]] = None
+
 

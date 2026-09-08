@@ -8,7 +8,9 @@ import {
   WeatherStatus,
   WeatherCurrentResponse,
   DailyWeatherPoint,
-  RiskForecastResponse
+  RiskForecastResponse,
+  WeatherRegionsResponse,
+  LiveLocationRiskResponse
 } from './types';
 
 
@@ -467,3 +469,38 @@ export async function fetchRiskForecast(
   }
 }
 
+
+
+export async function fetchWeatherRegions(): Promise<WeatherRegionsResponse | null> {
+  try {
+    const res = await fetch(`${API_BASE}/weather/regions`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Weather regions error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] /weather/regions fetch failed:', err);
+    return null;
+  }
+}
+
+export async function fetchLiveLocationRisk(
+  latitude: number,
+  longitude: number,
+  cell_id?: string,
+  p_s?: number
+): Promise<LiveLocationRiskResponse | null> {
+  try {
+    const params = new URLSearchParams({
+      latitude: latitude.toString(),
+      longitude: longitude.toString()
+    });
+    if (cell_id) params.append('cell_id', cell_id);
+    if (p_s !== undefined && p_s !== null) params.append('p_s', p_s.toString());
+
+    const res = await fetch(`${API_BASE}/risk/live/location?${params.toString()}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Live location risk error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] /risk/live/location fetch failed:', err);
+    return null;
+  }
+}
