@@ -115,12 +115,6 @@ export default function DashboardPage() {
         <span className="font-bold text-red-700">4. 4-TIER WARNING</span>
       </div>
 
-      {/* Dedicated Rainfall Intelligence Panel */}
-      <RainfallIntelligencePanel
-        onRainfallChange={handleRainfallChange}
-        selectedStaticP_S={selectedCell ? selectedCell.p_static : 0.7152}
-      />
-
       {/* Main Grid: Map + Side Location Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2">
@@ -140,6 +134,12 @@ export default function DashboardPage() {
           />
         </div>
       </div>
+
+      {/* Dedicated Rainfall Intelligence Panel */}
+      <RainfallIntelligencePanel
+        onRainfallChange={handleRainfallChange}
+        selectedStaticP_S={selectedCell ? selectedCell.p_static : 0.7152}
+      />
     </div>
   );
 }

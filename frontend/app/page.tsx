@@ -183,18 +183,6 @@ export default function DashboardPage() {
         <span className="font-bold text-red-700">4. 4-TIER WARNING</span>
       </div>
 
-      {/* Evaluator Pinned Demonstration Locations */}
-      <DemoLocationsPills
-        onSelectLocation={handleSelectPinnedLocation}
-        activeLocationId={activePinnedLocId}
-      />
-
-      {/* Dedicated Rainfall Intelligence Panel */}
-      <RainfallIntelligencePanel
-        onRainfallChange={handleRainfallChange}
-        selectedStaticP_S={selectedCell ? selectedCell.p_static : 0.7152}
-      />
-
       {/* Main Grid: Map + Side Location Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-4">
         <div className="lg:col-span-2">
@@ -219,6 +207,18 @@ export default function DashboardPage() {
           />
         </div>
       </div>
+
+      {/* Evaluator Pinned Demonstration Locations */}
+      <DemoLocationsPills
+        onSelectLocation={handleSelectPinnedLocation}
+        activeLocationId={activePinnedLocId}
+      />
+
+      {/* Dedicated Rainfall Intelligence Panel */}
+      <RainfallIntelligencePanel
+        onRainfallChange={handleRainfallChange}
+        selectedStaticP_S={selectedCell ? selectedCell.p_static : 0.7152}
+      />
 
       {/* 7-Day Predictive Landslide Risk Timeline (Model B Forward Forecasting) */}
       <ForecastRiskTimeline
