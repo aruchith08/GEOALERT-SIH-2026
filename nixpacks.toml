@@ -1,8 +1,17 @@
 [phases.setup]
-nixPkgs = ["python312", "python312Packages.pip"]
+nixPkgs = ["python312", "python312Packages.pip", "python312Packages.virtualenv"]
 
 [phases.install]
-cmds = ["pip install -r requirements.txt"]
+cmds = [
+  "python3 -m venv /opt/venv",
+  "/opt/venv/bin/pip install --upgrade pip setuptools wheel",
+  "/opt/venv/bin/pip install -r requirements.txt"
+]
+
+[variables]
+PATH = "/opt/venv/bin:$PATH"
+PYTHONPATH = "."
+VIRTUAL_ENV = "/opt/venv"
 
 [start]
-cmd = "uvicorn backend.app.main:app --host 0.0.0.0 --port $PORT"
+cmd = "/opt/venv/bin/python -m uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"
