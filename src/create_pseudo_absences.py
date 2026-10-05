@@ -3,7 +3,7 @@
 create_pseudo_absences.py
 =========================
 AI-Based Early Warning and Landslide Risk Monitoring System for the
-North Eastern Region of India (SIH - 2026)
+North Eastern Region of India
 
 Phase 3B: Scientific Pseudo-Absence & Background Sampling Strategy
 
@@ -390,7 +390,7 @@ def write_reports(method_path, stats_path, audit_path, positives, candidate_reco
         "================================================================================",
         "PHASE 3B: PSEUDO-ABSENCE / BACKGROUND SAMPLING METHODOLOGY SPECIFICATION",
         "================================================================================",
-        "Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)",
+        "Project: AI-Based Early Warning and Landslide Risk Monitoring System",
         "Target Region: Meghalaya, North Eastern Region, India",
         "Methodological Objective: Scientifically sound, reproducible pseudo-absence generation",
         "                          for landslide susceptibility modeling in Google Colab.",
@@ -503,7 +503,7 @@ def write_reports(method_path, stats_path, audit_path, positives, candidate_reco
         "================================================================================",
         "PHASE 3B FINAL AUDIT REPORT: PSEUDO-ABSENCE SAMPLING STRATEGY",
         "================================================================================",
-        "Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)",
+        "Project: AI-Based Early Warning and Landslide Risk Monitoring System",
         "Audit Scope: Verification of pseudo-absence candidates, exclusion buffer adherence,",
         "             coordinate uniqueness, spatial representativeness, lack of ML training,",
         "             and absolute preservation of frozen Phase 1..2C datasets.",

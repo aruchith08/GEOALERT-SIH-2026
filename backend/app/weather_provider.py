@@ -56,7 +56,7 @@ WMO_CODE_MAP = {
 }
 
 OPEN_METEO_FORECAST_URL = "https://api.open-meteo.com/v1/forecast"
-DEFAULT_USER_AGENT = "GEOALERT-SIH-2026/1.0 (Disaster-Risk-Platform)"
+DEFAULT_USER_AGENT = "GEOALERT-Platform/1.0 (Disaster-Risk-Platform)"
 
 
 def _safe_float(value: Any, default: float = 0.0) -> float:

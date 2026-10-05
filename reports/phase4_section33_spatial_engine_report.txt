@@ -1,9 +1,9 @@
-SIH 2026 PHASE 4: SECTION 33 MULTI-HAZARD SPATIAL RISK ENGINE REPORT
+GEOALERT PHASE 4: SECTION 33 MULTI-HAZARD SPATIAL RISK ENGINE REPORT
 Generated: 2026-09-01 19:40:50
 ================================================================================
 
 1. ENGINE ARCHITECTURE & SPECIFICATION:
-   • Engine Name:        SIH 2026 Multi-Hazard Spatial Risk Engine
+   • Engine Name:        GEOALERT Multi-Hazard Spatial Risk Engine
    • Coupling Engine:    Dual-Model Multiplicative Formulation: Risk(x,y,t) = P(S)_xy * P(D)_xyt
    • Model A Input:      Static Terrain Susceptibility P(S) in [0, 1] (16 geotechnical/DEM features)
    • Model B Input:      Dynamic Precipitation Trigger Hazard P(D) in [0, 1] (10 CHIRPS rainfall predictors)

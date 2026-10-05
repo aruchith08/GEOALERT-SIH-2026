@@ -2,7 +2,7 @@
 backend/app/schemas.py
 ======================
 Pydantic schemas and strict request/response data validation models
-for SIH 2026 Risk & Dynamic Rainfall Intelligence Layer.
+for GEOALERT Risk & Dynamic Rainfall Intelligence Layer.
 """
 
 from typing import Dict, Any, List, Optional
@@ -602,7 +602,7 @@ class ProviderStatusResponse(BaseModel):
 
 class DataFreshnessStatus(str, Enum):
     """
-    Strict data provenance status labels for SIH 2026.
+    Strict data provenance status labels for GEOALERT.
 
     NEVER label cached, fallback, or demo data as LIVE.
     """

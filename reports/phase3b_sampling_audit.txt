@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 3B FINAL AUDIT REPORT: PSEUDO-ABSENCE SAMPLING STRATEGY
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Audit Scope: Verification of pseudo-absence candidates, exclusion buffer adherence,
              coordinate uniqueness, spatial representativeness, lack of ML training,
              and absolute preservation of frozen Phase 1..2C datasets.

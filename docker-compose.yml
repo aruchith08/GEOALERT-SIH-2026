@@ -6,7 +6,7 @@ services:
     build:
       context: .
       dockerfile: backend/Dockerfile
-    container_name: sih2026-landslide-backend
+    container_name: geoalert-landslide-backend
     restart: unless-stopped
     ports:
       - "8000:8000"
@@ -27,7 +27,7 @@ services:
     build:
       context: .
       dockerfile: frontend/Dockerfile
-    container_name: sih2026-landslide-frontend
+    container_name: geoalert-landslide-frontend
     restart: unless-stopped
     ports:
       - "3000:3000"
@@ -39,4 +39,4 @@ services:
 
 networks:
   default:
-    name: sih2026-network
+    name: geoalert-network

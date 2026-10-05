@@ -1,4 +1,4 @@
-# SIH 2026 Landslide Intelligence Platform — Backend Service
+# GEOALERT Landslide Intelligence Platform — Backend Service
 FROM python:3.12-slim
 
 ENV PYTHONDONTWRITEBYTECODE=1 \

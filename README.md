@@ -1,5 +1,5 @@
 # GEOALERT — AI-Powered Landslide Risk Intelligence Platform
-## Smart India Hackathon (SIH 2026) • Real-Time Weather Monitoring, Spatially Variable Rainfall & 7-Day Forecast-Driven Dynamic Landslide Risk Intelligence
+## Real-Time Weather Monitoring, Spatially Variable Rainfall & 7-Day Forecast-Driven Dynamic Landslide Risk Intelligence
 
 [![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-blue.svg)](https://www.python.org/)
 [![Next.js 15](https://img.shields.io/badge/Next.js-15-black.svg)](https://nextjs.org/)
@@ -7,7 +7,7 @@
 [![Tailwind CSS 3](https://img.shields.io/badge/TailwindCSS-3.4-38bdf8.svg)](https://tailwindcss.com/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Research Advisory](https://img.shields.io/badge/Status-Research%20%2F%20Advisory-amber.svg)]()
-[![Tests: 32/32 Passing](https://img.shields.io/badge/Tests-32%2F32%20Passed-brightgreen.svg)]()
+[![Tests: 64/64 Passing](https://img.shields.io/badge/Tests-64%2F64%20Passed-brightgreen.svg)]()
 
 ---
 
@@ -74,7 +74,7 @@ With an empirical operational decision threshold $T_{\text{coup}} = 0.0502$ and 
                                            │
                                            ▼
                          FASTAPI BACKEND REST API SERVICE
-                 Port 8000 | 10 Section Endpoints | 32/32 Pytest Passing
+                 Port 8000 | 10 Section Endpoints | 64/64 Pytest Passing
                                            │
                                            ▼
                        GEOALERT LIGHT GLASSMORPHIC WEB GIS CANVAS
@@ -181,10 +181,10 @@ Clicking any of the 3,156 spatial cells opens the comprehensive Location Intelli
 
 ## 8. Automated Verification & Testing
 
-GEOALERT includes a 32-test regression suite covering cryptographic integrity, mathematical coupling bounds, weather caching, Open-Meteo ingestion, mesh assignment, and API contract conformity:
+GEOALERT includes a 64-test regression suite covering cryptographic integrity, mathematical coupling bounds, weather caching, Open-Meteo ingestion, mesh assignment, and API contract conformity:
 
 ```bash
-# Run full backend test suite (32/32 passing tests)
+# Run full backend test suite (64/64 passing tests)
 $env:PYTHONPATH="."; uv run --with pytest --with fastapi --with httpx --with pandas --with numpy --with scikit-learn --with joblib pytest backend/tests -v
 ```
 
@@ -208,4 +208,19 @@ To ensure reproducibility, all production machine learning models and spatial su
 
 ## 10. Operational Status & Scientific Disclaimer
 
-GEOALERT is an advanced scientific research decision-support prototype developed for the **Smart India Hackathon (SIH 2026)**. It operates strictly in **RESEARCH / ADVISORY MODE** to assist disaster management planners and geotechnical engineers. It does not issue statutory civil evacuation orders.
+GEOALERT is an advanced scientific research decision-support prototype developed as an AI-powered geotechnical and meteorological disaster risk intelligence platform. It operates strictly in **RESEARCH / ADVISORY MODE** to assist disaster management planners and geotechnical engineers. It does not issue statutory civil evacuation orders.
+
+---
+
+## 11. Comprehensive Documentation & Technical Guides
+
+For in-depth operational procedures, technical specifications, and validation reports:
+
+- **[System Deployment, Configuration & Operations Manual](docs/DEPLOYMENT.md)**: Local, Docker, and environment configuration.
+- **[Cloud Deployment Guide](docs/CLOUD_DEPLOYMENT.md)**: Production deployment instructions for Next.js (Vercel) and FastAPI (Render / Railway).
+- **[Comprehensive Demo Walkthrough Guide](docs/DEMO_WALKTHROUGH.md)**: Step-by-step walkthrough of Web GIS controls, layer switchers, and XAI inspector.
+- **[Comprehensive Live Demonstration Script](docs/FINAL_DEMO_SCRIPT.md)**: Structured 5-minute technical presentation script.
+- **[Technical & Scientific Evaluation Q&A](docs/TECHNICAL_QA.md)**: Rigorous answers to core architecture, weather telemetry, and false-alarm suppression questions.
+- **[Official Key Metrics & Scientific Scorecard](docs/KEY_METRICS.md)**: Complete tabular scorecard of model accuracies, thresholds, and latencies.
+- **[Comprehensive Product Overview](docs/PRODUCT_OVERVIEW.md)**: Mathematical formulations, regional expansion framework, and physical decoupling rationale.
+

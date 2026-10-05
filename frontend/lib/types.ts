@@ -1,4 +1,4 @@
-// Strict TypeScript Type Definitions for SIH 2026 Landslide Risk & Rainfall Intelligence Platform
+// Strict TypeScript Type Definitions for GEOALERT Landslide Risk & Rainfall Intelligence Platform
 
 export type AlertTier = 'Level 1: Green' | 'Level 2: Yellow' | 'Level 3: Orange' | 'Level 4: Red';
 export type MapLayerType =

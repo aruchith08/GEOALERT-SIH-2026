@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 3C: DATA LEAKAGE PREVENTION & INTEGRITY AUDIT CHECKLIST
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Region: Meghalaya, North Eastern Region, India
 Scope: Pre-training verification protocol to ensure zero spatial, temporal,
        identifier, or preprocessing data contamination in Google Colab.

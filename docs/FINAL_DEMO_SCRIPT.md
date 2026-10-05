@@ -1,7 +1,7 @@
-# GEOALERT — SIH 2026 Grand Finale Live Demonstration Script
+# GEOALERT — Comprehensive Live Demonstration Script
 
 **Duration:** 5 Minutes  
-**Target Audience:** SIH Grand Finale Evaluators, Disaster Management Dignitaries, Technical Judges  
+**Target Audience:** Technical Evaluators, Disaster Management Dignitaries, System Auditors  
 **Presenter Roles:** Lead ML Architect & GIS Systems Engineer  
 
 ---
@@ -11,7 +11,7 @@
 **Action:** Open dashboard at `http://localhost:3000`. Show the clean light-mode glassmorphic interface.
 
 **Speaker:**
-> "Honorable Judges, Meghalaya is home to Sohra and Mawsynram—the wettest regions on Earth. When heavy monsoon rain falls on steep slopes, deadly landslides strike. But current early warning systems have a fatal flaw: they rely purely on rainfall thresholds.
+> "Distinguished Evaluators, Meghalaya is home to Sohra and Mawsynram—the wettest regions on Earth. When heavy monsoon rain falls on steep slopes, deadly landslides strike. But current early warning systems have a fatal flaw: they rely purely on rainfall thresholds.
 >
 > When 100mm of rain falls, legacy systems flag the entire state as Red Alert. That triggers panic and unnecessary evacuations in flat river valleys where landslides are physically impossible, while failing to pinpoint fractured highway cuts.
 >
@@ -41,7 +41,7 @@
 **Action:** Click the **6-Layer Switcher** buttons, then click the **Sohra** pill, followed by the **Umsning Valley** pill.
 
 **Speaker:**
-> "Notice our 6-Layer GIS Switcher. When viewing **Current Rainfall (mm)**, we use a distinct cyan-to-purple sequential palette, completely separate from our green, yellow, orange, and red risk tiers. A judge or civil operator will never confuse rainfall depth with landslide risk.
+> "Notice our 6-Layer GIS Switcher. When viewing **Current Rainfall (mm)**, we use a distinct cyan-to-purple sequential palette, completely separate from our green, yellow, orange, and red risk tiers. An evaluator or civil operator will never confuse rainfall depth with landslide risk.
 >
 > Now, let us prove False Alarm Suppression live:
 > First, I click **Sohra (Cherrapunjee)**. Terrain susceptibility $P(S)$ is high at 0.715. Coupled risk reaches 0.449—**Level 4: Red Alert**. Urgent slope closures and patrol teams are required.

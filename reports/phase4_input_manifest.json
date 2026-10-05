@@ -1,6 +1,6 @@
 {
   "manifest_version": "1.0.0",
-  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "project": "GEOALERT Landslide Early Warning & Risk Monitoring (Meghalaya)",
   "phase_3c_freeze_status": "FROZEN_AND_VERIFIED",
   "timestamp": "2026-09-01 08:43:05",
   "software_versions": {
@@ -98,8 +98,8 @@
       "sha256": "b25ec202c71fd4c2b08a320369b954221e74e2f177f5418149c6c5e4740591f3"
     },
     "master_colab_notebook": {
-      "file_name": "SIH_2026_Landslide_ML_Phase3C.ipynb",
-      "relative_path": "notebooks/SIH_2026_Landslide_ML_Phase3C.ipynb",
+      "file_name": "GEOALERT_Landslide_ML_Phase3C.ipynb",
+      "relative_path": "notebooks/GEOALERT_Landslide_ML_Phase3C.ipynb",
       "exists": true,
       "size_bytes": 287458,
       "size_kb": 280.72,

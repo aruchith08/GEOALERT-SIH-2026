@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2A FINAL SCIENTIFIC & METHODOLOGICAL AUDIT REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Area: Meghalaya, North Eastern Region, India
 Authoritative Geospatial Reference: Google Earth Engine (USGS/SRTMGL1_003)
 Reference Script: gee/01_srtm_features.js

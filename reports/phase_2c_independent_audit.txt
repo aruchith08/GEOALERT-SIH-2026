@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2C: FINAL INDEPENDENT SCIENTIFIC & METHODOLOGICAL AUDIT REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Audit Scope: Complete independent audit of Phase 2C geo-environmental features,
              data source provenance, critical road/stream distance verification,
              soil physical properties, lithological mapping, land cover, data integrity,

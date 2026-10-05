@@ -1,7 +1,7 @@
 """
 backend/app/weather_service.py
 ==============================
-High-Level Weather Intelligence & Forecast Risk Service for SIH 2026.
+High-Level Weather Intelligence & Forecast Risk Service for GEOALERT.
 Integrates Open-Meteo Provider, In-Memory TTL Cache, CHIRPS Feature Engine,
 and Frozen Model B Inference Pipeline.
 """

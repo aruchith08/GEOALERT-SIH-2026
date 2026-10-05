@@ -1,8 +1,8 @@
-# SIH 2026 — Landslide Early Warning & Risk Monitoring System
+# GEOALERT — Landslide Early Warning & Risk Monitoring System
 ## Backend Risk Inference API (Section 35)
 
 ### 1. Architecture Overview
-This backend service provides a RESTful inference API for the SIH 2026 Landslide Early Warning System. It serves predictions from two permanently frozen, cryptographically verified machine learning models:
+This backend service provides a RESTful inference API for the GEOALERT Landslide Early Warning System. It serves predictions from two permanently frozen, cryptographically verified machine learning models:
 1. **Model A (Static Susceptibility)**: Evaluates baseline terrain landslide vulnerability $P(S) \in [0, 1]$ using 16 geotechnical, geomorphological, and environmental predictors.
 2. **Model B (Dynamic Precipitation Trigger Hazard)**: Evaluates meteorological trigger hazard $P(D) \in [0, 1]$ using 10 antecedent rainfall predictors from CHIRPS.
 3. **Coupled Risk Engine**: Fuses $P(S)$ and $P(D)$ using the multiplicative formula:

@@ -1,5 +1,5 @@
-# GEOALERT — Comprehensive Judge Technical & Scientific Q&A
-## Smart India Hackathon (SIH 2026)
+# GEOALERT — Comprehensive Technical & Scientific Evaluation Q&A
+## Technical Architecture, Scientific Decoupling & Operational Verification
 
 ---
 

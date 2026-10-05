@@ -22,5 +22,5 @@ import uvicorn
 from backend.app.main import app
 
 if __name__ == "__main__":
-    print(f"Starting SIH 2026 FastAPI Backend from: {BASE_DIR}")
+    print(f"Starting GEOALERT FastAPI Backend from: {BASE_DIR}")
     uvicorn.run(app, host="0.0.0.0", port=8000, log_level="info")

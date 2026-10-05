@@ -10,7 +10,7 @@ Generates a fully formatted Microsoft Word (.docx) document containing:
 - Color-coded tier legends
 - Complete verification matrix
 
-Author: GEOALERT Team — SIH 2026
+Author: GEOALERT Team
 """
 
 import os
@@ -803,7 +803,7 @@ def build_document():
     
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run('Smart India Hackathon (SIH 2026)')
+    run = p.add_run('AI-Powered Early Warning & Landslide Risk Monitoring')
     run.font.size = Pt(14)
     run.font.color.rgb = COLORS['secondary']
     run.bold = True
@@ -867,7 +867,7 @@ def build_document():
         '11. Cloud DevOps, Deployment & GitHub Release',
         '12. Verification & Integrity Audit Matrix',
         '13. Summary of Key Files & Directory Structure',
-        '14. Conclusion & Hackathon Presentation Takeaways',
+        '14. Conclusion & Key Architectural Takeaways',
     ]
     
     for item in toc_items:
@@ -1493,7 +1493,7 @@ def build_document():
     add_heading_styled(doc, '11.1 GitHub Publishing', level=2)
     add_bullet_list(doc, [
         ('Repository: ', 'github.com/aruchith08/GEOALERT-SIH-2026'),
-        ('Topics: ', 'machine-learning, fastapi, nextjs, gis, geospatial, sih2026, disaster-management.'),
+        ('Topics: ', 'machine-learning, fastapi, nextjs, gis, geospatial, disaster-management.'),
         'Complete source code, models, spatial datasets, reports, and scripts tracked on branch main.',
     ])
     
@@ -1586,7 +1586,7 @@ def build_document():
     
     add_heading_styled(doc, '13. Summary of Key Files & Directory Structure', level=1)
     
-    dir_structure = """SIH - 2026/
+    dir_structure = """GEOALERT/
 ├── backend/
 │   ├── app/
 │   │   ├── config.py             # Base paths, frozen hashes, CORS regex
@@ -1648,7 +1648,7 @@ def build_document():
     # ============================================================
     # SECTION 14: CONCLUSION
     # ============================================================
-    add_heading_styled(doc, '14. Conclusion & Hackathon Presentation Takeaways', level=1)
+    add_heading_styled(doc, '14. Conclusion & Key Architectural Takeaways', level=1)
     
     conclusions = [
         ('1. Scientifically Rigorous: ', 
@@ -1698,7 +1698,7 @@ def build_document():
     
     p = doc.add_paragraph()
     p.alignment = WD_ALIGN_PARAGRAPH.CENTER
-    run = p.add_run('Smart India Hackathon 2026 | GEOALERT Team')
+    run = p.add_run('GEOALERT Research & Engineering Team')
     run.font.size = Pt(9)
     run.font.color.rgb = COLORS['secondary']
     

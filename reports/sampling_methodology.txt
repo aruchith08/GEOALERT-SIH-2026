@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 3B: PSEUDO-ABSENCE / BACKGROUND SAMPLING METHODOLOGY SPECIFICATION
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Region: Meghalaya, North Eastern Region, India
 Methodological Objective: Scientifically sound, reproducible pseudo-absence generation
                           for landslide susceptibility modeling in Google Colab.

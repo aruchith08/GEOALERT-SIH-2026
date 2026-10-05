@@ -1,5 +1,5 @@
 {
-  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring System",
+  "project": "GEOALERT Landslide Early Warning & Risk Monitoring System",
   "section": "Section 38: Final Demo Hardening, Visual QA, Reliability & Presentation Readiness",
   "timestamp": "2026-09-01T20:33:21.883302",
   "grand_finale_readiness": "100% DEMO READY",
@@ -21,11 +21,11 @@
     "console_status": "VERIFIED (0 critical JS/React errors)"
   },
   "presentation_assets": {
-    "final_demo_script": "docs/SIH_FINAL_DEMO_SCRIPT.md",
-    "judge_qa_guide": "docs/SIH_JUDGE_QA.md",
-    "key_metrics_scorecard": "docs/SIH_KEY_METRICS.md",
+    "final_demo_script": "docs/FINAL_DEMO_SCRIPT.md",
+    "judge_qa_guide": "docs/TECHNICAL_QA.md",
+    "key_metrics_scorecard": "docs/KEY_METRICS.md",
     "deployment_manual": "docs/DEPLOYMENT.md",
-    "product_overview": "docs/SIH_PRODUCT_OVERVIEW.md"
+    "product_overview": "docs/PRODUCT_OVERVIEW.md"
   },
   "governance": {
     "model_a_modified": false,

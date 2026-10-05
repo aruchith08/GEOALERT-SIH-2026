@@ -1,4 +1,4 @@
-# SIH 2026 Landslide Intelligence Platform — Next.js Frontend Service
+# GEOALERT Landslide Intelligence Platform — Next.js Frontend Service
 # Multi-stage production build
 
 # Stage 1: Dependency installation & Build

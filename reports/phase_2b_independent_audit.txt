@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2B: FINAL INDEPENDENT SCIENTIFIC & MATHEMATICAL AUDIT REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Audit Scope: Independent verification of CHIRPS rainfall extraction pipeline,
              temporal classifications, window definitions, numerical integrity,
              mathematical sanity constraints, and dataset schema.

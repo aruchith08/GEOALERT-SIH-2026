@@ -13,7 +13,7 @@ export default function MethodologyPage() {
             GEOALERT Scientific Methodology &amp; Mathematical Coupling
           </h1>
           <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-100 text-blue-800">
-            SIH 2026 Core Architecture
+            GEOALERT Core Architecture
           </span>
         </div>
         <p className="text-xs text-slate-500 mt-1 max-w-3xl">
@@ -175,7 +175,7 @@ export default function MethodologyPage() {
           Scalability Architecture: Regional Expansion across Northeast India (NER)
         </h3>
         <p className="text-xs text-slate-600 leading-relaxed">
-          While developed with high-resolution calibration for Meghalaya as the operational SIH prototype, GEOALERT is architected with strict modular separation for rapid deployment across the entire Northeast Region:
+          While developed with high-resolution calibration for Meghalaya as the operational research prototype, GEOALERT is architected with strict modular separation for rapid deployment across the entire Northeast Region:
         </p>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs font-mono">

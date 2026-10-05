@@ -1,5 +1,5 @@
-# SIH 2026 — System Deployment, Configuration & Operations Manual
-## GEOALERT: Real-Time Weather Monitoring & Forecast-Driven Landslide Risk Intelligence Platform
+# GEOALERT — System Deployment, Configuration & Operations Manual
+## Real-Time Weather Monitoring & Forecast-Driven Landslide Risk Intelligence Platform
 
 ---
 

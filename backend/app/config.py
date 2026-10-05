@@ -2,7 +2,7 @@
 backend/app/config.py
 =====================
 Configuration, constants, frozen model paths, and cryptographic checksums
-for SIH 2026 Landslide Backend Risk API.
+for GEOALERT Landslide Backend Risk API.
 """
 
 import os

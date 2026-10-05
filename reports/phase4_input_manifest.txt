@@ -1,4 +1,4 @@
-SIH 2026: PHASE 4 INPUT MANIFEST & PHASE 3C FREEZE VERIFICATION REPORT
+GEOALERT: PHASE 4 INPUT MANIFEST & PHASE 3C FREEZE VERIFICATION REPORT
 Generated: 2026-09-01 08:43:05
 ================================================================================
 
@@ -20,7 +20,7 @@ Generated: 2026-09-01 08:43:05
    • phase3c_modelB_section28_controlled_background_observations.csv | Size:    127.2 KB | SHA-256: 5a1eed77cd1858eef9f5b6e45300955511c10793694af594005682143dfc9044
    • phase3c_modelB_section30_supervised_training_data.csv   | Size:    144.3 KB | SHA-256: b25ec202c71fd4c2b08a320369b954221e74e2f177f5418149c6c5e4740591f3
    • phase3c_modelB_section30_supervised_training_data.csv   | Size:    144.3 KB | SHA-256: b25ec202c71fd4c2b08a320369b954221e74e2f177f5418149c6c5e4740591f3
-   • SIH_2026_Landslide_ML_Phase3C.ipynb                     | Size:    280.7 KB | SHA-256: aed87cecfded5029c8f57ad0ee22d6f67c99eddbb2059ea629e7997079354c4b
+   • GEOALERT_Landslide_ML_Phase3C.ipynb                     | Size:    280.7 KB | SHA-256: aed87cecfded5029c8f57ad0ee22d6f67c99eddbb2059ea629e7997079354c4b
    • phase3c_modelB_section31_threshold_analysis.json        | Size:      4.8 KB | SHA-256: 421527909afc6316ea4fca829763d8a45825cd1bb0456ef1f50fef12e9cc1cda
    • phase3c_modelB_section31_candidate_thresholds.csv       | Size:      0.6 KB | SHA-256: 5d194b1c47e889c413d97c11a10db3e6c762ef3d87d03c4b9358c36b058cbdec
    • phase3c_modelB_section31_operational_recommendation.txt | Size:      2.8 KB | SHA-256: 4a328986248ed9a760d9266c624a85b1e565f8337b5083d612604cc93411549c

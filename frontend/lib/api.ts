@@ -800,7 +800,7 @@ function generateCoordinateFallbackIntelligence(
       terrain_explanation: `Terrain static susceptibility P(S)=${resolvedPS.toFixed(3)} reflects steep fractured metamorphic slope.`,
       rainfall_trigger_level: 'Elevated',
       rainfall_explanation: `Rainfall dynamic trigger P(D)=${p_d.toFixed(3)} driven by active continuous monsoon accumulation.`,
-      coupling_synergy_explanation: `Coupled Risk = P(S) × P(D) = ${coupled.toFixed(4)}. Evaluated under frozen SIH 2026 thresholds.`,
+      coupling_synergy_explanation: `Coupled Risk = P(S) × P(D) = ${coupled.toFixed(4)}. Evaluated under frozen calibrated thresholds.`,
       actionable_guidance: 'Maintain proactive slope drainage inspections; clear culverts and catch-drains.'
     },
     action_recommendation: {

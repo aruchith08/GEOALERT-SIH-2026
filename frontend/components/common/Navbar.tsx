@@ -164,7 +164,7 @@ export default function Navbar() {
                   GEOALERT
                 </span>
                 <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 uppercase tracking-wide">
-                  SIH 2026
+                  RESEARCH PLATFORM
                 </span>
               </div>
               <p className="text-[11px] font-medium text-slate-500 hidden sm:block -mt-0.5">

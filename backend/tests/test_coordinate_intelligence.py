@@ -2,7 +2,7 @@
 backend/tests/test_coordinate_intelligence.py
 =============================================
 Automated test suite verifying the Coordinate-Level Real-Time Weather &
-Landslide Risk Intelligence Layer for SIH 2026.
+Landslide Risk Intelligence Layer for GEOALERT.
 
 Verifies:
 1. 4-tier geographic identity resolution (Reverse Geocoded -> Nearest Locality -> Coordinate Fallback -> Cell Traceability).

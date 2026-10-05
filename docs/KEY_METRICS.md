@@ -1,8 +1,8 @@
-# SIH 2026 — Official Key Metrics & Scientific Scorecard
+# GEOALERT — Official Key Metrics & Scientific Scorecard
 
 ```
 +========================================================================================================+
-|                                    SIH 2026 SCIENTIFIC SCORECARD                                       |
+|                                    GEOALERT SCIENTIFIC SCORECARD                                       |
 +========================================================================================================+
 | METRIC CATEGORY                     | PARAMETER / FORMULATION               | VALUE / AUDIT STATUS    |
 +-------------------------------------+---------------------------------------+-------------------------+

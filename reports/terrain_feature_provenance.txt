@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2A: TERRAIN FEATURE SCIENTIFIC PROVENANCE & SPECIFICATION
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Region: Meghalaya, North Eastern Region, India
 Authoritative Geospatial Engine: Google Earth Engine (USGS/SRTMGL1_003)
 Script Reference: gee/01_srtm_features.js

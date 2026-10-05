@@ -7,7 +7,7 @@
 ```
 ┌──────────────────────────────────────────────┐
 │           VERCEL (Frontend Web GIS)          │
-│   https://geoalert-sih-2026.vercel.app       │
+│   https://geoalert.vercel.app                │
 │   - Next.js 15 App Router                    │
 │   - Leaflet Canvas 3,156 cells @ 60fps       │
 │   - Light Glassmorphic Command Center        │

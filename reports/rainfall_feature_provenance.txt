@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2B: CHIRPS DAILY RAINFALL SCIENTIFIC PROVENANCE & SPECIFICATION
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Region: Meghalaya, North Eastern Region, India
 Authoritative Geospatial Engine: Google Earth Engine ('UCSB-CHG/CHIRPS/DAILY')
 Script Reference: gee/02_chirps_rainfall.js

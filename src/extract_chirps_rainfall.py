@@ -3,7 +3,7 @@
 extract_chirps_rainfall.py
 ==========================
 AI-Based Early Warning and Landslide Risk Monitoring System for the
-North Eastern Region of India (SIH - 2026)
+North Eastern Region of India
 
 Phase 2B: CHIRPS Daily Rainfall & Antecedent Rainfall Indices (ARI) Extraction
 
@@ -518,7 +518,7 @@ def generate_reports(
         "================================================================================",
         "PHASE 2B: CHIRPS DAILY RAINFALL SCIENTIFIC PROVENANCE & SPECIFICATION",
         "================================================================================",
-        "Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)",
+        "Project: AI-Based Early Warning and Landslide Risk Monitoring System",
         "Target Region: Meghalaya, North Eastern Region, India",
         "Authoritative Geospatial Engine: Google Earth Engine ('UCSB-CHG/CHIRPS/DAILY')",
         "Script Reference: gee/02_chirps_rainfall.js",
@@ -629,7 +629,7 @@ def generate_reports(
         "================================================================================",
         "PHASE 2B FINAL SCIENTIFIC & METHODOLOGICAL AUDIT REPORT",
         "================================================================================",
-        "Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)",
+        "Project: AI-Based Early Warning and Landslide Risk Monitoring System",
         "Authoritative Geospatial Source: Google Earth Engine (UCSB-CHG/CHIRPS/DAILY)",
         "Audit Date: " + time.strftime('%Y-%m-%d'),
         "Audit Scope: Temporal classification, date extraction honesty, CHIRPS daily extraction,",

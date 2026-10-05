@@ -1,5 +1,5 @@
 # GEOALERT — Comprehensive Product Overview
-## Smart India Hackathon (SIH 2026) • Problem Statement ID: SIH-2026-GEOALERT
+## AI-Based Real-Time Weather Monitoring & Forecast-Driven Landslide Risk Intelligence Platform
 
 ---
 

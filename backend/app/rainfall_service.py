@@ -1,7 +1,7 @@
 """
 backend/app/rainfall_service.py
 ===============================
-Pluggable Rainfall Provider Interface and Adapters for SIH 2026.
+Pluggable Rainfall Provider Interface and Adapters for GEOALERT.
 Supports:
 1. Demo / Scenario Mode (Presets: Dry Season, Moderate Shower, Monsoon Surge, Extreme Cloudburst)
 2. Custom User-Adjusted 10-feature CHIRPS feature vectors

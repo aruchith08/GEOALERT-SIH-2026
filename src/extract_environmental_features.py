@@ -3,7 +3,7 @@
 extract_environmental_features.py
 =================================
 AI-Based Early Warning and Landslide Risk Monitoring System for the
-North Eastern Region of India (SIH - 2026)
+North Eastern Region of India
 
 Phase 2C: Geo-Environmental, Soil, Land Cover, Lithology & Proximity Features
 
@@ -426,7 +426,7 @@ def generate_reports(prov_path: Path, qa_path: Path, audit_path: Path, final_row
         "================================================================================",
         "PHASE 2C: GEO-ENVIRONMENTAL, SOIL & PROXIMITY SCIENTIFIC PROVENANCE REPORT",
         "================================================================================",
-        "Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)",
+        "Project: AI-Based Early Warning and Landslide Risk Monitoring System",
         "Target Region: Meghalaya, North Eastern Region, India",
         "Authoritative Geospatial Engine: Google Earth Engine / OpenStreetMap / ISRIC SoilGrids",
         "Reference Script: gee/03_environmental_features.js",
@@ -548,7 +548,7 @@ def generate_reports(prov_path: Path, qa_path: Path, audit_path: Path, final_row
         "================================================================================",
         "PHASE 2C FINAL SCIENTIFIC & METHODOLOGICAL AUDIT REPORT",
         "================================================================================",
-        "Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)",
+        "Project: AI-Based Early Warning and Landslide Risk Monitoring System",
         "Audit Scope: Geo-Environmental, Soil, Land Cover, Lithology, and Proximity feature",
         "             extraction, data integrity, physical boundary checks, and schema validation.",
         f"Audit Execution Date: {time.strftime('%Y-%m-%d %H:%M:%S')}",

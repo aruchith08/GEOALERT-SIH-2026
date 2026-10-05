@@ -771,7 +771,7 @@ export default function InspectorPanel({
               &bull; <strong className="text-sky-950">Dynamic Trigger:</strong> {intel?.explainability?.rainfall_explanation ?? `Model B P(D)=${p_d.toFixed(4)} driven by real-time precipitation accumulation.`}
             </div>
             <div>
-              &bull; <strong className="text-purple-950">Coupling Synergy:</strong> {intel?.explainability?.coupling_synergy_explanation ?? `Coupled Risk = P(S) × P(D) = ${coupled.toFixed(4)} under frozen SIH 2026 thresholds.`}
+              &bull; <strong className="text-purple-950">Coupling Synergy:</strong> {intel?.explainability?.coupling_synergy_explanation ?? `Coupled Risk = P(S) × P(D) = ${coupled.toFixed(4)} under frozen calibrated thresholds.`}
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 ================================================================================
-SIH 2026: PHASE 3C FINAL MODEL A SELECTION & AUTHORIZATION REPORT
+GEOALERT: PHASE 3C FINAL MODEL A SELECTION & AUTHORIZATION REPORT
 ================================================================================
 Project:      AI-Based Early Warning & Landslide Risk Monitoring System (Meghalaya)
 Date:         2026-08-31 18:33:50

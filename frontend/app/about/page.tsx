@@ -16,7 +16,7 @@ export default function AboutPage() {
               About GEOALERT &bull; Technical Specifications
             </h1>
             <p className="text-xs text-slate-500 mt-0.5">
-              Smart India Hackathon (SIH 2026) Landslide Risk Intelligence Platform
+              AI-Powered Landslide Risk Intelligence Platform
             </p>
           </div>
         </div>

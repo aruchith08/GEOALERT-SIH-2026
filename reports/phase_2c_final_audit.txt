@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2C FINAL SCIENTIFIC & METHODOLOGICAL AUDIT REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Audit Scope: Geo-Environmental, Soil, Land Cover, Lithology, and Proximity feature
              extraction, data integrity, physical boundary checks, and schema validation.
 Audit Execution Date: 2026-08-31 17:22:55

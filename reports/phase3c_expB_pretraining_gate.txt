@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 3C: EXPERIMENT B (1:2 CUMULATIVE RATIO) PRE-TRAINING AUDIT REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Audit Date: 2026-08-31
 Audit Target: Experiment B (1:2 Ratio Baseline)
 Status: EXPERIMENT B PRE-TRAINING AUDIT: PASS
@@ -35,5 +35,5 @@ Spatial Partition Breakdown:
 --------------------------------------------------------------------------------
 EXPERIMENT B AUDIT STATUS: PASS
 SAFE TO PROCEED TO COLAB TRAINING: YES
-COLAB CELL TO RUN: Section 15 (Cell 30 in notebooks/SIH_2026_Landslide_ML_Phase3C.ipynb)
+COLAB CELL TO RUN: Section 15 (Cell 30 in notebooks/GEOALERT_Landslide_ML_Phase3C.ipynb)
 ================================================================================

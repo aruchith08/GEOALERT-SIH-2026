@@ -1,4 +1,4 @@
-// Automated frontend unit and integration tests for SIH 2026 Section 36
+// Automated frontend unit and integration tests for GEOALERT Section 36
 const fs = require('fs');
 const path = require('path');
 

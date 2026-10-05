@@ -84,7 +84,7 @@ export default function DemoLocationsPills({
           <span>Evaluator Pinned Demonstration Locations:</span>
         </div>
         <span className="text-[10px] text-slate-500 font-normal">
-          One-Click SIH Decision Scenario Audits
+          One-Click Decision Scenario Audits
         </span>
       </div>
 

@@ -1,4 +1,4 @@
-﻿import json
+import json
 import urllib.request
 import traceback
 import sys
@@ -7,7 +7,7 @@ print("Python version:", sys.version)
 
 print("\n--- TEST 1: Raw urllib to open-meteo ---")
 url = "https://api.open-meteo.com/v1/forecast?latitude=25.2744&longitude=91.7323&current=temperature_2m,precipitation&forecast_days=1"
-req = urllib.request.Request(url, headers={"User-Agent": "GEOALERT-SIH-2026/1.0 (Disaster-Risk-Platform)"})
+req = urllib.request.Request(url, headers={"User-Agent": "GEOALERT-Platform/1.0 (Disaster-Risk-Platform)"})
 try:
     with urllib.request.urlopen(req, timeout=10) as resp:
         print("Status code:", resp.status)

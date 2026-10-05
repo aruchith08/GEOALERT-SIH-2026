@@ -5,7 +5,7 @@ import Footer from '@/components/common/Footer';
 
 export const metadata: Metadata = {
   title: 'GEOALERT — AI-Powered Landslide Risk Intelligence',
-  description: 'Dual-Model Spatio-Temporal Landslide Susceptibility and Dynamic Rainfall Trigger Intelligence Platform for Meghalaya & Northeast India (SIH 2026).',
+  description: 'Dual-Model Spatio-Temporal Landslide Susceptibility and Dynamic Rainfall Trigger Intelligence Platform for Meghalaya & Northeast India.',
   icons: {
     icon: '/favicon.svg',
     shortcut: '/favicon.svg',

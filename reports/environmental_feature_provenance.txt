@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2C: GEO-ENVIRONMENTAL, SOIL & PROXIMITY SCIENTIFIC PROVENANCE REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Region: Meghalaya, North Eastern Region, India
 Authoritative Geospatial Engine: Google Earth Engine / OpenStreetMap / ISRIC SoilGrids
 Reference Script: gee/03_environmental_features.js

@@ -1,7 +1,7 @@
 """
 backend/app/geocoding_service.py
 ================================
-Reverse Geocoding & Geographic Identity Resolution Service for SIH 2026.
+Reverse Geocoding & Geographic Identity Resolution Service for GEOALERT.
 Implements a 4-tier location resolution hierarchy:
   Priority 1: Reverse Geocoded Locality (Village / Town / Locality, District, Meghalaya, India)
   Priority 2: Nearest Recognized Locality (Near <Settlement> (~dist km), District, Meghalaya, India)
@@ -156,7 +156,7 @@ class GeocodingService:
         )
         req = urllib.request.Request(
             url,
-            headers={"User-Agent": "GEOALERT-SIH-2026/1.0 (Disaster-Risk-Platform; contact@geoalert.gov.in)"}
+            headers={"User-Agent": "GEOALERT-Platform/1.0 (Disaster-Risk-Platform; contact@geoalert.gov.in)"}
         )
         try:
             with urllib.request.urlopen(req, timeout=self.http_timeout) as resp:

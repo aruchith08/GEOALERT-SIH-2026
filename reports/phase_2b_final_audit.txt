@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 2B FINAL SCIENTIFIC & METHODOLOGICAL AUDIT REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Authoritative Geospatial Source: Google Earth Engine (UCSB-CHG/CHIRPS/DAILY)
 Audit Date: 2026-08-31
 Audit Scope: Temporal classification, date extraction honesty, CHIRPS daily extraction,

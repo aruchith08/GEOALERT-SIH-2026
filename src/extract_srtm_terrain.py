@@ -3,7 +3,7 @@
 extract_srtm_terrain.py
 =======================
 AI-Based Early Warning and Landslide Risk Monitoring System for the
-North Eastern Region of India (SIH - 2026)
+North Eastern Region of India
 
 Phase 2A: SRTM 30m Topographic & Morphometric Feature Extraction Pipeline
 

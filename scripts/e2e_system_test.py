@@ -2,7 +2,7 @@
 """
 e2e_system_test.py
 ==================
-SIH 2026 Section 37 — Comprehensive End-to-End System Integration Test Suite
+GEOALERT Section 37 — Comprehensive End-to-End System Integration Test Suite
 Validates:
 1. Backend REST API health & metadata
 2. Model A and Model B cryptographic SHA-256 hashes
@@ -20,7 +20,7 @@ import pandas as pd
 from pathlib import Path
 from datetime import datetime
 
-BASE_DIR = Path("g:/My Drive/SIH - 2026")
+BASE_DIR = Path(__file__).resolve().parent.parent
 if str(BASE_DIR) not in sys.path:
     sys.path.insert(0, str(BASE_DIR))
 
@@ -43,7 +43,7 @@ from backend.app.config import (
 )
 
 print("================================================================================")
-print("SIH 2026: END-TO-END SYSTEM INTEGRATION & SCIENTIFIC CONSISTENCY TEST SUITE")
+print("GEOALERT: END-TO-END SYSTEM INTEGRATION & SCIENTIFIC CONSISTENCY TEST SUITE")
 print("================================================================================")
 
 def compute_sha256(file_path):

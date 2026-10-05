@@ -43,7 +43,7 @@ export default function Footer() {
 
         <div className="flex flex-col sm:flex-row items-center justify-between gap-2 pt-4 border-t border-slate-200 text-slate-500 text-[11px]">
           <div>
-            &copy; 2026 <strong>GEOALERT</strong> &bull; Powered by Smart India Hackathon (SIH 2026) Research Architecture.
+            &copy; 2026 <strong>GEOALERT</strong> &bull; AI-Powered Landslide Risk Intelligence Platform.
           </div>
           <div className="flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-amber-500"></span>

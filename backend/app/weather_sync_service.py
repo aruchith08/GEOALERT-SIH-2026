@@ -1,7 +1,7 @@
 """
 backend/app/weather_sync_service.py
 ====================================
-Controlled background weather synchronization service for GEOALERT SIH 2026.
+Controlled background weather synchronization service for GEOALERT.
 
 Uses threading.Timer (NOT asyncio, NOT infinite polling) to schedule periodic
 weather telemetry updates. Self-reschedules on success with exponential backoff

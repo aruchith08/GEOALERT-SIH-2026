@@ -1,4 +1,4 @@
-SIH 2026 GRAND FINALE READINESS REPORT (SECTION 38)
+GEOALERT SYSTEM READINESS REPORT (SECTION 38)
 Generated: 2026-09-01 20:33:21
 ================================================================================
 
@@ -23,11 +23,11 @@ Generated: 2026-09-01 20:33:21
    • Retraining / Mutation:     ZERO (Models permanently frozen)
 
 4. JURY & PRESENTATION ASSETS:
-   • 4.5 Min Demo Script:       docs/SIH_FINAL_DEMO_SCRIPT.md
-   • Top 25 Judge Q&A Guide:    docs/SIH_JUDGE_QA.md
-   • Key Metrics Scorecard:     docs/SIH_KEY_METRICS.md
+   • 4.5 Min Demo Script:       docs/FINAL_DEMO_SCRIPT.md
+   • Top 25 Judge Q&A Guide:    docs/TECHNICAL_QA.md
+   • Key Metrics Scorecard:     docs/KEY_METRICS.md
    • Deployment Operations:     docs/DEPLOYMENT.md
-   • Executive Product Dossier: docs/SIH_PRODUCT_OVERVIEW.md
+   • Executive Product Dossier: docs/PRODUCT_OVERVIEW.md
 
 5. LAUNCH COMMANDS:
    • Docker One-Command Launch: docker compose up --build

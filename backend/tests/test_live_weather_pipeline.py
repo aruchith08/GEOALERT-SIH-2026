@@ -2,7 +2,7 @@
 backend/tests/test_live_weather_pipeline.py
 ===========================================
 End-to-end integration and verification suite for the Real Meteorological Data
-Pipeline in GEOALERT SIH 2026.
+Pipeline in GEOALERT.
 """
 
 import hashlib

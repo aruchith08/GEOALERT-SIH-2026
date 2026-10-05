@@ -1,8 +1,8 @@
-# SIH 2026 — Meghalaya Landslide Risk Intelligence Platform
+# GEOALERT — Meghalaya Landslide Risk Intelligence Platform
 ## Frontend Web GIS Dashboard (Section 36)
 
 ### 1. Overview
-The SIH 2026 Landslide Risk Intelligence Platform is an interactive geospatial decision-support application for Meghalaya and Northeast India. It fuses:
+The GEOALERT Landslide Risk Intelligence Platform is an interactive geospatial decision-support application for Meghalaya and Northeast India. It fuses:
 - **Model A (Static Susceptibility)**: 16 environmental and geotechnical terrain features $\to P(S) \in [0, 1]$
 - **Model B (Dynamic Precipitation Trigger Hazard)**: 10 CHIRPS antecedent rainfall predictors $\to P(D) \in [0, 1]$
 - **Coupled Risk Formulation**: $\text{Risk}(x, y, t) = P(S) \times P(D)$ with frozen threshold $T_{\text{coup}} = 0.0502$

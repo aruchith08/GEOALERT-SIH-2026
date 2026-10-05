@@ -1,10 +1,10 @@
 {
-  "project": "SIH 2026 Landslide Early Warning & Risk Monitoring (Meghalaya)",
+  "project": "GEOALERT Landslide Early Warning & Risk Monitoring (Meghalaya)",
   "section": "Section 33: Multi-Hazard Spatial Risk Engine & Dynamic Alert Integration",
   "timestamp": "2026-09-01 19:40:50",
   "status": "SPATIAL_RISK_ENGINE_INITIALIZED_AND_VERIFIED",
   "engine_specification": {
-    "engine_name": "SIH 2026 Multi-Hazard Spatial Risk Engine",
+    "engine_name": "GEOALERT Multi-Hazard Spatial Risk Engine",
     "coupling_logic": "Multiplicative Risk Formulation: Risk(x,y,t) = P(S)_xy * P(D)_xyt",
     "static_susceptibility_model": "Model A (16 static terrain & geomorphic features)",
     "dynamic_trigger_model": "Model B (10 dynamic CHIRPS antecedent rainfall predictors)",

@@ -1,7 +1,7 @@
 """
 backend/app/weather_mesh.py
 ===========================
-Spatially Variable Meteorological Mesh & Multi-Station Architecture for SIH 2026.
+Spatially Variable Meteorological Mesh & Multi-Station Architecture for GEOALERT.
 Assigns real-time and forecast rainfall parameters from representative meteorological
 sampling stations across Meghalaya's geomorphic districts to the 3,156 regional risk cells.
 Scalable to the wider Northeast Region (NER).

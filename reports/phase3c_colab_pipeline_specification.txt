@@ -1,10 +1,10 @@
 ================================================================================
 PHASE 3C: GOOGLE COLAB MACHINE LEARNING PIPELINE SPECIFICATION
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Region: Meghalaya, North Eastern Region, India
 Execution Environment: Google Colab (Google Drive Mount)
-Notebook Path: notebooks/SIH_2026_Landslide_ML_Phase3C.ipynb
+Notebook Path: notebooks/GEOALERT_Landslide_ML_Phase3C.ipynb
 Frozen Foundation Datasets:
   - data/processed/meghalaya_environmental_features.csv (1,052 positives, 43 columns)
   - data/phase3/pseudo_absence_candidates.csv (3,156 pseudo-absence candidates)

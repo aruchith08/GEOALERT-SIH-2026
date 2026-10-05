@@ -2,7 +2,7 @@
  * ==============================================================================
  * Google Earth Engine (GEE) - Phase 2C: Environmental, Soil & Proximity Features
  * ==============================================================================
- * Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+ * Project: AI-Based Early Warning and Landslide Risk Monitoring System
  * Target Region: Meghalaya, North Eastern Region, India
  * Authoritative Environment: Google Earth Engine Code Editor
  * 

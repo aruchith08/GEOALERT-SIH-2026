@@ -3,7 +3,7 @@
 create_pseudo_absences_v2.py
 ============================
 Corrected & Hardened Phase 3B Pseudo-Absence Generation Pipeline
-SIH 2026 — AI-Based Early Warning and Landslide Risk Monitoring System
+GEOALERT — AI-Based Early Warning and Landslide Risk Monitoring System
 
 Key Improvements in v2:
   1. Exact 3D Spherical Geodesic / Haversine Distance KD-Tree for 500m exclusion.

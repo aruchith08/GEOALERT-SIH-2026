@@ -3,7 +3,7 @@
 extract_gsi_landslides.py
 =========================
 AI-Based Early Warning and Landslide Risk Monitoring System for the
-North Eastern Region of India (SIH - 2026)
+North Eastern Region of India
 
 Phase 1: GSI Field Validated Landslide Inventory Extraction, Validation, & Audit
 
@@ -267,7 +267,7 @@ def generate_data_dictionary(file_path: Path):
     content = """================================================================================
 GSI FIELD VALIDATED LANDSLIDE INVENTORY - DATA DICTIONARY & AUDIT RULES
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System
 Source Document: Geological Survey of India (GSI) Field Validated Landslide Inventory (landslide_report.pdf)
 Canonical Source Location: data/raw/landslide_report.pdf
 Total Records: 36,071

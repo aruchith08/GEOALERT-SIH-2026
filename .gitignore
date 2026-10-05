@@ -1,6 +1,4 @@
-# ==============================================================================
-# GEOALERT — Smart India Hackathon (SIH 2026) .gitignore
-# ==============================================================================
+# GEOALERT .gitignore
 
 # Raw Multi-Gigabyte Satellite Rasters (CHIRPS & SRTM GeoTIFFs)
 data/raw/

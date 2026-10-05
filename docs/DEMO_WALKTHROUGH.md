@@ -1,4 +1,4 @@
-# GEOALERT — Comprehensive SIH 2026 Demo Walkthrough Guide
+# GEOALERT — Comprehensive Demo Walkthrough Guide
 
 This walkthrough guides evaluators, judges, and operators through the complete real-time weather monitoring and forecast-driven landslide risk intelligence platform.
 

@@ -1,7 +1,7 @@
 ================================================================================
 GSI FIELD VALIDATED LANDSLIDE INVENTORY - DATA DICTIONARY & AUDIT RULES
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Source Document: Geological Survey of India (GSI) Field Validated Landslide Inventory (landslide_report.pdf)
 Canonical Source Location: data/raw/landslide_report.pdf
 Total Records: 36,071

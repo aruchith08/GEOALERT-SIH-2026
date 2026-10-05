@@ -1,7 +1,7 @@
 ================================================================================
 PHASE 3B FORENSIC AUDIT & ROOT CAUSE INVESTIGATION REPORT
 ================================================================================
-Project: AI-Based Early Warning and Landslide Risk Monitoring System (SIH - 2026)
+Project: AI-Based Early Warning and Landslide Risk Monitoring System (GEOALERT)
 Target Region: Meghalaya, North Eastern Region, India
 Investigation Date: 2026-08-31
 Scope: Exhaustive, read-only forensic analysis of coordinate integrity,
@@ -99,7 +99,7 @@ I. ROOT CAUSES SUMMARY
 J. RECOMMENDED CORRECTIONS
 --------------------------------------------------------------------------------
 1. Use data/phase3_corrected/pseudo_absence_candidates_v2.csv as the authoritative background candidate dataset.
-2. In the Google Colab notebook (SIH_2026_Landslide_ML_Phase3D.ipynb):
+2. In the Google Colab notebook (GEOALERT_Landslide_ML_Phase3D.ipynb):
    - Compute spatial_block_id for df_pos immediately upon CSV ingestion in Section 3.
    - Explicitly define cumulative slices for Experiment A, B, and C.
    - Include diagnostic cells explaining the positive-only co-located events (25 rows) vs negative uniqueness (100%).
