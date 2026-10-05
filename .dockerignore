@@ -1,0 +1,18 @@
+# Ignore large raw dataset directory (reports/ already has the production geojson & risk surfaces)
+data/
+frontend/
+notebooks/
+figures/
+gee/
+.git/
+.github/
+.pytest_cache/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.env*
+tests/
+docs/
+.venv/
+venv/

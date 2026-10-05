@@ -216,11 +216,13 @@ GEOALERT is an advanced scientific research decision-support prototype developed
 
 For in-depth operational procedures, technical specifications, and validation reports:
 
+- **[Zoho Catalyst AppSail Deployment Guide](docs/ZOHO_CATALYST_DEPLOYMENT.md)**: Production deployment instructions for Zoho Catalyst AppSail (PaaS), replacing Railway after trial expiration.
 - **[System Deployment, Configuration & Operations Manual](docs/DEPLOYMENT.md)**: Local, Docker, and environment configuration.
-- **[Cloud Deployment Guide](docs/CLOUD_DEPLOYMENT.md)**: Production deployment instructions for Next.js (Vercel) and FastAPI (Render / Railway).
+- **[Cloud Deployment Guide](docs/CLOUD_DEPLOYMENT.md)**: Production deployment instructions for Next.js (Vercel) and FastAPI (Zoho Catalyst / Render / Railway).
 - **[Comprehensive Demo Walkthrough Guide](docs/DEMO_WALKTHROUGH.md)**: Step-by-step walkthrough of Web GIS controls, layer switchers, and XAI inspector.
 - **[Comprehensive Live Demonstration Script](docs/FINAL_DEMO_SCRIPT.md)**: Structured 5-minute technical presentation script.
 - **[Technical & Scientific Evaluation Q&A](docs/TECHNICAL_QA.md)**: Rigorous answers to core architecture, weather telemetry, and false-alarm suppression questions.
 - **[Official Key Metrics & Scientific Scorecard](docs/KEY_METRICS.md)**: Complete tabular scorecard of model accuracies, thresholds, and latencies.
 - **[Comprehensive Product Overview](docs/PRODUCT_OVERVIEW.md)**: Mathematical formulations, regional expansion framework, and physical decoupling rationale.
+
 

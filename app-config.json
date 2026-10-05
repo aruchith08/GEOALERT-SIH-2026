@@ -1,0 +1,11 @@
+{
+  "command": "python3 run_server.py",
+  "stack": "python3.12",
+  "env_variables": {
+    "PYTHONPATH": ".",
+    "CORS_ORIGINS": "*",
+    "WEATHER_REFRESH_INTERVAL": "600",
+    "COORDINATE_AUTO_REFRESH_INTERVAL": "600"
+  },
+  "memory": 1024
+}

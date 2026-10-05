@@ -1,0 +1,8 @@
+{
+  "appsail": [
+    {
+      "name": "geoalert-backend",
+      "source": "."
+    }
+  ]
+}

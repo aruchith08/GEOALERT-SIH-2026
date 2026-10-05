@@ -1,0 +1,36 @@
+# Zoho Catalyst AppSail Ignore File
+# Excludes unnecessary R&D, frontend, and massive raw raster data from deployment archive
+
+# Raw GIS rasters (production spatial surface is in reports/)
+data/
+
+# Frontend (deployed separately on Vercel)
+frontend/
+node_modules/
+
+# Notebooks and Figures
+notebooks/
+figures/
+gee/
+
+# Git and CI/CD
+.git/
+.github/
+.gitignore
+
+# Python caches and virtual environments
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+env/
+
+# Environment files with secrets
+.env
+.env.local
+
+# Documentation
+docs/
