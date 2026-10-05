@@ -1,0 +1,29 @@
+{
+  "defaults": {
+    "project": 1
+  },
+  "actives": {
+    "project": 1,
+    "env": 1
+  },
+  "projects": [
+    {
+      "idx": 1,
+      "id": "51644000000016024",
+      "name": "geoalert-platform",
+      "domain": {
+        "id": "50046594894",
+        "name": "geoalert-platform-60090398141.development"
+      },
+      "timezone": "Asia/Kolkata",
+      "env": [
+        {
+          "idx": 1,
+          "id": "60090398141",
+          "name": "Development",
+          "type": 3
+        }
+      ]
+    }
+  ]
+}

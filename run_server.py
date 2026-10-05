@@ -17,10 +17,19 @@ except Exception:
     pass
 
 if __name__ == '__main__':
-    import uvicorn
+    try:
+        import uvicorn
+    except ModuleNotFoundError:
+        import subprocess
+        req_file = os.path.join(BASE_DIR, "requirements.txt")
+        print(f"Dependencies not pre-installed. Installing from {req_file}...")
+        subprocess.check_call([sys.executable, "-m", "pip", "install", "--no-cache-dir", "-r", req_file])
+        import uvicorn
+
     # Catalyst AppSail injects X_ZOHO_CATALYST_LISTEN_PORT; other PaaS inject PORT
     port_env = os.environ.get("X_ZOHO_CATALYST_LISTEN_PORT") or os.environ.get("PORT") or "8000"
     port = int(port_env)
     print(f"Starting GEOALERT Backend on 0.0.0.0:{port}...")
     uvicorn.run('backend.app.main:app', host='0.0.0.0', port=port, reload=False)
+
 

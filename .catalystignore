@@ -2,35 +2,61 @@
 # Excludes unnecessary R&D, frontend, and massive raw raster data from deployment archive
 
 # Raw GIS rasters (production spatial surface is in reports/)
-data/
+data
+data/**
+**/data/**
 
 # Frontend (deployed separately on Vercel)
-frontend/
-node_modules/
+frontend
+frontend/**
+**/frontend/**
+node_modules
+node_modules/**
+**/node_modules/**
 
 # Notebooks and Figures
-notebooks/
-figures/
-gee/
+notebooks
+notebooks/**
+**/notebooks/**
+figures
+figures/**
+**/figures/**
+gee
+gee/**
+**/gee/**
 
 # Git and CI/CD
-.git/
-.github/
+.git
+.git/**
+**/.git/**
+.github
+.github/**
+**/.github/**
 .gitignore
 
 # Python caches and virtual environments
-__pycache__/
+__pycache__
+__pycache__/**
+**/__pycache__/**
 *.pyc
 *.pyo
 *.pyd
-.pytest_cache/
-.venv/
-venv/
-env/
+.pytest_cache
+.pytest_cache/**
+**/.pytest_cache/**
+.venv
+.venv/**
+venv
+venv/**
+env
+env/**
 
 # Environment files with secrets
 .env
 .env.local
+.env.*
 
 # Documentation
-docs/
+docs
+docs/**
+**/docs/**

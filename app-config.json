@@ -1,6 +1,7 @@
 {
   "command": "python3 run_server.py",
   "stack": "python_3_12",
+  "build_path": ".",
   "env_variables": {
     "PYTHONPATH": ".",
     "CORS_ORIGINS": "*",
