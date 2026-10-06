@@ -189,7 +189,7 @@ export default function RiskMapWrapper({
 
       {/* Map Surface */}
       <div
-        className="relative rounded-2xl overflow-hidden border border-slate-200 shadow-md w-full"
+        className="relative isolate rounded-2xl overflow-hidden border border-slate-200 shadow-md w-full"
         style={{ minHeight: '580px', height: '580px' }}
       >
         <LeafletMap
