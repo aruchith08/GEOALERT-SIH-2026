@@ -3,7 +3,7 @@
   "stack": "python_3_12",
   "build_path": ".",
   "env_variables": {
-    "PYTHONPATH": ".",
+    "PYTHONPATH": "lib:.",
     "CORS_ORIGINS": "*",
     "WEATHER_REFRESH_INTERVAL": "600",
     "COORDINATE_AUTO_REFRESH_INTERVAL": "600"
