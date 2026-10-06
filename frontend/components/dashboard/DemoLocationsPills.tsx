@@ -161,31 +161,15 @@ export default function DemoLocationsPills({
       results.forEach((res) => {
         if (res.status === 'fulfilled' && res.value?.intel) {
           const { id, intel, p_static } = res.value;
-          const nowcast = intel.meteorological_nowcast;
-          const livePd = nowcast?.dynamic_trigger_p_d ?? 0.0820;
-          const coupled = Number((p_static * livePd).toFixed(4));
-
-          let alert_level = intel.alert_tier_code || 'Level 1: Green';
-          let alert_color = intel.alert_color_hex || '#16a34a';
-
-          if (coupled >= 0.3500 && p_static >= 0.1500) {
-            alert_level = 'Level 4: Red';
-            alert_color = '#dc2626';
-          } else if (coupled >= 0.1500 && p_static >= 0.1500) {
-            alert_level = 'Level 3: Orange';
-            alert_color = '#ea580c';
-          } else if (coupled >= 0.0502 && p_static >= 0.1500) {
-            alert_level = 'Level 2: Yellow';
-            alert_color = '#ca8a04';
-          } else {
-            alert_level = 'Level 1: Green';
-            alert_color = '#16a34a';
-          }
+          const livePd = intel.current_dynamic_trigger_p_d ?? 0.0820;
+          const coupled = intel.current_coupled_risk_score ?? Number((p_static * livePd).toFixed(4));
+          const alert_level = intel.current_alert_tier_code || 'Level 1: Green';
+          const alert_color = intel.current_alert_color_hex || '#16a34a';
 
           updated[id] = {
-            temp_c: nowcast?.temperature_c ?? 20.0,
-            rain_24h_mm: nowcast?.rainfall_last_24h_mm ?? 2.0,
-            weather_desc: nowcast?.weather_description ?? 'Clear',
+            temp_c: intel.current_weather?.temperature_c ?? 20.0,
+            rain_24h_mm: intel.past_24h_weather?.total_rainfall_mm ?? 2.0,
+            weather_desc: intel.current_weather?.weather_description ?? 'Clear',
             p_d: livePd,
             coupled_risk: coupled,
             alert_level,
