@@ -23,7 +23,8 @@ eggs/
 htmlcov/
 *.egg-info/
 .installed.cfg
-*.egg
+# Bundled Python runtime dependencies for AppSail
+/lib/
 
 # Node / Next.js
 node_modules/

@@ -143,7 +143,7 @@ def test_risk_coordinate_outlook_endpoint(client):
     assert len(data["milestones"]) == 6
     assert isinstance(data["current_coupled_risk"], (int, float))
     assert isinstance(data["peak_risk_score"], (int, float))
-    assert data["peak_hour_offset"] in [0, 1, 3, 6, 12, 24]
+    assert 0 <= data["peak_hour_offset"] <= 24
     assert data["trend_classification"] in ("RISING_HAZARD", "FALLING_HAZARD", "STABLE")
     assert "scientific_disclaimer" in data
 

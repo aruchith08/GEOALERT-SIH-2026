@@ -60,3 +60,13 @@ env/**
 docs
 docs/**
 **/docs/**
+
+# Non-runtime test packages and test suites in bundled lib
+lib/**/tests
+lib/**/tests/**
+lib/pytest*
+lib/pytest*/**
+lib/_pytest*
+lib/_pytest*/**
+lib/pygments*
+lib/pygments*/**
