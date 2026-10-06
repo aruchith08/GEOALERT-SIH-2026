@@ -89,3 +89,42 @@ def test_validate_invalid_status_rejects():
         "notes": "Should fail"
     })
     assert res.status_code == 400
+
+
+def test_get_alerts_realtime_vs_demo_filter():
+    """Verify clean segregation between real-time surveillance and demo/calibration archive."""
+    # 1. Fetch demo archive
+    demo_res = client.get("/api/v1/alerts?is_demo=true")
+    assert demo_res.status_code == 200
+    demo_data = demo_res.json()
+    assert isinstance(demo_data, list)
+    assert len(demo_data) >= 3
+    for ep in demo_data:
+        assert ep["is_demo"] is True
+        assert ep["source"] in ["HISTORICAL_CALIBRATION", "SIMULATION"]
+
+    # 2. Fetch realtime ledger
+    real_res = client.get("/api/v1/alerts?is_demo=false")
+    assert real_res.status_code == 200
+    real_data = real_res.json()
+    assert isinstance(real_data, list)
+    for ep in real_data:
+        assert ep["is_demo"] is False
+        assert ep["source"] == "REALTIME"
+
+
+def test_alerts_summary_realtime_vs_demo():
+    """Verify summary metrics distinguish between active surveillance and calibration."""
+    real_sum = client.get("/api/v1/alerts/summary?is_demo=false")
+    assert real_sum.status_code == 200
+    real_data = real_sum.json()
+    assert real_data["is_demo"] is False
+    assert real_data["surveillance_status"] == "ACTIVE_SURVEILLANCE"
+    assert real_data["monitored_cells_count"] == 3156
+    assert real_data["feature_activated_date"] == "2026-10-06"
+
+    demo_sum = client.get("/api/v1/alerts/summary?is_demo=true")
+    assert demo_sum.status_code == 200
+    demo_data = demo_sum.json()
+    assert demo_data["is_demo"] is True
+    assert demo_data["total_episodes"] >= 3

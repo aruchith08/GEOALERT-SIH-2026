@@ -33,26 +33,31 @@ class SimulateTriggerRequest(BaseModel):
 def get_alerts(
     status: Optional[str] = Query(None, description="Filter by status: 'ACTIVE' or 'RESOLVED'"),
     validation_status: Optional[str] = Query(None, description="Filter by validation: 'PENDING', 'CONFIRMED_LANDSLIDE', 'FALSE_POSITIVE', 'MINOR_SLIP'"),
+    is_demo: Optional[bool] = Query(None, description="Filter mode: False for real-time live events only, True for demo/calibration archive only"),
     limit: int = Query(50, ge=1, le=200, description="Maximum number of alerts to return")
 ):
     """
     Returns high-risk hazard episodes with complete environmental condition snapshots,
     trigger root causes, and active/resolved duration tracking.
+    Supports segregating real-time monitored events (is_demo=False) from calibration demos (is_demo=True).
     """
     return alert_tracker_service.get_alerts(
         status=status,
         validation_status=validation_status,
+        is_demo=is_demo,
         limit=limit
     )
 
 
 @router.get("/summary", response_model=Dict[str, Any])
-def get_alerts_summary():
+def get_alerts_summary(
+    is_demo: Optional[bool] = Query(None, description="Filter summary: False for real-time live events only, True for demo/calibration archive only")
+):
     """
-    Returns empirical performance metrics across all high-risk alerts:
+    Returns empirical performance metrics across high-risk alerts:
     active red alerts count, confirmed failures, precision rate, and average alert duration.
     """
-    return alert_tracker_service.get_summary_statistics()
+    return alert_tracker_service.get_summary_statistics(is_demo=is_demo)
 
 
 @router.get("/{alert_id}", response_model=Dict[str, Any])

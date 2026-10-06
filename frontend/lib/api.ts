@@ -994,15 +994,18 @@ export async function fetchRiskOutlook(
 
 /**
  * Fetches high-risk hazard episodes (active and resolved) with full conditions snapshot.
+ * Supports filtering by real-time vs demo/calibration archive (isDemo = false vs true).
  */
 export async function fetchAlertEpisodes(
   status?: string,
-  validationStatus?: string
+  validationStatus?: string,
+  isDemo?: boolean
 ): Promise<AlertEpisode[]> {
   try {
     const params = new URLSearchParams();
     if (status && status !== 'ALL') params.append('status', status);
     if (validationStatus && validationStatus !== 'ALL') params.append('validation_status', validationStatus);
+    if (isDemo !== undefined) params.append('is_demo', String(isDemo));
 
     const res = await fetch(`${API_BASE}/alerts?${params.toString()}`, { cache: 'no-store' });
     if (!res.ok) throw new Error(`Alerts fetch failed: ${res.status}`);
@@ -1015,10 +1018,15 @@ export async function fetchAlertEpisodes(
 
 /**
  * Fetches aggregate performance & ground-truth validation statistics.
+ * Supports filtering by real-time vs demo/calibration archive.
  */
-export async function fetchAlertsSummary(): Promise<AlertsSummaryStats | null> {
+export async function fetchAlertsSummary(isDemo?: boolean): Promise<AlertsSummaryStats | null> {
   try {
-    const res = await fetch(`${API_BASE}/alerts/summary`, { cache: 'no-store' });
+    const params = new URLSearchParams();
+    if (isDemo !== undefined) params.append('is_demo', String(isDemo));
+    const url = params.toString() ? `${API_BASE}/alerts/summary?${params.toString()}` : `${API_BASE}/alerts/summary`;
+
+    const res = await fetch(url, { cache: 'no-store' });
     if (!res.ok) throw new Error(`Alerts summary error: ${res.status}`);
     return await res.json();
   } catch (err) {

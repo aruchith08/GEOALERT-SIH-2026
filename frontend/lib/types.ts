@@ -593,6 +593,8 @@ export interface AlertEpisode {
   validation_notes: string | null;
   validated_at: string | null;
   validated_by: string | null;
+  is_demo?: boolean;
+  source?: 'REALTIME' | 'SIMULATION' | 'HISTORICAL_CALIBRATION';
 }
 
 export interface AlertsSummaryStats {
@@ -606,4 +608,8 @@ export interface AlertsSummaryStats {
   empirical_precision_pct: number;
   average_duration_minutes: number;
   average_duration_formatted: string;
+  is_demo?: boolean | null;
+  feature_activated_date?: string;
+  surveillance_status?: string;
+  monitored_cells_count?: number;
 }

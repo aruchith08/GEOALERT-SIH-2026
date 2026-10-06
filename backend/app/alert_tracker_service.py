@@ -39,7 +39,7 @@ class AlertTrackerService:
         return conn
 
     def _init_db(self) -> None:
-        """Initialize the high-risk alert episodes table."""
+        """Initialize the high-risk alert episodes table and migrate schema if needed."""
         self.db_path.parent.mkdir(parents=True, exist_ok=True)
         with self._get_connection() as conn:
             cursor = conn.cursor()
@@ -67,12 +67,35 @@ class AlertTrackerService:
                     validation_status TEXT NOT NULL, -- 'PENDING', 'CONFIRMED_LANDSLIDE', 'FALSE_POSITIVE', 'MINOR_SLIP'
                     validation_notes TEXT,
                     validated_at TEXT,
-                    validated_by TEXT
+                    validated_by TEXT,
+                    is_demo INTEGER DEFAULT 0,     -- 0 = Real-Time, 1 = Demo / Simulated / Calibration
+                    source TEXT DEFAULT 'REALTIME' -- 'REALTIME', 'SIMULATION', 'HISTORICAL_CALIBRATION'
                 )
             """)
+
+            # Migration: Ensure is_demo and source columns exist on legacy tables
+            cursor.execute("PRAGMA table_info(alert_episodes)")
+            existing_cols = {col[1] for col in cursor.fetchall()}
+            if "is_demo" not in existing_cols:
+                cursor.execute("ALTER TABLE alert_episodes ADD COLUMN is_demo INTEGER DEFAULT 0")
+            if "source" not in existing_cols:
+                cursor.execute("ALTER TABLE alert_episodes ADD COLUMN source TEXT DEFAULT 'REALTIME'")
+
+            # Mark all pre-existing seed records and historical test records as demo
+            cursor.execute("""
+                UPDATE alert_episodes
+                SET is_demo = 1,
+                    source = CASE
+                        WHEN id LIKE '%SOHRA01' OR id LIKE '%MAWSYN02' OR id LIKE '%JAINTIA03' THEN 'HISTORICAL_CALIBRATION'
+                        ELSE 'SIMULATION'
+                    END
+                WHERE is_demo = 0 AND (id LIKE '%SOHRA01' OR id LIKE '%MAWSYN02' OR id LIKE '%JAINTIA03' OR trigger_time < '2026-10-06T20:30:00+00:00')
+            """)
+
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_status ON alert_episodes(status)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_cell ON alert_episodes(cell_id)")
             cursor.execute("CREATE INDEX IF NOT EXISTS idx_trigger_time ON alert_episodes(trigger_time)")
+            cursor.execute("CREATE INDEX IF NOT EXISTS idx_is_demo ON alert_episodes(is_demo)")
             conn.commit()
 
     def record_or_update_alert(
@@ -88,22 +111,26 @@ class AlertTrackerService:
         trigger_cause: Optional[str] = None,
         cell_id: Optional[str] = None,
         alert_tier: str = "Level 4: Red",
+        is_demo: bool = False,
+        source: str = "REALTIME",
     ) -> Dict[str, Any]:
         """
         Record a newly triggered high-risk event or update an ongoing active episode.
+        Separates real-time events (is_demo=False) from simulations/demos (is_demo=True).
         """
         now = datetime.now(timezone.utc).isoformat()
         cell_key = cell_id or f"COORD_{latitude:.4f}_{longitude:.4f}"
+        demo_flag = 1 if is_demo else 0
 
         if not trigger_cause:
             trigger_cause = self._generate_trigger_cause(p_s, p_d, conditions)
 
         with self._get_connection() as conn:
             cursor = conn.cursor()
-            # Check for existing ACTIVE episode for this cell
+            # Check for existing ACTIVE episode for this cell and demo status
             cursor.execute(
-                "SELECT * FROM alert_episodes WHERE cell_id = ? AND status = 'ACTIVE' LIMIT 1",
-                (cell_key,)
+                "SELECT * FROM alert_episodes WHERE cell_id = ? AND status = 'ACTIVE' AND is_demo = ? LIMIT 1",
+                (cell_key, demo_flag)
             )
             existing = cursor.fetchone()
 
@@ -125,7 +152,8 @@ class AlertTrackerService:
                 return self.get_alert_by_id(episode_id)
             else:
                 # Create a new ACTIVE episode
-                episode_id = f"ALERT-{datetime.now(timezone.utc).strftime('%Y%m%d')}-{uuid.uuid4().hex[:6].upper()}"
+                prefix = "SIM" if is_demo else "ALERT"
+                episode_id = f"{prefix}-{datetime.now(timezone.utc).strftime('%Y%m%d')}-{uuid.uuid4().hex[:6].upper()}"
                 conditions_json = json.dumps(conditions)
 
                 cursor.execute("""
@@ -135,18 +163,18 @@ class AlertTrackerService:
                         alert_tier, trigger_risk_score, peak_risk_score, peak_time,
                         static_susceptibility_p_s, dynamic_trigger_p_d, trigger_cause,
                         conditions_snapshot, validation_status, validation_notes,
-                        validated_at, validated_by
+                        validated_at, validated_by, is_demo, source
                     ) VALUES (
                         ?, ?, ?, ?, ?, ?, ?, ?, NULL, NULL, 'ACTIVE',
-                        ?, ?, ?, ?, ?, ?, ?, ?, 'PENDING', NULL, NULL, NULL
+                        ?, ?, ?, ?, ?, ?, ?, ?, 'PENDING', NULL, NULL, NULL, ?, ?
                     )
                 """, (
                     episode_id, cell_key, location_name, district_or_block, latitude, longitude,
                     now, now, alert_tier, coupled_risk_score, coupled_risk_score, now,
-                    p_s, p_d, trigger_cause, conditions_json
+                    p_s, p_d, trigger_cause, conditions_json, demo_flag, source
                 ))
                 conn.commit()
-                logger.info(f"[AlertTracker] New High-Risk Episode started: {episode_id} ({location_name})")
+                logger.info(f"[AlertTracker] New Episode recorded: {episode_id} ({location_name}, is_demo={is_demo})")
                 return self.get_alert_by_id(episode_id)
 
     def resolve_alert(self, episode_id: str, resolved_at: Optional[str] = None) -> Optional[Dict[str, Any]]:
@@ -219,6 +247,7 @@ class AlertTrackerService:
         self,
         status: Optional[str] = None,
         validation_status: Optional[str] = None,
+        is_demo: Optional[bool] = None,
         limit: int = 50,
     ) -> List[Dict[str, Any]]:
         """Query alert episodes with optional filtering."""
@@ -231,6 +260,9 @@ class AlertTrackerService:
         if validation_status:
             query += " AND validation_status = ?"
             params.append(validation_status.upper())
+        if is_demo is not None:
+            query += " AND is_demo = ?"
+            params.append(1 if is_demo else 0)
 
         query += " ORDER BY trigger_time DESC LIMIT ?"
         params.append(limit)
@@ -241,39 +273,54 @@ class AlertTrackerService:
             rows = cursor.fetchall()
             return [self._format_row(r) for r in rows]
 
-    def get_summary_statistics(self) -> Dict[str, Any]:
+    def get_summary_statistics(self, is_demo: Optional[bool] = None) -> Dict[str, Any]:
         """Compute live empirical summary metrics across the alert ledger."""
+        where_clause = ""
+        params: List[Any] = []
+        if is_demo is not None:
+            where_clause = " WHERE is_demo = ?"
+            params = [1 if is_demo else 0]
+
+        def q_where(extra: str = "") -> str:
+            if where_clause and extra:
+                return f"{where_clause} AND {extra}"
+            elif where_clause:
+                return where_clause
+            elif extra:
+                return f" WHERE {extra}"
+            return ""
+
         with self._get_connection() as conn:
             cursor = conn.cursor()
-            cursor.execute("SELECT COUNT(*) FROM alert_episodes")
+            cursor.execute(f"SELECT COUNT(*) FROM alert_episodes{q_where()}", params)
             total = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM alert_episodes WHERE status = 'ACTIVE'")
+            cursor.execute(f"SELECT COUNT(*) FROM alert_episodes{q_where('status = ?')}", params + ["ACTIVE"])
             active = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM alert_episodes WHERE status = 'RESOLVED'")
+            cursor.execute(f"SELECT COUNT(*) FROM alert_episodes{q_where('status = ?')}", params + ["RESOLVED"])
             resolved = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM alert_episodes WHERE validation_status = 'CONFIRMED_LANDSLIDE'")
+            cursor.execute(f"SELECT COUNT(*) FROM alert_episodes{q_where('validation_status = ?')}", params + ["CONFIRMED_LANDSLIDE"])
             confirmed = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM alert_episodes WHERE validation_status = 'MINOR_SLIP'")
+            cursor.execute(f"SELECT COUNT(*) FROM alert_episodes{q_where('validation_status = ?')}", params + ["MINOR_SLIP"])
             minor_slips = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM alert_episodes WHERE validation_status = 'FALSE_POSITIVE'")
+            cursor.execute(f"SELECT COUNT(*) FROM alert_episodes{q_where('validation_status = ?')}", params + ["FALSE_POSITIVE"])
             false_positives = cursor.fetchone()[0]
 
-            cursor.execute("SELECT COUNT(*) FROM alert_episodes WHERE validation_status = 'PENDING'")
+            cursor.execute(f"SELECT COUNT(*) FROM alert_episodes{q_where('validation_status = ?')}", params + ["PENDING"])
             pending = cursor.fetchone()[0]
 
-            cursor.execute("SELECT AVG(duration_minutes) FROM alert_episodes WHERE duration_minutes IS NOT NULL")
+            cursor.execute(f"SELECT AVG(duration_minutes) FROM alert_episodes{q_where('duration_minutes IS NOT NULL')}", params)
             avg_duration_row = cursor.fetchone()[0]
             avg_duration = round(avg_duration_row, 1) if avg_duration_row else 0.0
 
             total_verified = confirmed + minor_slips + false_positives
             empirical_precision = (
                 round(((confirmed + minor_slips) / total_verified) * 100.0, 1)
-                if total_verified > 0 else 85.0
+                if total_verified > 0 else (100.0 if is_demo is False else 85.0)
             )
 
             return {
@@ -287,6 +334,10 @@ class AlertTrackerService:
                 "empirical_precision_pct": empirical_precision,
                 "average_duration_minutes": avg_duration,
                 "average_duration_formatted": self._format_duration(avg_duration),
+                "is_demo": is_demo,
+                "feature_activated_date": "2026-10-06",
+                "surveillance_status": "ACTIVE_SURVEILLANCE" if is_demo is False else "CALIBRATION_ARCHIVE",
+                "monitored_cells_count": 3156,
             }
 
     def simulate_trigger_event(
@@ -298,6 +349,7 @@ class AlertTrackerService:
     ) -> Dict[str, Any]:
         """
         Generates a realistic simulated high-risk event for testing and demonstrations.
+        Flags episode with is_demo=True and source='SIMULATION' so real-time ledger is kept clean.
         """
         conditions = {
             "slope_deg": 33.5,
@@ -327,8 +379,10 @@ class AlertTrackerService:
                 "Intense monsoon surge: 3-day Antecedent Rain Index (182.4 mm) "
                 "surpassed geotechnical shear failure threshold on a 33.5° steep fractured cut slope."
             ),
-            cell_id=f"CELL_MEG_{uuid.uuid4().hex[:4].upper()}",
+            cell_id=f"CELL_SIM_{uuid.uuid4().hex[:4].upper()}",
             alert_tier="Level 4: Red",
+            is_demo=True,
+            source="SIMULATION",
         )
 
     def _generate_trigger_cause(self, p_s: float, p_d: float, conditions: Dict[str, Any]) -> str:
@@ -343,6 +397,8 @@ class AlertTrackerService:
 
     def _format_row(self, row: sqlite3.Row) -> Dict[str, Any]:
         d = dict(row)
+        d["is_demo"] = bool(d.get("is_demo", 0))
+        d["source"] = d.get("source", "REALTIME")
         try:
             d["conditions_snapshot"] = json.loads(d["conditions_snapshot"])
         except Exception:
@@ -407,7 +463,9 @@ class AlertTrackerService:
                 "validation_status": "CONFIRMED_LANDSLIDE",
                 "validation_notes": "Ground verification: Major debris slide blocked Sohra-Shella road at km 14. PWD mobilized excavators. No casualties due to early alert.",
                 "validated_at": "2026-07-15T09:00:00+00:00",
-                "validated_by": "State Disaster Management Team"
+                "validated_by": "State Disaster Management Team",
+                "is_demo": 1,
+                "source": "HISTORICAL_CALIBRATION"
             },
             {
                 "id": "ALERT-20260802-MAWSYN02",
@@ -436,7 +494,9 @@ class AlertTrackerService:
                 "validation_status": "MINOR_SLIP",
                 "validation_notes": "Field inspection confirmed localized rockfall and soil slumping onto village access path. Pre-emptive advisory prevented vehicular transit.",
                 "validated_at": "2026-08-03T11:30:00+00:00",
-                "validated_by": "District Geologist"
+                "validated_by": "District Geologist",
+                "is_demo": 1,
+                "source": "HISTORICAL_CALIBRATION"
             },
             {
                 "id": "ALERT-20260819-JAINTIA03",
@@ -465,7 +525,9 @@ class AlertTrackerService:
                 "validation_status": "FALSE_POSITIVE",
                 "validation_notes": "Inspection confirmed surface runoff erosion and minor rill formation, but no mass movement failure occurred. Drainage ditches successfully diverted water.",
                 "validated_at": "2026-08-20T14:00:00+00:00",
-                "validated_by": "NHIDCL Site Inspector"
+                "validated_by": "NHIDCL Site Inspector",
+                "is_demo": 1,
+                "source": "HISTORICAL_CALIBRATION"
             }
         ]
 
@@ -479,14 +541,14 @@ class AlertTrackerService:
                         alert_tier, trigger_risk_score, peak_risk_score, peak_time,
                         static_susceptibility_p_s, dynamic_trigger_p_d, trigger_cause,
                         conditions_snapshot, validation_status, validation_notes,
-                        validated_at, validated_by
+                        validated_at, validated_by, is_demo, source
                     ) VALUES (
                         :id, :cell_id, :location_name, :district_or_block, :latitude, :longitude,
                         :trigger_time, :last_seen_time, :end_time, :duration_minutes, :status,
                         :alert_tier, :trigger_risk_score, :peak_risk_score, :peak_time,
                         :static_susceptibility_p_s, :dynamic_trigger_p_d, :trigger_cause,
                         :conditions_snapshot, :validation_status, :validation_notes,
-                        :validated_at, :validated_by
+                        :validated_at, :validated_by, :is_demo, :source
                     )
                 """, ep)
             conn.commit()

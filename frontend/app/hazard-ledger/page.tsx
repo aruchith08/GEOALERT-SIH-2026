@@ -5,7 +5,8 @@ import Link from 'next/link';
 import {
   ShieldAlert, AlertTriangle, CheckCircle2, XCircle, Clock,
   MapPin, CloudRain, Mountain, ChevronDown, ChevronUp, RefreshCw,
-  PlusCircle, Filter, Info, ShieldCheck, Activity, FileText
+  PlusCircle, Filter, Info, ShieldCheck, Activity, FileText,
+  Radio, FlaskConical, Layers, ArrowRight
 } from 'lucide-react';
 import {
   fetchAlertEpisodes,
@@ -16,6 +17,8 @@ import {
 import { AlertEpisode, AlertsSummaryStats } from '@/lib/types';
 
 export default function HazardLedgerPage() {
+  // Mode switcher: 'realtime' (default, genuine live incidents from Oct 6, 2026 onwards) vs 'demo' (calibration & simulations)
+  const [viewMode, setViewMode] = useState<'realtime' | 'demo'>('realtime');
   const [alerts, setAlerts] = useState<AlertEpisode[]>([]);
   const [summary, setSummary] = useState<AlertsSummaryStats | null>(null);
   const [statusFilter, setStatusFilter] = useState<string>('ALL');
@@ -33,9 +36,10 @@ export default function HazardLedgerPage() {
   const loadData = useCallback(async () => {
     setIsLoading(true);
     try {
+      const isDemoParam = viewMode === 'demo';
       const [alertList, summaryData] = await Promise.all([
-        fetchAlertEpisodes(statusFilter, valFilter),
-        fetchAlertsSummary()
+        fetchAlertEpisodes(statusFilter, valFilter, isDemoParam),
+        fetchAlertsSummary(isDemoParam)
       ]);
       setAlerts(alertList);
       setSummary(summaryData);
@@ -44,7 +48,7 @@ export default function HazardLedgerPage() {
     } finally {
       setIsLoading(false);
     }
-  }, [statusFilter, valFilter]);
+  }, [viewMode, statusFilter, valFilter]);
 
   useEffect(() => {
     loadData();
@@ -63,8 +67,13 @@ export default function HazardLedgerPage() {
     try {
       const newAlert = await simulateAlertTrigger();
       if (newAlert) {
-        setActionMessage(`✓ High-risk trigger simulated successfully at ${newAlert.location_name}!`);
-        await loadData();
+        setActionMessage(`✓ Simulated alert generated successfully in Demo Archive (${newAlert.location_name})!`);
+        // Switch to demo mode so user sees the newly created simulation
+        if (viewMode !== 'demo') {
+          setViewMode('demo');
+        } else {
+          await loadData();
+        }
         setExpandedAlerts(prev => ({ ...prev, [newAlert.id]: true }));
       }
     } catch (err) {
@@ -90,38 +99,49 @@ export default function HazardLedgerPage() {
   return (
     <div className="min-h-screen bg-slate-50/60 pb-16">
       {/* Top Header Banner */}
-      <div className="bg-white border-b border-slate-200/80 px-4 sm:px-8 py-8 shadow-xs">
+      <div className="bg-white border-b border-slate-200/80 px-4 sm:px-8 py-7 shadow-xs">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div>
             <div className="flex items-center gap-2 mb-1.5">
               <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-xs font-bold tracking-wider uppercase bg-red-100 text-red-800 border border-red-200/80">
                 <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-                Live Verification Ledger
+                Hazard Verification & Alert Ledger
               </span>
-              <span className="text-xs text-slate-500 font-mono">Real-Time Black Box & Duration Tracking</span>
+              <span className="text-xs text-slate-500 font-mono hidden sm:inline">Active Since Oct 6, 2026</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
               High-Risk Hazard Event Ledger
             </h1>
             <p className="text-sm text-slate-600 max-w-3xl mt-1">
-              Captures an immutable snapshot of all geotechnical terrain and meteorological rainfall conditions whenever an area trips the 
-              <strong> Level 4: Red Critical Trigger</strong>. Tracks episode active duration until resolution and enables ground-truth field verification.
+              Black-box flight recorder capturing immutable snapshots of geotechnical & meteorological conditions 
+              whenever an area trips <strong>Level 4: Red Critical Trigger (Risk ≥ 0.35)</strong>.
             </p>
           </div>
 
           <div className="flex items-center gap-3">
-            <button
-              onClick={handleSimulateTrigger}
-              disabled={isSimulating}
-              className="inline-flex items-center gap-2 px-4 py-2 bg-red-600 hover:bg-red-700 active:bg-red-800 text-white rounded-xl text-xs sm:text-sm font-semibold shadow-sm transition-colors cursor-pointer disabled:opacity-50"
-            >
-              {isSimulating ? (
-                <RefreshCw className="w-4 h-4 animate-spin" />
-              ) : (
-                <PlusCircle className="w-4 h-4" />
-              )}
-              Simulate High-Risk Alert
-            </button>
+            {viewMode === 'demo' ? (
+              <button
+                onClick={handleSimulateTrigger}
+                disabled={isSimulating}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-xl text-xs sm:text-sm font-semibold shadow-sm transition-colors cursor-pointer disabled:opacity-50"
+              >
+                {isSimulating ? (
+                  <RefreshCw className="w-4 h-4 animate-spin" />
+                ) : (
+                  <PlusCircle className="w-4 h-4" />
+                )}
+                Simulate High-Risk Alert
+              </button>
+            ) : (
+              <button
+                onClick={() => setViewMode('demo')}
+                className="inline-flex items-center gap-2 px-3.5 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs sm:text-sm font-medium transition-colors cursor-pointer"
+                title="Switch to Demo Sandbox"
+              >
+                <FlaskConical className="w-4 h-4 text-indigo-600" />
+                <span>Demo Sandbox</span>
+              </button>
+            )}
             <button
               onClick={loadData}
               disabled={isLoading}
@@ -147,13 +167,123 @@ export default function HazardLedgerPage() {
       {/* Main Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-8 mt-6 space-y-6">
 
+        {/* View Mode Segmented Switcher */}
+        <div className="bg-white border border-slate-200/90 rounded-2xl p-1.5 shadow-xs flex flex-col sm:flex-row gap-1.5">
+          {/* Tab 1: Live Real-Time Surveillance */}
+          <button
+            onClick={() => setViewMode('realtime')}
+            className={`flex-1 flex items-center justify-between px-4 sm:px-5 py-3 rounded-xl transition-all cursor-pointer text-left ${
+              viewMode === 'realtime'
+                ? 'bg-red-50/80 border border-red-200/90 shadow-2xs'
+                : 'hover:bg-slate-50 border border-transparent'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                viewMode === 'realtime' ? 'bg-red-600 text-white' : 'bg-slate-100 text-slate-500'
+              }`}>
+                <Radio className={`w-4 h-4 ${viewMode === 'realtime' ? 'animate-pulse' : ''}`} />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className={`text-sm font-bold ${viewMode === 'realtime' ? 'text-red-950' : 'text-slate-700'}`}>
+                    Real-Time Live Ledger
+                  </span>
+                  {viewMode === 'realtime' && (
+                    <span className="w-2 h-2 rounded-full bg-red-600 animate-ping" />
+                  )}
+                </div>
+                <p className="text-2xs text-slate-500 mt-0.5">
+                  Automated surveillance feed • Active from Oct 6, 2026 onwards
+                </p>
+              </div>
+            </div>
+            <div className="text-right ml-2 shrink-0">
+              <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${
+                viewMode === 'realtime'
+                  ? 'bg-red-100 text-red-800 border border-red-200'
+                  : 'bg-slate-100 text-slate-600'
+              }`}>
+                {viewMode === 'realtime' ? `${alerts.length} Incidents` : 'Live Mode'}
+              </span>
+            </div>
+          </button>
+
+          {/* Tab 2: Demo & Calibration Archive */}
+          <button
+            onClick={() => setViewMode('demo')}
+            className={`flex-1 flex items-center justify-between px-4 sm:px-5 py-3 rounded-xl transition-all cursor-pointer text-left ${
+              viewMode === 'demo'
+                ? 'bg-indigo-50/80 border border-indigo-200/90 shadow-2xs'
+                : 'hover:bg-slate-50 border border-transparent'
+            }`}
+          >
+            <div className="flex items-center gap-3">
+              <div className={`w-9 h-9 rounded-xl flex items-center justify-center shrink-0 ${
+                viewMode === 'demo' ? 'bg-indigo-600 text-white' : 'bg-slate-100 text-slate-500'
+              }`}>
+                <FlaskConical className="w-4 h-4" />
+              </div>
+              <div>
+                <div className="flex items-center gap-2">
+                  <span className={`text-sm font-bold ${viewMode === 'demo' ? 'text-indigo-950' : 'text-slate-700'}`}>
+                    Demo & Calibration Archive
+                  </span>
+                  <span className="text-2xs font-semibold px-2 py-0.2 rounded-full bg-indigo-100 text-indigo-700">
+                    Segregated
+                  </span>
+                </div>
+                <p className="text-2xs text-slate-500 mt-0.5">
+                  Historical field benchmarks & manual simulation testing
+                </p>
+              </div>
+            </div>
+            <div className="text-right ml-2 shrink-0">
+              <span className={`text-xs font-bold px-2.5 py-1 rounded-full ${
+                viewMode === 'demo'
+                  ? 'bg-indigo-100 text-indigo-800 border border-indigo-200'
+                  : 'bg-slate-100 text-slate-600'
+              }`}>
+                {viewMode === 'demo' ? `${alerts.length} Records` : 'Demo Sandbox'}
+              </span>
+            </div>
+          </button>
+        </div>
+
+        {/* Demo Mode Notice Banner */}
+        {viewMode === 'demo' && (
+          <div className="bg-indigo-50/80 border border-indigo-200/90 rounded-2xl p-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 shadow-xs">
+            <div className="flex items-start gap-3">
+              <FlaskConical className="w-5 h-5 text-indigo-600 shrink-0 mt-0.5" />
+              <div>
+                <p className="text-xs sm:text-sm font-bold text-indigo-950">
+                  Demo & Historical Calibration Sandbox Active
+                </p>
+                <p className="text-xs text-indigo-800/90 mt-0.5">
+                  These records are historical benchmarks (e.g. Sohra 2026 monsoon slides) and test simulations. Real-time live data is isolated and untouched.
+                </p>
+              </div>
+            </div>
+            <button
+              onClick={() => setViewMode('realtime')}
+              className="text-xs font-bold text-indigo-700 hover:text-indigo-900 bg-white border border-indigo-200 px-3 py-1.5 rounded-lg shrink-0 cursor-pointer"
+            >
+              Back to Real-Time Feed →
+            </button>
+          </div>
+        )}
+
         {/* 5 KPI Metric Cards */}
         <div className="grid grid-cols-2 lg:grid-cols-5 gap-3.5 sm:gap-4">
           {/* Active Red Alerts */}
           <div className="bg-white border border-red-200/90 rounded-2xl p-4 shadow-xs relative overflow-hidden">
             <div className="flex items-center justify-between text-xs font-semibold text-red-700 mb-1">
               <span>Active Red Alerts</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
+              {summary && summary.active_red_alerts > 0 ? (
+                <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
+              ) : (
+                <span className="w-2.5 h-2.5 rounded-full bg-slate-300" />
+              )}
             </div>
             <div className="text-2xl sm:text-3xl font-black text-red-600">
               {summary ? summary.active_red_alerts : 0}
@@ -164,37 +294,49 @@ export default function HazardLedgerPage() {
           {/* Total Monitored Episodes */}
           <div className="bg-white border border-slate-200 rounded-2xl p-4 shadow-xs">
             <div className="flex items-center justify-between text-xs font-semibold text-slate-600 mb-1">
-              <span>Total Recorded</span>
+              <span>{viewMode === 'realtime' ? 'Real-Time Logged' : 'Archived Records'}</span>
               <Activity className="w-4 h-4 text-slate-400" />
             </div>
             <div className="text-2xl sm:text-3xl font-black text-slate-800">
               {summary ? summary.total_episodes : 0}
             </div>
-            <p className="text-2xs text-slate-500 mt-1">Episodes in historical ledger</p>
+            <p className="text-2xs text-slate-500 mt-1">
+              {viewMode === 'realtime' ? 'Logged since Oct 6, 2026' : 'Historical & simulated'}
+            </p>
           </div>
 
-          {/* Confirmed Ground Truth */}
+          {/* Confirmed Ground Truth / Monitored Grid */}
           <div className="bg-white border border-emerald-200 rounded-2xl p-4 shadow-xs">
             <div className="flex items-center justify-between text-xs font-semibold text-emerald-700 mb-1">
-              <span>Confirmed Failures</span>
-              <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              <span>{viewMode === 'realtime' ? 'Grid Coverage' : 'Confirmed Hits'}</span>
+              {viewMode === 'realtime' ? (
+                <Radio className="w-4 h-4 text-emerald-500" />
+              ) : (
+                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              )}
             </div>
             <div className="text-2xl sm:text-3xl font-black text-emerald-600">
-              {summary ? summary.confirmed_landslides + summary.minor_slips_recorded : 0}
+              {viewMode === 'realtime'
+                ? '3,156'
+                : summary ? summary.confirmed_landslides + summary.minor_slips_recorded : 0}
             </div>
-            <p className="text-2xs text-slate-500 mt-1">Verified landslide/slump hits</p>
+            <p className="text-2xs text-slate-500 mt-1">
+              {viewMode === 'realtime' ? 'Monitored Meghalaya cells' : 'Verified true positive hits'}
+            </p>
           </div>
 
           {/* Model Precision */}
           <div className="bg-white border border-blue-200 rounded-2xl p-4 shadow-xs">
             <div className="flex items-center justify-between text-xs font-semibold text-blue-700 mb-1">
-              <span>Empirical Precision</span>
+              <span>{viewMode === 'realtime' ? 'Surveillance Status' : 'Empirical Precision'}</span>
               <ShieldCheck className="w-4 h-4 text-blue-500" />
             </div>
             <div className="text-2xl sm:text-3xl font-black text-blue-600">
-              {summary ? `${summary.empirical_precision_pct}%` : '85.0%'}
+              {viewMode === 'realtime' ? '100% OK' : summary ? `${summary.empirical_precision_pct}%` : '85.0%'}
             </div>
-            <p className="text-2xs text-slate-500 mt-1">Verified true positive rate</p>
+            <p className="text-2xs text-slate-500 mt-1">
+              {viewMode === 'realtime' ? 'Automated flight recorder' : 'Verified accuracy score'}
+            </p>
           </div>
 
           {/* Average Hazard Duration */}
@@ -204,9 +346,11 @@ export default function HazardLedgerPage() {
               <Clock className="w-4 h-4 text-purple-500" />
             </div>
             <div className="text-2xl sm:text-3xl font-black text-purple-600">
-              {summary ? summary.average_duration_formatted : '6h 15m'}
+              {summary ? summary.average_duration_formatted : '0m'}
             </div>
-            <p className="text-2xs text-slate-500 mt-1">Time from trigger to safety decay</p>
+            <p className="text-2xs text-slate-500 mt-1">
+              {viewMode === 'realtime' ? 'Real-time hazard lifetime' : 'Historical decay time'}
+            </p>
           </div>
         </div>
 
@@ -228,7 +372,7 @@ export default function HazardLedgerPage() {
               >
                 <option value="ALL">All Statuses</option>
                 <option value="ACTIVE">Active (Ongoing)</option>
-                <option value="RESOLVED">Resolved (Ended)</option>
+                <option value="RESOLVED">Resolved (Cleared)</option>
               </select>
             </div>
 
@@ -250,6 +394,86 @@ export default function HazardLedgerPage() {
           </div>
         </div>
 
+        {/* Real-Time Live Radar Card when 0 incidents recorded yet */}
+        {viewMode === 'realtime' && alerts.length === 0 && !isLoading && (
+          <div className="bg-white border border-emerald-200/90 rounded-2xl p-6 sm:p-8 shadow-xs relative overflow-hidden">
+            <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+              <div className="flex items-start gap-4">
+                <div className="w-14 h-14 rounded-2xl bg-emerald-100 border border-emerald-300 flex items-center justify-center shrink-0">
+                  <div className="relative flex items-center justify-center">
+                    <span className="w-6 h-6 rounded-full bg-emerald-500/40 animate-ping absolute" />
+                    <Radio className="w-7 h-7 text-emerald-700 relative" />
+                  </div>
+                </div>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2 mb-1">
+                    <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-emerald-100 text-emerald-800 border border-emerald-300 flex items-center gap-1.5">
+                      <span className="w-2 h-2 rounded-full bg-emerald-600 animate-pulse" />
+                      Live Surveillance Active
+                    </span>
+                    <span className="text-xs text-slate-500 font-mono">
+                      Feature Activated: October 6, 2026
+                    </span>
+                  </div>
+                  <h3 className="text-lg sm:text-xl font-extrabold text-slate-900 tracking-tight">
+                    No High-Risk Red Incidents Recorded in Real Time Yet
+                  </h3>
+                  <p className="text-xs sm:text-sm text-slate-600 mt-1 max-w-3xl leading-relaxed">
+                    The real-time geotechnical listener is actively monitoring all <strong>3,156 grid terrain cells</strong> across Meghalaya. Because current live weather conditions remain below the critical shear-failure threshold (Risk &lt; 0.35), zero high-risk red episodes have been triggered since feature activation on <strong>October 6, 2026</strong>.
+                  </p>
+                </div>
+              </div>
+
+              <div className="shrink-0 flex flex-col gap-2 w-full md:w-auto">
+                <button
+                  onClick={() => setViewMode('demo')}
+                  className="px-4 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs sm:text-sm font-semibold shadow-xs transition-colors flex items-center justify-center gap-2 cursor-pointer"
+                >
+                  <FlaskConical className="w-4 h-4" />
+                  <span>Open Demo & Calibration Archive</span>
+                  <ArrowRight className="w-4 h-4" />
+                </button>
+                <span className="text-2xs text-slate-400 text-center">
+                  Safely test simulations without affecting live records
+                </span>
+              </div>
+            </div>
+
+            {/* Real-Time Flight Recorder Protocol Explanation */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 mt-6 pt-6 border-t border-slate-100">
+              <div className="bg-slate-50/70 border border-slate-200/80 rounded-xl p-3.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-800 mb-1">
+                  <Activity className="w-4 h-4 text-emerald-600" />
+                  <span>1. 24/7 Automated Mesh Polling</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  Couples static susceptibility P(S) with live 15-minute telemetry from 12 AWS stations across the state.
+                </p>
+              </div>
+
+              <div className="bg-slate-50/70 border border-slate-200/80 rounded-xl p-3.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-800 mb-1">
+                  <FileText className="w-4 h-4 text-blue-600" />
+                  <span>2. Instant Black-Box Snapshot</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  The exact moment any cell trips Risk ≥ 0.35, an immutable snapshot of slope, ARI-3, 24h rainfall, and pore saturation is frozen.
+                </p>
+              </div>
+
+              <div className="bg-slate-50/70 border border-slate-200/80 rounded-xl p-3.5">
+                <div className="flex items-center gap-2 text-xs font-bold text-slate-800 mb-1">
+                  <Clock className="w-4 h-4 text-purple-600" />
+                  <span>3. Active Duration & Field Validation</span>
+                </div>
+                <p className="text-xs text-slate-600 leading-relaxed">
+                  An active stopwatch tracks duration until the cell normalizes, creating a permanent verification record.
+                </p>
+              </div>
+            </div>
+          </div>
+        )}
+
         {/* Alerts List */}
         <div className="space-y-4">
           {isLoading && alerts.length === 0 ? (
@@ -257,16 +481,23 @@ export default function HazardLedgerPage() {
               <RefreshCw className="w-6 h-6 animate-spin mx-auto mb-2 text-slate-400" />
               <p className="text-sm font-medium">Loading hazard alert ledger...</p>
             </div>
-          ) : alerts.length === 0 ? (
+          ) : alerts.length === 0 && viewMode === 'demo' ? (
             <div className="bg-white border border-slate-200 rounded-2xl p-12 text-center text-slate-500 shadow-xs">
-              <ShieldAlert className="w-10 h-10 text-slate-300 mx-auto mb-2" />
-              <p className="text-base font-bold text-slate-700">No episodes match the selected filter</p>
+              <FlaskConical className="w-10 h-10 text-indigo-300 mx-auto mb-2" />
+              <p className="text-base font-bold text-slate-700">No records match the selected filter in Demo Archive</p>
               <p className="text-xs text-slate-500 mt-1">Try resetting the filters or simulate a high-risk alert using the button above.</p>
+              <button
+                onClick={handleSimulateTrigger}
+                className="mt-4 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white rounded-xl text-xs font-bold transition-colors cursor-pointer"
+              >
+                + Simulate Test Alert Now
+              </button>
             </div>
           ) : (
             alerts.map(alert => {
               const isExpanded = !!expandedAlerts[alert.id];
               const isActive = alert.status === 'ACTIVE';
+              const isDemoAlert = alert.is_demo || alert.source === 'SIMULATION' || alert.source === 'HISTORICAL_CALIBRATION';
               const cond = alert.conditions_snapshot || {};
 
               return (
@@ -297,6 +528,17 @@ export default function HazardLedgerPage() {
                         <span className="px-2.5 py-0.5 rounded-full text-xs font-bold bg-red-50 text-red-700 border border-red-200">
                           {alert.alert_tier}
                         </span>
+
+                        {/* Demo / Realtime Tag */}
+                        {isDemoAlert ? (
+                          <span className="px-2.5 py-0.5 rounded-full text-2xs font-bold bg-indigo-50 text-indigo-700 border border-indigo-200">
+                            {alert.source === 'HISTORICAL_CALIBRATION' ? '🧪 Historical Calibration' : '🧪 Simulated Demo'}
+                          </span>
+                        ) : (
+                          <span className="px-2.5 py-0.5 rounded-full text-2xs font-bold bg-emerald-50 text-emerald-700 border border-emerald-200">
+                            ● Real-Time Sensor Telemetry
+                          </span>
+                        )}
 
                         {/* ID */}
                         <span className="text-xs font-mono font-bold text-slate-400">

@@ -267,6 +267,51 @@ class WeatherMeshService:
         all_live = all(st.get("data_mode") in ("LIVE", "CACHED_LIVE") for st in st_telemetry.values())
         overall_mode = "LIVE" if all_live else "FALLBACK"
 
+        # Automated Real-Time Hazard Alert Episode Synchronization
+        try:
+            from backend.app.alert_tracker_service import alert_tracker_service
+            if red_count > 0:
+                red_indices = np.where(red_mask)[0]
+                # Capture top 5 critical cells as active real-time episodes
+                sorted_red = sorted(red_indices, key=lambda idx: float(cell_risk[idx]), reverse=True)[:5]
+                for idx in sorted_red:
+                    row = grid_df.iloc[idx]
+                    st_id = self.stations[st_map[idx]]["station_id"]
+                    st_data = st_telemetry.get(st_id, {})
+                    conditions = {
+                        "slope_deg": float(row.get("slope", 30.0)),
+                        "elevation_m": float(row.get("elevation", 1200.0)),
+                        "precipitation_rate_mm_h": float(st_data.get("precipitation_mm_h", 0.0)),
+                        "rainfall_24h_mm": float(st_data.get("rainfall_24h_mm", 0.0)),
+                        "ari_3_mm": float(st_data.get("ari_3_mm", 0.0)),
+                        "ari_7_mm": float(st_data.get("ari_7_mm", 0.0)),
+                        "soil_clay_fraction": float(row.get("soil_clay", 0.3)),
+                        "distance_to_roads_m": float(row.get("dist_road", 50.0)),
+                        "station_id": st_id,
+                        "station_name": st_data.get("station_name", "Nearest AWS"),
+                    }
+                    alert_tracker_service.record_or_update_alert(
+                        latitude=float(row.get("latitude", 25.3)),
+                        longitude=float(row.get("longitude", 91.7)),
+                        location_name=str(row.get("location_name", f"Cell #{idx} ({st_data.get('station_name', 'Meghalaya')})")),
+                        district_or_block=str(row.get("district", "Meghalaya")),
+                        coupled_risk_score=float(cell_risk[idx]),
+                        p_s=float(cell_ps[idx]),
+                        p_d=float(cell_pd[idx]),
+                        conditions=conditions,
+                        cell_id=f"GRID_CELL_{idx}",
+                        alert_tier="Level 4: Red",
+                        is_demo=False,
+                        source="REALTIME",
+                    )
+            else:
+                # If risk has normalized across grid, resolve any ongoing real-time episodes
+                active_realtime = alert_tracker_service.get_alerts(status="ACTIVE", is_demo=False)
+                for ep in active_realtime:
+                    alert_tracker_service.resolve_alert(ep["id"])
+        except Exception as sync_err:
+            logger.warning(f"[WeatherMesh] Real-time alert tracking sync exception: {sync_err}")
+
         return {
             "timestamp": datetime.now(timezone.utc).isoformat(),
             "total_cells": len(grid_df),
