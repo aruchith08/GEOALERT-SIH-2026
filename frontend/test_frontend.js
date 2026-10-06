@@ -61,6 +61,7 @@ assert(fs.existsSync(path.join(appDir, 'analytics', 'page.tsx')), 'Analytics pag
 assert(fs.existsSync(path.join(appDir, 'infrastructure', 'page.tsx')), 'Infrastructure page (app/infrastructure/page.tsx) exists');
 assert(fs.existsSync(path.join(appDir, 'methodology', 'page.tsx')), 'Methodology page (app/methodology/page.tsx) exists');
 assert(fs.existsSync(path.join(appDir, 'about', 'page.tsx')), 'About page (app/about/page.tsx) exists');
+assert(fs.existsSync(path.join(appDir, 'hazard-ledger', 'page.tsx')), 'Hazard Ledger page (app/hazard-ledger/page.tsx) exists');
 
 console.log('\n================================================================================');
 console.log(`TEST SUMMARY: ${passed} / ${total} tests passed cleanly.`);

@@ -14,7 +14,7 @@ from backend.app.config import (
 )
 from backend.app.model_service import model_service
 from backend.app.weather_sync_service import weather_sync_service
-from backend.app.routes import health, risk, spatial, metadata, rainfall, weather
+from backend.app.routes import health, risk, spatial, metadata, rainfall, weather, alerts
 
 
 @asynccontextmanager
@@ -68,6 +68,7 @@ app.include_router(rainfall.router, prefix=API_PREFIX)
 app.include_router(weather.router, prefix=API_PREFIX)
 app.include_router(spatial.router, prefix=API_PREFIX)
 app.include_router(metadata.router, prefix=API_PREFIX)
+app.include_router(alerts.router, prefix=API_PREFIX)
 
 
 @app.get("/")

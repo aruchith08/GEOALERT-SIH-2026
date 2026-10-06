@@ -12,6 +12,7 @@ import { useWeatherSync } from '@/lib/useWeatherSync';
 
 const NAV_ITEMS = [
   { name: 'Risk Map', href: '/', icon: Map },
+  { name: 'Hazard Verification', href: '/hazard-ledger', icon: ShieldAlert },
   { name: 'Analytics', href: '/analytics', icon: BarChart3 },
   { name: 'Infrastructure', href: '/infrastructure', icon: Truck },
   { name: 'Methodology', href: '/methodology', icon: BookOpen },

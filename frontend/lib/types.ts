@@ -550,3 +550,60 @@ export interface RiskHistoryResponse {
   risk_change?: number | null;
   timestamp: string;
 }
+
+export interface AlertEpisodeConditions {
+  slope_deg?: number;
+  elevation_m?: number;
+  precipitation_rate_mm_h?: number;
+  rainfall_24h_mm?: number;
+  ari_3_mm?: number;
+  ari_7_mm?: number;
+  ari_15_mm?: number;
+  ari_30_mm?: number;
+  rainy_days_7d?: number;
+  soil_clay_fraction?: number;
+  lithology?: string;
+  distance_to_roads_m?: number;
+  [key: string]: any;
+}
+
+export interface AlertEpisode {
+  id: string;
+  cell_id: string;
+  location_name: string;
+  district_or_block: string;
+  latitude: number;
+  longitude: number;
+  trigger_time: string;
+  last_seen_time: string;
+  end_time: string | null;
+  duration_minutes: number | null;
+  elapsed_active_minutes?: number | null;
+  duration_formatted: string;
+  status: 'ACTIVE' | 'RESOLVED';
+  alert_tier: string;
+  trigger_risk_score: number;
+  peak_risk_score: number;
+  peak_time: string;
+  static_susceptibility_p_s: number;
+  dynamic_trigger_p_d: number;
+  trigger_cause: string;
+  conditions_snapshot: AlertEpisodeConditions;
+  validation_status: 'PENDING' | 'CONFIRMED_LANDSLIDE' | 'FALSE_POSITIVE' | 'MINOR_SLIP';
+  validation_notes: string | null;
+  validated_at: string | null;
+  validated_by: string | null;
+}
+
+export interface AlertsSummaryStats {
+  total_episodes: number;
+  active_red_alerts: number;
+  resolved_episodes: number;
+  confirmed_landslides: number;
+  minor_slips_recorded: number;
+  false_positives: number;
+  pending_verification: number;
+  empirical_precision_pct: number;
+  average_duration_minutes: number;
+  average_duration_formatted: string;
+}

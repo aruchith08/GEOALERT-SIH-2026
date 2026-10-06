@@ -82,6 +82,27 @@ def evaluate_risk(request: RiskPredictionRequest):
             is_live_public_warning=False,
             timestamp=datetime.now(timezone.utc).isoformat()
         )
+
+        if coupled_r >= 0.3500:
+            try:
+                from backend.app.alert_tracker_service import alert_tracker_service
+                cond = dict(request.static_features or {})
+                cond.update(request.dynamic_features or {})
+                alert_tracker_service.record_or_update_alert(
+                    latitude=request.latitude,
+                    longitude=request.longitude,
+                    location_name=request.location_name or f"Point ({request.latitude:.4f}, {request.longitude:.4f})",
+                    district_or_block="Inference Evaluation",
+                    coupled_risk_score=round(coupled_r, 4),
+                    p_s=round(p_s, 4),
+                    p_d=round(p_d, 4),
+                    conditions=cond,
+                    alert_tier=tier_name
+                )
+            except Exception:
+                pass
+
+        return response
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Inference error: {str(e)}")
 

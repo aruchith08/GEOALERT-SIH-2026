@@ -18,6 +18,8 @@ import {
   RiskOutlook24h,
   RainWindows,
   RiskOutlookMilestone,
+  AlertEpisode,
+  AlertsSummaryStats,
 } from './types';
 
 
@@ -986,6 +988,92 @@ export async function fetchRiskOutlook(
     return await res.json();
   } catch (err) {
     console.warn('[API Client] Risk outlook fetch failed:', err);
+    return null;
+  }
+}
+
+/**
+ * Fetches high-risk hazard episodes (active and resolved) with full conditions snapshot.
+ */
+export async function fetchAlertEpisodes(
+  status?: string,
+  validationStatus?: string
+): Promise<AlertEpisode[]> {
+  try {
+    const params = new URLSearchParams();
+    if (status && status !== 'ALL') params.append('status', status);
+    if (validationStatus && validationStatus !== 'ALL') params.append('validation_status', validationStatus);
+
+    const res = await fetch(`${API_BASE}/alerts?${params.toString()}`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Alerts fetch failed: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] Alert episodes fetch error:', err);
+    return [];
+  }
+}
+
+/**
+ * Fetches aggregate performance & ground-truth validation statistics.
+ */
+export async function fetchAlertsSummary(): Promise<AlertsSummaryStats | null> {
+  try {
+    const res = await fetch(`${API_BASE}/alerts/summary`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Alerts summary error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] Alerts summary fetch error:', err);
+    return null;
+  }
+}
+
+/**
+ * Submits ground-truth validation for a recorded alert episode.
+ */
+export async function validateAlertEpisode(
+  alertId: string,
+  validationStatus: string,
+  notes?: string,
+  validatedBy?: string
+): Promise<AlertEpisode | null> {
+  try {
+    const res = await fetch(`${API_BASE}/alerts/${alertId}/validate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        validation_status: validationStatus,
+        notes: notes || undefined,
+        validated_by: validatedBy || 'Field Investigator',
+      }),
+    });
+    if (!res.ok) throw new Error(`Validation submit error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error('[API Client] Validate alert error:', err);
+    return null;
+  }
+}
+
+/**
+ * Generates a simulated high-risk trigger event for testing.
+ */
+export async function simulateAlertTrigger(
+  location?: string,
+  district?: string
+): Promise<AlertEpisode | null> {
+  try {
+    const res = await fetch(`${API_BASE}/alerts/simulate`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        location: location || 'Sohra Escarpment Cut Slope',
+        district: district || 'East Khasi Hills',
+      }),
+    });
+    if (!res.ok) throw new Error(`Simulation error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.error('[API Client] Simulate alert error:', err);
     return null;
   }
 }

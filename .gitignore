@@ -50,6 +50,7 @@ frontend/build/
 # IDE & OS
 .vscode/
 .idea/
+*.db
 *.swp
 *.swo
 *~
