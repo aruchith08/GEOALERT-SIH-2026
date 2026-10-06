@@ -136,18 +136,17 @@ export default function Navbar() {
     // LIVE — authentic external telemetry
     return (
       <span
-        className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 px-3 py-1 rounded-full font-semibold shadow-2xs"
-        title="Source: Open-Meteo"
+        className="flex items-center gap-1.5 bg-emerald-50 border border-emerald-300 text-emerald-800 px-2.5 py-1 rounded-full font-semibold shadow-2xs text-[11px]"
+        title={`Source: Open-Meteo · ${ageStr ? `Updated ${ageStr}` : 'Updated just now'}${countdown != null && countdown > 0 ? ` · Next in ${formatCountdown(countdown)}` : ''}`}
       >
         <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
-        <span className="hidden xl:inline">
-          ● LIVE WEATHER — {ageStr ? `Updated ${ageStr}` : 'Updated just now'}
-          {countdown != null && countdown > 0 ? ` · Next in ${formatCountdown(countdown)}` : ''}
+        <span className="hidden 2xl:inline">
+          LIVE WEATHER — {ageStr ? `Updated ${ageStr}` : 'Updated just now'}
         </span>
-        <span className="hidden lg:inline xl:hidden">
-          LIVE{ageStr ? ` — ${ageStr}` : ' — Just now'}
+        <span className="hidden sm:inline 2xl:hidden">
+          LIVE WEATHER
         </span>
-        <span className="lg:hidden">LIVE</span>
+        <span className="sm:hidden">LIVE</span>
       </span>
     );
   };
@@ -157,25 +156,25 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Brand & Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <Logo size={34} />
+          <Link href="/" className="flex items-center gap-2.5 group shrink-0">
+            <Logo size={32} />
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-xl tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+              <div className="flex items-center gap-1.5">
+                <span className="font-extrabold text-lg sm:text-xl tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
                   GEOALERT
                 </span>
-                <span className="hidden sm:inline-block text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 uppercase tracking-wide">
-                  RESEARCH PLATFORM
+                <span className="hidden md:inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-blue-700 uppercase tracking-wide">
+                  RESEARCH
                 </span>
               </div>
-              <p className="text-[11px] font-medium text-slate-500 hidden sm:block -mt-0.5">
+              <p className="text-[10px] font-medium text-slate-500 hidden xl:block -mt-0.5">
                 AI Geospatial Landslide Risk Intelligence
               </p>
             </div>
           </Link>
 
-          {/* Navigation Links */}
-          <nav className="hidden md:flex items-center gap-1.5 font-medium text-xs">
+          {/* Navigation Links — Spacious and Uncongested */}
+          <nav className="hidden md:flex items-center gap-1 lg:gap-2 font-medium text-xs">
             {NAV_ITEMS.map((item) => {
               const Icon = item.icon;
               const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
@@ -183,13 +182,13 @@ export default function Navbar() {
                 <Link
                   key={item.name}
                   href={item.href}
-                  className={`flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all duration-150 ${
+                  className={`flex items-center gap-1.5 px-2.5 lg:px-3 py-1.5 rounded-full transition-all duration-150 whitespace-nowrap ${
                     isActive
                       ? 'bg-blue-600 text-white font-semibold shadow-xs'
                       : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/80'
                   }`}
                 >
-                  <Icon className="w-3.5 h-3.5" />
+                  <Icon className="w-3.5 h-3.5 shrink-0" />
                   <span>{item.name}</span>
                 </Link>
               );
@@ -197,10 +196,10 @@ export default function Navbar() {
           </nav>
 
           {/* Status Indicators (Pills) */}
-          <div className="flex items-center gap-2 font-mono text-[11px]">
-            <span className="hidden lg:flex items-center gap-1.5 bg-slate-100/90 border border-slate-200 text-slate-700 px-3 py-1 rounded-full font-semibold">
+          <div className="flex items-center gap-2 font-mono text-[11px] shrink-0">
+            <span className="hidden 2xl:flex items-center gap-1.5 bg-slate-100/90 border border-slate-200 text-slate-700 px-2.5 py-1 rounded-full font-semibold">
               <ShieldAlert className="w-3.5 h-3.5 text-blue-600" />
-              <span>RESEARCH / ADVISORY</span>
+              <span>ADVISORY</span>
             </span>
 
             {/* Live Freshness Indicator with Countdown */}

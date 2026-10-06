@@ -17,7 +17,7 @@ import {
 import { AlertEpisode, AlertsSummaryStats } from '@/lib/types';
 
 export default function HazardLedgerPage() {
-  // Mode switcher: 'realtime' (default, genuine live incidents from Oct 6, 2026 onwards) vs 'demo' (calibration & simulations)
+  // Mode switcher: 'realtime' (default, authentic live surveillance feed) vs 'demo' (historical benchmarks & simulations)
   const [viewMode, setViewMode] = useState<'realtime' | 'demo'>('realtime');
   const [alerts, setAlerts] = useState<AlertEpisode[]>([]);
   const [summary, setSummary] = useState<AlertsSummaryStats | null>(null);
@@ -95,7 +95,7 @@ export default function HazardLedgerPage() {
     }
   };
 
-  // Compact 5 KPI Metric Cards tailored to match GEOALERT's design system exactly
+  // 5 KPI Metric Cards matching KPICards.tsx directly
   const kpiCards = viewMode === 'realtime' ? [
     {
       label: 'Active Red Alerts',
@@ -222,7 +222,7 @@ export default function HazardLedgerPage() {
 
   return (
     <div className="space-y-4">
-      {/* Top Hero Command Center Header — Matches Reference Architecture Exactly */}
+      {/* Top Hero Command Center Header — Directly Matches Reference Architecture */}
       <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-3 bg-white/80 backdrop-blur-md border border-slate-200/80 rounded-2xl p-4 sm:p-5 shadow-xs">
         <div>
           <div className="flex items-center gap-2">
@@ -230,102 +230,30 @@ export default function HazardLedgerPage() {
               GEOALERT
             </h1>
             <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-blue-100/80 border border-blue-300 text-blue-800">
-              Hazard Verification & Alert Ledger
+              Hazard Verification Ledger
             </span>
           </div>
           <p className="text-xs font-medium text-slate-500 mt-1 max-w-3xl">
-            Black-box flight recorder capturing immutable snapshots of geotechnical & meteorological conditions whenever risk reaches <strong>Level 4: Red Critical Trigger (Risk ≥ 0.35)</strong>.
+            Dual-Model Spatio-Temporal Early Warning Platform: Black-Box Condition Snapshots & Ground-Truth Verification for Level 4 Red Triggers (Risk ≥ 0.35).
           </p>
         </div>
 
-        {/* Scientific Coupling Banner & Actions */}
-        <div className="flex flex-wrap items-center gap-2 text-xs font-mono shrink-0">
-          <div className="flex items-center gap-2 bg-slate-50 border border-slate-200 px-3 py-1.5 rounded-xl text-slate-700 shadow-2xs">
-            <span>Formula: <strong className="text-slate-900">Risk = P(S) &times; P(D)</strong></span>
-            <span className="text-slate-300">|</span>
-            <span>Trigger: <strong className="text-red-600 font-bold">≥ 0.3500</strong></span>
-          </div>
-          <button
-            onClick={loadData}
-            disabled={isLoading}
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-xs font-medium transition-colors cursor-pointer"
-            title="Refresh ledger"
-          >
-            <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
-            <span className="hidden sm:inline">Refresh</span>
-          </button>
+        {/* Scientific Coupling Banner (Pill) */}
+        <div className="flex flex-wrap items-center gap-2 text-xs font-mono bg-slate-50 border border-slate-200 px-3.5 py-2 rounded-xl text-slate-700 shadow-2xs shrink-0">
+          <span>Formula: <strong className="text-slate-900">Risk = P(S) &times; P(D)</strong></span>
+          <span className="text-slate-300">|</span>
+          <span>Threshold: <strong className="text-slate-900">T_coup = 0.3500</strong></span>
         </div>
       </div>
 
       {actionMessage && (
         <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-xl text-xs font-medium flex items-center justify-between shadow-xs">
           <span>{actionMessage}</span>
-          <button onClick={() => setActionMessage(null)} className="text-emerald-600 hover:text-emerald-900 font-bold ml-4">✕</button>
+          <button onClick={() => setActionMessage(null)} className="text-emerald-600 hover:text-emerald-900 font-bold ml-4 cursor-pointer">✕</button>
         </div>
       )}
 
-      {/* Mode Switcher Segmented Control Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-2.5 bg-white/80 backdrop-blur-md border border-slate-200/80 rounded-xl p-1.5 shadow-xs">
-        <div className="flex items-center gap-1.5 bg-slate-100/80 p-1 rounded-lg border border-slate-200/60">
-          <button
-            onClick={() => setViewMode('realtime')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
-              viewMode === 'realtime'
-                ? 'bg-white text-slate-900 shadow-2xs border border-slate-200/80'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
-            }`}
-          >
-            <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
-            <span>Real-Time Live Ledger</span>
-            <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-semibold ${
-              viewMode === 'realtime' ? 'bg-red-100 text-red-800' : 'bg-slate-200 text-slate-600'
-            }`}>
-              {viewMode === 'realtime' ? `${alerts.length} Incidents` : 'Live'}
-            </span>
-          </button>
-
-          <button
-            onClick={() => setViewMode('demo')}
-            className={`flex items-center gap-2 px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
-              viewMode === 'demo'
-                ? 'bg-white text-indigo-900 shadow-2xs border border-slate-200/80'
-                : 'text-slate-600 hover:text-slate-900 hover:bg-slate-200/50'
-            }`}
-          >
-            <FlaskConical className="w-3.5 h-3.5 text-indigo-600" />
-            <span>Demo & Calibration Archive</span>
-            <span className={`px-1.5 py-0.2 rounded-full text-[10px] font-semibold ${
-              viewMode === 'demo' ? 'bg-indigo-100 text-indigo-800' : 'bg-slate-200 text-slate-600'
-            }`}>
-              {viewMode === 'demo' ? `${alerts.length} Records` : 'Sandbox'}
-            </span>
-          </button>
-        </div>
-
-        <div className="flex items-center gap-2">
-          {viewMode === 'demo' ? (
-            <button
-              onClick={handleSimulateTrigger}
-              disabled={isSimulating}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white rounded-lg text-xs font-bold transition-colors cursor-pointer shadow-2xs disabled:opacity-50"
-            >
-              {isSimulating ? (
-                <RefreshCw className="w-3.5 h-3.5 animate-spin" />
-              ) : (
-                <PlusCircle className="w-3.5 h-3.5" />
-              )}
-              <span>Simulate High-Risk Alert</span>
-            </button>
-          ) : (
-            <div className="flex items-center gap-2 text-[11px] text-slate-500 font-medium">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 inline-block" />
-              <span>Surveillance active from Oct 6, 2026 onwards</span>
-            </div>
-          )}
-        </div>
-      </div>
-
-      {/* 5 KPI Metric Cards — Matches Dashboard Scale Exactly */}
+      {/* Hero KPI Metrics Cards — 5-Column Grid Matching Reference */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-3">
         {kpiCards.map((c) => {
           const Icon = c.icon;
@@ -350,7 +278,7 @@ export default function HazardLedgerPage() {
         })}
       </div>
 
-      {/* Innovation Pipeline Visual Ribbon */}
+      {/* Core Innovation Visual Ribbon: TELEMETRY -> COUPLED RISK -> BLACK BOX -> VERIFICATION */}
       <div className="p-2.5 bg-blue-50/80 border border-blue-200/90 rounded-xl flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-xs font-mono text-slate-700 shadow-2xs text-center">
         <span className="font-bold text-sky-800">1. LIVE TELEMETRY (12 AWS)</span>
         <span className="text-slate-400 font-bold">&rarr;</span>
@@ -363,21 +291,58 @@ export default function HazardLedgerPage() {
         <span className="font-bold text-emerald-800">4. GROUND-TRUTH FIELD VERIFICATION</span>
       </div>
 
-      {/* Controls & Filter Toolbar */}
-      <div className="bg-white/80 backdrop-blur-md border border-slate-200/80 rounded-xl px-3.5 py-2 flex flex-wrap items-center justify-between gap-2.5 shadow-xs">
-        <div className="flex items-center gap-2 text-xs font-semibold text-slate-700">
-          <Filter className="w-3.5 h-3.5 text-slate-400" />
-          <span>Filters:</span>
+      {/* Unified Command & Control Toolbar — Spacious, Consolidated Home for Features & Filters */}
+      <div className="bg-white/80 backdrop-blur-md border border-slate-200/80 rounded-2xl p-2.5 sm:p-3 shadow-xs flex flex-wrap items-center justify-between gap-3">
+        {/* Left: Mode / View Switcher Tabs */}
+        <div className="flex flex-wrap items-center gap-2">
+          <span className="text-xs font-semibold text-slate-500 mr-1 flex items-center gap-1">
+            <Radio className="w-3.5 h-3.5 text-slate-400" />
+            <span>Feed:</span>
+          </span>
+
+          <button
+            onClick={() => setViewMode('realtime')}
+            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              viewMode === 'realtime'
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
+            }`}
+          >
+            <span className={`w-2 h-2 rounded-full ${viewMode === 'realtime' ? 'bg-white' : 'bg-red-500'} animate-pulse`} />
+            <span>Real-Time Live Feed</span>
+            <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+              viewMode === 'realtime' ? 'bg-blue-500 text-white font-semibold' : 'bg-slate-200 text-slate-600'
+            }`}>
+              {viewMode === 'realtime' ? alerts.length : '0'}
+            </span>
+          </button>
+
+          <button
+            onClick={() => setViewMode('demo')}
+            className={`inline-flex items-center gap-2 px-3.5 py-1.5 rounded-xl text-xs font-bold transition-all cursor-pointer ${
+              viewMode === 'demo'
+                ? 'bg-blue-600 text-white shadow-xs'
+                : 'bg-slate-100 hover:bg-slate-200/80 text-slate-700'
+            }`}
+          >
+            <FlaskConical className="w-3.5 h-3.5" />
+            <span>Demo & Calibration Archive</span>
+            <span className={`px-1.5 py-0.2 rounded-full text-[10px] ${
+              viewMode === 'demo' ? 'bg-blue-500 text-white font-semibold' : 'bg-slate-200 text-slate-600'
+            }`}>
+              {viewMode === 'demo' ? `${alerts.length} Records` : 'Archive'}
+            </span>
+          </button>
         </div>
 
+        {/* Right: Filters, Simulation & Refresh Actions */}
         <div className="flex flex-wrap items-center gap-2.5">
-          {/* Status Filter */}
           <div className="flex items-center gap-1.5 text-xs">
-            <span className="text-slate-500 text-[11px]">Lifecycle:</span>
+            <Filter className="w-3.5 h-3.5 text-slate-400" />
             <select
               value={statusFilter}
               onChange={e => setStatusFilter(e.target.value)}
-              className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-xs font-medium text-slate-700 focus:outline-hidden focus:ring-1 focus:ring-blue-500"
+              className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-medium text-slate-700 focus:outline-hidden focus:ring-1 focus:ring-blue-500"
             >
               <option value="ALL">All Statuses</option>
               <option value="ACTIVE">Active (Ongoing)</option>
@@ -385,21 +350,40 @@ export default function HazardLedgerPage() {
             </select>
           </div>
 
-          {/* Validation Filter */}
           <div className="flex items-center gap-1.5 text-xs">
-            <span className="text-slate-500 text-[11px]">Verification:</span>
             <select
               value={valFilter}
               onChange={e => setValFilter(e.target.value)}
-              className="bg-slate-50 border border-slate-200 rounded-lg px-2 py-1 text-xs font-medium text-slate-700 focus:outline-hidden focus:ring-1 focus:ring-blue-500"
+              className="bg-slate-50 border border-slate-200 rounded-lg px-2.5 py-1.5 text-xs font-medium text-slate-700 focus:outline-hidden focus:ring-1 focus:ring-blue-500"
             >
-              <option value="ALL">All Records</option>
+              <option value="ALL">All Verification Tiers</option>
               <option value="PENDING">Pending Verification</option>
               <option value="CONFIRMED_LANDSLIDE">Confirmed Landslide</option>
               <option value="MINOR_SLIP">Minor Slip / Slump</option>
               <option value="FALSE_POSITIVE">False Positive</option>
             </select>
           </div>
+
+          {viewMode === 'demo' && (
+            <button
+              onClick={handleSimulateTrigger}
+              disabled={isSimulating}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-indigo-600 hover:bg-indigo-700 text-white rounded-lg text-xs font-bold transition-colors cursor-pointer shadow-2xs disabled:opacity-50"
+            >
+              {isSimulating ? <RefreshCw className="w-3.5 h-3.5 animate-spin" /> : <PlusCircle className="w-3.5 h-3.5" />}
+              <span>Simulate Alert</span>
+            </button>
+          )}
+
+          <button
+            onClick={loadData}
+            disabled={isLoading}
+            className="inline-flex items-center gap-1 px-2.5 py-1.5 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-lg text-xs font-medium transition-colors cursor-pointer"
+            title="Refresh data"
+          >
+            <RefreshCw className={`w-3.5 h-3.5 ${isLoading ? 'animate-spin' : ''}`} />
+            <span>Refresh</span>
+          </button>
         </div>
       </div>
 
