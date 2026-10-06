@@ -61,19 +61,12 @@ export default function DashboardPage() {
     }
   };
 
-  const handleSelectPinnedLocation = (loc: PinnedDemoLocation) => {
+  const handleSelectPinnedLocation = (loc: PinnedDemoLocation, livePd?: number) => {
     setActivePinnedLocId(loc.id);
     setSelectedCoords([loc.latitude, loc.longitude]);
-    if (geojsonData && geojsonData.features) {
-      const matched = geojsonData.features.find(f => f.properties.cell_id === loc.cell_id);
-      if (matched) {
-        setSelectedCell(matched.properties);
-        return;
-      }
-    }
 
-    // Synthesize GridProperties fallback if feature list not loaded yet
-    const coupled = Number((loc.p_static * customDynamicPD).toFixed(4));
+    const effectivePd = livePd !== undefined ? livePd : customDynamicPD;
+    const coupled = Number((loc.p_static * effectivePd).toFixed(4));
     let alert_level: any = 'Level 1: Green';
     let color = '#16a34a';
     let action = 'Continuous environmental telemetry monitoring.';
@@ -91,13 +84,29 @@ export default function DashboardPage() {
       action = 'Caution advisory: check drainage ditches & catch-fences.';
     }
 
+    if (geojsonData && geojsonData.features) {
+      const matched = geojsonData.features.find(f => f.properties.cell_id === loc.cell_id);
+      if (matched) {
+        setSelectedCell({
+          ...matched.properties,
+          p_dynamic: effectivePd,
+          coupled_risk: coupled,
+          alert_level,
+          color,
+          action
+        });
+        return;
+      }
+    }
+
+    // Synthesize GridProperties fallback if feature list not loaded yet
     setSelectedCell({
       cell_id: loc.cell_id,
       block: loc.block,
       elevation_m: loc.elevation_m,
       slope_deg: loc.slope_deg,
       p_static: loc.p_static,
-      p_dynamic: customDynamicPD,
+      p_dynamic: effectivePd,
       coupled_risk: coupled,
       alert_level,
       color,
