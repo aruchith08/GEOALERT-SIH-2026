@@ -20,6 +20,7 @@ import {
   RiskOutlookMilestone,
   AlertEpisode,
   AlertsSummaryStats,
+  LiveGridResponse,
 } from './types';
 
 
@@ -498,6 +499,17 @@ export async function fetchWeatherRegions(): Promise<WeatherRegionsResponse | nu
     return await res.json();
   } catch (err) {
     console.warn('[API Client] /weather/regions fetch failed:', err);
+    return null;
+  }
+}
+
+export async function fetchLiveGrid(): Promise<LiveGridResponse | null> {
+  try {
+    const res = await fetch(`${API_BASE}/risk/live/grid`, { cache: 'no-store' });
+    if (!res.ok) throw new Error(`Live grid error: ${res.status}`);
+    return await res.json();
+  } catch (err) {
+    console.warn('[API Client] /risk/live/grid fetch failed:', err);
     return null;
   }
 }
